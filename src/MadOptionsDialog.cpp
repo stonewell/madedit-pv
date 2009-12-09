@@ -15,6 +15,8 @@
 #include "MadUtils.h"
 #include "wx/aui/auibook.h"
 
+#include "MadEdit/MadEditPv.h"
+
 //Do not add custom headers.
 //wx-dvcpp designer will remove them
 ////Header Include Start
@@ -1092,7 +1094,11 @@ void MadOptionsDialog::WxButtonOKClick(wxCommandEvent& event)
         error=true;
     }
 
+#if PATCH_MAXLINELENGTH == 1
+    if(!WxEditMaxLineLength->GetValue().ToLong(&lo) || lo<80 || lo>4096)
+#else
     if(!WxEditMaxLineLength->GetValue().ToLong(&lo) || lo<80)
+#endif
     {
         wxLogError(errtext, WxStaticText3->GetLabel().c_str());
         error=true;

@@ -15,6 +15,7 @@
 #include <boost/xpressive/traits/null_regex_traits.hpp>
 #include <boost/xpressive/traits/cpp_regex_traits.hpp>
 
+#include "MadEditPv.h"
 using namespace std;
 using namespace boost::xpressive;
 
@@ -884,7 +885,14 @@ MadSearchResult MadEdit::Replace(ucs4string &out, const MadCaretPos &beginpos, c
 #ifdef __WXMSW__
     ucs.clear();
     TranslateText(fmt.c_str(), fmt.Len(), &ucs, true);
-    puc=&ucs[0];
+#if PATCH_RPLACE_REGEXP == 1
+    if (!fmt.IsEmpty())
+#endif        
+        puc=&ucs[0];
+#if PATCH_RPLACE_REGEXP == 1
+    else
+        puc=0;
+#endif
     ucs4string fmtstr(puc, puc+ucs.size());
 #else
     puc=fmt.c_str();

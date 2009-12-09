@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "MadEdit.h"
+#include "MadEditPv.h"
 
 #ifdef __WXGTK__
 #   include "clipbrd_gtk.h"
@@ -2917,12 +2918,24 @@ int MadEdit::ReplaceHexAll(const wxString &expr, const wxString &fmt,
 
     endpos=epos;
     int multi=0;
+    
+#if PATCH_RPLACEALL_HEX_MODE == 1
+    wxByte* fmtdat= 0;
+    if(fmthex.size())
+    {
+        fmtdat = &fmthex[0];
+    }
+#endif
 
     while(SearchHex(bpos, epos, &hex[0], hex.size())==SR_YES)
     {
         del_bpos.push_back(bpos.pos);
         del_epos.push_back(epos.pos);
+#if PATCH_RPLACEALL_HEX_MODE == 1
+        ins_data.push_back(fmtdat);
+#else        
         ins_data.push_back(&fmthex[0]);
+#endif
         ins_len.push_back(fmthex.size());
 
         if(bpos.iter!=epos.iter)

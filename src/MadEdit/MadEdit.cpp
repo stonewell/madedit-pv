@@ -10,6 +10,7 @@
 #include "MadSyntax.h"
 #include "MadUndo.h"
 
+#include "MadEditPv.h"
 #include <wx/fileconf.h>
 #include <wx/gdicmn.h>
 #include <wx/image.h>
@@ -736,6 +737,10 @@ MadEdit::MadEdit(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
 
     m_Config->Read(wxT("MaxLineLength"), &m_MaxLineLength, 4096);
     if(m_MaxLineLength<80) m_MaxLineLength=80;
+
+#if PATCH_MAXLINELENGTH == 1
+    if(m_MaxLineLength>4096) m_MaxLineLength=4096;
+#endif
 
     m_WordBuffer = new ucs4_t[m_MaxLineLength+1];
 #ifdef __WXMSW__
