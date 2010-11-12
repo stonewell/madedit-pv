@@ -142,7 +142,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw29u_core.lib wxbase29u.lib wxmsw29u_aui.lib unicows.lib comctl32.lib User32.Lib Gdi32.Lib Shell32.Lib AdvAPI32.Lib Ole32.Lib OleAut32.Lib ComDlg32.Lib"
+				AdditionalDependencies="wxmsw29u_core.lib wxbase29u.lib wxmsw29u_aui.lib unicows.lib comctl32.lib User32.Lib Gdi32.Lib Shell32.Lib AdvAPI32.Lib Ole32.Lib OleAut32.Lib ComDlg32.Lib Rpcrt4.lib"
 				OutputFile="$(OutDir)/MadEdit.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\libunicows"

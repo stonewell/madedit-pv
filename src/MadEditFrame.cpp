@@ -1589,7 +1589,7 @@ void LoadDefaultSettings(wxConfigBase *m_Config)
 
     long orien;
     m_Config->Read(wxT("PageOrientation"), &orien, wxPORTRAIT);
-    g_PageSetupData->GetPrintData().SetOrientation(orien);
+    g_PageSetupData->GetPrintData().SetOrientation((wxPrintOrientation)orien);
 
     wxSize psize=g_PageSetupData->GetPaperSize();
     m_Config->Read(wxT("PagePaperSizeW"), &psize.x);
@@ -3836,10 +3836,15 @@ void MadEditFrame::OnEditToHalfWidthByOptions(wxCommandEvent& event)
 
     wxString choices[4] = { _("ASCII characters"), _("Japanese characters"),
                             _("Korean characters"), _("other characters") };
+#if wxCHECK_VERSION(2,9,0)
+    size_t sels = wxGetSelectedChoices(selections,
+        _("Choose the characters you want to convert:"), _("To Halfwidth by Options..."),
+        4, choices, this );
+#else
     size_t sels = wxGetMultipleChoices(selections,
         _("Choose the characters you want to convert:"), _("To Halfwidth by Options..."),
         4, choices, this );
-
+#endif
     if(sels > 0)
     {
         bool ascii=false, japanese=false, korean=false, other=false;
@@ -3879,10 +3884,15 @@ void MadEditFrame::OnEditToFullWidthByOptions(wxCommandEvent& event)
 
     wxString choices[4] = { _("ASCII characters"), _("Japanese characters"),
                             _("Korean characters"), _("other characters") };
+#if wxCHECK_VERSION(2,9,0)
+    size_t sels = wxGetSelectedChoices(selections,
+        _("Choose the characters you want to convert:"), _("To Fullwidth by Options..."),
+        4, choices, this );
+#else
     size_t sels = wxGetMultipleChoices(selections,
         _("Choose the characters you want to convert:"), _("To Fullwidth by Options..."),
         4, choices, this );
-
+#endif
     if(sels > 0)
     {
         bool ascii=false, japanese=false, korean=false, other=false;
@@ -4702,7 +4712,11 @@ void MadEditFrame::OnToolsOptions(wxCommandEvent& event)
 
                 // change the menu key
                 wxMenuItem *mit=WxMenuBar1->FindItem(cd->menu_id);
+#if wxCHECK_VERSION(2,9,0)
+                mit->SetItemLabel(mit->GetItemLabelText()+ newkey);
+#else
                 mit->SetText(mit->GetLabel()+ newkey);
+#endif
 #ifdef __WXMSW__
                 if(bHasMenuIcon)
 #endif
