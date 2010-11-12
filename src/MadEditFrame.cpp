@@ -3450,7 +3450,7 @@ void MadEditFrame::OnFilePageSetup(wxCommandEvent& event)
         wxString oldpath=m_Config->GetPath();
         m_Config->SetPath(wxT("/MadEdit"));
 
-        m_Config->Write(wxT("PageOrientation"), g_PageSetupData->GetPrintData().GetOrientation());
+        m_Config->Write(wxT("PageOrientation"), (long)g_PageSetupData->GetPrintData().GetOrientation());
 
         //((wxFrame*)wxTheApp->GetTopWindow())->SetTitle(wxString::Format(wxT("%d"), g_PageSetupData->GetPaperId()));
         wxSize size=g_PageSetupData->GetPaperSize();

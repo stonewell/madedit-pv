@@ -573,7 +573,10 @@ struct UCIterator   // ucs4_t widechar iterator
             return *this;
         }
 
-        --ucqidx;
+        //--ucqidx;
+        //The regex search fails when content is "込1込", expression is   ＾込.+込" From stonewell in SF.net
+        if(pos != s_endpos) --ucqidx;
+
         int len = ucqit->ucq[ucqidx].second;
         pos -= len;
 
