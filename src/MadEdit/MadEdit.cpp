@@ -8961,7 +8961,7 @@ void MadEdit::OnChar(wxKeyEvent& evt)
         DoToggleWindow();
     }
 #ifdef __WXMSW__
-    else if(ucs4==key && (ucs4>=0x100 || (!evt.HasModifiers() && ucs4 >= ecCharFirst)))
+    else if(ucs4==key && (ucs4>=0x100 || (((!evt.HasModifiers()) || (evt.GetModifiers() == wxMOD_SHIFT)) && ucs4 >= ecCharFirst)))
     {
         m_ProcessWin98LeadByte=false;
 
