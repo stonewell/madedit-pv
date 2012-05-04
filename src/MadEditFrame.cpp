@@ -1822,34 +1822,34 @@ void MadEditFrame::CreateGUIControls(void)
 
 
     // add menuitems
-    g_Menu_File = new wxMenu(0);
-    g_Menu_Edit = new wxMenu(0);
-    g_Menu_Search = new wxMenu(0);
-    g_Menu_View = new wxMenu(0);
-    g_Menu_Tools = new wxMenu(0);
-    g_Menu_Window = new wxMenu(0);
-    g_Menu_Help = new wxMenu(0);
-    g_Menu_File_RecentFiles = new wxMenu(0);
-    g_Menu_Edit_Sort = new wxMenu(0);
-    g_Menu_Edit_Advanced = new wxMenu(0);
-    g_Menu_View_Encoding = new wxMenu(0);
-    g_Menu_View_AllEncodings = new wxMenu(0);
-    g_Menu_View_Syntax = new wxMenu(0);
-    g_Menu_View_FontName = new wxMenu(0);
-    g_Menu_View_FontSize = new wxMenu(0);
-    g_Menu_View_LineSpacing = new wxMenu(0);
-    g_Menu_View_TabColumn = new wxMenu(0);
-    g_Menu_Tools_BOM = new wxMenu(0);
-    g_Menu_Tools_NewLineChar = new wxMenu(0);
-    g_Menu_Tools_InsertNewLineChar = new wxMenu(0);
-    g_Menu_Tools_ConvertChineseChar = new wxMenu(0);
-    g_Menu_View_Font0 = new wxMenu(0);
-    g_Menu_View_Font1 = new wxMenu(0);
-    g_Menu_View_Font2 = new wxMenu(0);
-    g_Menu_View_Font3 = new wxMenu(0);
-    g_Menu_View_Font4 = new wxMenu(0);
-    g_Menu_View_Font5 = new wxMenu(0);
-    g_Menu_View_Font6 = new wxMenu(0);
+    g_Menu_File = new wxMenu((long)0);
+    g_Menu_Edit = new wxMenu((long)0);
+    g_Menu_Search = new wxMenu((long)0);
+    g_Menu_View = new wxMenu((long)0);
+    g_Menu_Tools = new wxMenu((long)0);
+    g_Menu_Window = new wxMenu((long)0);
+    g_Menu_Help = new wxMenu((long)0);
+    g_Menu_File_RecentFiles = new wxMenu((long)0);
+    g_Menu_Edit_Sort = new wxMenu((long)0);
+    g_Menu_Edit_Advanced = new wxMenu((long)0);
+    g_Menu_View_Encoding = new wxMenu((long)0);
+    g_Menu_View_AllEncodings = new wxMenu((long)0);
+    g_Menu_View_Syntax = new wxMenu((long)0);
+    g_Menu_View_FontName = new wxMenu((long)0);
+    g_Menu_View_FontSize = new wxMenu((long)0);
+    g_Menu_View_LineSpacing = new wxMenu((long)0);
+    g_Menu_View_TabColumn = new wxMenu((long)0);
+    g_Menu_Tools_BOM = new wxMenu((long)0);
+    g_Menu_Tools_NewLineChar = new wxMenu((long)0);
+    g_Menu_Tools_InsertNewLineChar = new wxMenu((long)0);
+    g_Menu_Tools_ConvertChineseChar = new wxMenu((long)0);
+    g_Menu_View_Font0 = new wxMenu((long)0);
+    g_Menu_View_Font1 = new wxMenu((long)0);
+    g_Menu_View_Font2 = new wxMenu((long)0);
+    g_Menu_View_Font3 = new wxMenu((long)0);
+    g_Menu_View_Font4 = new wxMenu((long)0);
+    g_Menu_View_Font5 = new wxMenu((long)0);
+    g_Menu_View_Font6 = new wxMenu((long)0);
 
 
     list<wxMenu*> menu_stack;
