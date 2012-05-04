@@ -139,7 +139,7 @@
 #endif
 
 
-wxString g_MadEdit_Version(wxT("MadEdit v0.2.9"));
+wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 Patched"));
 wxString g_MadEdit_URL(wxT("http://madedit.sourceforge.net/wiki"));
 
 
@@ -1589,7 +1589,7 @@ void LoadDefaultSettings(wxConfigBase *m_Config)
 
     long orien;
     m_Config->Read(wxT("PageOrientation"), &orien, wxPORTRAIT);
-    g_PageSetupData->GetPrintData().SetOrientation((wxPrintOrientation)orien);
+    g_PageSetupData->GetPrintData().SetOrientation(/*(wxPrintOrientation)*/orien);
 
     wxSize psize=g_PageSetupData->GetPaperSize();
     m_Config->Read(wxT("PagePaperSizeW"), &psize.x);

@@ -8961,7 +8961,12 @@ void MadEdit::OnChar(wxKeyEvent& evt)
         DoToggleWindow();
     }
 #ifdef __WXMSW__
-    else if(ucs4==key && (ucs4>=0x100 || (((!evt.HasModifiers()) || (evt.GetModifiers() == wxMOD_SHIFT)) && ucs4 >= ecCharFirst)))
+    /*wxMAJOR_VERSION wxMINOR_VERSION wxRELEASE_NUMBER wxSUBRELEASE_NUMBER*/
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9) || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION == 9 && wxRELEASE_NUMBER < 2)
+    else if(key == 0 || (ucs4==key && (ucs4>=0x100 || (((!evt.HasModifiers()) || (evt.GetModifiers() == wxMOD_SHIFT)) && ucs4 >= ecCharFirst))))
+#else
+    else if(key == WXK_NONE || (ucs4==key && (ucs4>=0x100 || (((!evt.HasModifiers()) || (evt.GetModifiers() == wxMOD_SHIFT)) && ucs4 >= ecCharFirst))))
+#endif
     {
         m_ProcessWin98LeadByte=false;
 
@@ -9013,7 +9018,11 @@ void MadEdit::OnChar(wxKeyEvent& evt)
         m_ProcessWin98LeadByte=true;
     }
 #else
-    else if(ucs4>=0x100 || (!evt.HasModifiers() && ucs4 >= ecCharFirst))
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9) || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION == 9 && wxRELEASE_NUMBER < 2)
+    else if(key == 0 || (ucs4>=0x100 || (!evt.HasModifiers() && ucs4 >= ecCharFirst)))
+#else
+    else if(key == WXK_NONE || (ucs4>=0x100 || (!evt.HasModifiers() && ucs4 >= ecCharFirst)))
+#endif
     {
         ProcessCommand(ucs4);
     }

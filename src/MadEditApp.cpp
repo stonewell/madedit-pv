@@ -217,11 +217,18 @@ bool MadEditApp::OnInit()
         g_Mutex = CreateMutex(NULL, true, wxT("MadEdit_App"));
         if(GetLastError() == ERROR_ALREADY_EXISTS)
         {
-            //extern const wxChar *wxCanvasClassNameNR;    // class name of MadEditFrame
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
+            extern const wxChar *wxCanvasClassNameNR;    // class name of MadEditFrame
+#else
             wxString MadFrameName(wxWindowMSW::MSWGetRegisteredClassName());
 			MadFrameName += "NR";
+#endif
             wxChar title[256]={0};
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
+            HWND prevapp = ::FindWindowEx(NULL, NULL, wxCanvasClassNameNR, NULL);
+#else
             HWND prevapp = ::FindWindowEx(NULL, NULL, MadFrameName.c_str()/*wxCanvasClassNameNR*/, NULL);
+#endif
             for(;;)                // find wxCanvasClassNameNR
             {
                 if(prevapp)
@@ -238,7 +245,11 @@ bool MadEditApp::OnInit()
                 {
                     Sleep(50);
                 }
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
+                prevapp =::FindWindowEx(NULL, prevapp, wxCanvasClassNameNR, NULL);
+#else
                 prevapp =::FindWindowEx(NULL, prevapp, MadFrameName.c_str()/*wxCanvasClassNameNR*/, NULL);
+#endif
             }
 
             if(prevapp != NULL)   // send msg to the previous instance
