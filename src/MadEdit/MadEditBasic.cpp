@@ -1559,7 +1559,7 @@ void MadEdit::PasteFromClipboard()
         vector < ucs4_t > ucs;
         int lines=GetColumnDataFromClipboard(&ucs);
 
-        if(ucs.size())
+        if(!ucs.empty())
             InsertColumnString(&ucs[0], ucs.size(), lines, false, false);
     }
     else if(m_EditMode == emHexMode && m_CaretAtHexArea)
@@ -1567,7 +1567,7 @@ void MadEdit::PasteFromClipboard()
         vector < char >cs;
         GetHexDataFromClipboard(&cs);
 
-        if(cs.size())
+        if(!cs.empty())
         {
             InsertHexData((wxByte*)&cs[0], cs.size());
         }
@@ -1597,7 +1597,7 @@ void MadEdit::Undo()
     if(undo==NULL)
         return;
 
-    if(undo->m_Undos.size()==0) // caret movement undo
+    if(undo->m_Undos.empty()) // caret movement undo
     {
         bool oldrcm=m_RecordCaretMovements;
         m_RecordCaretMovements=false;
@@ -1728,7 +1728,7 @@ void MadEdit::Redo()
     if(redo==NULL)
         return;
 
-    if(redo->m_Undos.size()==0) // caret movement redo
+    if(redo->m_Undos.empty()) // caret movement redo
     {
         bool oldrcm=m_RecordCaretMovements;
         m_RecordCaretMovements=false;
@@ -2724,7 +2724,7 @@ MadReplaceResult MadEdit::ReplaceHex(const wxString &expr, const wxString &fmt,
         }
     }
 
-    if(fmthex.size()==0)
+    if(fmthex.empty())
     {
         DeleteSelection(true, NULL, false);
     }
@@ -2921,7 +2921,7 @@ int MadEdit::ReplaceHexAll(const wxString &expr, const wxString &fmt,
     
 #if PATCH_RPLACEALL_HEX_MODE == 1
     wxByte* fmtdat= 0;
-    if(fmthex.size())
+    if(!fmthex.empty())
     {
         fmtdat = &fmthex[0];
     }

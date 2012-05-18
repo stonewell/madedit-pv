@@ -343,7 +343,7 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
                 _("Do you want to find from begin of selection?"):
                 _("Do you want to find from begin of file?");
 
-            if(wxCANCEL == wxMessageBox(msg, _("Find Next"), wxOK|wxCANCEL|wxICON_QUESTION ))
+            if(wxCANCEL == wxMessageBox(msg, _("Find Next"), wxOK|wxCANCEL|wxCANCEL_DEFAULT|wxICON_QUESTION ))
             {
                 break;
             }

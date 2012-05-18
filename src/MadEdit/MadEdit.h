@@ -802,7 +802,7 @@ public: // basic functions
     void GoToLine(int line);
     void SetCaretPosition(wxFileOffset pos, wxFileOffset selbeg=-1, wxFileOffset selend=-1);
 
-    bool HasBracePair() { return m_Syntax->m_LeftBrace.size()!=0; }
+    bool HasBracePair() { return !m_Syntax->m_LeftBrace.empty(); }
     void GoToLeftBrace() { ProcessCommand(ecLeftBrace); }
     void GoToRightBrace() { ProcessCommand(ecRightBrace); }
 

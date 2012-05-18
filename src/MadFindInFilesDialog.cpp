@@ -831,7 +831,7 @@ void MadFindInFilesDialog::FindReplaceInFiles(bool bReplace)
                 if(ok<0) break;
             }
 
-            if(begpos.size()>0) // found data
+            if(!begpos.empty()) // found data
             {
                 int pid=-1;
                 expr=madedit->GetFileName();
