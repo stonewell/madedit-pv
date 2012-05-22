@@ -122,9 +122,9 @@ void MadSearchDialog::CreateGUIControls(void)
 	WxCheckBoxFindHex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxFindHex, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxSearchThrEndOfFile = new wxCheckBox(this, ID_WXCHECKBOXSEARCHTHRENDOFFILE, wxT("Search Through &End of File"), wxPoint(25, 132), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchThrEndOfFile"));
+	WxCheckBoxSearchThrEndOfFile = new wxCheckBox(this, ID_WXCHECKBOXSEARCHTHRENDOFFILE, wxT("Search Through &End of File"), wxPoint(25, 132), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxSearchThrEndOfFile"));
 	WxCheckBoxSearchThrEndOfFile->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
-	WxBoxSizer5->Add(WxCheckBoxSearchThrEndOfFile,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer5->Add(WxCheckBoxSearchThrEndOfFile, 0, wxALIGN_LEFT | wxALL, 2);
 
 	WxBoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
 	WxBoxSizer5->Add(WxBoxSizer6, 0, wxALIGN_LEFT | wxALL, 0);
@@ -160,7 +160,7 @@ void MadSearchDialog::CreateGUIControls(void)
 	WxButtonFindPrev->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
 	WxBoxSizer3->Add(WxButtonFindPrev, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxButtonFindAll = new wxButton(this, ID_WXBUTTONFINDALL, wxT("Find All"), wxPoint(2, 66), wxSize(100, 28), 0, wxDefaultValidator, wxT("WxButtonFindAll"));
+	WxButtonFindAll = new wxButton(this, ID_WXBUTTONFINDALL, wxT("Find &All"), wxPoint(2, 66), wxSize(100, 28), 0, wxDefaultValidator, wxT("WxButtonFindAll"));
 	WxButtonFindAll->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
 	WxBoxSizer3->Add(WxButtonFindAll, 0, wxALIGN_CENTER | wxALL, 2);
 
@@ -925,7 +925,6 @@ void MadSearchDialog::WxButtonFindAllClick(wxCommandEvent& event)
             if(!expr.IsEmpty())
             {
                 size_t count=begpos.size(), idx=0;
-                //if(WxCheckBoxListFirstOnly->GetValue()) count=1;
                 int line=-1, oldline;
                 wxString linetext, loc;
                 results->Freeze();

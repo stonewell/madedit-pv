@@ -139,7 +139,7 @@
 #endif
 
 
-wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 Patched"));
+wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 Patched DX"));
 wxString g_MadEdit_URL(wxT("http://madedit.sourceforge.net/wiki"));
 
 
@@ -3031,6 +3031,7 @@ void MadEditFrame::OnUpdateUI_MenuEditInsertTabChar(wxUpdateUIEvent& event)
 {
     event.Enable(g_ActiveMadEdit!=NULL && g_ActiveMadEdit->GetEditMode()!=emHexMode);
 }
+
 void MadEditFrame::OnUpdateUI_MenuEditInsertDateTime(wxUpdateUIEvent& event)
 {
     event.Enable(g_ActiveMadEdit!=NULL && g_ActiveMadEdit->GetEditMode()!=emHexMode);

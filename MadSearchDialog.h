@@ -68,7 +68,7 @@ public:
 		wxStaticText *WxStaticTextFrom;
 		wxCheckBox *WxCheckBoxSearchInSelection;
 		wxBoxSizer *WxBoxSizer6;
-        wxCheckBox *WxCheckBoxSearchThrEndOfFile;
+		wxCheckBox *WxCheckBoxSearchThrEndOfFile;
 		wxCheckBox *WxCheckBoxFindHex;
 		wxCheckBox *WxCheckBoxRegex;
 		wxCheckBox *WxCheckBoxWholeWord;
@@ -98,11 +98,11 @@ public:
 			ID_WXEDITFROM = 20,
 			ID_WXSTATICTEXTFROM = 19,
 			ID_WXCHECKBOXSEARCHINSELECTION = 18,
-            ID_WXCHECKBOXSEARCHTHRENDOFFILE = 9,
-			ID_WXCHECKBOXFINDHEX = 8,
-			ID_WXCHECKBOXREGEX = 7,
-			ID_WXCHECKBOXWHOLEWORD = 6,
-			ID_WXCHECKBOXCASESENSITIVE = 5,
+			ID_WXCHECKBOXSEARCHTHRENDOFFILE = 25,
+			ID_WXCHECKBOXFINDHEX = 9,
+			ID_WXCHECKBOXREGEX = 8,
+			ID_WXCHECKBOXWHOLEWORD = 7,
+			ID_WXCHECKBOXCASESENSITIVE = 6,
 			ID_WXCHECKBOXMOVEFOCUS = 16,
 ////GUI Enum Control ID End
             ID_MADEDIT=1500,
