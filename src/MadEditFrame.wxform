@@ -1,11 +1,11 @@
-object frmNewForm: TfrmNewForm
+object frmNewForm_1: TfrmNewForm
   Left = 8
   Top = 8
   AutoScroll = False
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'MadEdit'
-  ClientHeight = 455
-  ClientWidth = 482
+  ClientHeight = 370
+  ClientWidth = 392
   Color = clAppWorkSpace
   OldCreateOrder = True
   PopupMenu = DesignerPopup.Owner
@@ -31,11 +31,11 @@ object frmNewForm: TfrmNewForm
   Wx_BorderAlignment = []
   isAuimanagerAvailable = False
   PixelsPerInch = 96
-  TextHeight = 16
+  TextHeight = 13
   object WxStatusBar1: TWxStatusBar
     Left = 0
-    Top = 436
-    Width = 482
+    Top = 351
+    Width = 392
     Height = 19
     Panels = <>
     SimplePanel = False
@@ -52,7 +52,7 @@ object frmNewForm: TfrmNewForm
   object WxToolBar1: TWxToolBar
     Left = 0
     Top = 0
-    Width = 482
+    Width = 392
     Height = 29
     Caption = 'WxToolBar1'
     Color = clBtnFace
@@ -72,10 +72,27 @@ object frmNewForm: TfrmNewForm
     Wx_IDValue = 1005
     Wx_Hidden = False
     Wx_Border = 0
+    Wx_PaneCaption = 'WxToolBar1'
+    Wx_PaneName = 'WxToolBar1_Pane'
+    Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+    Wx_Aui_Dockable_Direction = []
+    Wx_Aui_Pane_Style = [ToolbarPane]
+    Wx_Aui_Pane_Buttons = []
+    Wx_BestSize_Height = 0
+    Wx_BestSize_Width = 0
+    Wx_MinSize_Height = 0
+    Wx_MinSize_Width = 0
+    Wx_MaxSize_Height = 0
+    Wx_MaxSize_Width = 0
+    Wx_Floating_Height = 0
+    Wx_Floating_Width = 0
+    Wx_Floating_X_Pos = 0
+    Wx_Floating_Y_Pos = 0
+    Wx_Layer = 10
   end
   object WxMenuBar1: TWxMenuBar
-    Left = 4
-    Top = 4
+    Left = 3
+    Top = 3
     Width = 28
     Height = 27
     TabOrder = 0
@@ -161,6 +178,7 @@ object frmNewForm: TfrmNewForm
     Wx_MenuItems.Wx_IDValue = 0
     Wx_MenuItems.Wx_MenuItemStyle = wxMnuItm_Normal
     Wx_MenuItems.Wx_Checked = False
+    Wx_MenuItems.KeepFormat = False
     Wx_MenuItems.Wx_FileHistory = False
     Wx_HasHistory = False
   end

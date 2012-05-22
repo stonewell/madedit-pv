@@ -1697,17 +1697,16 @@ void MadEditFrame::CreateGUIControls(void)
 
 	WxStatusBar1 = new wxStatusBar(this, ID_WXSTATUSBAR1);
 
-	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR1, wxPoint(0, 0), wxSize(482, 29));
-	WxToolBar1->SetFont(wxFont(12, wxSWISS, wxNORMAL, wxNORMAL, false));
+	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR1, wxPoint(0, 0), wxSize(392, 29));
 
 	WxMenuBar1 = new wxMenuBar();
 
+	SetStatusBar(WxStatusBar1);
 	WxToolBar1->Realize();
 	SetToolBar(WxToolBar1);
-	SetStatusBar(WxStatusBar1);
-	SetTitle(_("MadEdit"));
+	SetTitle(wxT("MadEdit"));
 	SetIcon(wxNullIcon);
-	SetSize(8,8,490,487);
+	SetSize(8,8,400,404);
 	Center();
 	
     ////GUI Items Creation End
@@ -2673,7 +2672,6 @@ void MadEditFrame::AddItemToFindInFilesResults(const wxString &text, size_t inde
     m_FindInFilesResults->AppendItem(fileid, text, -1, -1, new CaretPosData(filename, pageid, begpos, endpos));
 }
 
-
 //---------------------------------------------------------------------------
 
 int MadEditFrame::OpenedFileCount()
@@ -3300,6 +3298,7 @@ void MadEditFrame::OnFileOpen(wxCommandEvent& event)
 #else
     wxOPEN|wxMULTIPLE );
 #endif
+    dlg.SetWildcard (wxT("*.txt"));
 
     if (dlg.ShowModal()==wxID_OK)
     {

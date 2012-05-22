@@ -58,6 +58,7 @@ public:
 		wxButton *WxButtonClose;
 		wxButton *WxButtonReplace;
 		wxButton *WxButtonCount;
+		wxButton *WxButtonFindAll;
 		wxButton *WxButtonFindPrev;
 		wxButton *WxButtonFindNext;
 		wxBoxSizer *WxBoxSizer3;
@@ -88,6 +89,7 @@ public:
 			ID_WXBUTTONCLOSE = 13,
 			ID_WXBUTTONREPLACE = 12,
 			ID_WXBUTTONCOUNT = 23,
+			ID_WXBUTTONFINDALL = 24,
 			ID_WXBUTTONFINDPREV = 11,
 			ID_WXBUTTONFINDNEXT = 10,
 			ID_WXEDITTO = 22,
@@ -123,6 +125,7 @@ public:
 	void WxBitmapButtonRecentFindTextClick(wxCommandEvent& event);
 	void OnRecentFindText(wxCommandEvent& event);
 	void WxButtonFindPrevClick(wxCommandEvent& event);
+	void WxButtonFindAllClick(wxCommandEvent& event);
 
     void ReadWriteSettings(bool bRead);
     void UpdateCheckBoxByCBHex(bool check);

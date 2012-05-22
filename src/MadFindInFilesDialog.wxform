@@ -1,4 +1,4 @@
-object frmNewForm: TfrmNewForm
+object frmNewForm_2: TfrmNewForm
   Left = 8
   Top = 8
   AutoScroll = False
@@ -127,6 +127,22 @@ object frmNewForm: TfrmNewForm
             Wx_IDValue = 1015
             Wx_Border = 1
             Wx_Alignment = [wxALIGN_LEFT]
+            Wx_PaneCaption = 'WxCheckBoxCaseSensitive'
+            Wx_PaneName = 'WxCheckBoxCaseSensitive_Pane'
+            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+            Wx_Aui_Dockable_Direction = []
+            Wx_Aui_Pane_Style = []
+            Wx_Aui_Pane_Buttons = []
+            Wx_BestSize_Height = 0
+            Wx_BestSize_Width = 0
+            Wx_MinSize_Height = 0
+            Wx_MinSize_Width = 0
+            Wx_MaxSize_Height = 0
+            Wx_MaxSize_Width = 0
+            Wx_Floating_Height = 0
+            Wx_Floating_Width = 0
+            Wx_Floating_X_Pos = 0
+            Wx_Floating_Y_Pos = 0
           end
           object WxCheckBoxWholeWord: TWxCheckBox
             Left = 1
@@ -146,6 +162,22 @@ object frmNewForm: TfrmNewForm
             Wx_IDValue = 1016
             Wx_Border = 1
             Wx_Alignment = [wxALIGN_LEFT]
+            Wx_PaneCaption = 'WxCheckBoxWholeWord'
+            Wx_PaneName = 'WxCheckBoxWholeWord_Pane'
+            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+            Wx_Aui_Dockable_Direction = []
+            Wx_Aui_Pane_Style = []
+            Wx_Aui_Pane_Buttons = []
+            Wx_BestSize_Height = 0
+            Wx_BestSize_Width = 0
+            Wx_MinSize_Height = 0
+            Wx_MinSize_Width = 0
+            Wx_MaxSize_Height = 0
+            Wx_MaxSize_Width = 0
+            Wx_Floating_Height = 0
+            Wx_Floating_Width = 0
+            Wx_Floating_X_Pos = 0
+            Wx_Floating_Y_Pos = 0
           end
           object WxCheckBoxRegex: TWxCheckBox
             Left = 1
@@ -165,6 +197,22 @@ object frmNewForm: TfrmNewForm
             Wx_IDValue = 1017
             Wx_Border = 1
             Wx_Alignment = [wxALIGN_LEFT]
+            Wx_PaneCaption = 'WxCheckBoxRegex'
+            Wx_PaneName = 'WxCheckBoxRegex_Pane'
+            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+            Wx_Aui_Dockable_Direction = []
+            Wx_Aui_Pane_Style = []
+            Wx_Aui_Pane_Buttons = []
+            Wx_BestSize_Height = 0
+            Wx_BestSize_Width = 0
+            Wx_MinSize_Height = 0
+            Wx_MinSize_Width = 0
+            Wx_MaxSize_Height = 0
+            Wx_MaxSize_Width = 0
+            Wx_Floating_Height = 0
+            Wx_Floating_Width = 0
+            Wx_Floating_X_Pos = 0
+            Wx_Floating_Y_Pos = 0
           end
           object WxCheckBoxFindHex: TWxCheckBox
             Left = 1
@@ -185,6 +233,22 @@ object frmNewForm: TfrmNewForm
             Wx_IDValue = 1018
             Wx_Border = 1
             Wx_Alignment = [wxALIGN_LEFT]
+            Wx_PaneCaption = 'WxCheckBoxFindHex'
+            Wx_PaneName = 'WxCheckBoxFindHex_Pane'
+            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+            Wx_Aui_Dockable_Direction = []
+            Wx_Aui_Pane_Style = []
+            Wx_Aui_Pane_Buttons = []
+            Wx_BestSize_Height = 0
+            Wx_BestSize_Width = 0
+            Wx_MinSize_Height = 0
+            Wx_MinSize_Width = 0
+            Wx_MaxSize_Height = 0
+            Wx_MaxSize_Width = 0
+            Wx_Floating_Height = 0
+            Wx_Floating_Width = 0
+            Wx_Floating_X_Pos = 0
+            Wx_Floating_Y_Pos = 0
           end
           object WxCheckBoxListFirstOnly: TWxCheckBox
             Left = 1
@@ -204,6 +268,22 @@ object frmNewForm: TfrmNewForm
             Wx_IDValue = 1043
             Wx_Border = 1
             Wx_Alignment = [wxALIGN_LEFT]
+            Wx_PaneCaption = 'WxCheckBoxListFirstOnly'
+            Wx_PaneName = 'WxCheckBoxListFirstOnly_Pane'
+            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+            Wx_Aui_Dockable_Direction = []
+            Wx_Aui_Pane_Style = []
+            Wx_Aui_Pane_Buttons = []
+            Wx_BestSize_Height = 0
+            Wx_BestSize_Width = 0
+            Wx_MinSize_Height = 0
+            Wx_MinSize_Width = 0
+            Wx_MaxSize_Height = 0
+            Wx_MaxSize_Width = 0
+            Wx_Floating_Height = 0
+            Wx_Floating_Width = 0
+            Wx_Floating_X_Pos = 0
+            Wx_Floating_Y_Pos = 0
           end
         end
       end
@@ -242,6 +322,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDName = 'ID_WXBUTTONFIND'
           Wx_IDValue = 1022
           Wx_Border = 2
+          Wx_PaneCaption = 'WxButtonFind'
+          Wx_PaneName = 'WxButtonFind_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxButtonReplace: TWxButton
           Left = 2
@@ -265,6 +361,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDName = 'ID_WXBUTTONREPLACE'
           Wx_IDValue = 1023
           Wx_Border = 2
+          Wx_PaneCaption = 'WxButtonReplace'
+          Wx_PaneName = 'WxButtonReplace_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxCheckBoxEnableReplace: TWxCheckBox
           Left = 2
@@ -284,6 +396,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDName = 'ID_WXCHECKBOXENABLEREPLACE'
           Wx_IDValue = 1044
           Wx_Border = 0
+          Wx_PaneCaption = 'WxCheckBoxEnableReplace'
+          Wx_PaneName = 'WxCheckBoxEnableReplace_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxButtonClose: TWxButton
           Left = 2
@@ -306,6 +434,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDName = 'wxID_CANCEL'
           Wx_IDValue = 1024
           Wx_Border = 2
+          Wx_PaneCaption = 'WxButtonClose'
+          Wx_PaneName = 'WxButtonClose_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
       end
     end
@@ -358,6 +502,22 @@ object frmNewForm: TfrmNewForm
         Wx_RadioButtonStyle = []
         Wx_Border = 2
         Wx_Alignment = [wxALIGN_LEFT]
+        Wx_PaneCaption = 'WxRadioButtonOpenedFiles'
+        Wx_PaneName = 'WxRadioButtonOpenedFiles_Pane'
+        Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+        Wx_Aui_Dockable_Direction = []
+        Wx_Aui_Pane_Style = []
+        Wx_Aui_Pane_Buttons = []
+        Wx_BestSize_Height = 0
+        Wx_BestSize_Width = 0
+        Wx_MinSize_Height = 0
+        Wx_MinSize_Width = 0
+        Wx_MaxSize_Height = 0
+        Wx_MaxSize_Width = 0
+        Wx_Floating_Height = 0
+        Wx_Floating_Width = 0
+        Wx_Floating_X_Pos = 0
+        Wx_Floating_Y_Pos = 0
       end
       object WxFlexGridSizer1: TWxFlexGridSizer
         Left = 0
@@ -389,6 +549,22 @@ object frmNewForm: TfrmNewForm
           Wx_RadioButtonStyle = []
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_LEFT]
+          Wx_PaneCaption = 'WxRadioButtonDir'
+          Wx_PaneName = 'WxRadioButtonDir_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxComboBoxDir: TWxComboBox
           Left = 119
@@ -409,6 +585,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1034
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_LEFT]
+          Wx_PaneCaption = 'WxComboBoxDir'
+          Wx_PaneName = 'WxComboBoxDir_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxButtonDir: TWxButton
           Left = 453
@@ -432,6 +624,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDName = 'ID_WXBUTTONDIR'
           Wx_IDValue = 1035
           Wx_Border = 2
+          Wx_PaneCaption = 'WxButtonDir'
+          Wx_PaneName = 'WxButtonDir_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxButtonActiveDir: TWxButton
           Left = 487
@@ -455,6 +663,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDName = 'ID_WXBUTTONACTIVEDIR'
           Wx_IDValue = 1045
           Wx_Border = 2
+          Wx_PaneCaption = 'WxButtonActiveDir'
+          Wx_PaneName = 'WxButtonActiveDir_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText1: TWxStaticText
           Left = 32
@@ -474,6 +698,22 @@ object frmNewForm: TfrmNewForm
           Wx_LabelStyle = []
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_RIGHT]
+          Wx_PaneCaption = 'WxStaticText1'
+          Wx_PaneName = 'WxStaticText1_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxComboBoxFilter: TWxComboBox
           Left = 119
@@ -494,6 +734,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1037
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_LEFT]
+          Wx_PaneCaption = 'WxComboBoxFilter'
+          Wx_PaneName = 'WxComboBoxFilter_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText2: TWxStaticText
           Left = 466
@@ -511,6 +767,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1040
           Wx_LabelStyle = []
           Wx_Border = 2
+          Wx_PaneCaption = 'WxStaticText2'
+          Wx_PaneName = 'WxStaticText2_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText5: TWxStaticText
           Left = 500
@@ -528,6 +800,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1047
           Wx_LabelStyle = []
           Wx_Border = 2
+          Wx_PaneCaption = 'WxStaticText5'
+          Wx_PaneName = 'WxStaticText5_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText4: TWxStaticText
           Left = 21
@@ -547,6 +835,22 @@ object frmNewForm: TfrmNewForm
           Wx_LabelStyle = []
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_RIGHT]
+          Wx_PaneCaption = 'WxStaticText4'
+          Wx_PaneName = 'WxStaticText4_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxComboBoxExclude: TWxComboBox
           Left = 119
@@ -567,6 +871,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1050
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_LEFT]
+          Wx_PaneCaption = 'WxComboBoxExclude'
+          Wx_PaneName = 'WxComboBoxExclude_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText6: TWxStaticText
           Left = 466
@@ -584,6 +904,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1048
           Wx_LabelStyle = []
           Wx_Border = 2
+          Wx_PaneCaption = 'WxStaticText6'
+          Wx_PaneName = 'WxStaticText6_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText7: TWxStaticText
           Left = 500
@@ -601,6 +937,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1049
           Wx_LabelStyle = []
           Wx_Border = 2
+          Wx_PaneCaption = 'WxStaticText7'
+          Wx_PaneName = 'WxStaticText7_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxStaticText3: TWxStaticText
           Left = 23
@@ -620,6 +972,22 @@ object frmNewForm: TfrmNewForm
           Wx_LabelStyle = []
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_RIGHT]
+          Wx_PaneCaption = 'WxStaticText3'
+          Wx_PaneName = 'WxStaticText3_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
         object WxComboBoxEncoding: TWxComboBox
           Left = 184
@@ -640,6 +1008,22 @@ object frmNewForm: TfrmNewForm
           Wx_IDValue = 1042
           Wx_Border = 2
           Wx_Alignment = [wxALIGN_LEFT]
+          Wx_PaneCaption = 'WxComboBoxEncoding'
+          Wx_PaneName = 'WxComboBoxEncoding_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
         end
       end
       object WxCheckBoxSubDir: TWxCheckBox
@@ -661,6 +1045,22 @@ object frmNewForm: TfrmNewForm
         Wx_Border = 10
         Wx_BorderAlignment = [wxLEFT]
         Wx_Alignment = [wxALIGN_LEFT]
+        Wx_PaneCaption = 'WxCheckBoxSubDir'
+        Wx_PaneName = 'WxCheckBoxSubDir_Pane'
+        Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+        Wx_Aui_Dockable_Direction = []
+        Wx_Aui_Pane_Style = []
+        Wx_Aui_Pane_Buttons = []
+        Wx_BestSize_Height = 0
+        Wx_BestSize_Width = 0
+        Wx_MinSize_Height = 0
+        Wx_MinSize_Width = 0
+        Wx_MaxSize_Height = 0
+        Wx_MaxSize_Width = 0
+        Wx_Floating_Height = 0
+        Wx_Floating_Width = 0
+        Wx_Floating_X_Pos = 0
+        Wx_Floating_Y_Pos = 0
       end
     end
   end
