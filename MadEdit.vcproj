@@ -65,10 +65,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw29ud_core.lib wxbase29ud.lib wxmsw29ud_aui.lib unicows.lib comctl32.lib uuid.lib rpcrt4.lib User32.Lib Gdi32.Lib Shell32.Lib AdvAPI32.Lib Ole32.Lib OleAut32.Lib ComDlg32.Lib"
+				AdditionalDependencies="wxmsw29ud_core.lib wxbase29ud.lib wxmsw29ud_aui.lib libpngd.lib zlibd.lib unicows.lib comctl32.lib uuid.lib rpcrt4.lib User32.Lib Gdi32.Lib Shell32.Lib AdvAPI32.Lib Ole32.Lib OleAut32.Lib ComDlg32.Lib"
 				OutputFile="$(OutDir)/MadEdit.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\libunicows"
+				AdditionalLibraryDirectories="$(WXWIN)\lib\vc_lib;..\libunicows;..\ZLib;..\libpng"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -142,6 +142,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalOptions="/NODEFAULTLIB:libcmtd.lib"
 				AdditionalDependencies="wxmsw29u_core.lib wxbase29u.lib wxmsw29u_aui.lib libpng.lib zlib.lib unicows.lib comctl32.lib User32.Lib Gdi32.Lib Shell32.Lib AdvAPI32.Lib Ole32.Lib OleAut32.Lib ComDlg32.Lib Rpcrt4.lib"
 				OutputFile="$(OutDir)/MadEdit.exe"
 				LinkIncremental="1"
