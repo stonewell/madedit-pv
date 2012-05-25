@@ -160,6 +160,7 @@ void MadFindInFilesDialog::CreateGUIControls(void)
 	WxBoxSizer1->Add(WxBoxSizer3, 0, wxALIGN_LEFT | wxALL, 0);
 
 	WxRadioButtonOpenedFiles = new wxRadioButton(this, ID_WXRADIOBUTTONOPENEDFILES, wxT("Opened Files in Editor"), wxPoint(164, 2), wxSize(190, 20), 0, wxDefaultValidator, wxT("WxRadioButtonOpenedFiles"));
+	WxRadioButtonOpenedFiles->SetValue(true);
 	WxRadioButtonOpenedFiles->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
 	WxBoxSizer3->Add(WxRadioButtonOpenedFiles, 0, wxALIGN_LEFT | wxALL, 2);
 
