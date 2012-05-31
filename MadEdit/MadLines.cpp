@@ -1765,7 +1765,7 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
 
                     break;
                 }
-                if(firstuc == 0x0A)
+                else if(firstuc == 0x0A)
                 {
                     wxASSERT(ucqueue.size() == 1);
 

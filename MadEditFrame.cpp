@@ -153,6 +153,9 @@ bool g_CheckModTimeForReload=true;
 
 wxMenu *g_Menu_File = NULL;
 wxMenu *g_Menu_Edit = NULL;
+wxMenu *g_Menu_EditPop = NULL;
+wxMenu *g_Menu_EditSubAdv = NULL;
+wxMenu *g_Menu_EditSubSort = NULL;
 wxMenu *g_Menu_Search = NULL;
 wxMenu *g_Menu_View = NULL;
 wxMenu *g_Menu_Tools = NULL;
@@ -910,7 +913,8 @@ void OnEditMouseRightUp(MadEdit *madedit)
 {
     //wxPoint pt=wxGetMousePosition();
     //pt=g_MainFrame->m_Notebook->ScreenToClient(pt);
-    g_MainFrame->PopupMenu(g_Menu_Edit);//, pt);
+    //g_MainFrame->PopupMenu(g_Menu_Edit);//, pt);
+    g_MainFrame->PopupMenu(g_Menu_EditPop);//Fixe for the assertion in debug
 }
 
 
@@ -997,9 +1001,9 @@ BEGIN_EVENT_TABLE(MadEditFrame,wxFrame)
 	EVT_UPDATE_UI(menuSelectAll, MadEditFrame::OnUpdateUI_Menu_CheckSize)
 	EVT_UPDATE_UI(menuInsertTabChar, MadEditFrame::OnUpdateUI_MenuEditInsertTabChar)
 	EVT_UPDATE_UI(menuInsertDateTime, MadEditFrame::OnUpdateUI_MenuEditInsertDateTime)
-    EVT_UPDATE_UI(menuToggleBookmark, MadEditFrame::OnUpdateUI_MenuEditToggleBookmark)
+	EVT_UPDATE_UI(menuToggleBookmark, MadEditFrame::OnUpdateUI_MenuEditToggleBookmark)
 	EVT_UPDATE_UI(menuGotoNextBookmark, MadEditFrame::OnUpdateUI_MenuEditGotoNextBookmark)
-    EVT_UPDATE_UI(menuGotoPreviousBookmark, MadEditFrame::OnUpdateUI_MenuEditGotoPreviousBookmark)
+	EVT_UPDATE_UI(menuGotoPreviousBookmark, MadEditFrame::OnUpdateUI_MenuEditGotoPreviousBookmark)
 	EVT_UPDATE_UI(menuSortAscending, MadEditFrame::OnUpdateUI_Menu_CheckTextFile)
 	EVT_UPDATE_UI(menuSortDescending, MadEditFrame::OnUpdateUI_Menu_CheckTextFile)
 	EVT_UPDATE_UI(menuSortAscendingCase, MadEditFrame::OnUpdateUI_Menu_CheckTextFile)
@@ -1841,10 +1845,64 @@ void MadEditFrame::CreateGUIControls(void)
     m_ImageList->Add(wxBitmap(hexmode_xpm));
     m_ImageList->Add(wxBitmap(Mad_16x15_xpm));
 
-
     // add menuitems
     g_Menu_File = new wxMenu((long)0);
     g_Menu_Edit = new wxMenu((long)0);
+    g_Menu_EditPop = new wxMenu((long)0);
+    g_Menu_EditPop->Append(menuUndo, _("&Undo"));
+    g_Menu_EditPop->Append(menuRedo, _("&Redo"));
+    g_Menu_EditPop->Append(menuCut, _("Cu&t"));
+    g_Menu_EditPop->Append(menuCopy, _("&Copy"));
+    g_Menu_EditPop->Append(menuPaste, _("&Paste"));
+    g_Menu_EditPop->Append(menuDelete, _("&Delete"));
+    g_Menu_EditPop->AppendSeparator();
+    g_Menu_EditPop->Append(menuCutLine, _("Cut L&ine"));
+    g_Menu_EditPop->Append(menuDeleteLine, _("Delete &Line"));
+    g_Menu_EditPop->AppendSeparator();
+    g_Menu_EditPop->Append(menuSelectAll, _("Select &All"));
+    g_Menu_EditPop->AppendSeparator();
+    g_Menu_EditPop->Append(menuInsertTabChar, _("Insert Ta&b Char"));
+    g_Menu_EditPop->Append(menuInsertDateTime, _("Insert Dat&e and Time"));
+    g_Menu_EditPop->AppendSeparator();
+    g_Menu_EditSubAdv = new wxMenu((long)0);
+    
+    g_Menu_EditSubAdv->Append(menuCopyAsHexString, _("Copy As &Hex String"));
+    g_Menu_EditSubAdv->Append(menuCopyAsHexStringWithSpace, _("Copy As He&x String with Space"));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuIncreaseIndent, _("&Increase Indent"));
+    g_Menu_EditSubAdv->Append(menuDecreaseIndent, _("&Decrease Indent"));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuComment, _("&Comment"));
+    g_Menu_EditSubAdv->Append(menuUncomment, _("&Uncomment"));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuWordWrapToNewLine, _("WordWraps To NewLine Chars"));
+    g_Menu_EditSubAdv->Append(menuNewLineToWordWrap, _("NewLine Chars To WordWraps"));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuToUpperCase, _("To U&pperCase"));
+    g_Menu_EditSubAdv->Append(menuToLowerCase, _("To L&owerCase"));
+    g_Menu_EditSubAdv->Append(menuInvertCase, _("Inver&t Case"));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuToHalfWidth, _("To H&alfwidth"));
+    g_Menu_EditSubAdv->Append(menuToHalfWidthByOptions, _("To Halfwidth by Options..."));
+    g_Menu_EditSubAdv->Append(menuToFullWidth, _("To &Fullwidth"));
+    g_Menu_EditSubAdv->Append(menuToFullWidthByOptions, _("To Fullwidth by Options..."));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuTabToSpace, _("Tab Chars To Space Chars"));
+    g_Menu_EditSubAdv->Append(menuSpaceToTab, _("Space Chars To Tab Chars"));
+    g_Menu_EditSubAdv->AppendSeparator();
+    g_Menu_EditSubAdv->Append(menuTrimTrailingSpaces, _("Tri&m Trailing Spaces"));
+    g_Menu_EditPop->AppendSubMenu(g_Menu_EditSubAdv, _("Ad&vanced"));
+    g_Menu_EditSubSort = new wxMenu((long)0);
+    g_Menu_EditSubSort->Append(menuSortAscending, _("Sort Lines (&Ascending)"));
+    g_Menu_EditSubSort->Append(menuSortDescending, _("Sort Lines (&Descending)"));
+    g_Menu_EditSubSort->AppendSeparator();
+    g_Menu_EditSubSort->Append(menuSortAscendingCase, _("Sort Lines (A&scending, CaseSensitive)"));
+    g_Menu_EditSubSort->Append(menuSortDescendingCase, _("Sort Lines (D&escending, CaseSensitive)"));
+    g_Menu_EditSubSort->AppendSeparator();
+    g_Menu_EditSubSort->Append(menuSortByOptions, _("Sort Lines by &Current Options"));
+    g_Menu_EditSubSort->Append(menuSortOptions, _("Sort &Options..."));
+    g_Menu_EditPop->AppendSubMenu(g_Menu_EditSubSort, _("&Sort"));
+
     g_Menu_Search = new wxMenu((long)0);
     g_Menu_View = new wxMenu((long)0);
     g_Menu_Tools = new wxMenu((long)0);
@@ -3354,15 +3412,15 @@ void MadEditFrame::OnFileOpen(wxCommandEvent& event)
         dir=filename.GetPath(wxPATH_GET_VOLUME|wxPATH_GET_SEPARATOR);
     }
 
-    wxFileDialog dlg(this, _("Open File"), dir, wxEmptyString, wxFileSelectorDefaultWildcardStr,
+    static int filterIndex = 0;
+    wxString fileFilter = wxString("All files(*;*.*)|") + wxFileSelectorDefaultWildcardStr + wxT("|68k Assembly (*.68k)|*.68k|ActionScript (*.as;*.asc;*.mx)|*.as;*.asc;*.mx|Ada (*.a;*.ada;*.adb;*.ads)|*.a;*.ada;*.adb;*.ads|Apache Conf (*.conf;*.htaccess)|*.conf;*.htaccess|Bash Shell Script (*.bsh;*.configure;*.sh)|*.bsh;*.configure;*.sh|Boo (*.boo)|*.boo|C (*.c;*.h)|*.c;*.h|C# (*.cs)|*.cs|C-Shell Script (*.csh)|*.csh|Caml (*.ml;*.mli)|*.ml;*.mli|Cascading Style Sheet (*.css)|*.css|Cilk (*.cilk;*.cilkh)|*.cilk;*.cilkh|Cobra (*.cobra)|*.cobra|ColdFusion (*.cfc;*.cfm;*.cfml;*.dbm)|*.cfc;*.cfm;*.cfml;*.dbm|CPP (*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx)|*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx|D (*.d)|*.d|Diff File (*.diff;*.patch)|*.diff;*.patch|Django (*.django)|*.django|DOS Batch Script (*.bat;*.cmd)|*.bat;*.cmd|DOT (*.dot)|*.dot|DSP56K Assembly (*.56k)|*.56k|Editra Style Sheet (*.ess)|*.ess|Edje (*.edc)|*.edc|Eiffel (*.e)|*.e|Erlang (*.erl)|*.erl|Ferite (*.fe)|*.fe|FlagShip (*.prg)|*.prg|Forth (*.4th;*.fs;*.fth;*.seq)|*.4th;*.fs;*.fth;*.seq|Fortran 77 (*.f;*.for)|*.f;*.for|Fortran 95 (*.f2k;*.f90;*.f95;*.fpp)|*.f2k;*.f90;*.f95;*.fpp|GLSL (*.frag;*.glsl;*.vert)|*.frag;*.glsl;*.vert|GNU Assembly (*.gasm)|*.gasm|Groovy (*.groovy)|*.groovy|Gui4Cli (*.gc;*.gui)|*.gc;*.gui|Haskell (*.hs)|*.hs|HaXe (*.hx;*.hxml)|*.hx;*.hxml|HTML (*.htm;*.html;*.shtm;*.shtml;*.xhtml)|*.htm;*.html;*.shtm;*.shtml;*.xhtml|Inno Setup Script (*.iss)|*.iss|IssueList (*.isl)|*.isl|Java (*.java)|*.java|JavaScript (*.js)|*.js|Kix (*.kix)|*.kix|Korn Shell Script (*.ksh)|*.ksh|LaTeX (*.aux;*.sty;*.tex)|*.aux;*.sty;*.tex|Lisp (*.cl;*.lisp)|*.cl;*.lisp|Lout (*.lt)|*.lt|Lua (*.lua)|*.lua|Mako (*.mako;*.mao)|*.mako;*.mao|MASM (*.asm;*.masm)|*.asm;*.masm|Matlab (*.matlab)|*.matlab|Microsoft SQL (*.mssql)|*.mssql|Netwide Assembler (*.nasm)|*.nasm|newLISP (*.lsp)|*.lsp|NONMEM Control Stream (*.ctl)|*.ctl|Nullsoft Installer Script (*.nsh;*.nsi)|*.nsh;*.nsi|Objective C (*.m;*.mm)|*.m;*.mm|Octave (*.oct;*.octave)|*.oct;*.octave|OOC (*.ooc)|*.ooc|Pascal (*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp)|*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp|Perl (*.cgi;*.pl;*.pm;*.pod)|*.cgi;*.pl;*.pm;*.pod|PHP (*.php;*.php3;*.phtm;*.phtml)|*.php;*.php3;*.phtm;*.phtml|Pike (*.pike)|*.pike|PL/SQL (*.plsql)|*.plsql|Plain Text (*.txt)|*.txt|Postscript (*.ai;*.ps)|*.ai;*.ps|Progress 4GL (*.4gl)|*.4gl|Properties (*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url)|*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url|Python (*.py;*.python;*.pyw)|*.py;*.python;*.pyw|R (*.r)|*.r|Ruby (*.gemspec;*.rake;*.rb;*.rbw;*.rbx)|*.gemspec;*.rake;*.rb;*.rbw;*.rbx|S (*.s)|*.s|Scheme (*.scm;*.smd;*.ss)|*.scm;*.smd;*.ss|Smalltalk (*.st)|*.st|SQL (*.sql)|*.sql|Squirrel (*.nut)|*.nut|Stata (*.ado;*.do)|*.ado;*.do|System Verilog (*.sv;*.svh)|*.sv;*.svh|Tcl/Tk (*.itcl;*.tcl;*.tk)|*.itcl;*.tcl;*.tk|Vala (*.vala)|*.vala|VBScript (*.dsm;*.vbs)|*.dsm;*.vbs|Verilog (*.v)|*.v|VHDL (*.vh;*.vhd;*.vhdl)|*.vh;*.vhd;*.vhdl|Visual Basic (*.bas;*.cls;*.frm;*.vb)|*.bas;*.cls;*.frm;*.vb|XML (*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul)|*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul|Xtext (*.xtext)|*.xtext|YAML (*.yaml;*.yml)|*.yaml;*.yml");
+    wxFileDialog dlg(this, _("Open File"), dir, wxEmptyString, fileFilter,
 #if wxCHECK_VERSION(2,8,0)
     wxFD_OPEN|wxFD_MULTIPLE );
 #else
     wxOPEN|wxMULTIPLE );
 #endif
-    static wxString fileFilter = wxString("All files(*;*.*)|") + wxFileSelectorDefaultWildcardStr + wxT("|68k Assembly (*.68k)|*.68k|ActionScript (*.as;*.asc;*.mx)|*.as;*.asc;*.mx|Ada (*.a;*.ada;*.adb;*.ads)|*.a;*.ada;*.adb;*.ads|Apache Conf (*.conf;*.htaccess)|*.conf;*.htaccess|Bash Shell Script (*.bsh;*.configure;*.sh)|*.bsh;*.configure;*.sh|Boo (*.boo)|*.boo|C (*.c;*.h)|*.c;*.h|C# (*.cs)|*.cs|C-Shell Script (*.csh)|*.csh|Caml (*.ml;*.mli)|*.ml;*.mli|Cascading Style Sheet (*.css)|*.css|Cilk (*.cilk;*.cilkh)|*.cilk;*.cilkh|Cobra (*.cobra)|*.cobra|ColdFusion (*.cfc;*.cfm;*.cfml;*.dbm)|*.cfc;*.cfm;*.cfml;*.dbm|CPP (*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx)|*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx|D (*.d)|*.d|Diff File (*.diff;*.patch)|*.diff;*.patch|Django (*.django)|*.django|DOS Batch Script (*.bat;*.cmd)|*.bat;*.cmd|DOT (*.dot)|*.dot|DSP56K Assembly (*.56k)|*.56k|Editra Style Sheet (*.ess)|*.ess|Edje (*.edc)|*.edc|Eiffel (*.e)|*.e|Erlang (*.erl)|*.erl|Ferite (*.fe)|*.fe|FlagShip (*.prg)|*.prg|Forth (*.4th;*.fs;*.fth;*.seq)|*.4th;*.fs;*.fth;*.seq|Fortran 77 (*.f;*.for)|*.f;*.for|Fortran 95 (*.f2k;*.f90;*.f95;*.fpp)|*.f2k;*.f90;*.f95;*.fpp|GLSL (*.frag;*.glsl;*.vert)|*.frag;*.glsl;*.vert|GNU Assembly (*.gasm)|*.gasm|Groovy (*.groovy)|*.groovy|Gui4Cli (*.gc;*.gui)|*.gc;*.gui|Haskell (*.hs)|*.hs|HaXe (*.hx;*.hxml)|*.hx;*.hxml|HTML (*.htm;*.html;*.shtm;*.shtml;*.xhtml)|*.htm;*.html;*.shtm;*.shtml;*.xhtml|Inno Setup Script (*.iss)|*.iss|IssueList (*.isl)|*.isl|Java (*.java)|*.java|JavaScript (*.js)|*.js|Kix (*.kix)|*.kix|Korn Shell Script (*.ksh)|*.ksh|LaTeX (*.aux;*.sty;*.tex)|*.aux;*.sty;*.tex|Lisp (*.cl;*.lisp)|*.cl;*.lisp|Lout (*.lt)|*.lt|Lua (*.lua)|*.lua|Mako (*.mako;*.mao)|*.mako;*.mao|MASM (*.asm;*.masm)|*.asm;*.masm|Matlab (*.matlab)|*.matlab|Microsoft SQL (*.mssql)|*.mssql|Netwide Assembler (*.nasm)|*.nasm|newLISP (*.lsp)|*.lsp|NONMEM Control Stream (*.ctl)|*.ctl|Nullsoft Installer Script (*.nsh;*.nsi)|*.nsh;*.nsi|Objective C (*.m;*.mm)|*.m;*.mm|Octave (*.oct;*.octave)|*.oct;*.octave|OOC (*.ooc)|*.ooc|Pascal (*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp)|*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp|Perl (*.cgi;*.pl;*.pm;*.pod)|*.cgi;*.pl;*.pm;*.pod|PHP (*.php;*.php3;*.phtm;*.phtml)|*.php;*.php3;*.phtm;*.phtml|Pike (*.pike)|*.pike|PL/SQL (*.plsql)|*.plsql|Plain Text (*.txt)|*.txt|Postscript (*.ai;*.ps)|*.ai;*.ps|Progress 4GL (*.4gl)|*.4gl|Properties (*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url)|*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url|Python (*.py;*.python;*.pyw)|*.py;*.python;*.pyw|R (*.r)|*.r|Ruby (*.gemspec;*.rake;*.rb;*.rbw;*.rbx)|*.gemspec;*.rake;*.rb;*.rbw;*.rbx|S (*.s)|*.s|Scheme (*.scm;*.smd;*.ss)|*.scm;*.smd;*.ss|Smalltalk (*.st)|*.st|SQL (*.sql)|*.sql|Squirrel (*.nut)|*.nut|Stata (*.ado;*.do)|*.ado;*.do|System Verilog (*.sv;*.svh)|*.sv;*.svh|Tcl/Tk (*.itcl;*.tcl;*.tk)|*.itcl;*.tcl;*.tk|Vala (*.vala)|*.vala|VBScript (*.dsm;*.vbs)|*.dsm;*.vbs|Verilog (*.v)|*.v|VHDL (*.vh;*.vhd;*.vhdl)|*.vh;*.vhd;*.vhdl|Visual Basic (*.bas;*.cls;*.frm;*.vb)|*.bas;*.cls;*.frm;*.vb|XML (*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul)|*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul|Xtext (*.xtext)|*.xtext|YAML (*.yaml;*.yml)|*.yaml;*.yml");
-    dlg.SetWildcard (fileFilter);
-
+    dlg.SetFilterIndex(filterIndex);
     if (dlg.ShowModal()==wxID_OK)
     {
         wxArrayString filenames;
@@ -3377,6 +3435,7 @@ void MadEditFrame::OnFileOpen(wxCommandEvent& event)
             OpenFile(filenames[i], false);
         }
     }
+    filterIndex = dlg.GetFilterIndex();
 }
 
 void MadEditFrame::OnFileSave(wxCommandEvent& event)
