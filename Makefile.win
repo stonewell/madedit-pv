@@ -10,8 +10,8 @@ WINDRES   = "windres.exe"
 OBJ       = ./Release/MadEditFrame.o ./Release/MadEditApp.o ./Release/MadEdit.o ./Release/MadEncoding.o ./Release/MadLines.o ./Release/MadSyntax.o ./Release/MadUndo.o ./Release/MadPlugin.o ./Release/MadUtils.o ./Release/MadEditCommand.o ./Release/MadSearchDialog.o ./Release/MadOptionsDialog.o ./Release/MadEditSearch.o ./Release/MadReplaceDialog.o ./Release/MadAboutDialog.o ./Release/MadPrintout.o ./Release/TradSimp.o ./Release/MadConvEncDialog.o ./Release/MadEditAdvanced.o ./Release/MadWordCountDialog.o ./Release/MadHighlightingDialog.o ./Release/MadFindInFilesDialog.o ./Release/MadSortDialog.o ./Release/tabmdi.o ./Release/auibook.o ./Release/dockart.o ./Release/floatpane.o ./Release/framemanager.o ./Release/impl.o ./Release/CharDistribution.o ./Release/JpCntx.o ./Release/LangBulgarianModel.o ./Release/LangCyrillicModel.o ./Release/LangGreekModel.o ./Release/LangHebrewModel.o ./Release/LangHungarianModel.o ./Release/LangThaiModel.o ./Release/nsBig5Prober.o ./Release/nsCharSetProber.o ./Release/nsEscCharsetProber.o ./Release/nsEscSM.o ./Release/nsEUCJPProber.o ./Release/nsEUCKRProber.o ./Release/nsEUCTWProber.o ./Release/nsGB2312Prober.o ./Release/nsHebrewProber.o ./Release/nsLatin1Prober.o ./Release/nsMBCSGroupProber.o ./Release/nsMBCSSM.o ./Release/nsSBCharSetProber.o ./Release/nsSBCSGroupProber.o ./Release/nsSJISProber.o ./Release/nsUniversalDetector.o ./Release/nsUTF8Prober.o ./Release/MadFileAssociationDialog.o Release/MadEdit_private.res
 LINKOBJ   = "./Release/MadEditFrame.o" "./Release/MadEditApp.o" "./Release/MadEdit.o" "./Release/MadEncoding.o" "./Release/MadLines.o" "./Release/MadSyntax.o" "./Release/MadUndo.o" "./Release/MadPlugin.o" "./Release/MadUtils.o" "./Release/MadEditCommand.o" "./Release/MadSearchDialog.o" "./Release/MadOptionsDialog.o" "./Release/MadEditSearch.o" "./Release/MadReplaceDialog.o" "./Release/MadAboutDialog.o" "./Release/MadPrintout.o" "./Release/TradSimp.o" "./Release/MadConvEncDialog.o" "./Release/MadEditAdvanced.o" "./Release/MadWordCountDialog.o" "./Release/MadHighlightingDialog.o" "./Release/MadFindInFilesDialog.o" "./Release/MadSortDialog.o" "./Release/tabmdi.o" "./Release/auibook.o" "./Release/dockart.o" "./Release/floatpane.o" "./Release/framemanager.o" "./Release/impl.o" "./Release/CharDistribution.o" "./Release/JpCntx.o" "./Release/LangBulgarianModel.o" "./Release/LangCyrillicModel.o" "./Release/LangGreekModel.o" "./Release/LangHebrewModel.o" "./Release/LangHungarianModel.o" "./Release/LangThaiModel.o" "./Release/nsBig5Prober.o" "./Release/nsCharSetProber.o" "./Release/nsEscCharsetProber.o" "./Release/nsEscSM.o" "./Release/nsEUCJPProber.o" "./Release/nsEUCKRProber.o" "./Release/nsEUCTWProber.o" "./Release/nsGB2312Prober.o" "./Release/nsHebrewProber.o" "./Release/nsLatin1Prober.o" "./Release/nsMBCSGroupProber.o" "./Release/nsMBCSSM.o" "./Release/nsSBCharSetProber.o" "./Release/nsSBCSGroupProber.o" "./Release/nsSJISProber.o" "./Release/nsUniversalDetector.o" "./Release/nsUTF8Prober.o" "./Release/MadFileAssociationDialog.o" Release/MadEdit_private.res
 LIBS      = -L"C:/Program Files/Dev-Cpp/Lib" -L"C:/MinGW32/lib" -L"N:/wxWidgets/lib/gcc_lib" -L"../libunicows" -mwindows -lwxmsw28u_core -lwxbase28u -lunicows -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lwinspool -lwinmm -lshell32 -lcomctl32 -lole32 -loleaut32 -luuid -lrpcrt4 -ladvapi32 -lwsock32 -lodbc32 -lopengl32  -s 
-INCS      = -I"C:/MinGW32/include" -I"../wxAUI/include" -I"../charset-detector/include" -I"../charset-detector/src" -I"../charset-detector/src/tables"
-CXXINCS   = -I"C:/MinGW32/include" -I"C:/Program Files/Dev-Cpp/include/common" -I"../wxAUI/include" -I"../charset-detector/include" -I"../charset-detector/src" -I"../charset-detector/src/tables"
+INCS      = -I"C:/MinGW32/include" -I"../charset-detector/include" -I"../charset-detector/src" -I"../charset-detector/src/tables"
+CXXINCS   = -I"C:/MinGW32/include" -I"C:/Program Files/Dev-Cpp/include/common" -I"../charset-detector/include" -I"../charset-detector/src" -I"../charset-detector/src/tables"
 RCINCS    = --include-dir "C:/PROGRA~1/Dev-Cpp/include/common"
 BIN       = Release/MadEdit.exe
 DEFINES   = 
@@ -104,21 +104,6 @@ $(BIN): $(OBJ)
 
 ./Release/MadSortDialog.o: $(GLOBALDEPS) ../src/MadSortDialog.cpp ../src/MadSortDialog.h
 	$(CPP) -c ../src/MadSortDialog.cpp -o ./Release/MadSortDialog.o $(CXXFLAGS)
-
-./Release/tabmdi.o: $(GLOBALDEPS) ../wxAUI/src/tabmdi.cpp
-	$(CPP) -c ../wxAUI/src/tabmdi.cpp -o ./Release/tabmdi.o $(CXXFLAGS)
-
-./Release/auibook.o: $(GLOBALDEPS) ../wxAUI/src/auibook.cpp
-	$(CPP) -c ../wxAUI/src/auibook.cpp -o ./Release/auibook.o $(CXXFLAGS)
-
-./Release/dockart.o: $(GLOBALDEPS) ../wxAUI/src/dockart.cpp
-	$(CPP) -c ../wxAUI/src/dockart.cpp -o ./Release/dockart.o $(CXXFLAGS)
-
-./Release/floatpane.o: $(GLOBALDEPS) ../wxAUI/src/floatpane.cpp
-	$(CPP) -c ../wxAUI/src/floatpane.cpp -o ./Release/floatpane.o $(CXXFLAGS)
-
-./Release/framemanager.o: $(GLOBALDEPS) ../wxAUI/src/framemanager.cpp
-	$(CPP) -c ../wxAUI/src/framemanager.cpp -o ./Release/framemanager.o $(CXXFLAGS)
 
 ./Release/impl.o: $(GLOBALDEPS) ../charset-detector/src/entry/impl.cpp
 	$(CPP) -c ../charset-detector/src/entry/impl.cpp -o ./Release/impl.o $(CXXFLAGS)
