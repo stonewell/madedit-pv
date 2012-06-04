@@ -73,7 +73,7 @@ BOOST_INC =
 XPRESSIVE_INC = -I../xpressive
 #XPRESSIVE_INC = 
 
-ADDINC = -I../wxAUI/include -I../charset-detector/include -I../charset-detector/src -I../charset-detector/src/tables
+ADDINC = -I../charset-detector/include -I../charset-detector/src -I../charset-detector/src/tables
 
 LIBS = $(shell $(WXCONFIG) --libs core,base) #$(shell pkg-config --libs gtk+-2.0)
 #LIBS = -pthread -Wl,-O1 -Wl,--enable-new-dtags -Wl,--sort-common $(HOME)/wxWidgets/RELEASE/lib/libwx_gtk2u_core-2.7.a $(HOME)/wxWidgets/RELEASE/lib/libwx_baseu-2.7.a -lgtk-x11-2.0 -lgdk-x11-2.0 -lgdk_pixbuf-2.0 -lpangoxft-1.0 -lpangox-1.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lglib-2.0 -ldl -lm
@@ -177,24 +177,6 @@ $(BIN): $(OBJ)
 
 ./Release/MadFileAssociationDialog.obj: ../src/MadFileAssociationDialog.cpp
 	$(CXX) -c ../src/MadFileAssociationDialog.cpp -o ./Release/MadFileAssociationDialog.obj $(CXXFLAGS)
-
-./Release/auibar.obj: ../wxAUI/src/auibar.cpp
-	$(CXX) -c ../wxAUI/src/auibar.cpp -o ./Release/auibar.obj $(CXXFLAGS)
-
-./Release/tabmdi.o: ../wxAUI/src/tabmdi.cpp
-	$(CXX) -c ../wxAUI/src/tabmdi.cpp -o ./Release/tabmdi.o $(CXXFLAGS)
-
-./Release/auibook.o: ../wxAUI/src/auibook.cpp
-	$(CXX) -c ../wxAUI/src/auibook.cpp -o ./Release/auibook.o $(CXXFLAGS)
-
-./Release/dockart.o: ../wxAUI/src/dockart.cpp
-	$(CXX) -c ../wxAUI/src/dockart.cpp -o ./Release/dockart.o $(CXXFLAGS)
-
-./Release/floatpane.o: ../wxAUI/src/floatpane.cpp
-	$(CXX) -c ../wxAUI/src/floatpane.cpp -o ./Release/floatpane.o $(CXXFLAGS)
-
-./Release/framemanager.o: ../wxAUI/src/framemanager.cpp
-	$(CXX) -c ../wxAUI/src/framemanager.cpp -o ./Release/framemanager.o $(CXXFLAGS)
 
 ./Release/impl.o: ../charset-detector/src/entry/impl.cpp
 	$(CXX) -c ../charset-detector/src/entry/impl.cpp -o ./Release/impl.o $(CXXFLAGS)
