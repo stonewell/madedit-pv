@@ -11,6 +11,7 @@
 #include "MadUndo.h"
 
 #include "MadEditPv.h"
+#include <wx/buffer.h>
 #include <wx/fileconf.h>
 #include <wx/gdicmn.h>
 #include <wx/image.h>
@@ -32,7 +33,12 @@
 #include <gdk/gdkx.h>
 #include <gdk/gdkprivate.h>
 #include <gtk/gtk.h>
+#include <wx/gtk/dcmemory.h>
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
 #include <wx/gtk/win_gtk.h>
+#else
+#include <wx/gtk/private/win_gtk.h>
+#endif
 #endif
 
 #include <locale.h>
@@ -221,11 +227,11 @@ END_EVENT_TABLE()
 
 
 
-#if defined(__WXGTK20__)
+#if defined(__WXGTK20__) && (wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9))
 void GTK2_DrawText(wxMemoryDC *dc, MadEncoding *encoding, const int *widths,
               const wxString &text, wxCoord x, wxCoord y )
 {
-    wxCHECK_RET( dc->Ok(), wxT("invalid window dc") );
+    wxCHECK_RET( dc->IsOk(), wxT("invalid window dc") );
 
     if (!dc->m_window) return;
     if (text.empty()) return;
@@ -545,6 +551,28 @@ void FontWidthManager::Init(const wxString &datadir)
     FontWidthBuffersVector.resize(17); // 0~16 : U+0000 ~ U+10FFFF
 }
 
+static inline int wxChCmp(const wchar_t * wchStr, const wxString & wsStr)
+{
+    int result = 0;
+    size_t count=wsStr.Length();
+    if(!count) return 1;
+
+#ifdef __WXMSW__
+    const wchar_t * wchTmpStr = wsStr.wc_str();
+#else
+    const wchar_t * wchTmpStr = (wsStr.wc_str()).data();
+#endif
+    while(* wchStr && * wchTmpStr)
+    {
+        if((* wchStr) != (* wchTmpStr))
+            break;
+        ++wchStr;
+        ++wchTmpStr;
+    }
+
+    return ((int)(* wchStr) - (int)(* wchTmpStr));
+}
+
 wxUint16 *FontWidthManager::GetFontWidths(int index, const wxString &fontname, int fontsize, wxWindow *win)
 {
     wxASSERT(index>=0 && index<=16);
@@ -563,7 +591,7 @@ wxUint16 *FontWidthManager::GetFontWidths(int index, const wxString &fontname, i
     wxUint16 *wid;
     while(it != itend)
     {
-        if(it->fontsize==fontsize && it->fontname==fontname)
+        if(it->fontsize==fontsize && wxChCmp(it->fontname, fontname.c_str()))
         {
             wid=it->widths;
 
@@ -1759,7 +1787,7 @@ void MadEdit::PaintText(wxDC *dc, int x, int y, const ucs4_t *text, const int *w
         ::ExtTextOut(hdc, nowleft, y, 0, NULL, m_WCWordBuffer+wcstart, len, m_WCWidthBuffer+wcstart);
     }
 
-#elif defined(__WXGTK20__)
+#elif defined(__WXGTK20__) && (wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9))
     if(!InPrinting())
     {
         const ucs4_t *pu=text;
@@ -9231,9 +9259,9 @@ void MadEdit::OnChar(wxKeyEvent& evt)
     }
 #else
 #if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9) || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION == 9 && wxRELEASE_NUMBER < 2)
-    else if(key == 0 || (ucs4>=0x100 || (!evt.HasModifiers() && ucs4 >= ecCharFirst)))
+    else if(key == 0 || (ucs4>=(ucs4_t)0x100 || (!evt.HasModifiers() && ucs4 >= (ucs4_t)ecCharFirst)))
 #else
-    else if(key == WXK_NONE || (ucs4>=0x100 || (!evt.HasModifiers() && ucs4 >= ecCharFirst)))
+    else if(key == WXK_NONE || (ucs4>=(ucs4_t)0x100 || (!evt.HasModifiers() && ucs4 >= (ucs4_t)ecCharFirst)))
 #endif
     {
         ProcessCommand(ucs4);

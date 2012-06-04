@@ -55,8 +55,10 @@ GdkAtom  g_clipboardAtom   = 0;
 GdkAtom  g_targetsAtom     = 0;
 GdkAtom  g_timestampAtom   = 0;
 
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
 #if wxUSE_UNICODE
 extern GdkAtom g_altTextAtom;
+#endif
 #endif
 
 // the trace mask we use with wxLogTrace() - call
@@ -631,7 +633,7 @@ bool wxClipboardGtk::IsSupported( const wxDataFormat& format )
                            (guint32) GDK_CURRENT_TIME );
 
     while (m_waiting) gtk_main_iteration();
-
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
 #if wxUSE_UNICODE
     if (!m_formatSupported && format == wxDataFormat(wxDF_UNICODETEXT))
     {
@@ -639,6 +641,7 @@ bool wxClipboardGtk::IsSupported( const wxDataFormat& format )
         extern GdkAtom g_altTextAtom;
         return IsSupported(g_altTextAtom);
     }
+#endif
 #endif
 
     return m_formatSupported;

@@ -664,7 +664,9 @@ void OnReceiveMessage(const wchar_t *msg, size_t size)
 #else
     //g_MainFrame->Show(true);
     g_MainFrame->Raise();
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
     g_MainFrame->RequestUserAttention();//wxUSER_ATTENTION_ERROR);
+#endif
     g_MainFrame->SetFocus();
 #endif
 

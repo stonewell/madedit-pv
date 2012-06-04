@@ -24,15 +24,15 @@
 extern wxString g_MadEditHomeDir;
 
 
-wxChar *SystemAttributesName[] = {
+const wxChar *SystemAttributesName[] = {
     wxT("Text"), wxT("Delimiter"), wxT("Space"), wxT("Number"), wxT("String"), wxT("Comment"),
     wxT("Directive"), wxT("SpecialWord"), wxT("LineNumber"), wxT("ActiveLine"), wxT("Bookmark"),
 };
 
-wxChar *SystemAttributesColor[]= {
+const wxChar *SystemAttributesColor[]= {
     wxT("Black"), wxT("SaddleBrown"), wxT("Aqua"), wxT("Blue"), wxT("Red"), wxT("Teal"), wxT("Green"), wxT("Maroon"), wxT("White"), wxT("Fuchsia"), wxT("#\xC0\xFF\xFF")
 };
-wxChar *SystemAttributesBgColor[]= {
+const wxChar *SystemAttributesBgColor[]= {
     wxT("White"), wxT(""), wxT(""), wxT(""), wxT(""), wxT(""), wxT(""), wxT(""), wxT("#\xA0\xA0\xA0"), wxT(""), wxT("")
 };
 
@@ -876,6 +876,12 @@ void MadSyntax::ParseSyntax(const wxString &filename)
     }
 
     // syn loaded, begin post-processing
+#ifdef __WXMSW__
+   if(m_SystemAttributes[aeText].color==wxNullColour)
+   {
+       m_SystemAttributes[aeText].color = wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT);
+   }
+#endif
 
     if(m_SystemAttributes[aeText].color==wxNullColour ||
         m_SystemAttributes[aeText].bgcolor==wxNullColour)
@@ -883,6 +889,13 @@ void MadSyntax::ParseSyntax(const wxString &filename)
         m_SystemAttributes[aeText].color=*wxBLACK;
         m_SystemAttributes[aeText].bgcolor=*wxWHITE;
     }
+
+#ifdef __WXMSW__
+    if (m_SystemAttributes[aeText].bgcolor == *wxWHITE)
+    {
+        m_SystemAttributes[aeText].bgcolor = wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW);
+    }
+#endif
 
     vector < MadSyntaxKeyword >::iterator kit = m_CustomKeyword.begin();
     vector < MadSyntaxKeyword >::iterator kend = m_CustomKeyword.end();
@@ -1019,6 +1032,17 @@ void MadSyntax::Reset()
 
     // default Text color bgcolor
     MadAttributes *pat = m_SystemAttributes;
+
+#ifdef __WXMSW__
+    wxColour c = wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOWTEXT);
+    wxColour c1= wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW);
+
+    wxString s = c.GetAsString();
+    wxString s1 = c1.GetAsString();
+
+    SystemAttributesColor[0] = s;
+    SystemAttributesBgColor[0] = s1;
+#endif
 
     for(i = 0; i < aeNone; i++)
     {
