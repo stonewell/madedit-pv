@@ -9,6 +9,7 @@ AC_PREFIX_DEFAULT([/usr])
 
 AM_INIT_AUTOMAKE
 
+AC_USE_SYSTEM_EXTENSIONS
 ALL_LINGUAS="it_IT ja_JP zh_CN zh_TW"
 AM_GNU_GETTEXT
 AC_SUBST(ALL_LINGUAS)
@@ -62,7 +63,7 @@ if test "x$WX_LIBS" != "x"; then
 fi
 
 AM_OPTIONS_WXCONFIG
-AM_PATH_WXCONFIG(2.8.0, wxWin=1, base,core)
+AM_PATH_WXCONFIG(2.8.0, wxWin=1, base,core,aui)
 if test "$wxWin" != 1; then
    AC_MSG_ERROR([
            wxWidgets must be installed on your system
@@ -80,6 +81,8 @@ CXXFLAGS="$CXXFLAGS $WX_CXXFLAGS_ONLY"
 if test "$WX_LIBS_set" != 1; then
     LIBS="$LIBS $WX_LIBS"
 fi
+
+LIBS="$LIBS -lwx_gtk2u_aui-2.9"
 
 UNICODE_FLAG=$(test ! $($WX_CONFIG_WITH_ARGS - -unicode >/dev/null 2>&1))
 

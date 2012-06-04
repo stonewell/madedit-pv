@@ -70,7 +70,7 @@ void MadAboutDialog::CreateGUIControls(void)
 	WxBoxSizer4->Add(WxStaticBitmap2,0,wxALIGN_CENTER | wxALL,5);
 
 	WxMemo1 = new wxTextCtrl(this, ID_WXMEMO1, _(""), wxPoint(70, 2), wxSize(350, 150), wxTE_READONLY | wxTE_AUTO_URL | wxTE_MULTILINE, wxDefaultValidator, _("WxMemo1"));
-	WxMemo1->SetMaxLength(0);
+	//WxMemo1->SetMaxLength(0);
 	WxMemo1->SetFocus();
 	WxMemo1->SetInsertionPointEnd();
 	WxMemo1->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));

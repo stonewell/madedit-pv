@@ -65,7 +65,11 @@ extern const size_t g_LanguageCount = sizeof(g_LanguageValue)/sizeof(int);
 #include <X11/Xatom.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
 #include <wx/gtk/win_gtk.h>
+#else
+#include <wx/gtk/private/win_gtk.h>
+#endif
 
 Atom g_MadEdit_atom;
 Display *g_Display=NULL;
@@ -395,8 +399,13 @@ bool MadEditApp::OnInit()
 #if defined(__WXGTK__)
     if(bSingleInstance)
     {
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9 && wxRELEASE_NUMBER<3)
         GtkPizza *pizza = GTK_PIZZA(myFrame->m_mainWidget);
         Window win=GDK_WINDOW_XWINDOW(pizza->bin_window);
+#else
+        wxPizza *pizza = WX_PIZZA(myFrame->m_mainWidget);
+        Window win=GDK_WINDOW_XWINDOW(pizza->m_fixed.container.widget.window);
+#endif
         XSetSelectionOwner(g_Display, g_MadEdit_atom, win, CurrentTime);
         gdk_window_add_filter(NULL, my_gdk_filter, NULL);
     }

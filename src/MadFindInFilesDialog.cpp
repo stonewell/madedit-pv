@@ -113,124 +113,125 @@ void MadFindInFilesDialog::CreateGUIControls(void)
 	WxBoxSizer8 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer4->Add(WxBoxSizer8, 0, wxALIGN_LEFT | wxALIGN_TOP | wxALL, 0);
 
-	WxCheckBoxCaseSensitive = new wxCheckBox(this, ID_WXCHECKBOXCASESENSITIVE, wxT("&Case Sensitive"), wxPoint(1, 1), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxCaseSensitive"));
-	WxCheckBoxCaseSensitive->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxCaseSensitive = new wxCheckBox(this, ID_WXCHECKBOXCASESENSITIVE, _("&Case Sensitive"), wxPoint(1, 1), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxCaseSensitive"));
+	WxCheckBoxCaseSensitive->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer8->Add(WxCheckBoxCaseSensitive, 0, wxALIGN_LEFT | wxALL, 1);
 
-	WxCheckBoxWholeWord = new wxCheckBox(this, ID_WXCHECKBOXWHOLEWORD, wxT("&Whole Word Only"), wxPoint(1, 25), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxWholeWord"));
-	WxCheckBoxWholeWord->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxWholeWord = new wxCheckBox(this, ID_WXCHECKBOXWHOLEWORD, _("&Whole Word Only"), wxPoint(1, 25), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxWholeWord"));
+	WxCheckBoxWholeWord->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer8->Add(WxCheckBoxWholeWord, 0, wxALIGN_LEFT | wxALL, 1);
 
-	WxCheckBoxRegex = new wxCheckBox(this, ID_WXCHECKBOXREGEX, wxT("Use Regular E&xpressions"), wxPoint(1, 49), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxRegex"));
-	WxCheckBoxRegex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxRegex = new wxCheckBox(this, ID_WXCHECKBOXREGEX, _("Use Regular E&xpressions"), wxPoint(1, 49), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxRegex"));
+	WxCheckBoxRegex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer8->Add(WxCheckBoxRegex, 0, wxALIGN_LEFT | wxALL, 1);
 
-	WxCheckBoxFindHex = new wxCheckBox(this, ID_WXCHECKBOXFINDHEX, wxT("Find &Hex String (Example: BE 00 3A or BE003A)"), wxPoint(1, 73), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxFindHex"));
-	WxCheckBoxFindHex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxFindHex = new wxCheckBox(this, ID_WXCHECKBOXFINDHEX, _("Find &Hex String (Example: BE 00 3A or BE003A)"), wxPoint(1, 73), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxFindHex"));
+	WxCheckBoxFindHex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer8->Add(WxCheckBoxFindHex, 0, wxALIGN_LEFT | wxALL, 1);
 
-	WxCheckBoxListFirstOnly = new wxCheckBox(this, ID_WXCHECKBOXLISTFIRSTONLY, wxT("&List the First Found Item Only"), wxPoint(1, 97), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxListFirstOnly"));
-	WxCheckBoxListFirstOnly->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxListFirstOnly = new wxCheckBox(this, ID_WXCHECKBOXLISTFIRSTONLY, _("&List the First Found Item Only"), wxPoint(1, 97), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxListFirstOnly"));
+	WxCheckBoxListFirstOnly->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer8->Add(WxCheckBoxListFirstOnly, 0, wxALIGN_LEFT | wxALL, 1);
 
 	WxBoxSizer5 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer2->Add(WxBoxSizer5, 0, wxALIGN_TOP | wxALL, 0);
 
-	WxButtonFind = new wxButton(this, ID_WXBUTTONFIND, wxT("&Find"), wxPoint(2, 2), wxSize(100, 28), 0, wxDefaultValidator, wxT("WxButtonFind"));
-	WxButtonFind->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxButtonFind = new wxButton(this, ID_WXBUTTONFIND, _("&Find"), wxPoint(2, 2), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonFind"));
+	WxButtonFind->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxButtonFind, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxButtonReplace = new wxButton(this, ID_WXBUTTONREPLACE, wxT("&Replace"), wxPoint(2, 34), wxSize(100, 28), 0, wxDefaultValidator, wxT("WxButtonReplace"));
-	WxButtonReplace->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxButtonReplace = new wxButton(this, ID_WXBUTTONREPLACE, _("&Replace"), wxPoint(2, 34), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonReplace"));
+	WxButtonReplace->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxButtonReplace, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxCheckBoxEnableReplace = new wxCheckBox(this, ID_WXCHECKBOXENABLEREPLACE, wxT("&Enable Replace"), wxPoint(2, 64), wxSize(100, 25), 0, wxDefaultValidator, wxT("WxCheckBoxEnableReplace"));
-	WxCheckBoxEnableReplace->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxEnableReplace = new wxCheckBox(this, ID_WXCHECKBOXENABLEREPLACE, _("&Enable Replace"), wxPoint(2, 64), wxSize(100, 25), 0, wxDefaultValidator, _("WxCheckBoxEnableReplace"));
+	WxCheckBoxEnableReplace->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxEnableReplace, 0, wxALIGN_CENTER | wxALL, 0);
 
-	WxButtonClose = new wxButton(this, wxID_CANCEL, wxT("Close"), wxPoint(2, 91), wxSize(100, 28), 0, wxDefaultValidator, wxT("WxButtonClose"));
-	WxButtonClose->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxButtonClose = new wxButton(this, wxID_CANCEL, _("Close"), wxPoint(2, 91), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonClose"));
+	WxButtonClose->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxButtonClose, 0, wxALIGN_CENTER | wxALL, 2);
 
 	WxStaticLine1 = new wxStaticLine(this, ID_WXSTATICLINE1, wxPoint(184, 162), wxSize(150, -1), wxLI_HORIZONTAL);
-	WxStaticLine1->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticLine1->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer1->Add(WxStaticLine1, 0, wxEXPAND | wxALL, 2);
 
 	WxBoxSizer3 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer1->Add(WxBoxSizer3, 0, wxALIGN_LEFT | wxALL, 0);
 
-	WxRadioButtonOpenedFiles = new wxRadioButton(this, ID_WXRADIOBUTTONOPENEDFILES, wxT("Opened Files in Editor"), wxPoint(164, 2), wxSize(190, 20), 0, wxDefaultValidator, wxT("WxRadioButtonOpenedFiles"));
-	WxRadioButtonOpenedFiles->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxRadioButtonOpenedFiles = new wxRadioButton(this, ID_WXRADIOBUTTONOPENEDFILES, _("Opened Files in Editor"), wxPoint(164, 2), wxSize(190, 20), 0, wxDefaultValidator, _("WxRadioButtonOpenedFiles"));
+	WxRadioButtonOpenedFiles->SetValue(true);
+	WxRadioButtonOpenedFiles->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer3->Add(WxRadioButtonOpenedFiles, 0, wxALIGN_LEFT | wxALL, 2);
 
 	WxFlexGridSizer1 = new wxFlexGridSizer(0, 4, 0, 0);
 	WxBoxSizer3->Add(WxFlexGridSizer1, 0, wxALIGN_LEFT | wxALL, 0);
 
-	WxRadioButtonDir = new wxRadioButton(this, ID_WXRADIOBUTTONDIR, wxT("Selected Directory:"), wxPoint(2, 4), wxSize(113, 20), 0, wxDefaultValidator, wxT("WxRadioButtonDir"));
-	WxRadioButtonDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxRadioButtonDir = new wxRadioButton(this, ID_WXRADIOBUTTONDIR, _("Selected Directory:"), wxPoint(2, 4), wxSize(113, 20), 0, wxDefaultValidator, _("WxRadioButtonDir"));
+	WxRadioButtonDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxRadioButtonDir, 0, wxALIGN_LEFT | wxALL, 2);
 
 	wxArrayString arrayStringFor_WxComboBoxDir;
-	WxComboBoxDir = new wxComboBox(this, ID_WXCOMBOBOXDIR, wxT(""), wxPoint(119, 4), wxSize(330, 21), arrayStringFor_WxComboBoxDir, 0, wxDefaultValidator, wxT("WxComboBoxDir"));
-	WxComboBoxDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxComboBoxDir = new wxComboBox(this, ID_WXCOMBOBOXDIR, _(""), wxPoint(119, 4), wxSize(330, 21), arrayStringFor_WxComboBoxDir, 0, wxDefaultValidator, _("WxComboBoxDir"));
+	WxComboBoxDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxComboBoxDir, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxButtonDir = new wxButton(this, ID_WXBUTTONDIR, wxT("..."), wxPoint(453, 2), wxSize(30, 25), 0, wxDefaultValidator, wxT("WxButtonDir"));
-	WxButtonDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxButtonDir = new wxButton(this, ID_WXBUTTONDIR, _("..."), wxPoint(453, 2), wxSize(30, 25), 0, wxDefaultValidator, _("WxButtonDir"));
+	WxButtonDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxButtonDir, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxButtonActiveDir = new wxButton(this, ID_WXBUTTONACTIVEDIR, wxT("<<"), wxPoint(487, 2), wxSize(30, 25), 0, wxDefaultValidator, wxT("WxButtonActiveDir"));
-	WxButtonActiveDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxButtonActiveDir = new wxButton(this, ID_WXBUTTONACTIVEDIR, _("<<"), wxPoint(487, 2), wxSize(30, 25), 0, wxDefaultValidator, _("WxButtonActiveDir"));
+	WxButtonActiveDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxButtonActiveDir, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxStaticText1 = new wxStaticText(this, ID_WXSTATICTEXT1, wxT("File Filters:"), wxPoint(32, 33), wxDefaultSize, 0, wxT("WxStaticText1"));
-	WxStaticText1->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText1 = new wxStaticText(this, ID_WXSTATICTEXT1, _("File Filters:"), wxPoint(32, 33), wxDefaultSize, 0, _("WxStaticText1"));
+	WxStaticText1->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText1, 0, wxALIGN_RIGHT | wxALL, 2);
 
 	wxArrayString arrayStringFor_WxComboBoxFilter;
-	WxComboBoxFilter = new wxComboBox(this, ID_WXCOMBOBOXFILTER, wxT(""), wxPoint(119, 31), wxSize(330, 21), arrayStringFor_WxComboBoxFilter, 0, wxDefaultValidator, wxT("WxComboBoxFilter"));
-	WxComboBoxFilter->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxComboBoxFilter = new wxComboBox(this, ID_WXCOMBOBOXFILTER, _(""), wxPoint(119, 31), wxSize(330, 21), arrayStringFor_WxComboBoxFilter, 0, wxDefaultValidator, _("WxComboBoxFilter"));
+	WxComboBoxFilter->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxComboBoxFilter, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxStaticText2 = new wxStaticText(this, ID_WXSTATICTEXT2, wxT(""), wxPoint(466, 39), wxDefaultSize, 0, wxT("WxStaticText2"));
-	WxStaticText2->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText2 = new wxStaticText(this, ID_WXSTATICTEXT2, _(""), wxPoint(466, 39), wxDefaultSize, 0, _("WxStaticText2"));
+	WxStaticText2->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText2, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxStaticText5 = new wxStaticText(this, ID_WXSTATICTEXT5, wxT(""), wxPoint(500, 39), wxDefaultSize, 0, wxT("WxStaticText5"));
-	WxStaticText5->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText5 = new wxStaticText(this, ID_WXSTATICTEXT5, _(""), wxPoint(500, 39), wxDefaultSize, 0, _("WxStaticText5"));
+	WxStaticText5->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText5, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxStaticText4 = new wxStaticText(this, ID_WXSTATICTEXT4, wxT("Exclude Filters:"), wxPoint(21, 58), wxDefaultSize, 0, wxT("WxStaticText4"));
-	WxStaticText4->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText4 = new wxStaticText(this, ID_WXSTATICTEXT4, _("Exclude Filters:"), wxPoint(21, 58), wxDefaultSize, 0, _("WxStaticText4"));
+	WxStaticText4->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText4, 0, wxALIGN_RIGHT | wxALL, 2);
 
 	wxArrayString arrayStringFor_WxComboBoxExclude;
-	WxComboBoxExclude = new wxComboBox(this, ID_WXCOMBOBOXEXCLUDE, wxT(""), wxPoint(119, 56), wxSize(330, 21), arrayStringFor_WxComboBoxExclude, 0, wxDefaultValidator, wxT("WxComboBoxExclude"));
-	WxComboBoxExclude->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxComboBoxExclude = new wxComboBox(this, ID_WXCOMBOBOXEXCLUDE, _(""), wxPoint(119, 56), wxSize(330, 21), arrayStringFor_WxComboBoxExclude, 0, wxDefaultValidator, _("WxComboBoxExclude"));
+	WxComboBoxExclude->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxComboBoxExclude, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxStaticText6 = new wxStaticText(this, ID_WXSTATICTEXT6, wxT(""), wxPoint(466, 64), wxDefaultSize, 0, wxT("WxStaticText6"));
-	WxStaticText6->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText6 = new wxStaticText(this, ID_WXSTATICTEXT6, _(""), wxPoint(466, 64), wxDefaultSize, 0, _("WxStaticText6"));
+	WxStaticText6->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText6, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxStaticText7 = new wxStaticText(this, ID_WXSTATICTEXT7, wxT(""), wxPoint(500, 64), wxDefaultSize, 0, wxT("WxStaticText7"));
-	WxStaticText7->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText7 = new wxStaticText(this, ID_WXSTATICTEXT7, _(""), wxPoint(500, 64), wxDefaultSize, 0, _("WxStaticText7"));
+	WxStaticText7->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText7, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxStaticText3 = new wxStaticText(this, ID_WXSTATICTEXT3, wxT("File Encoding:"), wxPoint(23, 83), wxDefaultSize, 0, wxT("WxStaticText3"));
-	WxStaticText3->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxStaticText3 = new wxStaticText(this, ID_WXSTATICTEXT3, _("File Encoding:"), wxPoint(23, 83), wxDefaultSize, 0, _("WxStaticText3"));
+	WxStaticText3->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxStaticText3, 0, wxALIGN_RIGHT | wxALL, 2);
 
 	wxArrayString arrayStringFor_WxComboBoxEncoding;
-	WxComboBoxEncoding = new wxComboBox(this, ID_WXCOMBOBOXENCODING, wxT(""), wxPoint(184, 81), wxSize(200, 21), arrayStringFor_WxComboBoxEncoding, wxCB_DROPDOWN | wxCB_READONLY, wxDefaultValidator, wxT("WxComboBoxEncoding"));
-	WxComboBoxEncoding->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxComboBoxEncoding = new wxComboBox(this, ID_WXCOMBOBOXENCODING, _(""), wxPoint(184, 81), wxSize(200, 21), arrayStringFor_WxComboBoxEncoding, wxCB_DROPDOWN | wxCB_READONLY, wxDefaultValidator, _("WxComboBoxEncoding"));
+	WxComboBoxEncoding->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxFlexGridSizer1->Add(WxComboBoxEncoding, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxSubDir = new wxCheckBox(this, ID_WXCHECKBOXSUBDIR, wxT("Include Subdirectories"), wxPoint(114, 128), wxSize(300, 22), 0, wxDefaultValidator, wxT("WxCheckBoxSubDir"));
-	WxCheckBoxSubDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, wxT("MS Sans Serif")));
+	WxCheckBoxSubDir = new wxCheckBox(this, ID_WXCHECKBOXSUBDIR, _("Include Subdirectories"), wxPoint(114, 128), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSubDir"));
+	WxCheckBoxSubDir->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer3->Add(WxCheckBoxSubDir, 0, wxALIGN_LEFT | wxLEFT, 10);
 
-	SetTitle(wxT("Find/Replace In Files"));
+	SetTitle(_("Find/Replace In Files"));
 	SetIcon(wxNullIcon);
 	
 	Layout();

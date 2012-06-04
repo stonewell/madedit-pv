@@ -203,7 +203,9 @@ public:
     }
     bool IsNotDelimiter(ucs4_t uc)
     {
-        return (uc < 0x100 && m_Delimiter.Find(wxChar(uc))<0 && !IsSpace(uc));
+        // changed: gogo, 21.09.2009 (purpose - correct word wrap for words with non-ascii chars)
+        //return (uc < 0x100 && m_Delimiter.Find(wxChar(uc))<0 && !IsSpace(uc));
+        return m_Delimiter.Find(wxChar(uc)) < 0 && ! IsSpace(uc);
     }
 
     void SetAttributes(MadAttributeElement ae)

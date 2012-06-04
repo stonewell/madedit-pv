@@ -1,4 +1,4 @@
-object frmNewForm_2: TfrmNewForm
+object frmNewForm: TfrmNewForm
   Left = 8
   Top = 8
   AutoScroll = False
@@ -491,7 +491,9 @@ object frmNewForm_2: TfrmNewForm
         Width = 190
         Height = 20
         Caption = 'Opened Files in Editor'
+        Checked = True
         TabOrder = 0
+        TabStop = True
         Wx_BGColor = clBlack
         Wx_Class = 'wxRadioButton'
         Wx_ControlOrientation = wxControlVertical

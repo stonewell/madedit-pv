@@ -554,7 +554,7 @@ object frmNewForm: TfrmNewForm
         Top = 66
         Width = 100
         Height = 28
-        Caption = 'Find All'
+        Caption = 'Find &All'
         TabOrder = 5
         EVT_BUTTON = 'WxButtonFindAllClick'
         Wx_BKColor = clBlack

@@ -26,11 +26,11 @@
 // Copyright:   (c) 1998 Robert Roebling, Julian Smart
 // Licence:     wxWindows licence
 /////////////////////////////////////////////////////////////////////////////
-
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
 extern bool g_isIdle;
 extern bool g_blockEventsOnDrag;
 extern bool g_mainThreadLocked;
-
+#endif
 //-----------------------------------------------------------------------------
 // debug
 //-----------------------------------------------------------------------------
@@ -38,7 +38,11 @@ extern bool g_mainThreadLocked;
 #ifdef __WXDEBUG__
 
 #if wxUSE_THREADS
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
 #   define DEBUG_MAIN_THREAD if (wxThread::IsMain() && g_mainThreadLocked) printf("gui reentrance");
+#else
+#   define DEBUG_MAIN_THREAD
+#endif
 #else
 #   define DEBUG_MAIN_THREAD
 #endif
@@ -363,7 +367,9 @@ static void wxFillOtherKeyEventFields(wxKeyEvent& event,
     event.m_controlDown = (gdk_event->state & GDK_CONTROL_MASK) != 0;
     event.m_altDown = (gdk_event->state & GDK_MOD1_MASK) != 0;
     event.m_metaDown = (gdk_event->state & GDK_MOD2_MASK) != 0;
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
     event.m_scanCode = gdk_event->keyval;
+#endif
     event.m_rawCode = (wxUint32) gdk_event->keyval;
     event.m_rawFlags = 0;
 #if wxUSE_UNICODE
@@ -514,8 +520,10 @@ gtk_window_key_press_callback( GtkWidget *widget,
 
     if (!win->m_hasVMT)
         return FALSE;
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
     if (g_blockEventsOnDrag)
         return FALSE;
+#endif
 
 
     wxKeyEvent event( wxEVT_KEY_DOWN );
@@ -691,8 +699,10 @@ gtk_window_key_release_callback( GtkWidget *widget,
     if (!win->m_hasVMT)
         return FALSE;
 
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9)
     if (g_blockEventsOnDrag)
         return FALSE;
+#endif
 
     wxKeyEvent event( wxEVT_KEY_UP );
     if ( !wxTranslateGTKKeyEventToWx(event, win, gdk_event) )
