@@ -82,8 +82,6 @@ if test "$WX_LIBS_set" != 1; then
     LIBS="$LIBS $WX_LIBS"
 fi
 
-LIBS="$LIBS -lwx_gtk2u_aui-2.9"
-
 UNICODE_FLAG=$(test ! $($WX_CONFIG_WITH_ARGS - -unicode >/dev/null 2>&1))
 
 AC_MSG_CHECKING([if wxWidgets was built with UNICODE enabled])
