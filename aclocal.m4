@@ -3605,14 +3605,14 @@ AC_DEFUN([AM_PATH_WXCONFIG],
     if test -n "$wx_ver_ok"; then
 
       AC_MSG_RESULT(yes (version $WX_VERSION))
-      WX_LIBS=`$WX_CONFIG_WITH_ARGS --libs std aui`
+      WX_LIBS=`$WX_CONFIG_WITH_ARGS --libs aui`
 
       dnl is this even still appropriate?  --static is a real option now
       dnl and WX_CONFIG_WITH_ARGS is likely to contain it if that is
       dnl what the user actually wants, making this redundant at best.
       dnl For now keep it in case anyone actually used it in the past.
       AC_MSG_CHECKING([for wxWidgets static library])
-      WX_LIBS_STATIC=`$WX_CONFIG_WITH_ARGS --static --libs std aui 2>/dev/null`
+      WX_LIBS_STATIC=`$WX_CONFIG_WITH_ARGS --static --libs aui 2>/dev/null`
       if test "x$WX_LIBS_STATIC" = "x"; then
         AC_MSG_RESULT(no)
       else

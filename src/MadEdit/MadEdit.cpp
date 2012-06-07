@@ -59,6 +59,7 @@ using std::list;
 #define new new(_NORMAL_BLOCK ,__FILE__, __LINE__)
 #endif
 
+static inline int wxChCmp(const wchar_t * wchStr, const wxString & wsStr);
 
 MadKeyBindings MadEdit::ms_KeyBindings;
 
@@ -479,7 +480,7 @@ void FontWidthManager::ClearBuffer_1_16(const wxString &fontname, int fontsize)
         list<FontWidthBuffer>::iterator itend=vecit->end();
         while(it != itend)
         {
-            if(it->fontsize==fontsize && it->fontname==fontname)
+            if(it->fontsize==fontsize && (!wxChCmp(it->fontname, fontname)))
             {
                 memset(it->widths, 0, sizeof(wxUint16)*65536);
                 break;
@@ -590,7 +591,7 @@ wxUint16 *FontWidthManager::GetFontWidths(int index, const wxString &fontname, i
     wxUint16 *wid;
     while(it != itend)
     {
-        if(it->fontsize==fontsize && wxChCmp(it->fontname, fontname.c_str()))
+        if(it->fontsize==fontsize && !wxChCmp(it->fontname, fontname.c_str()))
         {
             wid=it->widths;
 

@@ -237,7 +237,7 @@ noinst_HEADERS =	description-pak \
 	charset-detector/src/tables/EUCTWFreq.tab \
 	charset-detector/src/tables/GB2312Freq.tab \
 	charset-detector/src/tables/JISFreq.tab \
-	charset-detector/src/entry/export-symbol.list \
+	charset-detector/src/entry/export-symbol.list
 
 DOMAIN = madedit
 podir = $(top_srcdir)/po
