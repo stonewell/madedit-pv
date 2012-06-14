@@ -2155,7 +2155,8 @@ void MadEditFrame::CreateGUIControls(void)
     wxSize nbsize(infoW, infoH);
     m_InfoNotebook = new wxAuiNotebook(this, ID_OUTPUTNOTEBOOK, wxDefaultPosition, nbsize, wxAUI_NB_TOP|wxAUI_NB_SCROLL_BUTTONS);
 
-    m_FindInFilesResults = new wxTreeCtrl(m_InfoNotebook, ID_FINDINFILESRESULTS, wxDefaultPosition, wxSize(infoW,4), wxTR_DEFAULT_STYLE|wxTR_HIDE_ROOT);
+    //m_FindInFilesResults = new wxTreeCtrl(m_InfoNotebook, ID_FINDINFILESRESULTS, wxDefaultPosition, wxSize(infoW,4), wxTR_DEFAULT_STYLE|wxTR_HIDE_ROOT);
+    m_FindInFilesResults = new MadTreeCtrl(m_InfoNotebook, ID_FINDINFILESRESULTS, wxDefaultPosition, wxSize(infoW,4), wxTR_DEFAULT_STYLE|wxTR_HIDE_ROOT);
     m_FindInFilesResults->AddRoot(wxT("Root"));
     m_FindInFilesResults->Connect(wxEVT_LEFT_DCLICK, wxMouseEventHandler(MadEditFrame::OnFindInFilesResultsDClick));
 
@@ -5080,5 +5081,92 @@ void MadEditFrame::OnHelpAbout(wxCommandEvent& event)
         wxLaunchDefaultBrowser(g_MadEdit_URL);
 #endif
     }
+}
+
+void MadEditFrame::OnCopyCurrResult(wxCommandEvent& event)
+{
+    wxTreeItemId id = m_FindInFilesResults->GetFocusedItem();
+    
+    if ( id.IsOk() && g_ActiveMadEdit)
+    {
+        wxString result = m_FindInFilesResults->GetItemText(id);
+        g_ActiveMadEdit->CopyToClipboard(result);
+    }
+}
+
+void MadEditFrame::OnCopyAllResults(wxCommandEvent& event)
+{
+    if (g_ActiveMadEdit)
+    {
+        wxTreeItemId RootId = m_FindInFilesResults->GetRootItem();
+        wxString result("");
+        if ( RootId.IsOk() )
+        {
+            wxTreeItemIdValue cookie;
+            wxTreeItemId id=m_FindInFilesResults->GetFirstChild(m_FindInFilesResults->GetRootItem(), cookie);
+            while(id.IsOk())
+            {
+                result += m_FindInFilesResults->GetItemText(id);
+                wxTreeItemIdValue tmpCookie;
+                wxTreeItemId tmpId=m_FindInFilesResults->GetFirstChild(id, tmpCookie);
+                while(tmpId.IsOk())
+                {
+                    result += wxString("\n    ")+m_FindInFilesResults->GetItemText(tmpId);               
+                    tmpId=m_FindInFilesResults->GetNextChild(id, tmpCookie);
+                }
+                id=m_FindInFilesResults->GetNextChild(m_FindInFilesResults->GetRootItem(), cookie);
+            }
+        }
+    
+        if(result != wxString(""))
+            g_ActiveMadEdit->CopyToClipboard(result);
+    }
+}
+
+#if USE_GENERIC_TREECTRL
+BEGIN_EVENT_TABLE(MadTreeCtrl, wxGenericTreeCtrl)
+#else
+BEGIN_EVENT_TABLE(MadTreeCtrl, wxTreeCtrl)
+#endif
+    // EVT_TREE_ITEM_MENU is the preferred event for creating context menus
+    // on a tree control, because it includes the point of the click or item,
+    // meaning that no additional placement calculations are required.
+    EVT_TREE_ITEM_MENU(MadEditFrame::ID_FINDINFILESRESULTS, MadTreeCtrl::OnItemMenu)
+END_EVENT_TABLE()
+
+MadTreeCtrl::MadTreeCtrl(wxWindow *parent, const wxWindowID id,
+                       const wxPoint& pos, const wxSize& size,
+                       long style)
+          : wxTreeCtrl(parent, id, pos, size, style)
+{
+}
+
+void MadTreeCtrl::OnItemMenu(wxTreeEvent& event)
+{
+    wxTreeItemId itemId = event.GetItem();
+    wxCHECK_RET( itemId.IsOk(), "should have a valid item" );
+
+    //MyTreeItemData *item = (MyTreeItemData *)GetItemData(itemId);
+    wxPoint clientpt = event.GetPoint();
+    wxPoint screenpt = ClientToScreen(clientpt);
+
+    //wxLogMessage(wxT("OnItemMenu for item \"%s\" at screen coords (%i, %i)"),
+    //             item->GetDesc(), screenpt.x, screenpt.y);
+
+    ShowMenu(itemId, clientpt);
+    event.Skip();
+}
+
+void MadTreeCtrl::ShowMenu(wxTreeItemId id, const wxPoint& pt)
+{
+#if wxUSE_MENUS
+    wxMenu menu((long)0);
+    menu.Append(menuCopyCurResult, wxT("&Copy Selected"));
+    menu.Append(menuCopyAllResults, wxT("Copy &All"));
+    //menu.Append(TreeTest_Highlight, wxT("&Highlight item"));
+    //menu.Append(TreeTest_Dump, wxT("&Dump"));
+
+    PopupMenu(&menu, pt);
+#endif // wxUSE_MENUS
 }
 

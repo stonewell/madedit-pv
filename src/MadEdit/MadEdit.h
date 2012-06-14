@@ -787,6 +787,7 @@ public: // basic functions
     void CopyToClipboard();
     void PasteFromClipboard();
     bool CanPaste();
+    void CopyToClipboard(wxString & text){PutTextToClipboard(text);}
 
     bool CanUndo()
     {
