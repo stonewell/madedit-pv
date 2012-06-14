@@ -43,6 +43,7 @@
 class wxMadAuiNotebook;
 class wxAuiNotebookEvent;
 class MadEdit;
+class MadTreeCtrl;
 
 class MadEditFrame : public wxFrame
 {
@@ -91,7 +92,8 @@ public:
 
     wxAuiManager m_AuiManager; // wxAUI
     wxAuiNotebook *m_InfoNotebook; //
-    wxTreeCtrl *m_FindInFilesResults;
+    //wxTreeCtrl *m_FindInFilesResults;
+    MadTreeCtrl *m_FindInFilesResults;
 
     void OnUpdateUI_MenuFile_CheckCount(wxUpdateUIEvent& event);
     void OnUpdateUI_MenuFileReload(wxUpdateUIEvent& event);
@@ -274,6 +276,8 @@ public:
 
     void OnHelpAbout(wxCommandEvent& event);
 
+    void OnCopyCurrResult(wxCommandEvent& event);
+    void OnCopyAllResults(wxCommandEvent& event);
 private:
     bool m_PageClosing; // prevent from reentry of CloseFile(), OnNotebookPageClosing()
 public:
@@ -481,11 +485,35 @@ enum { // menu id
     // window
     menuToggleWindow,
     menuPreviousWindow,
-    menuNextWindow
+    menuNextWindow,
+
+    // results
+    menuCopyCurResult,
+    menuCopyAllResults,
 };
 
 extern MadEditFrame *g_MainFrame;
 extern void OnReceiveMessage(const wchar_t *msg, size_t size);
+
+class MadTreeCtrl : public wxTreeCtrl
+{
+public:
+    MadTreeCtrl() {}
+    MadTreeCtrl(wxWindow *parent, const wxWindowID id,
+               const wxPoint& pos, const wxSize& size,
+               long style);
+    virtual ~MadTreeCtrl(){};
+    void OnItemMenu(wxTreeEvent& event);
+protected:
+    void ShowMenu(wxTreeItemId id, const wxPoint& pt);
+private:
+    // NB: due to an ugly wxMSW hack you _must_ use DECLARE_DYNAMIC_CLASS()
+    //     if you want your overloaded OnCompareItems() to be called.
+    //     OTOH, if you don't want it you may omit the next line - this will
+    //     make default (alphabetical) sorting much faster under wxMSW.
+    //DECLARE_DYNAMIC_CLASS(MadTreeCtrl)
+    DECLARE_EVENT_TABLE()
+};
 
 #endif
 

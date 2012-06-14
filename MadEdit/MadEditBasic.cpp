@@ -1697,7 +1697,7 @@ void MadEdit::DndDrop()
         vector < ucs4_t > ucs;
         TranslateText(m_DndData.c_str(), m_DndData.Len(), &ucs, false);
 
-        if(ucs.size())
+        if(!ucs.empty())
             InsertColumnString(&(*ucs.begin()), ucs.size(), m_DndLines, false, false);
     }
     else if(m_EditMode == emHexMode && m_CaretAtHexArea)
@@ -1706,7 +1706,7 @@ void MadEdit::DndDrop()
         vector < char >cs;
         GetHexDataFromClipboard(&cs);
 
-        if(cs.size())
+        if(!cs.empty())
         {
             InsertHexData((wxByte*)&(*cs.begin()), cs.size());
         }

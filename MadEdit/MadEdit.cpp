@@ -10922,11 +10922,12 @@ int MadEdit::GetUCharWidth(ucs4_t uc)
     if(uc>0x10FFFF || uc<0) uc='?';
 
     register int idx=uc>>16;
-    wxUint16 *widths=m_TextFontWidths[idx];
+    //patch for randomly hang in PrintTextLines
+    wxUint16 *widths/*=m_TextFontWidths[idx];
     if(widths==NULL)
     {
-        widths=m_TextFontWidths[idx]=FontWidthManager::GetFontWidths(idx, m_TextFont->GetFaceName(), m_TextFont->GetPointSize(), this);
-    }
+        widths*/=m_TextFontWidths[idx]=FontWidthManager::GetFontWidths(idx, m_TextFont->GetFaceName(), m_TextFont->GetPointSize(), this);
+    //}
 
     idx=uc&0xFFFF;
     int w;
