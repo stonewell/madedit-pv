@@ -110,6 +110,11 @@ public:
     void OnUpdateUI_MenuEditInsertTabChar(wxUpdateUIEvent& event);
     void OnUpdateUI_MenuEditInsertDateTime(wxUpdateUIEvent& event);
 
+    // add: gogo, 21.09.2009
+    void OnUpdateUI_MenuEditToggleBookmark(wxUpdateUIEvent& event);
+    void OnUpdateUI_MenuEditGotoNextBookmark(wxUpdateUIEvent& event);
+    void OnUpdateUI_MenuEditGotoPreviousBookmark(wxUpdateUIEvent& event);
+
     void OnUpdateUI_Menu_CheckTextFile(wxUpdateUIEvent& event);
 
     void OnUpdateUI_MenuEditCopyAsHexString(wxUpdateUIEvent& event);
@@ -173,6 +178,12 @@ public:
     void OnEditSelectAll(wxCommandEvent& event);
     void OnEditInsertTabChar(wxCommandEvent& event);
     void OnEditInsertDateTime(wxCommandEvent& event);
+
+    // add: gogo, 21.09.2009
+    void OnEditToggleBookmark(wxCommandEvent& event);
+    void OnEditGotoNextBookmark(wxCommandEvent& event);
+    void OnEditGotoPreviousBookmark(wxCommandEvent& event);
+    //----------
 
     void OnEditSortAscending(wxCommandEvent& event);
     void OnEditSortDescending(wxCommandEvent& event);
@@ -343,6 +354,9 @@ enum { // menu id
     menuDeleteLine,
     menuInsertTabChar,
     menuInsertDateTime,
+    menuToggleBookmark,       // add: gogo, 21.09.2009
+    menuGotoNextBookmark,     // add: gogo, 21.09.2009
+    menuGotoPreviousBookmark, // add: gogo, 21.09.2009
     menuSort,
     menuSortAscending,
     menuSortDescending,

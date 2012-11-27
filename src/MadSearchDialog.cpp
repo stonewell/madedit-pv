@@ -10,7 +10,10 @@
 #include "MadReplaceDialog.h"
 
 #include "MadEdit/MadEdit.h"
-
+#include "wx/gbsizer.h"
+#include "MadEditFrame.h"
+#include <list>
+#include <sstream>
 //Do not add custom headers.
 //wx-dvcpp designer will remove them
 ////Header Include Start
@@ -18,6 +21,8 @@
 
 
 #include "../images/down.xpm"
+
+extern wxStatusBar *g_StatusBar;   // add: gogo, 19.09.2009
 
 MadSearchDialog *g_SearchDialog=NULL;
 
@@ -117,6 +122,10 @@ void MadSearchDialog::CreateGUIControls(void)
 	WxCheckBoxFindHex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxFindHex, 0, wxALIGN_LEFT | wxALL, 2);
 
+	WxCheckBoxSearchThrEndOfFile = new wxCheckBox(this, ID_WXCHECKBOXSEARCHTHRENDOFFILE, _("Search Through &End of File"), wxPoint(25, 132), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchThrEndOfFile"));
+	WxCheckBoxSearchThrEndOfFile->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
+	WxBoxSizer5->Add(WxCheckBoxSearchThrEndOfFile, 0, wxALIGN_LEFT | wxALL, 2);
+
 	WxBoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
 	WxBoxSizer5->Add(WxBoxSizer6, 0, wxALIGN_LEFT | wxALL, 0);
 
@@ -182,7 +191,8 @@ void MadSearchDialog::CreateGUIControls(void)
     //restore wxFont
     #undef wxFont
 
-    this->SetPosition(wxPoint(300,100));
+    // removed: gogo, 19.09.2009
+    //this->SetPosition(wxPoint(300,100));
 
     int bw, bh;
     WxButtonFindNext->GetSize(&bw, &bh);
@@ -209,6 +219,7 @@ void MadSearchDialog::CreateGUIControls(void)
     ResizeItem(WxBoxSizer5, WxCheckBoxWholeWord, 25, 4);
     ResizeItem(WxBoxSizer5, WxCheckBoxRegex, 25, 4);
     ResizeItem(WxBoxSizer5, WxCheckBoxFindHex, 25, 4);
+    ResizeItem(WxBoxSizer5, WxCheckBoxSearchThrEndOfFile, 25, 4);
     ResizeItem(WxBoxSizer6, WxCheckBoxSearchInSelection, 25, 4);
     ResizeItem(WxBoxSizer6, WxStaticTextFrom, 2, 2);
     ResizeItem(WxBoxSizer6, WxStaticTextTo, 2, 2);
@@ -223,6 +234,7 @@ void MadSearchDialog::CreateGUIControls(void)
     WxCheckBoxWholeWord->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxCheckBoxRegex->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxCheckBoxFindHex->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
+    WxCheckBoxSearchThrEndOfFile->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxCheckBoxSearchInSelection->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxEditFrom->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxEditTo->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
@@ -238,6 +250,19 @@ void MadSearchDialog::CreateGUIControls(void)
 
     wxConfigBase *m_Config=wxConfigBase::Get(false);
     wxString oldpath=m_Config->GetPath();
+
+    // add: gogo, 19.09.2009
+    long x = 480, y = 100;
+    m_Config->Read( wxT("/MadEdit/SearchWinLeft"), &x );
+    m_Config->Read( wxT("/MadEdit/SearchWinTop"), &y );
+    SetPosition( wxPoint(x,y) );
+    bool bb;
+    // I prefer to read it here instead in ReadWriteSettings(), because here
+    // it will be read once per session instead of every 'Ctrl + F'
+    m_Config->Read(wxT("/MadEdit/SearchThrEndOfFile"), &bb, false);
+    WxCheckBoxSearchThrEndOfFile->SetValue( bb );
+    //--------
+
     m_Config->SetPath(wxT("/RecentFindText"));
     m_RecentFindText->Load(*m_Config);
     m_Config->SetPath(oldpath);
@@ -289,6 +314,10 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
     if(g_ActiveMadEdit==NULL)
         return;
 
+    // add: gogo, 19.09.2009
+    g_StatusBar->SetStatusText( wxEmptyString, 0 );
+    bool ThrEndOfFile = false;
+
     wxString text;
     m_FindText->GetText(text, true);
 
@@ -298,6 +327,9 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
 
         MadSearchResult sr;
         wxFileOffset selend = g_ActiveMadEdit->GetSelectionEndPos();
+
+	   // moved here: gogo, 19.09.2009
+	   wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
 
         wxInt64 from = 0, to = 0;
         wxFileOffset rangeFrom = -1, rangeTo = -1;
@@ -315,8 +347,9 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
             }
 
             rangeTo = to;
-            wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
-            if(caretpos <= from || caretpos > to)
+		  // removed: gogo, 19.09.2009
+            //wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
+            if(caretpos <= from || caretpos >= to)
                 rangeFrom = from;
         }
 
@@ -342,8 +375,28 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
                     selend = -1;
                     continue;
                 }
+
+                // add: gogo, 19.09.2009
+                if ( ThrEndOfFile )
+                    g_StatusBar->SetStatusText( _("Passed the end of the file"), 0 );
+
                 break;
             }
+
+            // add: gogo, 19.09.2009
+            if ( WxCheckBoxSearchThrEndOfFile->IsChecked() && ! WxCheckBoxSearchInSelection->IsChecked() )
+            {
+                if ( rangeTo == caretpos )
+                {
+                    g_StatusBar->SetStatusText( _("Cannot find the matched string"), 0 );
+                    break;
+                }
+                rangeTo = caretpos;
+                rangeFrom = 0;
+                ThrEndOfFile = true;
+                continue;
+            }
+            //--------------
 
             wxString msg(_("Cannot find the matched string."));
             msg += wxT("\n\n");
@@ -351,7 +404,11 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
                 _("Do you want to find from begin of selection?"):
                 _("Do you want to find from begin of file?");
 
-            if(wxCANCEL == wxMessageBox(msg, _("Find Next"), wxOK|wxCANCEL|wxCANCEL_DEFAULT|wxICON_QUESTION ))
+            if(wxCANCEL == wxMessageBox(msg, _("Find Next"), wxOK|wxCANCEL
+#if (wxMAJOR_VERSION == 2 && wxMINOR_VERSION > 9)
+            |wxCANCEL_DEFAULT
+#endif
+            |wxICON_QUESTION ))
             {
                 break;
             }
@@ -376,6 +433,10 @@ void MadSearchDialog::WxButtonFindPrevClick(wxCommandEvent& event)
     if(g_ActiveMadEdit==NULL)
         return;
 
+    // add: gogo, 19.09.2009
+    g_StatusBar->SetStatusText( wxEmptyString, 0 );
+    bool ThrEndOfFile = false;
+
     wxString text;
     m_FindText->GetText(text, true);
 
@@ -385,6 +446,9 @@ void MadSearchDialog::WxButtonFindPrevClick(wxCommandEvent& event)
 
         MadSearchResult sr;
         wxFileOffset selbeg = g_ActiveMadEdit->GetSelectionBeginPos();
+
+        // moved here: gogo, 19.09.2009
+	   wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
 
         wxInt64 from = 0, to = 0;
         wxFileOffset rangeFrom = -1, rangeTo = -1;
@@ -402,7 +466,8 @@ void MadSearchDialog::WxButtonFindPrevClick(wxCommandEvent& event)
             }
 
             rangeFrom = from;
-            wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
+            // removed: gogo, 19.09.2009
+            //wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
             if(caretpos < from || caretpos >= to)
                 rangeTo = to;
         }
@@ -429,8 +494,28 @@ void MadSearchDialog::WxButtonFindPrevClick(wxCommandEvent& event)
                     selbeg = -1;
                     continue;
                 }
+
+                // add: gogo, 19.09.2009
+                if ( ThrEndOfFile )
+                    g_StatusBar->SetStatusText( _("Passed the end of the file"), 0 );
+
                 break;
             }
+
+            // add: gogo, 19.09.2009
+            if ( WxCheckBoxSearchThrEndOfFile->IsChecked() && ! WxCheckBoxSearchInSelection->IsChecked() )
+            {
+                if ( rangeFrom == caretpos )
+                {
+                    g_StatusBar->SetStatusText( _("Cannot find the matched string"), 0 );
+                    break;
+                }
+                rangeTo = g_ActiveMadEdit->GetFileSize();
+                rangeFrom = caretpos;
+                ThrEndOfFile = true;
+                continue;
+            }
+            //--------------
 
             wxString msg(_("Cannot find the matched string."));
             msg += wxT("\n\n");
@@ -584,6 +669,13 @@ void MadSearchDialog::ReadWriteSettings(bool bRead)
     m_Config->SetPath(oldpath);
 }
 
+static inline ucs4_t ToHex(int d)// 0 <= d <= 15
+{
+    if(d < 10)
+        return '0' + d;
+    return 'A' + d - 10;
+}
+
 void MadSearchDialog::UpdateCheckBoxByCBHex(bool check)
 {
     if(check)
@@ -605,6 +697,54 @@ void MadSearchDialog::UpdateCheckBoxByCBHex(bool check)
  */
 void MadSearchDialog::WxCheckBoxFindHexClick(wxCommandEvent& event)
 {
+    extern MadEdit *g_ActiveMadEdit;
+    bool checked = event.IsChecked();
+    if(checked)
+    {
+        wxString text;
+        m_FindText->GetText(text, true);
+        if(text.IsEmpty())
+        {
+            if(g_ActiveMadEdit!=NULL)
+            {
+                wxString ws;
+                g_ActiveMadEdit->GetSelHexString(ws, true);
+                m_FindText->SetText(ws);
+            }
+        }
+        else
+        {
+            wxString ws;
+            int i = 0;
+            bool withSpace = true;
+            while( i < text.Len())
+            {
+                ws<< wxChar(::ToHex(((char)text[i]>>4)&0xF));
+                ws<< wxChar(::ToHex((char)text[i]&0xf));
+        
+                if(withSpace)
+                {
+                    ws<< wxChar(' ');
+                }
+                ++i;
+            }
+            m_FindText->SetText(ws);
+        }
+    }
+    else
+    {
+        wxString text;
+        m_FindText->GetText(text, true);
+        if(text.IsEmpty())
+        {
+            if(g_ActiveMadEdit!=NULL)
+            {
+                wxString ws;
+                g_ActiveMadEdit->GetSelText(ws);
+                m_FindText->SetText(ws);
+            }
+        }
+    }
     UpdateCheckBoxByCBHex(event.IsChecked());
 }
 
@@ -655,6 +795,12 @@ void MadSearchDialog::UpdateSearchInSelection(bool check)
         WxEditFrom->SetValue(wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).ToString());
         WxEditTo->SetValue(wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).ToString());
     }
+
+    // add: gogo, 19.09.2009
+    if(check)
+        WxCheckBoxSearchThrEndOfFile->Disable();
+    else
+        WxCheckBoxSearchThrEndOfFile->Enable();
 }
 
 
@@ -783,7 +929,6 @@ void MadSearchDialog::WxButtonFindAllClick(wxCommandEvent& event)
             if(!expr.IsEmpty())
             {
                 size_t count=begpos.size(), idx=0;
-                //if(WxCheckBoxListFirstOnly->GetValue()) count=1;
                 int line=-1, oldline;
                 wxString linetext, loc;
                 results->Freeze();

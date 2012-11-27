@@ -362,6 +362,12 @@ void MadReplaceDialog::ReadWriteSettings(bool bRead)
     m_Config->SetPath(oldpath);
 }
 
+static inline ucs4_t ToHex(int d)// 0 <= d <= 15
+{
+    if(d < 10)
+        return '0' + d;
+    return 'A' + d - 10;
+}
 void MadReplaceDialog::UpdateCheckBoxByCBHex(bool check)
 {
     if(check)
@@ -383,6 +389,54 @@ void MadReplaceDialog::UpdateCheckBoxByCBHex(bool check)
  */
 void MadReplaceDialog::WxCheckBoxFindHexClick(wxCommandEvent& event)
 {
+    extern MadEdit *g_ActiveMadEdit;
+    bool checked = event.IsChecked();
+    if(checked)
+    {
+        wxString text;
+        m_FindText->GetText(text, true);
+        if(text.IsEmpty())
+        {
+            if(g_ActiveMadEdit!=NULL)
+            {
+                wxString ws;
+                g_ActiveMadEdit->GetSelHexString(ws, true);
+                m_FindText->SetText(ws);
+            }
+        }
+        else
+        {
+            wxString ws;
+            int i = 0;
+            bool withSpace = true;
+            while( i < text.Len())
+            {
+                ws<< wxChar(::ToHex(((char)text[i]>>4)&0xF));
+                ws<< wxChar(::ToHex((char)text[i]&0xf));
+        
+                if(withSpace)
+                {
+                    ws<< wxChar(' ');
+                }
+                ++i;
+            }
+            m_FindText->SetText(ws);
+        }
+    }
+    else
+    {
+        wxString text;
+        m_FindText->GetText(text, true);
+        if(text.IsEmpty())
+        {
+            if(g_ActiveMadEdit!=NULL)
+            {
+                wxString ws;
+                g_ActiveMadEdit->GetSelText(ws);
+                m_FindText->SetText(ws);
+            }
+        }
+    }
     UpdateCheckBoxByCBHex(event.IsChecked());
 }
 

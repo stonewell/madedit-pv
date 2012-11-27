@@ -294,7 +294,7 @@ void MadEdit::SetTextFont(const wxString &name, int size, bool forceReset)
                 }
                 else
                 {
-                    for(wxChar wc=wxT('A');wc<=wxT('F');wc++)
+                    for(wxChar wc=wxT('A');wc<=wxT('F');++wc)
                     {
                         w=GetUCharWidth(wc);
                         if(w>m_TextFontMaxDigitWidth)
@@ -485,13 +485,13 @@ void MadEdit::SetHexFont(const wxString &name, int size, bool forceReset)
 
             int w;
             m_HexFontMaxDigitWidth=GetHexUCharWidth('0');
-            for(wxChar wc=wxT('1');wc<=wxT('9');wc++)
+            for(wxChar wc=wxT('1');wc<=wxT('9');++wc)
             {
                 w=GetHexUCharWidth(wc);
                 if(w>m_HexFontMaxDigitWidth)
                     m_HexFontMaxDigitWidth=w;
             }
-            for(wxChar wc=wxT('A');wc<=wxT('F');wc++)
+            for(wxChar wc=wxT('A');wc<=wxT('F');++wc)
             {
                 w=GetHexUCharWidth(wc);
                 if(w>m_HexFontMaxDigitWidth)
@@ -1590,6 +1590,171 @@ void MadEdit::PasteFromClipboard()
     }
 }
 
+void MadEdit::DndBegDrag()
+{
+    if(!m_Selection) return;
+
+    //m_DndData.Empty();
+    if(m_EditMode==emColumnMode)
+    {
+        GetColumnSelection(&m_DndData);
+        
+        if(m_DndData.size())
+        {
+            m_DndLines = m_SelectionEnd->rowid - m_SelectionBegin->rowid + 1;
+        }
+    }
+    else if(m_EditMode==emTextMode || !m_CaretAtHexArea)
+    {
+        MadUCQueue ucqueue;
+        MadLines::NextUCharFuncPtr NextUChar=m_Lines->NextUChar;
+
+        wxFileOffset pos = m_SelectionBegin->pos;
+        MadLineIterator lit = m_SelectionBegin->iter;
+        m_Lines->InitNextUChar(lit, m_SelectionBegin->linepos);
+        do
+        {
+            if(ucqueue.size() || (m_Lines->*NextUChar)(ucqueue))
+            {
+                ucs4_t &uc=ucqueue.front().first;
+                if(uc==0x0D || uc==0x0A)
+                {
+#ifdef __WXMSW__
+                    m_DndData<<wxChar(0x0D);
+#endif
+                    m_DndData<<wxChar(0x0A);
+
+                    pos += ucqueue.front().second;
+
+                    if(uc==0x0D && (m_Lines->*NextUChar)(ucqueue) &&
+                        ucqueue.back().first==0x0A)
+                    {
+                        pos += ucqueue.back().second;
+                    }
+
+                    ucqueue.clear();
+
+                }
+#ifdef __WXMSW__
+                else if(uc>=0x10000)
+                {
+                    wchar_t wcbuf[2];
+                    m_Encoding->UCS4toUTF16LE_U10000(uc, (wxByte*)wcbuf);
+                    m_DndData<<wxChar(wcbuf[0]);
+                    m_DndData<<wxChar(wcbuf[1]);
+                    pos += ucqueue.front().second;
+                    ucqueue.clear();
+                }
+#endif
+                else
+                {
+                    m_DndData<<wxChar(uc);
+                    pos += ucqueue.front().second;
+                    ucqueue.clear();
+                }
+
+            }
+            else
+            {
+                m_Lines->InitNextUChar(++lit, 0);
+            }
+        }
+        while(pos < m_SelectionEnd->pos);
+    }
+    else //m_EditMode==emHexMode && m_CaretAtHexArea
+    {
+        wxFileOffset pos = m_SelectionBegin->pos;
+        MadLineIterator lit = m_SelectionBegin->iter;
+        wxFileOffset lpos = m_SelectionBegin->linepos;
+
+        std::string data;
+        do
+        {
+            if(lpos < lit->m_Size)
+            {
+                data += lit->Get(lpos++);
+                ++pos;
+            }
+            else
+            {
+                ++lit;
+                lpos = 0;
+            }
+        }
+        while(pos < m_SelectionEnd->pos);
+
+        m_DndData=wxString(data.c_str(), wxConvLibc, data.size());
+    }
+}
+
+void MadEdit::DndDrop()
+{
+    if(IsReadOnly())
+        return;
+        
+    if(m_EditMode == emColumnMode)
+    {
+        vector < ucs4_t > ucs;
+        TranslateText(m_DndData.c_str(), m_DndData.Len(), &ucs, false);
+
+        if(!ucs.empty())
+            InsertColumnString(&(*ucs.begin()), ucs.size(), m_DndLines, false, false);
+    }
+    else if(m_EditMode == emHexMode && m_CaretAtHexArea)
+    {
+        #if 0
+        vector < char >cs;
+        GetHexDataFromClipboard(&cs);
+
+        if(!cs.empty())
+        {
+            InsertHexData((wxByte*)&(*cs.begin()), cs.size());
+        }
+        #endif
+    }
+    else //if(m_EditMode == emTextMode || !m_CaretAtHexArea)
+    {
+        vector < ucs4_t > ucs;
+        TranslateText(m_DndData.c_str(), m_DndData.Len(), &ucs, false);
+
+        size_t size = ucs.size();
+        if(size)
+        {
+            //bool oldim = m_InsertMode;
+            //m_InsertMode = true;
+            //bool old_selflag = m_Selection;
+            //m_Selection = false;
+            InsertString(&(*ucs.begin()), size, false, true, false);
+            //m_Selection = old_selflag;
+            //m_InsertMode = oldim;
+            
+            /*if(!m_DragCopyFlag)
+            {
+                wxFileOffset OldCaretPos = m_CaretPos.pos;
+                wxFileOffset SelectionLen = 0, SelDelta = m_SelectionEnd->pos - m_SelectionBegin->pos;
+                if(OldCaretPos > m_SelectionBegin->pos)
+                {
+                    SelectionLen = SelDelta;
+                }
+                else
+                {
+                    m_SelectionPos1.pos += SelDelta;
+                    m_SelectionPos2.pos += SelDelta;
+                    UpdateCaretByPos(m_SelectionPos1, m_ActiveRowUChars, m_ActiveRowWidths, m_CaretRowUCharPos);
+                    UpdateCaretByPos(m_SelectionPos2, m_ActiveRowUChars, m_ActiveRowWidths, m_CaretRowUCharPos);
+                    UpdateSelectionPos();
+                }
+
+                DeleteSelection(false, NULL, false);
+                SetCaretPosition(OldCaretPos-SelectionLen);
+            }*/
+        }
+    }
+
+    //EndUpdateSelection(false); 
+    m_DndData.clear();
+}
+
 
 void MadEdit::Undo()
 {
@@ -2068,6 +2233,7 @@ bool MadEdit::SaveToFile(const wxString &filename)
 int MadEdit::Save(bool ask, const wxString &title, bool saveas) // return YES, NO, CANCEL
 {
     int ret=wxID_YES;
+    bool refresh = false; 
     wxString filename=m_Lines->m_Name;
     if(filename.IsEmpty())
     {
@@ -2097,7 +2263,7 @@ int MadEdit::Save(bool ask, const wxString &title, bool saveas) // return YES, N
         if(saveas || m_Lines->m_Name.IsEmpty())  // choose a file to save
         {
             static int filterIndex = 0;
-            wxString fileFilter = wxString("All files (*;*.*)|") + wxFileSelectorDefaultWildcardStr + wxT("|68k Assembly (*.68k)|*.68k|ActionScript (*.as;*.asc;*.mx)|*.as;*.asc;*.mx|Ada (*.a;*.ada;*.adb;*.ads)|*.a;*.ada;*.adb;*.ads|Apache Conf (*.conf;*.htaccess)|*.conf;*.htaccess|Bash Shell Script (*.bsh;*.configure;*.sh)|*.bsh;*.configure;*.sh|Boo (*.boo)|*.boo|C (*.c;*.h)|*.c;*.h|C# (*.cs)|*.cs|C-Shell Script (*.csh)|*.csh|Caml (*.ml;*.mli)|*.ml;*.mli|Cascading Style Sheet (*.css)|*.css|Cilk (*.cilk;*.cilkh)|*.cilk;*.cilkh|Cobra (*.cobra)|*.cobra|ColdFusion (*.cfc;*.cfm;*.cfml;*.dbm)|*.cfc;*.cfm;*.cfml;*.dbm|CPP (*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx)|*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx|D (*.d)|*.d|Diff File (*.diff;*.patch)|*.diff;*.patch|Django (*.django)|*.django|DOS Batch Script (*.bat;*.cmd)|*.bat;*.cmd|DOT (*.dot)|*.dot|DSP56K Assembly (*.56k)|*.56k|Editra Style Sheet (*.ess)|*.ess|Edje (*.edc)|*.edc|Eiffel (*.e)|*.e|Erlang (*.erl)|*.erl|Ferite (*.fe)|*.fe|FlagShip (*.prg)|*.prg|Forth (*.4th;*.fs;*.fth;*.seq)|*.4th;*.fs;*.fth;*.seq|Fortran 77 (*.f;*.for)|*.f;*.for|Fortran 95 (*.f2k;*.f90;*.f95;*.fpp)|*.f2k;*.f90;*.f95;*.fpp|GLSL (*.frag;*.glsl;*.vert)|*.frag;*.glsl;*.vert|GNU Assembly (*.gasm)|*.gasm|Groovy (*.groovy)|*.groovy|Gui4Cli (*.gc;*.gui)|*.gc;*.gui|Haskell (*.hs)|*.hs|HaXe (*.hx;*.hxml)|*.hx;*.hxml|HTML (*.htm;*.html;*.shtm;*.shtml;*.xhtml)|*.htm;*.html;*.shtm;*.shtml;*.xhtml|Inno Setup Script (*.iss)|*.iss|IssueList (*.isl)|*.isl|Java (*.java)|*.java|JavaScript (*.js)|*.js|Kix (*.kix)|*.kix|Korn Shell Script (*.ksh)|*.ksh|LaTeX (*.aux;*.sty;*.tex)|*.aux;*.sty;*.tex|Lisp (*.cl;*.lisp)|*.cl;*.lisp|Lout (*.lt)|*.lt|Lua (*.lua)|*.lua|Mako (*.mako;*.mao)|*.mako;*.mao|MASM (*.asm;*.masm)|*.asm;*.masm|Matlab (*.matlab)|*.matlab|Microsoft SQL (*.mssql)|*.mssql|Netwide Assembler (*.nasm)|*.nasm|newLISP (*.lsp)|*.lsp|NONMEM Control Stream (*.ctl)|*.ctl|Nullsoft Installer Script (*.nsh;*.nsi)|*.nsh;*.nsi|Objective C (*.m;*.mm)|*.m;*.mm|Octave (*.oct;*.octave)|*.oct;*.octave|OOC (*.ooc)|*.ooc|Pascal (*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp)|*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp|Perl (*.cgi;*.pl;*.pm;*.pod)|*.cgi;*.pl;*.pm;*.pod|PHP (*.php;*.php3;*.phtm;*.phtml)|*.php;*.php3;*.phtm;*.phtml|Pike (*.pike)|*.pike|PL/SQL (*.plsql)|*.plsql|Plain Text (*.txt)|*.txt|Postscript (*.ai;*.ps)|*.ai;*.ps|Progress 4GL (*.4gl)|*.4gl|Properties (*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url)|*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url|Python (*.py;*.python;*.pyw)|*.py;*.python;*.pyw|R (*.r)|*.r|Ruby (*.gemspec;*.rake;*.rb;*.rbw;*.rbx)|*.gemspec;*.rake;*.rb;*.rbw;*.rbx|S (*.s)|*.s|Scheme (*.scm;*.smd;*.ss)|*.scm;*.smd;*.ss|Smalltalk (*.st)|*.st|SQL (*.sql)|*.sql|Squirrel (*.nut)|*.nut|Stata (*.ado;*.do)|*.ado;*.do|System Verilog (*.sv;*.svh)|*.sv;*.svh|Tcl/Tk (*.itcl;*.tcl;*.tk)|*.itcl;*.tcl;*.tk|Vala (*.vala)|*.vala|VBScript (*.dsm;*.vbs)|*.dsm;*.vbs|Verilog (*.v)|*.v|VHDL (*.vh;*.vhd;*.vhdl)|*.vh;*.vhd;*.vhdl|Visual Basic (*.bas;*.cls;*.frm;*.vb)|*.bas;*.cls;*.frm;*.vb|XML (*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul)|*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul|Xtext (*.xtext)|*.xtext|YAML (*.yaml;*.yml)|*.yaml;*.yml");
+            wxString fileFilter = wxString(wxT("All files (*;*.*)|")) + wxFileSelectorDefaultWildcardStr + wxT("|68k Assembly (*.68k)|*.68k|ActionScript (*.as;*.asc;*.mx)|*.as;*.asc;*.mx|Ada (*.a;*.ada;*.adb;*.ads)|*.a;*.ada;*.adb;*.ads|Apache Conf (*.conf;*.htaccess)|*.conf;*.htaccess|Bash Shell Script (*.bsh;*.configure;*.sh)|*.bsh;*.configure;*.sh|Boo (*.boo)|*.boo|C (*.c;*.h)|*.c;*.h|C# (*.cs)|*.cs|C-Shell Script (*.csh)|*.csh|Caml (*.ml;*.mli)|*.ml;*.mli|Cascading Style Sheet (*.css)|*.css|Cilk (*.cilk;*.cilkh)|*.cilk;*.cilkh|Cobra (*.cobra)|*.cobra|ColdFusion (*.cfc;*.cfm;*.cfml;*.dbm)|*.cfc;*.cfm;*.cfml;*.dbm|CPP (*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx)|*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx|D (*.d)|*.d|Diff File (*.diff;*.patch)|*.diff;*.patch|Django (*.django)|*.django|DOS Batch Script (*.bat;*.cmd)|*.bat;*.cmd|DOT (*.dot)|*.dot|DSP56K Assembly (*.56k)|*.56k|Editra Style Sheet (*.ess)|*.ess|Edje (*.edc)|*.edc|Eiffel (*.e)|*.e|Erlang (*.erl)|*.erl|Ferite (*.fe)|*.fe|FlagShip (*.prg)|*.prg|Forth (*.4th;*.fs;*.fth;*.seq)|*.4th;*.fs;*.fth;*.seq|Fortran 77 (*.f;*.for)|*.f;*.for|Fortran 95 (*.f2k;*.f90;*.f95;*.fpp)|*.f2k;*.f90;*.f95;*.fpp|GLSL (*.frag;*.glsl;*.vert)|*.frag;*.glsl;*.vert|GNU Assembly (*.gasm)|*.gasm|Groovy (*.groovy)|*.groovy|Gui4Cli (*.gc;*.gui)|*.gc;*.gui|Haskell (*.hs)|*.hs|HaXe (*.hx;*.hxml)|*.hx;*.hxml|HTML (*.htm;*.html;*.shtm;*.shtml;*.xhtml)|*.htm;*.html;*.shtm;*.shtml;*.xhtml|Inno Setup Script (*.iss)|*.iss|IssueList (*.isl)|*.isl|Java (*.java)|*.java|JavaScript (*.js)|*.js|Kix (*.kix)|*.kix|Korn Shell Script (*.ksh)|*.ksh|LaTeX (*.aux;*.sty;*.tex)|*.aux;*.sty;*.tex|Lisp (*.cl;*.lisp)|*.cl;*.lisp|Lout (*.lt)|*.lt|Lua (*.lua)|*.lua|Mako (*.mako;*.mao)|*.mako;*.mao|MASM (*.asm;*.masm)|*.asm;*.masm|Matlab (*.matlab)|*.matlab|Microsoft SQL (*.mssql)|*.mssql|Netwide Assembler (*.nasm)|*.nasm|newLISP (*.lsp)|*.lsp|NONMEM Control Stream (*.ctl)|*.ctl|Nullsoft Installer Script (*.nsh;*.nsi)|*.nsh;*.nsi|Objective C (*.m;*.mm)|*.m;*.mm|Octave (*.oct;*.octave)|*.oct;*.octave|OOC (*.ooc)|*.ooc|Pascal (*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp)|*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp|Perl (*.cgi;*.pl;*.pm;*.pod)|*.cgi;*.pl;*.pm;*.pod|PHP (*.php;*.php3;*.phtm;*.phtml)|*.php;*.php3;*.phtm;*.phtml|Pike (*.pike)|*.pike|PL/SQL (*.plsql)|*.plsql|Plain Text (*.txt)|*.txt|Postscript (*.ai;*.ps)|*.ai;*.ps|Progress 4GL (*.4gl)|*.4gl|Properties (*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url)|*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url|Python (*.py;*.python;*.pyw)|*.py;*.python;*.pyw|R (*.r)|*.r|Ruby (*.gemspec;*.rake;*.rb;*.rbw;*.rbx)|*.gemspec;*.rake;*.rb;*.rbw;*.rbx|S (*.s)|*.s|Scheme (*.scm;*.smd;*.ss)|*.scm;*.smd;*.ss|Smalltalk (*.st)|*.st|SQL (*.sql)|*.sql|Squirrel (*.nut)|*.nut|Stata (*.ado;*.do)|*.ado;*.do|System Verilog (*.sv;*.svh)|*.sv;*.svh|Tcl/Tk (*.itcl;*.tcl;*.tk)|*.itcl;*.tcl;*.tk|Vala (*.vala)|*.vala|VBScript (*.dsm;*.vbs)|*.dsm;*.vbs|Verilog (*.v)|*.v|VHDL (*.vh;*.vhd;*.vhdl)|*.vh;*.vhd;*.vhdl|Visual Basic (*.bas;*.cls;*.frm;*.vb)|*.bas;*.cls;*.frm;*.vb|XML (*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul)|*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul|Xtext (*.xtext)|*.xtext|YAML (*.yaml;*.yml)|*.yaml;*.yml");
             wxFileDialog dlg(this, dlgtitle, wxEmptyString, filename, fileFilter,
 #if wxCHECK_VERSION(2,8,0)
             wxFD_SAVE|wxFD_OVERWRITE_PROMPT );
@@ -2115,12 +2281,18 @@ int MadEdit::Save(bool ask, const wxString &title, bool saveas) // return YES, N
                 filename=dlg.GetPath();
                 g_MB2WC_check_dir_filename=false;
                 ret=wxID_YES;
+                refresh = true;
             }
         }
 
         if(ret==wxID_YES)
         {
             SaveToFile(filename);
+            if(refresh)
+            {
+                m_RepaintAll=true;
+                Refresh(false);
+            }
         }
     }
 
@@ -2386,7 +2558,7 @@ MadSearchResult MadEdit::FindTextPrevious(const wxString &text,
                 if((epos.linepos+=len)==epos.iter->m_Size)
                 {
                     epos.linepos=0;
-                    epos.iter++;
+                    ++epos.iter;
                 }
             }
             while((s-=len) > 0);
@@ -2567,8 +2739,8 @@ MadSearchResult MadEdit::FindHexPrevious(const wxString &hexstr,
                     ++bpos1.iter;
                     bpos1.linepos=0;
                 }
-                bpos1.pos++;
-                bpos1.linepos++;
+                ++bpos1.pos;
+                ++bpos1.linepos;
 
                 epos1=epos;
             }
@@ -2604,7 +2776,7 @@ MadSearchResult MadEdit::FindHexPrevious(const wxString &hexstr,
                 if((epos.linepos+=len)==epos.iter->m_Size)
                 {
                     epos.linepos=0;
-                    epos.iter++;
+                    ++epos.iter;
                 }
             }
             while((s-=len) > 0);
@@ -2849,7 +3021,7 @@ int MadEdit::ReplaceTextAll(const wxString &expr, const wxString &fmt,
             pendpos->resize(count);
 
             wxFileOffset diff=0, b, e, l;
-            for(int i=0; i<count; i++)
+            for(int i=0; i<count; ++i)
             {
                 b = del_bpos[i];
                 e = del_epos[i];
@@ -2967,7 +3139,7 @@ int MadEdit::ReplaceHexAll(const wxString &expr, const wxString &fmt,
             pendpos->resize(count);
 
             wxFileOffset diff=0, b, e, l;
-            for(int i=0; i<count; i++)
+            for(int i=0; i<count; ++i)
             {
                 b = del_bpos[i];
                 e = del_epos[i];
@@ -3419,7 +3591,7 @@ bool MadEdit::PrintPage(wxDC *dc, int pageNum)
         wxString lines;
         if(m_PrintOffsetHeader==2 || (m_PrintOffsetHeader==1&&pageNum==1))
         {
-            for(int i=0;i<76;i++)
+            for(int i=0;i<76;++i)
                 lines << wxChar(HexHeader[i]);
 
             lines << wxT('\n');
@@ -3433,7 +3605,7 @@ bool MadEdit::PrintPage(wxDC *dc, int pageNum)
 
         wxFileOffset hexrowpos = size_t(toprow)<<4;
         wxString offset(wxT("12345678"));
-        for(int rowidx=0;rowidx<rowcount;rowidx++, hexrowpos+=16)// for every hex-line
+        for(int rowidx=0;rowidx<rowcount;++rowidx, hexrowpos+=16)// for every hex-line
         {
             // paint offset
             size_t hex = size_t(hexrowpos);
@@ -3450,7 +3622,7 @@ bool MadEdit::PrintPage(wxDC *dc, int pageNum)
             GetLineByPos(lit, pos, rn);
             pos=hexrowpos-pos;
             int idx = 0;
-            for(int i = 0; i < 16; i++)
+            for(int i = 0; i < 16; ++i)
             {
                 if(pos == lit->m_Size)       // to next line
                 {

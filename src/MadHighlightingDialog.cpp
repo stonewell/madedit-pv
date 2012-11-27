@@ -368,7 +368,7 @@ void MadHighlightingDialog::CreateGUIControls(void)
 
     {   // build scheme list
         size_t cnt=MadSyntax::GetSchemeCount();
-        for(size_t i=0;i<cnt;i++)
+        for(size_t i=0;i<cnt;++i)
         {
             wxString name=MadSyntax::GetSchemeName(i);
             WxComboBoxScheme->Append(name);
@@ -378,7 +378,7 @@ void MadHighlightingDialog::CreateGUIControls(void)
 
     {   // build syntax type list
         size_t cnt=MadSyntax::GetSyntaxCount();
-        for(size_t i=0;i<cnt;i++)
+        for(size_t i=0;i<cnt;++i)
         {
             wxString title=MadSyntax::GetSyntaxTitle(i);
             WxListBoxSyntax->Append(title);
@@ -457,7 +457,7 @@ void MadHighlightingDialog::WxListBoxSyntaxSelected(wxCommandEvent& event)
     int index=0;
 
     // system attributes
-    for(int ae=aeText; ae<aeNone; ae++)
+    for(int ae=aeText; ae<aeNone; ++ae)
     {
         long item = WxListCtrlKeyword->InsertItem(index++, MadSyntax::GetAttributeName((MadAttributeElement)ae));
         MadAttributes *attr = g_Syntax->GetAttributes((MadAttributeElement)ae);
@@ -1000,7 +1000,7 @@ void MadHighlightingDialog::WxButtonSaveClick(wxCommandEvent& event)
     {
         WxComboBoxScheme->Clear();
         size_t cnt=MadSyntax::GetSchemeCount();
-        for(size_t i=0;i<cnt;i++)
+        for(size_t i=0;i<cnt;++i)
         {
             wxString name=MadSyntax::GetSchemeName(i);
             WxComboBoxScheme->Append(name);
@@ -1022,7 +1022,7 @@ void MadHighlightingDialog::WxButtonDeleteClick(wxCommandEvent& event)
     {
         WxComboBoxScheme->Clear();
         size_t cnt=MadSyntax::GetSchemeCount();
-        for(size_t i=0;i<cnt;i++)
+        for(size_t i=0;i<cnt;++i)
         {
             wxString name=MadSyntax::GetSchemeName(i);
             WxComboBoxScheme->Append(name);

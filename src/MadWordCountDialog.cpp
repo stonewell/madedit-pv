@@ -172,7 +172,7 @@ void MadWordCountDialog::CreateGUIControls(void)
     WxStaticTextFullwidthCount->SetLabel(wxString()<<fullwidths);
     WxStaticTextLineCount->SetLabel(wxString()<<lines);
     wxString str;
-    for(size_t i=0;i<detail.Count();i++)
+    for(size_t i=0;i<detail.Count();++i)
     {
         str<<detail[i]<<wxT("\n");
     }

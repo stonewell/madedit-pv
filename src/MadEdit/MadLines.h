@@ -320,6 +320,32 @@ typedef MadDeque<MadUCPair>             MadUCQueue;
 typedef MadDeque<MadUCPair>::iterator   MadUCQueueIterator;
 typedef vector<wxString>::iterator      MadStringIterator;
 
+
+// add: gogo, 21.09.2009 (bookmarks support)
+//
+class MadLineList : public list <MadLine>
+{
+    list<MadLineIterator> m_BookmarkList;
+
+public:
+    MadLineList();
+
+    void SetBookmark( MadLineIterator position );     // toggle or remove bookmark from given position
+    int  GetNextBookmark( MadLineIterator position ); // return line number, or -1 if no bookmars
+    int  GetPreviousBookmark( MadLineIterator position ); // return line number from the end to the beginning, or -1
+    bool IsBookmarked( MadLineIterator position );
+
+    MadLineIterator erase( MadLineIterator position );
+
+private:
+    // it is private because bookmarks removal is not implemented yet for it
+    // in this way if someone try to use it, he will get compiler error
+    MadLineIterator erase( MadLineIterator first, MadLineIterator last )
+        { return list<MadLine>::erase(first, last); }
+};
+typedef list<MadLineIterator>::iterator  MadBookmarkIterator;
+
+
 class MadEdit;
 class MadSyntax;
 
@@ -333,7 +359,10 @@ private:
     MadSyntax     *m_Syntax;
     MadEncoding   *m_Encoding;
 
-    list <MadLine> m_LineList;
+    // changed: gogo, 21.09.2009 (bookmarks support)
+    //list <MadLine> m_LineList;
+    MadLineList m_LineList;
+
     size_t m_LineCount, m_RowCount;         // line counts
     wxFileOffset m_Size;                    // total size
 

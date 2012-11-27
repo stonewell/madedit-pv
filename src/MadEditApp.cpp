@@ -319,7 +319,7 @@ bool MadEditApp::OnInit()
     if(!strlang.IsEmpty())
     {
         strlang.MakeLower();
-        for(size_t idx=1; idx<g_LanguageCount; idx++)
+        for(size_t idx=1; idx<g_LanguageCount; ++idx)
         {
             if(strlang == wxString(g_LanguageString[idx]).Lower())
             {
@@ -351,7 +351,7 @@ bool MadEditApp::OnInit()
     wxPoint pos=wxDefaultPosition;
     wxSize size=wxDefaultSize;
 
-    if(!maximize)
+    //if(!maximize)	// removed: gogo, 30.08.2009
     {
         long x=0,y=0,w=0,h=0;
         cfg->Read(wxT("/MadEdit/WindowLeft"), &x);
@@ -383,13 +383,17 @@ bool MadEditApp::OnInit()
     SetTopWindow(myFrame);
 
 #ifdef __WXMSW__
-    if(maximize)
+    //if(maximize)	// removed: gogo, 30.08.2009
     {
         WINDOWPLACEMENT wp;
         wp.length=sizeof(WINDOWPLACEMENT);
         GetWindowPlacement((HWND)myFrame->GetHWND(), &wp);
-        wp.showCmd=SW_SHOWMAXIMIZED;
-        SetWindowPlacement((HWND)myFrame->GetHWND(), &wp);
+
+	   // changed: gogo, 30.08.2009
+	   //wp.showCmd=SW_SHOWMAXIMIZED;
+	   wp.showCmd = maximize ? SW_SHOWMAXIMIZED : SW_SHOWNORMAL;
+
+	   SetWindowPlacement((HWND)myFrame->GetHWND(), &wp);
     }
 #endif
 

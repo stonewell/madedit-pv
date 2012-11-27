@@ -286,7 +286,7 @@ void MadFindInFilesDialog::CreateGUIControls(void)
     wxString systemenc(_("Automatic Detection"));
     WxComboBoxEncoding->Append(systemenc);
     size_t cnt=MadEncoding::GetEncodingsCount();
-    for(size_t i=0;i<cnt;i++)
+    for(size_t i=0;i<cnt;++i)
     {
         WxComboBoxEncoding->Append(MadEncoding::GetEncodingName(i));//enc+des);
     }
@@ -570,7 +570,7 @@ public:
         {
             wxFileName fn;
             size_t count=g_ExcludeFilters.size();
-            for(size_t i=0; i<count; i++)
+            for(size_t i=0; i<count; ++i)
             {
                 fn.Assign(filename);
 #ifdef __WXMSW__
@@ -712,7 +712,7 @@ void MadFindInFilesDialog::FindReplaceInFiles(bool bReplace)
         }
         else
         {
-            for(size_t i=0; i<filters.size(); i++)
+            for(size_t i=0; i<filters.size(); ++i)
             {
                 dir.Traverse(traverser, filters[i], flags);
             }
@@ -738,7 +738,7 @@ void MadFindInFilesDialog::FindReplaceInFiles(bool bReplace)
         vector<wxFileOffset> begpos, endpos;
         MadFileNameList::iterator fnit=g_FileNameList.begin();
         bool cont = true;
-        for(size_t i = 0; i < totalfiles && cont; i++)
+        for(size_t i = 0; i < totalfiles && cont; ++i)
         {
             // prepare madedit
             if(WxRadioButtonOpenedFiles->GetValue())

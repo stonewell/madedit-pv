@@ -102,7 +102,7 @@ bool MadSyntax::s_Loaded=false;
 
 void MadSyntax::LoadSyntaxFiles()
 {
-    for(size_t i=0;i<g_SynPaths.size();i++)
+    for(size_t i=0;i<g_SynPaths.size();++i)
     {
         wxDir dir(g_SynPaths[i]);
         wxString filename;
@@ -264,7 +264,7 @@ wxString MadSyntax::GetSyntaxFileByTitle(const wxString &title)
 {
     if(!s_Loaded) LoadSyntaxFiles();
 
-    for(size_t i=0;i<g_TitleSynfileTable.size();i++)
+    for(size_t i=0;i<g_TitleSynfileTable.size();++i)
     {
         if(g_TitleSynfileTable[i].first==title)
         {
@@ -316,7 +316,7 @@ MadSyntax* MadSyntax::GetSyntaxByExt(const wxString &ext)
 
     if(!synfile.IsEmpty())
     {
-        for(size_t idx=0;idx<g_SynPaths.size();idx++)
+        for(size_t idx=0;idx<g_SynPaths.size();++idx)
         {
             if(wxFileExists(g_SynPaths[idx]+synfile))
             {
@@ -365,7 +365,7 @@ MadSyntax* MadSyntax::GetSyntaxByFirstLine(wxByte *data, int size)
 
     if(!synfile.IsEmpty())
     {
-        for(size_t idx=0;idx<g_SynPaths.size();idx++)
+        for(size_t idx=0;idx<g_SynPaths.size();++idx)
         {
             if(wxFileExists(g_SynPaths[idx]+synfile))
             {
@@ -391,7 +391,7 @@ MadSyntax* MadSyntax::GetSyntaxByFileName(const wxString &filename)
 
     if(!synfile.IsEmpty())
     {
-        for(size_t idx=0;idx<g_SynPaths.size();idx++)
+        for(size_t idx=0;idx<g_SynPaths.size();++idx)
         {
             if(wxFileExists(g_SynPaths[idx]+synfile))
             {
@@ -434,7 +434,7 @@ wxString MadSyntax::GetSchemeFileByName(const wxString &schname, MadSyntax *defa
         return wxEmptyString;
     }
 
-    for(size_t i=0; i<g_NameSchfileTable.size(); i++)
+    for(size_t i=0; i<g_NameSchfileTable.size(); ++i)
     {
         wxFileName fn(g_NameSchfileTable[i].second);
         wxString n=fn.GetName();
@@ -491,7 +491,7 @@ bool MadSyntax::SaveScheme(const wxString &schname, MadSyntax *syn)
         
         MadSyntaxRange ra;
         ra.bgcolor=*wxWHITE;
-        for(i=sch->m_CustomRange.size(); i<5; i++)
+        for(i=sch->m_CustomRange.size(); i<5; ++i)
         {
             sch->m_CustomRange.push_back(ra);
         }
@@ -500,7 +500,7 @@ bool MadSyntax::SaveScheme(const wxString &schname, MadSyntax *syn)
         ke.m_Attr.color=*wxBLACK;
         ke.m_Attr.bgcolor=wxNullColour;
         ke.m_Attr.style=fsNone;
-        for(i=sch->m_CustomKeyword.size(); i<10; i++)
+        for(i=sch->m_CustomKeyword.size(); i<10; ++i)
         {
             sch->m_CustomKeyword.push_back(ke);
         }
@@ -917,7 +917,7 @@ void MadSyntax::ParseSyntax(const wxString &filename)
     if(si > m_BlockCommentInRange.size())
     {
         m_BlockCommentInRange.resize(si);
-        for(size_t sz = 0; sz < si; sz++)
+        for(size_t sz = 0; sz < si; ++sz)
         {
             if(m_BlockCommentInRange[sz].empty())
                 m_BlockCommentInRange[sz].push_back(0);     // BlockComment[i] have effect in global range
@@ -1007,7 +1007,7 @@ void MadSyntax::Reset()
     m_LineCommentInRange.clear();
 
     size_t i;
-    for(i = 0; i < m_BlockCommentInRange.size(); i++)
+    for(i = 0; i < m_BlockCommentInRange.size(); ++i)
     {
         m_BlockCommentInRange[i].clear();
     }
@@ -1019,7 +1019,7 @@ void MadSyntax::Reset()
     m_CustomRange.clear();
     m_RangeBeginString.clear();
 
-    for(i = 0; i < m_CustomKeyword.size(); i++)
+    for(i = 0; i < m_CustomKeyword.size(); ++i)
     {
         m_CustomKeyword[i].m_InRange.clear();
         m_CustomKeyword[i].m_Keywords.clear();
@@ -1044,7 +1044,7 @@ void MadSyntax::Reset()
     SystemAttributesBgColor[0] = s1;
 #endif
 
-    for(i = 0; i < aeNone; i++)
+    for(i = 0; i < aeNone; ++i)
     {
         if(SystemAttributesColor[i][0]==0)
             pat->color = wxNullColour;
@@ -1061,13 +1061,13 @@ void MadSyntax::Reset()
             pat->bgcolor = wxColour(SystemAttributesBgColor[i]);
 
         pat->style=fsNone;
-        pat++;
+        ++pat;
     }
 }
 
 MadAttributes *MadSyntax::GetAttributes(const wxString &name)
 {
-    for(int i = 0; i < aeNone; i++)
+    for(int i = 0; i < aeNone; ++i)
     {
         if(name.CmpNoCase(SystemAttributesName[i])==0)
             return &m_SystemAttributes[i];
@@ -2206,7 +2206,7 @@ void MadSyntax::BeginPrint(bool printSyntax)
     // store colors
     MadAttributes *pat = m_SystemAttributes;
     MadAttributes *old = m_old_SystemAttributes;
-    for(int i = 0; i < aeNone; i++)
+    for(int i = 0; i < aeNone; ++i)
     {
         old->color=pat->color;
         old->bgcolor=pat->bgcolor;
@@ -2220,7 +2220,7 @@ void MadSyntax::BeginPrint(bool printSyntax)
 
     size_t count=m_CustomRange.size();
     m_CustomRangeBgColor.resize(count);
-    for(size_t i=0;i<count;i++)
+    for(size_t i=0;i<count;++i)
     {
         m_CustomRangeBgColor[i]=m_CustomRange[i].bgcolor;
         m_CustomRange[i].bgcolor=*wxWHITE;
@@ -2228,7 +2228,7 @@ void MadSyntax::BeginPrint(bool printSyntax)
 
     count = m_CustomKeyword.size();
     m_CustomKeywordColor.resize(count);
-    for(size_t i=0;i<count;i++)
+    for(size_t i=0;i<count;++i)
     {
         m_CustomKeywordColor[i].color=m_CustomKeyword[i].m_Attr.color;
         m_CustomKeywordColor[i].bgcolor=m_CustomKeyword[i].m_Attr.bgcolor;
@@ -2245,7 +2245,7 @@ void MadSyntax::EndPrint()
     // store colors
     MadAttributes *pat = m_SystemAttributes;
     MadAttributes *old = m_old_SystemAttributes;
-    for(int i = 0; i < aeNone; i++)
+    for(int i = 0; i < aeNone; ++i)
     {
         pat->color=old->color;
         pat->bgcolor=old->bgcolor;
@@ -2255,13 +2255,13 @@ void MadSyntax::EndPrint()
     }
 
     size_t count=m_CustomRange.size();
-    for(size_t i=0;i<count;i++)
+    for(size_t i=0;i<count;++i)
     {
         m_CustomRange[i].bgcolor=m_CustomRangeBgColor[i];
     }
 
     count = m_CustomKeyword.size();
-    for(size_t i=0;i<count;i++)
+    for(size_t i=0;i<count;++i)
     {
         m_CustomKeyword[i].m_Attr.color=m_CustomKeywordColor[i].color;
         m_CustomKeyword[i].m_Attr.bgcolor=m_CustomKeywordColor[i].bgcolor;
@@ -2322,7 +2322,7 @@ void MadSyntax::SaveAttributes(const wxString &file)
     // write custom ranges
     wxString str, value;
     size_t i;
-    for(i=0; i<m_CustomRange.size(); i++)
+    for(i=0; i<m_CustomRange.size(); ++i)
     {
         wxString s, cname;
         cname=GetColorName(m_CustomRange[i].bgcolor);
@@ -2352,7 +2352,7 @@ void MadSyntax::SaveAttributes(const wxString &file)
     syn.Write(str, value);
 
     // write custom keywords
-    for(i=0; i<m_CustomKeyword.size(); i++)
+    for(i=0; i<m_CustomKeyword.size(); ++i)
     {
         str.Printf(wxT("/%x.Keyword/Color"), i+1);
         value.Printf(wxT("%s"), GetColorName(m_CustomKeyword[i].m_Attr.color).c_str());
@@ -2371,13 +2371,13 @@ void MadSyntax::AssignAttributes(MadSyntax *syn, bool add)
     if(this == syn) return;
 
     size_t i;
-    for(i=0; i<m_CustomRange.size() && i<syn->m_CustomRange.size(); i++)
+    for(i=0; i<m_CustomRange.size() && i<syn->m_CustomRange.size(); ++i)
     {
         m_CustomRange[i].bgcolor = syn->m_CustomRange[i].bgcolor;
     }
     if(add)
     {
-        for(; i<syn->m_CustomRange.size(); i++)
+        for(; i<syn->m_CustomRange.size(); ++i)
         {
             MadSyntaxRange ra;
             ra.bgcolor = syn->m_CustomRange[i].bgcolor;
@@ -2392,7 +2392,7 @@ void MadSyntax::AssignAttributes(MadSyntax *syn, bool add)
         m_SystemAttributes[i].style = syn->m_SystemAttributes[i].style;
     }
 
-    for(i=0; i<m_CustomKeyword.size() && i<syn->m_CustomKeyword.size(); i++)
+    for(i=0; i<m_CustomKeyword.size() && i<syn->m_CustomKeyword.size(); ++i)
     {
         m_CustomKeyword[i].m_Attr.color = syn->m_CustomKeyword[i].m_Attr.color;
         m_CustomKeyword[i].m_Attr.bgcolor = syn->m_CustomKeyword[i].m_Attr.bgcolor;
@@ -2400,7 +2400,7 @@ void MadSyntax::AssignAttributes(MadSyntax *syn, bool add)
     }
     if(add)
     {
-        for(; i<syn->m_CustomKeyword.size(); i++)
+        for(; i<syn->m_CustomKeyword.size(); ++i)
         {
             MadSyntaxKeyword ke;
             ke.m_Attr.color  = syn->m_CustomKeyword[i].m_Attr.color;

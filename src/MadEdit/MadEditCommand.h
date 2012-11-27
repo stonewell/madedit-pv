@@ -73,6 +73,8 @@ enum //MadEditCommand
     ecDelete,
     ecBackSpace,
 
+    ecDelPrevWord, ecDelNextWord,	// add: gogo, 30.08.2009
+
     ecCutLine,
     ecDeleteLine,
 

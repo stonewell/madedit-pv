@@ -121,7 +121,7 @@ wxString TranslatePrintMark(const wxString &text, int pageNum)
     wxString newtext, name;
     wxDateTime now;
     size_t count=text.Len();
-    for(size_t i=0;i<count;i++)
+    for(size_t i=0;i<count;++i)
     {
         if(text[i]==wxT('%') && (i+1)<count)
         {

@@ -11,6 +11,9 @@
 #include "MadEdit.h"
 #include <wx/filename.h>
 
+// add: gogo, 27.09.2009
+#include <algorithm>
+
 #ifdef _DEBUG
 #include <crtdbg.h>
 #define new new(_NORMAL_BLOCK ,__FILE__, __LINE__)
@@ -103,7 +106,7 @@ size_t MadConvFileName::MB2WC(wchar_t *outputBuf, const char *psz, size_t output
     size_t dirlen=0, fnlen=0;
     if(len>0)
     {
-        for(int i=int(len-1);i>=0;i--, fnlen++)
+        for(int i=int(len-1);i>=0;--i, ++fnlen)
         {
             if(psz[i]=='/')
                 break;
@@ -1001,9 +1004,9 @@ bool MadLines::NextUChar_SBCS(MadUCQueue &ucqueue)
     }
 
     ucqueue.push_back(MadUCPair(m_Encoding->SBtoUCS4(m_NextUChar_Buffer[m_NextUChar_BufferStart]), 1));
-    m_NextUChar_Pos++;
-    m_NextUChar_BufferStart++;
-    m_NextUChar_BufferSize--;
+    ++m_NextUChar_Pos;
+    ++m_NextUChar_BufferStart;
+    --m_NextUChar_BufferSize;
     return true;
 }
 
@@ -1031,9 +1034,9 @@ bool MadLines::NextUChar_DBCS(MadUCQueue &ucqueue)
             }
 
             ucqueue.push_back(MadUCPair(uc, 1));
-            m_NextUChar_Pos++;
-            m_NextUChar_BufferStart++;
-            m_NextUChar_BufferSize--;
+            ++m_NextUChar_Pos;
+            ++m_NextUChar_BufferStart;
+            --m_NextUChar_BufferSize;
             return true;
         }
 
@@ -1050,9 +1053,9 @@ bool MadLines::NextUChar_DBCS(MadUCQueue &ucqueue)
         uc = *ptr;
     }
     ucqueue.push_back(MadUCPair(uc, 1));
-    m_NextUChar_Pos++;
-    m_NextUChar_BufferStart++;
-    m_NextUChar_BufferSize--;
+    ++m_NextUChar_Pos;
+    ++m_NextUChar_BufferStart;
+    --m_NextUChar_BufferSize;
     return true;
 }
 
@@ -1095,9 +1098,9 @@ bool MadLines::NextUChar_UTF8(MadUCQueue &ucqueue)
     if(buf[0]<=0x7F)
     {
         ucqueue.push_back(MadUCPair(buf[0], 1));
-        m_NextUChar_Pos++;
-        m_NextUChar_BufferStart++;
-        m_NextUChar_BufferSize--;
+        ++m_NextUChar_Pos;
+        ++m_NextUChar_BufferStart;
+        --m_NextUChar_BufferSize;
         return true;
     }
 
@@ -1116,9 +1119,9 @@ bool MadLines::NextUChar_UTF8(MadUCQueue &ucqueue)
             }
         }
         ucqueue.push_back(MadUCPair(buf[0], 1));
-        m_NextUChar_Pos++;
-        m_NextUChar_BufferStart++;
-        m_NextUChar_BufferSize--;
+        ++m_NextUChar_Pos;
+        ++m_NextUChar_BufferStart;
+        --m_NextUChar_BufferSize;
         return true;
     }
 
@@ -1137,9 +1140,9 @@ bool MadLines::NextUChar_UTF8(MadUCQueue &ucqueue)
             }
         }
         ucqueue.push_back(MadUCPair(buf[0], 1));
-        m_NextUChar_Pos++;
-        m_NextUChar_BufferStart++;
-        m_NextUChar_BufferSize--;
+        ++m_NextUChar_Pos;
+        ++m_NextUChar_BufferStart;
+        --m_NextUChar_BufferSize;
         return true;
     }
 
@@ -1160,9 +1163,9 @@ bool MadLines::NextUChar_UTF8(MadUCQueue &ucqueue)
     }
 
     ucqueue.push_back(MadUCPair(buf[0], 1));
-    m_NextUChar_Pos++;
-    m_NextUChar_BufferStart++;
-    m_NextUChar_BufferSize--;
+    ++m_NextUChar_Pos;
+    ++m_NextUChar_BufferStart;
+    --m_NextUChar_BufferSize;
     return true;
 }
 
@@ -1221,9 +1224,9 @@ bool MadLines::NextUChar_UTF16LE(MadUCQueue &ucqueue)
     ***/
 
     ucqueue.push_back(MadUCPair('?', 1));
-    m_NextUChar_Pos++;
-    m_NextUChar_BufferStart++;
-    m_NextUChar_BufferSize--;
+    ++m_NextUChar_Pos;
+    ++m_NextUChar_BufferStart;
+    --m_NextUChar_BufferSize;
     return true;
 }
 
@@ -1282,9 +1285,9 @@ bool MadLines::NextUChar_UTF16BE(MadUCQueue &ucqueue)
     ***/
 
     ucqueue.push_back(MadUCPair('?', 1));
-    m_NextUChar_Pos++;
-    m_NextUChar_BufferStart++;
-    m_NextUChar_BufferSize--;
+    ++m_NextUChar_Pos;
+    ++m_NextUChar_BufferStart;
+    --m_NextUChar_BufferSize;
     return true;
 }
 
@@ -1762,7 +1765,7 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
 
                     break;
                 }
-                else if(firstuc == 0x0A)
+                if(firstuc == 0x0A)
                 {
                     wxASSERT(ucqueue.size() == 1);
 
@@ -1791,7 +1794,7 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
                     {
                         if(firstuc < 0x100 && firstuc != 0x20 && firstuc != 0x09)
                         {
-                            notSpaceCount++;
+                            ++notSpaceCount;
 
                             // check left/right brace
                             if(//state.CommentId==0 && state.StringId==0 &&
@@ -1844,7 +1847,7 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
                                     }
                                     iter->m_BracePairIndices.push_back(BracePairIndex(0, width, bracepos, len, 1, index-1));
                                     bracexpos=&iter->m_BracePairIndices.back().XPos;
-                                    bracexpos_count++;
+                                    ++bracexpos_count;
                                 }
                                 else // check right brace
                                     if((index=(this->*FindString)(ucqueue, m_Syntax->m_RightBrace.begin(),
@@ -1891,7 +1894,7 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
                                         }
                                         iter->m_BracePairIndices.push_back(BracePairIndex(0, width, bracepos, len, 0, index-1));
                                         bracexpos=&iter->m_BracePairIndices.back().XPos;
-                                        bracexpos_count++;
+                                        ++bracexpos_count;
                                     }
                                 }
                             }
@@ -2202,7 +2205,7 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
 
                     iter->m_RowIndices[rowidx_idx++] = rowidx;
                     iter->m_RowIndices.push_back(MadRowIndex());
-                    m_RowCount++;
+                    ++m_RowCount;
 
                     if(rowidx.m_Width > m_MaxLineWidth)
                         m_MaxLineWidth = rowidx.m_Width;
@@ -2361,8 +2364,8 @@ MadLineState MadLines::Reformat(MadLineIterator iter)
             nline->m_Size = m_NextUChar_LineSize - m_NextUChar_Pos;
             //state.CommentOff = false;
             nline->m_State = state;
-            m_LineCount++;
-            m_RowCount++;
+            ++m_LineCount;
+            ++m_RowCount;
 
             rowidx_idx = 0;
             rowidx.m_Start = 0;
@@ -2411,7 +2414,7 @@ size_t MadLines::Reformat(MadLineIterator first, MadLineIterator last)
 
                     Append(first, next);
 
-                    m_LineCount--;
+                    --m_LineCount;
                     m_RowCount -= next->RowCount();
                     next->Reset();
 
@@ -2595,7 +2598,7 @@ void MadLines::RecountLineWidth(void)
 
                     iter->m_RowIndices[rowidx_idx++] = rowidx;
                     iter->m_RowIndices.push_back(MadRowIndex());
-                    m_RowCount++;
+                    ++m_RowCount;
 
                     if(rowidx.m_Width > m_MaxLineWidth)
                         m_MaxLineWidth = rowidx.m_Width;
@@ -2673,7 +2676,7 @@ void MadLines::RecountLineWidth(void)
 
                     iter->m_RowIndices[rowidx_idx++] = rowidx;
                     iter->m_RowIndices.push_back(MadRowIndex());
-                    m_RowCount++;
+                    ++m_RowCount;
 
                     if(rowidx.m_Width > m_MaxLineWidth)
                         m_MaxLineWidth = rowidx.m_Width;
@@ -3496,6 +3499,30 @@ wxFileOffset MadLines::GetMaxTempSize(const wxString &filename)
 
 bool MadLines::SaveToFile(const wxString &filename, const wxString &tempdir)
 {
+    wxFileName fn(filename);
+    MadSyntax * tmp_Syntax = MadSyntax::GetSyntaxByExt(fn.GetExt());
+    if(tmp_Syntax==NULL)
+    {
+        tmp_Syntax = MadSyntax::GetSyntaxByFileName(fn.GetName());
+        if(tmp_Syntax==NULL)
+        {
+            tmp_Syntax = MadSyntax::GetSyntaxByTitle(MadPlainTextTitle);
+        }
+    }
+    
+    if(tmp_Syntax->m_Title != m_Syntax->m_Title)
+    {
+        delete m_Syntax;
+        m_Syntax = tmp_Syntax;
+        wxFont *font=m_MadEdit->m_TextFont;
+        tmp_Syntax->InitNextWord1(m_MadEdit->m_Lines, m_MadEdit->m_WordBuffer, m_MadEdit->m_WidthBuffer, font->GetFaceName(), font->GetPointSize(), font->GetFamily());
+        m_MadEdit->m_Syntax = tmp_Syntax;
+    }
+    else
+    {
+        delete tmp_Syntax;
+    }
+
     if(m_FileData == NULL)
     {
         int utf8test=MadFileNameIsUTF8(filename);
@@ -3866,3 +3893,148 @@ bool MadLines::SaveToFile(const wxString &filename, const wxString &tempdir)
     return true;
 }
 
+//===========================================================================
+// MadLineList  - add: gogo, 27.09.2009
+//===========================================================================
+MadLineList::MadLineList()
+{
+}
+
+// Toggle or remove bookmark from given position.
+// If there is a bookmark on the given position, remove it. If there is not, add it.
+//
+void MadLineList::SetBookmark( MadLineIterator position )
+{
+	if ( m_BookmarkList.empty() )
+	{
+		m_BookmarkList.push_front( position );
+		return;
+	}
+
+	MadBookmarkIterator bmkIter = find( m_BookmarkList.begin(), m_BookmarkList.end(), position );
+	if ( bmkIter != m_BookmarkList.end() )
+	{
+		m_BookmarkList.erase( bmkIter );   // we remove this bookmark
+		return;
+	}
+
+	// we keep the bookmarks sorted, we have to find out where to insert the new one
+
+	bmkIter = m_BookmarkList.begin();
+	MadLineIterator bookmark = *bmkIter;
+	MadLineIterator iter;
+
+	for ( iter = begin(); iter != end(); ++iter )
+	{
+		if ( iter == position )
+			break;
+
+		if ( iter == bookmark )
+		{
+			if ( ++bmkIter == m_BookmarkList.end() )
+				break;
+			bookmark = *bmkIter;
+		}
+	}
+
+	wxASSERT( iter != end() );
+	m_BookmarkList.insert( bmkIter, position );
+}
+
+// Return line number, or -1 if there are no bookmars.
+//
+int MadLineList::GetNextBookmark( MadLineIterator position )
+{
+	if ( m_BookmarkList.empty() )
+		return -1;
+
+	int lineNumFirstBmk = -1;
+	int lineNum = 1;
+	bool positionFound = false;
+
+	MadBookmarkIterator bmkIter = m_BookmarkList.begin();
+	MadLineIterator bookmark = *bmkIter;
+
+	MadLineIterator iter;
+	for ( iter = begin(); iter != end(); ++lineNum, ++iter )
+	{
+		if ( iter == bookmark )
+		{
+			if ( positionFound )
+				break;   // we found the next bookmark
+
+			if ( lineNumFirstBmk < 0 )
+				lineNumFirstBmk = lineNum;
+
+			if ( ++bmkIter == m_BookmarkList.end() )
+				return lineNumFirstBmk; // no more bookmarks, we return the position of the first one
+
+			bookmark = *bmkIter;
+		}
+		if ( iter == position )
+			positionFound = true;
+	}
+
+	wxASSERT( iter != end() );  // this can be triggered if bookmark list is not sorted
+	return lineNum;
+}
+
+// Return opposite line number (from the end to the beginning, i.e. the last line as N= 1),
+// or -1 if there are no bookmars.
+//
+int MadLineList::GetPreviousBookmark( MadLineIterator position )
+{
+	if ( m_BookmarkList.empty() )
+		return -1;
+
+	int lineNumFirstBmk = -1;
+	int lineNum = 1;
+	bool positionFound = false;
+
+	list<MadLineIterator>::reverse_iterator bmkIter = m_BookmarkList.rbegin();
+	MadLineIterator bookmark = *bmkIter;
+
+	list<MadLine>::reverse_iterator iter;
+	for ( iter = rbegin(); iter != rend(); ++lineNum, ++iter )
+	{
+		MadLineIterator frwiter = iter.base();
+		--frwiter;
+
+		if ( frwiter == bookmark )
+		{
+			if ( positionFound )
+				break;   // we found the next bookmark
+
+			if ( lineNumFirstBmk < 0 )
+				lineNumFirstBmk = lineNum;
+
+			if ( ++bmkIter == m_BookmarkList.rend() )
+				return lineNumFirstBmk; // no more bookmarks, we return the position of the first one
+
+			bookmark = *bmkIter;
+		}
+		if ( frwiter == position )
+			positionFound = true;
+	}
+
+	wxASSERT( iter != rend() );  // this can be triggered if bookmark list is not sorted
+	return lineNum;
+}
+
+
+MadLineIterator MadLineList::erase( MadLineIterator position )
+{
+	// using remove() is simpler, but we plan more sophisticated bookmars later
+	MadBookmarkIterator found = find( m_BookmarkList.begin(), m_BookmarkList.end(), position );
+	if ( found != m_BookmarkList.end() )
+		m_BookmarkList.erase( found );
+
+	return list<MadLine>::erase( position );
+}
+
+
+bool MadLineList::IsBookmarked( MadLineIterator position )
+{
+	MadBookmarkIterator found = find( m_BookmarkList.begin(), m_BookmarkList.end(), position );
+	return found != m_BookmarkList.end();
+}

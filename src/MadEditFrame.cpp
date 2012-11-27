@@ -139,7 +139,7 @@
 #endif
 
 
-wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 Patched"));
+wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 Patched DX"));
 wxString g_MadEdit_URL(wxT("http://madedit.sourceforge.net/wiki"));
 
 
@@ -429,7 +429,7 @@ wxString FixFileNameEncoding(const wxString &filename)
     wxByte *bbuf=new wxByte[len+1];
     wxByte *ps=bbuf;
     const wxChar *pwcs=filename.c_str();
-    for(size_t l=len;l>0;l--, ++ps, ++pwcs)
+    for(size_t l=len;l>0;--l, ++ps, ++pwcs)
     {
         if(*pwcs >= 0x100)
         {
@@ -468,7 +468,7 @@ public:
     virtual bool OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames)
     {
         size_t count=filenames.GetCount();
-        for(size_t i=0;i<count;i++)
+        for(size_t i=0;i<count;++i)
         {
 #ifdef __WXMSW__
             g_MainFrame->OpenFile(filenames[i], true);
@@ -677,7 +677,7 @@ void OnReceiveMessage(const wchar_t *msg, size_t size)
     size_t len=size/sizeof(wchar_t);
 
     const wchar_t *pwc=msg;
-    for(size_t i=0;i<len && *pwc!=0 ;i++, pwc++)
+    for(size_t i=0;i<len && *pwc!=0 ;++i, ++pwc)
     {
         if(*pwc=='|')
         {
@@ -715,7 +715,7 @@ bool GetActiveMadEditPathNameOrTitle(wxString &name)
 void ApplySyntaxAttributes(MadSyntax *syn)
 {
     int count=int(g_MainFrame->m_Notebook->GetPageCount());
-    for(int id=0;id<count;id++)
+    for(int id=0;id<count;++id)
     {
         MadEdit *me=(MadEdit*)g_MainFrame->m_Notebook->GetPage(id);
         me->ApplySyntaxAttributes(syn, true);
@@ -952,7 +952,7 @@ public:
         {
             wxString lname;
             size_t i=0;
-            for(;i<count;i++)
+            for(;i<count;++i)
             {
                 lname=facename.Lower();
                 if(lname < m_facenames_lowercase[i]) break;
@@ -1003,6 +1003,9 @@ BEGIN_EVENT_TABLE(MadEditFrame,wxFrame)
 	EVT_UPDATE_UI(menuSelectAll, MadEditFrame::OnUpdateUI_Menu_CheckSize)
 	EVT_UPDATE_UI(menuInsertTabChar, MadEditFrame::OnUpdateUI_MenuEditInsertTabChar)
 	EVT_UPDATE_UI(menuInsertDateTime, MadEditFrame::OnUpdateUI_MenuEditInsertDateTime)
+	EVT_UPDATE_UI(menuToggleBookmark, MadEditFrame::OnUpdateUI_MenuEditToggleBookmark)
+	EVT_UPDATE_UI(menuGotoNextBookmark, MadEditFrame::OnUpdateUI_MenuEditGotoNextBookmark)
+	EVT_UPDATE_UI(menuGotoPreviousBookmark, MadEditFrame::OnUpdateUI_MenuEditGotoPreviousBookmark)
 	EVT_UPDATE_UI(menuSortAscending, MadEditFrame::OnUpdateUI_Menu_CheckTextFile)
 	EVT_UPDATE_UI(menuSortDescending, MadEditFrame::OnUpdateUI_Menu_CheckTextFile)
 	EVT_UPDATE_UI(menuSortAscendingCase, MadEditFrame::OnUpdateUI_Menu_CheckTextFile)
@@ -1100,6 +1103,9 @@ BEGIN_EVENT_TABLE(MadEditFrame,wxFrame)
 	EVT_MENU(menuSelectAll, MadEditFrame::OnEditSelectAll)
 	EVT_MENU(menuInsertTabChar, MadEditFrame::OnEditInsertTabChar)
 	EVT_MENU(menuInsertDateTime, MadEditFrame::OnEditInsertDateTime)
+    EVT_MENU(menuToggleBookmark, MadEditFrame::OnEditToggleBookmark)
+	EVT_MENU(menuGotoNextBookmark, MadEditFrame::OnEditGotoNextBookmark)
+    EVT_MENU(menuGotoPreviousBookmark, MadEditFrame::OnEditGotoPreviousBookmark)
 	EVT_MENU(menuSortAscending, MadEditFrame::OnEditSortAscending)
 	EVT_MENU(menuSortDescending, MadEditFrame::OnEditSortDescending)
 	EVT_MENU(menuSortAscendingCase, MadEditFrame::OnEditSortAscendingCase)
@@ -1193,6 +1199,9 @@ BEGIN_EVENT_TABLE(MadEditFrame,wxFrame)
 	
 	EVT_CLOSE(MadEditFrame::MadEditFrameClose)
 	EVT_KEY_DOWN(MadEditFrame::MadEditFrameKeyDown)
+	
+	EVT_MENU(menuCopyCurResult, MadEditFrame::OnCopyCurrResult)
+	EVT_MENU(menuCopyAllResults, MadEditFrame::OnCopyAllResults)
 END_EVENT_TABLE()
   ////Event Table End
 
@@ -1268,6 +1277,13 @@ CommandData CommandTable[]=
                                                                                                                                                                  wxITEM_NORMAL,    -1,                0,                     _("Insert a Tab char at current position")},
 
     { ecInsertDateTime, 1, menuInsertDateTime,           wxT("menuInsertDateTime"),           _("Insert Dat&e and Time"),                   wxT("F7"),           wxITEM_NORMAL,    -1,                0,                     _("Insert date and time at current position")},
+
+    // add: gogo, 21.09.2009
+    { 0,                1, 0,                            0,                                   0,                                            0,                   wxITEM_SEPARATOR, -1,                0,                     0},
+    { 0,                1, menuToggleBookmark,           wxT("menuToggleBookmark"),           _("Toggle/Remove Bookmark "),                 wxT("Ctrl-F2"),      wxITEM_NORMAL,    -1,                0,                     _("Toggle Bookmark at current line")},
+    { 0,                1, menuGotoNextBookmark,         wxT("menuGotoNextBookmark"),         _("Go To Next Bookmark"),                     wxT("F2"),           wxITEM_NORMAL,    -1,                0,                     _("Go to the next bookmark")},
+    { 0,                1, menuGotoPreviousBookmark,     wxT("menuGotoPreviousBookmark"),     _("Go To Previous Bookmark"),                 wxT("Shift-F2"),     wxITEM_NORMAL,    -1,                0,                     _("Go to the previous bookmark")},
+
     { 0,                1, 0,                            0,                                   0,                                            0,                   wxITEM_SEPARATOR, -1,                0,                     0},
     { 0,                1, menuAdvanced,                 wxT("menuAdvanced"),                 _("Ad&vanced"),                               0,                   wxITEM_NORMAL,    -1,                &g_Menu_Edit_Advanced, 0},
     { 0,                2, menuCopyAsHexString,          wxT("menuCopyAsHexString"),          _("Copy As &Hex String"),                     wxT(""),             wxITEM_NORMAL,    -1,                0,                     _("Copy the selection as hex-string")},
@@ -1574,6 +1590,10 @@ CommandData CommandTable[]=
     { ecTab,            -1, 0, 0, 0, 0, wxITEM_NORMAL , -1, 0, _("Insert one Tab char or indent lines")},
     { ecBackSpace,      -1, 0, 0, 0, 0, wxITEM_NORMAL , -1, 0, _("Delete one char to the left of the caret")},
 
+    // add: gogo, 30.08.2009
+    { ecDelPrevWord,    -1, 0, 0, 0, 0, wxITEM_NORMAL , -1, 0, _("Delete a word left from the caret")},
+    { ecDelNextWord,    -1, 0, 0, 0, 0, wxITEM_NORMAL , -1, 0, _("Delete a word right from the caret")},
+
     { ecToggleInsertMode, -1, 0, 0, 0, 0, wxITEM_NORMAL , -1, 0, _("Toggle Insert/Overwrite Mode")},
 
     // end editor
@@ -1707,7 +1727,8 @@ void MadEditFrame::CreateGUIControls(void)
 
 	WxStatusBar1 = new wxStatusBar(this, ID_WXSTATUSBAR1);
 
-	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR1, wxPoint(0, 0), wxSize(392, 29));
+	WxToolBar1 = new wxToolBar(this, ID_WXTOOLBAR1, wxPoint(0, 0), wxSize(482, 29));
+	WxToolBar1->SetFont(wxFont(12, wxSWISS, wxNORMAL, wxNORMAL, false));
 
 	WxMenuBar1 = new wxMenuBar();
 
@@ -1829,7 +1850,6 @@ void MadEditFrame::CreateGUIControls(void)
     m_ImageList->Add(wxBitmap(hexmode_xpm));
     m_ImageList->Add(wxBitmap(Mad_16x15_xpm));
 
-
     // add menuitems
     g_Menu_File = new wxMenu((long)0);
     g_Menu_Edit = new wxMenu((long)0);
@@ -1850,31 +1870,32 @@ void MadEditFrame::CreateGUIControls(void)
     g_Menu_EditPop->Append(menuInsertDateTime, _("Insert Dat&e and Time"));
     g_Menu_EditPop->AppendSeparator();
     g_Menu_EditSubAdv = new wxMenu((long)0);
-    g_Menu_EditSubAdv->Append(menuCopyAsHexString, _("CopyAs&HexString"));
-    g_Menu_EditSubAdv->Append(menuCopyAsHexStringWithSpace, _("CopyAsHe&xStringwithSpace"));
+    
+    g_Menu_EditSubAdv->Append(menuCopyAsHexString, _("Copy As &Hex String"));
+    g_Menu_EditSubAdv->Append(menuCopyAsHexStringWithSpace, _("Copy As He&x String with Space"));
     g_Menu_EditSubAdv->AppendSeparator();
-    g_Menu_EditSubAdv->Append(menuIncreaseIndent, _("&IncreaseIndent"));
-    g_Menu_EditSubAdv->Append(menuDecreaseIndent, _("&DecreaseIndent"));
+    g_Menu_EditSubAdv->Append(menuIncreaseIndent, _("&Increase Indent"));
+    g_Menu_EditSubAdv->Append(menuDecreaseIndent, _("&Decrease Indent"));
     g_Menu_EditSubAdv->AppendSeparator();
     g_Menu_EditSubAdv->Append(menuComment, _("&Comment"));
     g_Menu_EditSubAdv->Append(menuUncomment, _("&Uncomment"));
     g_Menu_EditSubAdv->AppendSeparator();
-    g_Menu_EditSubAdv->Append(menuWordWrapToNewLine, _("WordWrapsToNewLineChars"));
-    g_Menu_EditSubAdv->Append(menuNewLineToWordWrap, _("NewLineCharsToWordWraps"));
+    g_Menu_EditSubAdv->Append(menuWordWrapToNewLine, _("WordWraps To NewLine Chars"));
+    g_Menu_EditSubAdv->Append(menuNewLineToWordWrap, _("NewLine Chars To WordWraps"));
     g_Menu_EditSubAdv->AppendSeparator();
-    g_Menu_EditSubAdv->Append(menuToUpperCase, _("ToU&pperCase"));
-    g_Menu_EditSubAdv->Append(menuToLowerCase, _("ToL&owerCase"));
-    g_Menu_EditSubAdv->Append(menuInvertCase, _("Inver&tCase"));
+    g_Menu_EditSubAdv->Append(menuToUpperCase, _("To U&pperCase"));
+    g_Menu_EditSubAdv->Append(menuToLowerCase, _("To L&owerCase"));
+    g_Menu_EditSubAdv->Append(menuInvertCase, _("Inver&t Case"));
     g_Menu_EditSubAdv->AppendSeparator();
-    g_Menu_EditSubAdv->Append(menuToHalfWidth, _("ToH&alfwidth"));
-    g_Menu_EditSubAdv->Append(menuToHalfWidthByOptions, _("ToHalfwidthbyOptions..."));
-    g_Menu_EditSubAdv->Append(menuToFullWidth, _("To&Fullwidth"));
-    g_Menu_EditSubAdv->Append(menuToFullWidthByOptions, _("ToFullwidthbyOptions..."));
+    g_Menu_EditSubAdv->Append(menuToHalfWidth, _("To H&alfwidth"));
+    g_Menu_EditSubAdv->Append(menuToHalfWidthByOptions, _("To Halfwidth by Options..."));
+    g_Menu_EditSubAdv->Append(menuToFullWidth, _("To &Fullwidth"));
+    g_Menu_EditSubAdv->Append(menuToFullWidthByOptions, _("To Fullwidth by Options..."));
     g_Menu_EditSubAdv->AppendSeparator();
-    g_Menu_EditSubAdv->Append(menuTabToSpace, _("TabCharsToSpaceChars"));
-    g_Menu_EditSubAdv->Append(menuSpaceToTab, _("SpaceCharsToTabChars"));
+    g_Menu_EditSubAdv->Append(menuTabToSpace, _("Tab Chars To Space Chars"));
+    g_Menu_EditSubAdv->Append(menuSpaceToTab, _("Space Chars To Tab Chars"));
     g_Menu_EditSubAdv->AppendSeparator();
-    g_Menu_EditSubAdv->Append(menuTrimTrailingSpaces, _("Tri&mTrailingSpaces"));
+    g_Menu_EditSubAdv->Append(menuTrimTrailingSpaces, _("Tri&m Trailing Spaces"));
     g_Menu_EditPop->AppendSubMenu(g_Menu_EditSubAdv, _("Ad&vanced"));
     g_Menu_EditSubSort = new wxMenu((long)0);
     g_Menu_EditSubSort->Append(menuSortAscending, _("Sort Lines (&Ascending)"));
@@ -1986,7 +2007,7 @@ void MadEditFrame::CreateGUIControls(void)
 
     {
         size_t cnt=MadEncoding::GetEncodingsCount();
-        for(size_t i=0;i<cnt;i++)
+        for(size_t i=0;i<cnt;++i)
         {
             wxString enc=wxString(wxT('['))+ MadEncoding::GetEncodingName(i) + wxT("] ");
             wxString des=wxGetTranslation(MadEncoding::GetEncodingDescription(i).c_str());
@@ -2008,7 +2029,7 @@ void MadEditFrame::CreateGUIControls(void)
         fontenumerator.EnumerateFacenames(); // get all fontnames
 
         size_t count=g_FontNames.Count();
-        for(size_t i=0;i<count; i++)
+        for(size_t i=0;i<count; ++i)
         {
             wxString &name=g_FontNames[i];
             wxChar firstchar=name[0];
@@ -2212,20 +2233,32 @@ void MadEditFrame::MadEditFrameClose(wxCloseEvent& event)
     m_Config->SetPath(wxT("/FileCaretPos"));
     g_FileCaretPosManager.Save(m_Config);
 
+// changed: gogo, 30.08.2009 ---
+	int x, y;
 #ifdef __WXMSW__
-    int style=::GetWindowLong((HWND)GetHWND(), GWL_STYLE);
-    m_Config->Write(wxT("/MadEdit/WindowMaximize"), (style&WS_MAXIMIZE)!=0 );
+	//int style=::GetWindowLong((HWND)GetHWND(), GWL_STYLE);
+	//m_Config->Write(wxT("/MadEdit/WindowMaximize"), (style&WS_MAXIMIZE)!=0 );
+
+	WINDOWPLACEMENT wp;
+	wp.length = sizeof(WINDOWPLACEMENT);
+	GetWindowPlacement( (HWND) GetHWND(), &wp );
+	m_Config->Write( wxT("/MadEdit/WindowMaximize"), wp.showCmd == SW_SHOWMAXIMIZED );
+
+	m_Config->Write(wxT("/MadEdit/WindowLeft"),  wp.rcNormalPosition.left );
+	m_Config->Write(wxT("/MadEdit/WindowTop"),   wp.rcNormalPosition.top );
+	m_Config->Write(wxT("/MadEdit/WindowWidth"), wp.rcNormalPosition.right - wp.rcNormalPosition.left);
+	m_Config->Write(wxT("/MadEdit/WindowHeight"),wp.rcNormalPosition.bottom - wp.rcNormalPosition.top);
+//#endif
+#else
+	GetPosition(&x,&y);
+	m_Config->Write(wxT("/MadEdit/WindowLeft"), x );
+	m_Config->Write(wxT("/MadEdit/WindowTop"), y );
+
+	GetSize(&x,&y);
+	m_Config->Write(wxT("/MadEdit/WindowWidth"), x );
+	m_Config->Write(wxT("/MadEdit/WindowHeight"), y );
 #endif
-
-    int x,y;
-    GetPosition(&x,&y);
-    m_Config->Write(wxT("/MadEdit/WindowLeft"), x );
-    m_Config->Write(wxT("/MadEdit/WindowTop"), y );
-
-    GetSize(&x,&y);
-    m_Config->Write(wxT("/MadEdit/WindowWidth"), x );
-    m_Config->Write(wxT("/MadEdit/WindowHeight"), y );
-
+//------------------
 
     m_Config->SetPath(wxT("/RecentFiles"));
     m_RecentFiles->Save(*m_Config);
@@ -2264,6 +2297,15 @@ void MadEditFrame::MadEditFrameClose(wxCloseEvent& event)
     m_Config->Write(wxT("/MadEdit/SearchFrom"), wxEmptyString);
     m_Config->Write(wxT("/MadEdit/SearchTo"), wxEmptyString);
 
+    // add: gogo, 19.09.2009
+    if ( g_SearchDialog )
+    {
+        g_SearchDialog->GetPosition( &x, &y );
+        m_Config->Write(wxT("/MadEdit/SearchWinLeft"), x );
+        m_Config->Write(wxT("/MadEdit/SearchWinTop"), y );
+        m_Config->Write(wxT("/MadEdit/SearchThrEndOfFile"), g_SearchDialog->WxCheckBoxSearchThrEndOfFile->GetValue());
+    }
+    //----------
 
     delete m_RecentFiles;
     m_RecentFiles=NULL;
@@ -2352,7 +2394,7 @@ MadEdit *MadEditFrame::GetEditByFileName(const wxString &filename, int &id)
 {
     int count=int(m_Notebook->GetPageCount());
     wxString fn;
-    for(id=0; id<count; id++)
+    for(id=0; id<count; ++id)
     {
         MadEdit *me=(MadEdit*)m_Notebook->GetPage(id);
         fn = me->GetFileName();
@@ -3053,10 +3095,29 @@ void MadEditFrame::OnUpdateUI_MenuEditInsertTabChar(wxUpdateUIEvent& event)
 {
     event.Enable(g_ActiveMadEdit!=NULL && g_ActiveMadEdit->GetEditMode()!=emHexMode);
 }
+
 void MadEditFrame::OnUpdateUI_MenuEditInsertDateTime(wxUpdateUIEvent& event)
 {
     event.Enable(g_ActiveMadEdit!=NULL && g_ActiveMadEdit->GetEditMode()!=emHexMode);
 }
+
+// add: gogo, 21.09.2009
+//
+void MadEditFrame::OnUpdateUI_MenuEditToggleBookmark(wxUpdateUIEvent& event)
+{
+    event.Enable( g_ActiveMadEdit != NULL );
+}
+
+void MadEditFrame::OnUpdateUI_MenuEditGotoPreviousBookmark(wxUpdateUIEvent& event)
+{
+    event.Enable( g_ActiveMadEdit != NULL );
+}
+
+void MadEditFrame::OnUpdateUI_MenuEditGotoNextBookmark(wxUpdateUIEvent& event)
+{
+    event.Enable( g_ActiveMadEdit != NULL );
+}
+//----------
 
 void MadEditFrame::OnUpdateUI_Menu_CheckTextFile(wxUpdateUIEvent& event)
 {
@@ -3358,7 +3419,7 @@ void MadEditFrame::OnFileOpen(wxCommandEvent& event)
     }
 
     static int filterIndex = 0;
-    wxString fileFilter = wxString("All files(*;*.*)|") + wxFileSelectorDefaultWildcardStr + wxT("|68k Assembly (*.68k)|*.68k|ActionScript (*.as;*.asc;*.mx)|*.as;*.asc;*.mx|Ada (*.a;*.ada;*.adb;*.ads)|*.a;*.ada;*.adb;*.ads|Apache Conf (*.conf;*.htaccess)|*.conf;*.htaccess|Bash Shell Script (*.bsh;*.configure;*.sh)|*.bsh;*.configure;*.sh|Boo (*.boo)|*.boo|C (*.c;*.h)|*.c;*.h|C# (*.cs)|*.cs|C-Shell Script (*.csh)|*.csh|Caml (*.ml;*.mli)|*.ml;*.mli|Cascading Style Sheet (*.css)|*.css|Cilk (*.cilk;*.cilkh)|*.cilk;*.cilkh|Cobra (*.cobra)|*.cobra|ColdFusion (*.cfc;*.cfm;*.cfml;*.dbm)|*.cfc;*.cfm;*.cfml;*.dbm|CPP (*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx)|*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx|D (*.d)|*.d|Diff File (*.diff;*.patch)|*.diff;*.patch|Django (*.django)|*.django|DOS Batch Script (*.bat;*.cmd)|*.bat;*.cmd|DOT (*.dot)|*.dot|DSP56K Assembly (*.56k)|*.56k|Editra Style Sheet (*.ess)|*.ess|Edje (*.edc)|*.edc|Eiffel (*.e)|*.e|Erlang (*.erl)|*.erl|Ferite (*.fe)|*.fe|FlagShip (*.prg)|*.prg|Forth (*.4th;*.fs;*.fth;*.seq)|*.4th;*.fs;*.fth;*.seq|Fortran 77 (*.f;*.for)|*.f;*.for|Fortran 95 (*.f2k;*.f90;*.f95;*.fpp)|*.f2k;*.f90;*.f95;*.fpp|GLSL (*.frag;*.glsl;*.vert)|*.frag;*.glsl;*.vert|GNU Assembly (*.gasm)|*.gasm|Groovy (*.groovy)|*.groovy|Gui4Cli (*.gc;*.gui)|*.gc;*.gui|Haskell (*.hs)|*.hs|HaXe (*.hx;*.hxml)|*.hx;*.hxml|HTML (*.htm;*.html;*.shtm;*.shtml;*.xhtml)|*.htm;*.html;*.shtm;*.shtml;*.xhtml|Inno Setup Script (*.iss)|*.iss|IssueList (*.isl)|*.isl|Java (*.java)|*.java|JavaScript (*.js)|*.js|Kix (*.kix)|*.kix|Korn Shell Script (*.ksh)|*.ksh|LaTeX (*.aux;*.sty;*.tex)|*.aux;*.sty;*.tex|Lisp (*.cl;*.lisp)|*.cl;*.lisp|Lout (*.lt)|*.lt|Lua (*.lua)|*.lua|Mako (*.mako;*.mao)|*.mako;*.mao|MASM (*.asm;*.masm)|*.asm;*.masm|Matlab (*.matlab)|*.matlab|Microsoft SQL (*.mssql)|*.mssql|Netwide Assembler (*.nasm)|*.nasm|newLISP (*.lsp)|*.lsp|NONMEM Control Stream (*.ctl)|*.ctl|Nullsoft Installer Script (*.nsh;*.nsi)|*.nsh;*.nsi|Objective C (*.m;*.mm)|*.m;*.mm|Octave (*.oct;*.octave)|*.oct;*.octave|OOC (*.ooc)|*.ooc|Pascal (*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp)|*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp|Perl (*.cgi;*.pl;*.pm;*.pod)|*.cgi;*.pl;*.pm;*.pod|PHP (*.php;*.php3;*.phtm;*.phtml)|*.php;*.php3;*.phtm;*.phtml|Pike (*.pike)|*.pike|PL/SQL (*.plsql)|*.plsql|Plain Text (*.txt)|*.txt|Postscript (*.ai;*.ps)|*.ai;*.ps|Progress 4GL (*.4gl)|*.4gl|Properties (*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url)|*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url|Python (*.py;*.python;*.pyw)|*.py;*.python;*.pyw|R (*.r)|*.r|Ruby (*.gemspec;*.rake;*.rb;*.rbw;*.rbx)|*.gemspec;*.rake;*.rb;*.rbw;*.rbx|S (*.s)|*.s|Scheme (*.scm;*.smd;*.ss)|*.scm;*.smd;*.ss|Smalltalk (*.st)|*.st|SQL (*.sql)|*.sql|Squirrel (*.nut)|*.nut|Stata (*.ado;*.do)|*.ado;*.do|System Verilog (*.sv;*.svh)|*.sv;*.svh|Tcl/Tk (*.itcl;*.tcl;*.tk)|*.itcl;*.tcl;*.tk|Vala (*.vala)|*.vala|VBScript (*.dsm;*.vbs)|*.dsm;*.vbs|Verilog (*.v)|*.v|VHDL (*.vh;*.vhd;*.vhdl)|*.vh;*.vhd;*.vhdl|Visual Basic (*.bas;*.cls;*.frm;*.vb)|*.bas;*.cls;*.frm;*.vb|XML (*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul)|*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul|Xtext (*.xtext)|*.xtext|YAML (*.yaml;*.yml)|*.yaml;*.yml");
+    wxString fileFilter = wxString(wxT("All files(*;*.*)|")) + wxFileSelectorDefaultWildcardStr + wxT("|68k Assembly (*.68k)|*.68k|ActionScript (*.as;*.asc;*.mx)|*.as;*.asc;*.mx|Ada (*.a;*.ada;*.adb;*.ads)|*.a;*.ada;*.adb;*.ads|Apache Conf (*.conf;*.htaccess)|*.conf;*.htaccess|Bash Shell Script (*.bsh;*.configure;*.sh)|*.bsh;*.configure;*.sh|Boo (*.boo)|*.boo|C (*.c;*.h)|*.c;*.h|C# (*.cs)|*.cs|C-Shell Script (*.csh)|*.csh|Caml (*.ml;*.mli)|*.ml;*.mli|Cascading Style Sheet (*.css)|*.css|Cilk (*.cilk;*.cilkh)|*.cilk;*.cilkh|Cobra (*.cobra)|*.cobra|ColdFusion (*.cfc;*.cfm;*.cfml;*.dbm)|*.cfc;*.cfm;*.cfml;*.dbm|CPP (*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx)|*.c++;*.cc;*.cpp;*.cxx;*.h++;*.hh;*.hpp;*.hxx|D (*.d)|*.d|Diff File (*.diff;*.patch)|*.diff;*.patch|Django (*.django)|*.django|DOS Batch Script (*.bat;*.cmd)|*.bat;*.cmd|DOT (*.dot)|*.dot|DSP56K Assembly (*.56k)|*.56k|Editra Style Sheet (*.ess)|*.ess|Edje (*.edc)|*.edc|Eiffel (*.e)|*.e|Erlang (*.erl)|*.erl|Ferite (*.fe)|*.fe|FlagShip (*.prg)|*.prg|Forth (*.4th;*.fs;*.fth;*.seq)|*.4th;*.fs;*.fth;*.seq|Fortran 77 (*.f;*.for)|*.f;*.for|Fortran 95 (*.f2k;*.f90;*.f95;*.fpp)|*.f2k;*.f90;*.f95;*.fpp|GLSL (*.frag;*.glsl;*.vert)|*.frag;*.glsl;*.vert|GNU Assembly (*.gasm)|*.gasm|Groovy (*.groovy)|*.groovy|Gui4Cli (*.gc;*.gui)|*.gc;*.gui|Haskell (*.hs)|*.hs|HaXe (*.hx;*.hxml)|*.hx;*.hxml|HTML (*.htm;*.html;*.shtm;*.shtml;*.xhtml)|*.htm;*.html;*.shtm;*.shtml;*.xhtml|Inno Setup Script (*.iss)|*.iss|IssueList (*.isl)|*.isl|Java (*.java)|*.java|JavaScript (*.js)|*.js|Kix (*.kix)|*.kix|Korn Shell Script (*.ksh)|*.ksh|LaTeX (*.aux;*.sty;*.tex)|*.aux;*.sty;*.tex|Lisp (*.cl;*.lisp)|*.cl;*.lisp|Lout (*.lt)|*.lt|Lua (*.lua)|*.lua|Mako (*.mako;*.mao)|*.mako;*.mao|MASM (*.asm;*.masm)|*.asm;*.masm|Matlab (*.matlab)|*.matlab|Microsoft SQL (*.mssql)|*.mssql|Netwide Assembler (*.nasm)|*.nasm|newLISP (*.lsp)|*.lsp|NONMEM Control Stream (*.ctl)|*.ctl|Nullsoft Installer Script (*.nsh;*.nsi)|*.nsh;*.nsi|Objective C (*.m;*.mm)|*.m;*.mm|Octave (*.oct;*.octave)|*.oct;*.octave|OOC (*.ooc)|*.ooc|Pascal (*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp)|*.dfm;*.dpk;*.dpr;*.inc;*.p;*.pas;*.pp|Perl (*.cgi;*.pl;*.pm;*.pod)|*.cgi;*.pl;*.pm;*.pod|PHP (*.php;*.php3;*.phtm;*.phtml)|*.php;*.php3;*.phtm;*.phtml|Pike (*.pike)|*.pike|PL/SQL (*.plsql)|*.plsql|Plain Text (*.txt)|*.txt|Postscript (*.ai;*.ps)|*.ai;*.ps|Progress 4GL (*.4gl)|*.4gl|Properties (*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url)|*.cfg;*.cnf;*.inf;*.ini;*.reg;*.url|Python (*.py;*.python;*.pyw)|*.py;*.python;*.pyw|R (*.r)|*.r|Ruby (*.gemspec;*.rake;*.rb;*.rbw;*.rbx)|*.gemspec;*.rake;*.rb;*.rbw;*.rbx|S (*.s)|*.s|Scheme (*.scm;*.smd;*.ss)|*.scm;*.smd;*.ss|Smalltalk (*.st)|*.st|SQL (*.sql)|*.sql|Squirrel (*.nut)|*.nut|Stata (*.ado;*.do)|*.ado;*.do|System Verilog (*.sv;*.svh)|*.sv;*.svh|Tcl/Tk (*.itcl;*.tcl;*.tk)|*.itcl;*.tcl;*.tk|Vala (*.vala)|*.vala|VBScript (*.dsm;*.vbs)|*.dsm;*.vbs|Verilog (*.v)|*.v|VHDL (*.vh;*.vhd;*.vhdl)|*.vh;*.vhd;*.vhdl|Visual Basic (*.bas;*.cls;*.frm;*.vb)|*.bas;*.cls;*.frm;*.vb|XML (*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul)|*.axl;*.dtd;*.plist;*.rdf;*.svg;*.xml;*.xrc;*.xsd;*.xsl;*.xslt;*.xul|Xtext (*.xtext)|*.xtext|YAML (*.yaml;*.yml)|*.yaml;*.yml");
     wxFileDialog dlg(this, _("Open File"), dir, wxEmptyString, fileFilter,
 #if wxCHECK_VERSION(2,8,0)
     wxFD_OPEN|wxFD_MULTIPLE );
@@ -3375,7 +3436,7 @@ void MadEditFrame::OnFileOpen(wxCommandEvent& event)
         g_MB2WC_check_dir_filename=false;
 
         size_t count=filenames.GetCount();
-        for(size_t i=0;i<count;i++)
+        for(size_t i=0;i<count;++i)
         {
             OpenFile(filenames[i], false);
         }
@@ -3712,6 +3773,27 @@ void MadEditFrame::OnEditInsertDateTime(wxCommandEvent& event)
     g_ActiveMadEdit->InsertDateTime();
 }
 
+// add: gogo, 21.09.2009
+//
+void MadEditFrame::OnEditToggleBookmark(wxCommandEvent& event)
+{
+    if ( g_ActiveMadEdit )
+        g_ActiveMadEdit->SetBookmark();
+}
+
+void MadEditFrame::OnEditGotoNextBookmark(wxCommandEvent& event)
+{
+    if ( g_ActiveMadEdit )
+        g_ActiveMadEdit->GotoNextBookmark();
+}
+
+void MadEditFrame::OnEditGotoPreviousBookmark(wxCommandEvent& event)
+{
+    if ( g_ActiveMadEdit )
+        g_ActiveMadEdit->GotoPreviousBookmark();
+}
+//----------
+
 void MadEditFrame::OnEditSortAscending(wxCommandEvent& event)
 {
     if(g_ActiveMadEdit && g_ActiveMadEdit->GetEditMode()!=emHexMode)
@@ -3914,7 +3996,7 @@ void MadEditFrame::OnEditToHalfWidthByOptions(wxCommandEvent& event)
     if(sels > 0)
     {
         bool ascii=false, japanese=false, korean=false, other=false;
-        for(size_t i=0; i<sels; i++)
+        for(size_t i=0; i<sels; ++i)
         {
             switch(selections[i])
             {
@@ -3962,7 +4044,7 @@ void MadEditFrame::OnEditToFullWidthByOptions(wxCommandEvent& event)
     if(sels > 0)
     {
         bool ascii=false, japanese=false, korean=false, other=false;
-        for(size_t i=0; i<sels; i++)
+        for(size_t i=0; i<sels; ++i)
         {
             switch(selections[i])
             {
@@ -4673,7 +4755,7 @@ void MadEditFrame::OnToolsOptions(wxCommandEvent& event)
         m_Config->Write(wxT("PageFooterRight"), ss);
 
         int count=int(m_Notebook->GetPageCount());
-        for(int i=0;i<count;i++)
+        for(int i=0;i<count;++i)
         {
             MadEdit *madedit=(MadEdit*)m_Notebook->GetPage(i);
 
@@ -4742,7 +4824,7 @@ void MadEditFrame::OnToolsOptions(wxCommandEvent& event)
                 if(cd->menu_id > 0)
                 {
                     size_t idx=0, count=tid->keys.GetCount();
-                    for(;idx<count;idx++)
+                    for(;idx<count;++idx)
                     {
                         MadEdit::ms_KeyBindings.Add(StringToShortCut(tid->keys[idx]), idx==0, cd->menu_id, true);
                     }
@@ -4750,7 +4832,7 @@ void MadEditFrame::OnToolsOptions(wxCommandEvent& event)
                 else if(cd->command > 0)
                 {
                     size_t idx=0, count=tid->keys.GetCount();
-                    for(;idx<count;idx++)
+                    for(;idx<count;++idx)
                     {
                         MadEdit::ms_KeyBindings.Add(StringToShortCut(tid->keys[idx]), cd->command, true);
                     }
@@ -5085,8 +5167,8 @@ void MadEditFrame::OnHelpAbout(wxCommandEvent& event)
 
 void MadEditFrame::OnCopyCurrResult(wxCommandEvent& event)
 {
-    wxTreeItemId id = m_FindInFilesResults->GetFocusedItem();
-    
+    //wxTreeItemId id = m_FindInFilesResults->GetFocusedItem();
+    wxTreeItemId id = m_FindInFilesResults->GetSelection();
     if ( id.IsOk() && g_ActiveMadEdit)
     {
         wxString result = m_FindInFilesResults->GetItemText(id);
@@ -5099,7 +5181,7 @@ void MadEditFrame::OnCopyAllResults(wxCommandEvent& event)
     if (g_ActiveMadEdit)
     {
         wxTreeItemId RootId = m_FindInFilesResults->GetRootItem();
-        wxString result("");
+        wxString result(wxT(""));
         if ( RootId.IsOk() )
         {
             wxTreeItemIdValue cookie;
@@ -5111,14 +5193,14 @@ void MadEditFrame::OnCopyAllResults(wxCommandEvent& event)
                 wxTreeItemId tmpId=m_FindInFilesResults->GetFirstChild(id, tmpCookie);
                 while(tmpId.IsOk())
                 {
-                    result += wxString("\n    ")+m_FindInFilesResults->GetItemText(tmpId);               
+                    result += wxString(wxT("\n    "))+m_FindInFilesResults->GetItemText(tmpId);               
                     tmpId=m_FindInFilesResults->GetNextChild(id, tmpCookie);
                 }
                 id=m_FindInFilesResults->GetNextChild(m_FindInFilesResults->GetRootItem(), cookie);
             }
         }
     
-        if(result != wxString(""))
+        if(result != wxString(wxT("")))
             g_ActiveMadEdit->CopyToClipboard(result);
     }
 }
@@ -5144,7 +5226,7 @@ MadTreeCtrl::MadTreeCtrl(wxWindow *parent, const wxWindowID id,
 void MadTreeCtrl::OnItemMenu(wxTreeEvent& event)
 {
     wxTreeItemId itemId = event.GetItem();
-    wxCHECK_RET( itemId.IsOk(), "should have a valid item" );
+    wxCHECK_RET( itemId.IsOk(), wxT("should have a valid item") );
 
     //MyTreeItemData *item = (MyTreeItemData *)GetItemData(itemId);
     wxPoint clientpt = event.GetPoint();

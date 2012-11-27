@@ -128,7 +128,7 @@ targets_selection_received( GtkWidget *WXUNUSED(widget),
         // the atoms we received, holding a list of targets (= formats)
         GdkAtom *atoms = (GdkAtom *)selection_data->data;
 
-        for (unsigned int i=0; i<selection_data->length/sizeof(GdkAtom); i++)
+        for (unsigned int i=0; i<selection_data->length/sizeof(GdkAtom); ++i)
         {
             wxDataFormat format( atoms[i] );
 
@@ -540,7 +540,7 @@ bool wxClipboardGtk::AddData( wxDataObject *data )
                               0 );
 
     //[mad]for (size_t i = 0; i < m_data->GetFormatCount(); i++)
-    for (size_t i = 0; i < data->GetFormatCount(); i++)//[mad]
+    for (size_t i = 0; i < data->GetFormatCount(); ++i)//[mad]
     {
         wxLogTrace( TRACE_CLIPBOARD,
                     wxT("wxClipboardGtk now supports atom %s"), //[mad]
@@ -655,7 +655,7 @@ bool wxClipboardGtk::GetData( wxDataObject& data )
     wxDataFormat *array = new wxDataFormat[ data.GetFormatCount() ];
     data.GetAllFormats( array );
 
-    for (size_t i = 0; i < data.GetFormatCount(); i++)
+    for (size_t i = 0; i < data.GetFormatCount(); ++i)
     {
         wxDataFormat format( array[i] );
 

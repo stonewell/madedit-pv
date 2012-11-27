@@ -458,7 +458,7 @@ struct UCIterator   // ucs4_t widechar iterator
         ucqit=it.ucqit;
         ucqidx=it.ucqidx;
 
-        if(ucqidx>=0) ucqit->lock++;
+        if(ucqidx>=0) ++ucqit->lock;
 
         return *this;
     }
@@ -887,18 +887,25 @@ MadSearchResult MadEdit::Replace(ucs4string &out, const MadCaretPos &beginpos, c
 
 #ifdef __WXMSW__
     ucs.clear();
-    TranslateText(fmt.c_str(), fmt.Len(), &ucs, true);
 #if PATCH_RPLACE_REGEXP == 1
     if (!fmt.IsEmpty())
+    {
 #endif        
+        TranslateText(fmt.c_str(), fmt.Len(), &ucs, true);
         puc=&ucs[0];
 #if PATCH_RPLACE_REGEXP == 1
+    }
     else
         puc=0;
 #endif
     ucs4string fmtstr(puc, puc+ucs.size());
 #else
-    puc=fmt.c_str();
+    if (!fmt.IsEmpty()) 
+    {
+        puc=fmt.c_str();
+    }
+    else 
+        puc=0;
     ucs4string fmtstr(puc, puc+fmt.Len());
 #endif
 

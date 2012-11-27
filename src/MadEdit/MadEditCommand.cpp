@@ -90,6 +90,9 @@ void MadKeyBindings::InitCommandTextMap()
     INSERT_COMMANDTEXT(ecDelete);
     INSERT_COMMANDTEXT(ecBackSpace);
 
+    INSERT_COMMANDTEXT(ecDelPrevWord);	// add: gogo, 30.08.2009
+    INSERT_COMMANDTEXT(ecDelNextWord);	// add: gogo, 30.08.2009
+
     INSERT_COMMANDTEXT(ecCutLine);
     INSERT_COMMANDTEXT(ecDeleteLine);
 
@@ -734,6 +737,11 @@ void MadKeyBindings::AddDefaultBindings(bool overwrite)
     Add(ShortCut(wxACCEL_NORMAL, WXK_DELETE),   ecDelete, overwrite);
     Add(ShortCut(wxACCEL_NORMAL, WXK_BACK),     ecBackSpace, overwrite);
 
+    // add: gogo, 30.08.2009
+    Add(ShortCut(wxACCEL_CTRL, WXK_BACK),          ecDelPrevWord, overwrite);
+    Add(ShortCut(wxACCEL_CTRL, WXK_DELETE),        ecDelNextWord, overwrite);
+    Add(ShortCut(wxACCEL_CTRL, WXK_NUMPAD_DELETE), ecDelNextWord, overwrite);
+
     Add(ShortCut(wxACCEL_CTRL | wxACCEL_SHIFT, 'L'),  ecCutLine, overwrite);
     Add(ShortCut(wxACCEL_CTRL, 'L'),  ecDeleteLine, overwrite);
 #ifndef __WXMSW__
@@ -1077,7 +1085,7 @@ void MadKeyBindings::SaveToConfig_New(wxConfigBase *config)
     }
 
     //delete unused keys
-    for(size_t i=0; i<keys.GetCount(); i++)
+    for(size_t i=0; i<keys.GetCount(); ++i)
     {
         config->DeleteEntry(keys[i]);
     }

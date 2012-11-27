@@ -65,6 +65,7 @@ public:
 
     static int MaxCount;
     static wxString DataDir;
+	static wxString FontDataFile[17];
     typedef list<FontWidthBuffer> FontWidthBuffers;
     static vector<FontWidthBuffers> FontWidthBuffersVector; //0~16
 
@@ -236,6 +237,12 @@ private:
     MadCaretPos     m_SelectionPos1, m_SelectionPos2;
     MadCaretPos     *m_SelectionBegin, *m_SelectionEnd;
 
+    //hacking for drag&drop
+    bool            m_DragDrop;
+    bool            m_DragCopyFlag;//default move
+    wxString        m_DndData;
+    int             m_DndLines;
+
     int             m_SelFirstRow, m_SelLastRow;        // for repaint
     int             m_SelLeftXPos, m_SelRightXPos;      // for ColumnMode
 
@@ -348,6 +355,8 @@ private:
     OnMouseRightUpPtr     m_OnMouseRightUp;
     OnActivatePtr         m_OnActivate;
 
+    wxMilliClock_t m_lastDoubleClick;
+
 #ifdef __WXMSW__
     bool m_IsWin98;
     int  m_Win98LeadByte; // fixed that input DBCS char under win98
@@ -427,6 +436,7 @@ protected:
     // if(ws==NULL) SelectWord only;
     // else GetWord to ws;
     void SelectWordFromCaretPos(wxString *ws);
+    void SelectLineFromCaretPos(wxString *ws=NULL);
 
     bool PutTextToClipboard(const wxString &ws);
     bool PutColumnDataToClipboard(const wxString &ws, int linecount);
@@ -507,6 +517,7 @@ protected:
 protected:
     void OnChar(wxKeyEvent &evt);
     void OnKeyDown(wxKeyEvent &evt);
+    void OnKeyUp(wxKeyEvent &evt);
 
     void OnMouseLeftDown(wxMouseEvent &evt);
     void OnMouseLeftUp(wxMouseEvent &evt);
@@ -786,6 +797,8 @@ public: // basic functions
     void CutToClipboard();
     void CopyToClipboard();
     void PasteFromClipboard();
+    void DndBegDrag();
+    void DndDrop();
     bool CanPaste();
     void CopyToClipboard(wxString & text){PutTextToClipboard(text);}
 
@@ -863,6 +876,12 @@ public: // basic functions
     // if FileName is empty, ask the user to get filename
     // return wxID_YES(Saved), wxID_NO(Not Saved), or wxID_CANCEL
     int Save(bool ask, const wxString &title, bool saveas);
+
+    // add: gogo, 21.09.2009
+    void SetBookmark();
+    void GotoNextBookmark();
+    void GotoPreviousBookmark();
+    //----------
 
 public: // advanced functions
     void ConvertEncoding(const wxString &newenc, MadConvertEncodingFlag flag);

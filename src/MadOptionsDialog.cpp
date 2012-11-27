@@ -703,13 +703,13 @@ void MadOptionsDialog::CreateGUIControls(void)
     WxComboBoxEncoding->Append(systemenc);
     size_t cnt=MadEncoding::GetEncodingsCount();
     size_t i;
-    for(i=0; i<cnt; i++)
+    for(i=0; i<cnt; ++i)
     {
         WxComboBoxEncoding->Append(MadEncoding::GetEncodingName(i));//enc+des);
     }
     WxComboBoxEncoding->SetValue(systemenc);
 
-    for(i=0; i<g_LanguageCount; i++)
+    for(i=0; i<g_LanguageCount; ++i)
     {
         WxComboBoxLanguage->Append(wxString(g_LanguageString[i]));
     }
@@ -749,7 +749,7 @@ void MadOptionsDialog::CreateGUIControls(void)
     int strx=0, stry=0;
     wxString str=WxRadioBoxPrintOffset->GetLabel();
     WxRadioBoxPrintOffset->GetTextExtent(str, &strx, &stry);
-    for(i=0;i<WxRadioBoxPrintOffset->GetCount();i++)
+    for(i=0;i<WxRadioBoxPrintOffset->GetCount();++i)
     {
         int x;
         str=WxRadioBoxPrintOffset->GetString((unsigned int)i);
@@ -1228,7 +1228,7 @@ TreeItemData* MadOptionsDialog::FindKeyInList(const wxString &key)
         {
             size_t count=tid->keys.GetCount();
             size_t idx=0;
-            for(;idx<count;idx++)
+            for(;idx<count;++idx)
             {
                 if(tid->keys[idx].Lower() == lkey)
                 {

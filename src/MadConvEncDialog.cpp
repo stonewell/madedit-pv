@@ -118,7 +118,7 @@ void MadConvEncDialog::CreateGUIControls(void)
     #undef wxFont
 
     size_t cnt=MadEncoding::GetEncodingsCount();
-    for(size_t i=0;i<cnt;i++)
+    for(size_t i=0;i<cnt;++i)
     {
         WxComboBoxEncoding->Append(MadEncoding::GetEncodingName(i));//enc+des);
     }
@@ -134,7 +134,7 @@ void MadConvEncDialog::CreateGUIControls(void)
     int strx=0, stry=0;
     wxString str=WxRadioBoxOption->GetLabel();
     WxRadioBoxOption->GetTextExtent(str, &strx, &stry);
-    for(size_t i=0;i<WxRadioBoxOption->GetCount();i++)
+    for(size_t i=0;i<WxRadioBoxOption->GetCount();++i)
     {
         int x;
         str=WxRadioBoxOption->GetString((unsigned int)i);

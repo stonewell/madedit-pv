@@ -364,7 +364,7 @@ wxString MadEncoding::GetEncodingFontName(size_t idx)
 wxString MadEncoding::EncodingToName(wxFontEncoding enc)
 {
     size_t idx;
-    for(idx=0;idx<EncodingsTable.size();idx++)
+    for(idx=0;idx<EncodingsTable.size();++idx)
     {
         if(EncodingsTable[idx].m_Encoding==enc)
         {
@@ -378,7 +378,7 @@ wxFontEncoding MadEncoding::NameToEncoding(const wxString &name)
 {
     size_t idx;
     wxString uname(name.Upper());
-    for(idx=0;idx<EncodingsTable.size();idx++)
+    for(idx=0;idx<EncodingsTable.size();++idx)
     {
         if(EncodingsTable[idx].m_Name==uname)
         {
@@ -405,7 +405,7 @@ MadEncoding::MadEncoding(size_t idx)
 MadEncoding::MadEncoding(wxFontEncoding enc)
 {
     size_t idx;
-    for(idx=0;idx<EncodingsTable.size();idx++)
+    for(idx=0;idx<EncodingsTable.size();++idx)
     {
         if(EncodingsTable[idx].m_Encoding==enc)
         {
@@ -424,7 +424,7 @@ MadEncoding::MadEncoding(const wxString &name)
 {
     size_t idx;
     wxString uname(name.Upper());
-    for(idx=0;idx<EncodingsTable.size();idx++)
+    for(idx=0;idx<EncodingsTable.size();++idx)
     {
         if(EncodingsTable[idx].m_Name==uname)
         {
@@ -472,7 +472,7 @@ void MadEncoding::Create(size_t idx)
             {   // cache the results of Single-Byte <==> Wide-Char
                 wxByte singlebyte[2]={0,0};
                 wchar_t wc[2];
-                for(wxWord i=0;i<256;i++)
+                for(wxWord i=0;i<256;++i)
                 {
                     singlebyte[0]=i;
                     if(m_CSConv->MB2WC(wc,(char*)singlebyte,2)==1)
@@ -808,7 +808,7 @@ bool IsTextUTF32LE(wxByte *text, int size)
 
     ucs4_t ucs4, *p=(ucs4_t *)text;
 
-    for(int i=0;i<size;i++, p++)
+    for(int i=0;i<size;++i, ++p)
     {
         ucs4=wxINT32_SWAP_ON_BE(*p);
 
@@ -829,7 +829,7 @@ bool IsTextUTF32BE(wxByte *text, int size)
 
     ucs4_t ucs4, *p=(ucs4_t *)text;
 
-    for(int i=0;i<size;i++, p++)
+    for(int i=0;i<size;++i, ++p)
     {
         ucs4=wxINT32_SWAP_ON_LE(*p);
 
@@ -1003,7 +1003,7 @@ bool IsBinaryData(wxByte *data, int size)
         b = data[i];
         if(b == 0)
             return true;
-        i++;
+        ++i;
     }
     return false;
 }
