@@ -261,6 +261,41 @@ object frmNewForm: TfrmNewForm
           Wx_Floating_X_Pos = 0
           Wx_Floating_Y_Pos = 0
         end
+        object WxCheckBoxSearchThrEndOfFile: TWxCheckBox
+          Left = 25
+          Top = 132
+          Width = 300
+          Height = 22
+          Caption = 'Search Through &End of File'
+          TabOrder = 6
+          Wx_BGColor = clBlack
+          Wx_CheckBoxStyle = []
+          Wx_Class = 'wxCheckBox'
+          Wx_ControlOrientation = wxControlVertical
+          Wx_FGColor = clBlack
+          Wx_GeneralStyle = []
+          Wx_Hidden = False
+          Wx_IDName = 'ID_WXCHECKBOXSEARCHTHRENDOFFILE'
+          Wx_IDValue = 25
+          Wx_Border = 2
+          Wx_Alignment = [wxALIGN_LEFT]
+          Wx_PaneCaption = 'WxCheckBoxRegex'
+          Wx_PaneName = 'WxCheckBoxRegex_Pane'
+          Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
+          Wx_Aui_Dockable_Direction = []
+          Wx_Aui_Pane_Style = []
+          Wx_Aui_Pane_Buttons = []
+          Wx_BestSize_Height = 0
+          Wx_BestSize_Width = 0
+          Wx_MinSize_Height = 0
+          Wx_MinSize_Width = 0
+          Wx_MaxSize_Height = 0
+          Wx_MaxSize_Width = 0
+          Wx_Floating_Height = 0
+          Wx_Floating_Width = 0
+          Wx_Floating_X_Pos = 0
+          Wx_Floating_Y_Pos = 0
+        end
         object WxBoxSizer6: TWxBoxSizer
           Left = 0
           Top = 156

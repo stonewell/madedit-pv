@@ -141,6 +141,7 @@
 
 wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 Patched DX"));
 wxString g_MadEdit_URL(wxT("http://madedit.sourceforge.net/wiki"));
+wxString g_MadEditPv_URL(wxT("http://code.google.com/p/madedit-pv/"));
 
 
 extern wxString g_MadEditAppDir, g_MadEditHomeDir;
@@ -1202,6 +1203,7 @@ BEGIN_EVENT_TABLE(MadEditFrame,wxFrame)
 	
 	EVT_MENU(menuCopyCurResult, MadEditFrame::OnCopyCurrResult)
 	EVT_MENU(menuCopyAllResults, MadEditFrame::OnCopyAllResults)
+	EVT_MENU(menuResetCurResult, MadEditFrame::OnResetCurrResult)
 END_EVENT_TABLE()
   ////Event Table End
 
@@ -5197,12 +5199,21 @@ void MadEditFrame::OnCopyAllResults(wxCommandEvent& event)
                     tmpId=m_FindInFilesResults->GetNextChild(id, tmpCookie);
                 }
                 id=m_FindInFilesResults->GetNextChild(m_FindInFilesResults->GetRootItem(), cookie);
+                result += wxT("\n");
             }
         }
     
         if(result != wxString(wxT("")))
             g_ActiveMadEdit->CopyToClipboard(result);
     }
+}
+
+void MadEditFrame::OnResetCurrResult(wxCommandEvent& event)
+{
+    if (g_ActiveMadEdit)
+    {
+    	g_MainFrame->ResetFindInFilesResults();
+	}
 }
 
 #if USE_GENERIC_TREECTRL
@@ -5245,6 +5256,7 @@ void MadTreeCtrl::ShowMenu(wxTreeItemId id, const wxPoint& pt)
     wxMenu menu((long)0);
     menu.Append(menuCopyCurResult, wxT("&Copy Selected"));
     menu.Append(menuCopyAllResults, wxT("Copy &All"));
+    menu.Append(menuResetCurResult, wxT("&Reset Results"));
     //menu.Append(TreeTest_Highlight, wxT("&Highlight item"));
     //menu.Append(TreeTest_Dump, wxT("&Dump"));
 

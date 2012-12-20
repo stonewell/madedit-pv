@@ -1,368 +1,51 @@
 # SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: src/MadFileAssociationDialog.cpp:352 src/MadFindInFilesDialog.cpp:159
-#: src/MadFindInFilesDialog.cpp:172 src/MadFindInFilesDialog.cpp:175
-#: src/MadFindInFilesDialog.cpp:178 src/MadFindInFilesDialog.cpp:185
-#: src/MadFindInFilesDialog.cpp:188 src/MadFindInFilesDialog.cpp:191
-#: src/MadFindInFilesDialog.cpp:198 src/MadHighlightingDialog.cpp:218
-#: src/MadSearchDialog.cpp:119 src/MadSearchDialog.cpp:125
-#: src/MadSearchDialog.cpp:146 src/MadReplaceDialog.cpp:125
-#: src/MadReplaceDialog.cpp:136 src/MadReplaceDialog.cpp:142
-#: src/MadOptionsDialog.cpp:235 src/MadOptionsDialog.cpp:272
-#: src/MadOptionsDialog.cpp:336 src/MadOptionsDialog.cpp:435
-#: src/MadOptionsDialog.cpp:444 src/MadOptionsDialog.cpp:453
-#: src/MadOptionsDialog.cpp:472 src/MadOptionsDialog.cpp:481
-#: src/MadOptionsDialog.cpp:490 src/MadOptionsDialog.cpp:518
-#: src/MadOptionsDialog.cpp:541 src/MadOptionsDialog.cpp:544
-#: src/MadOptionsDialog.cpp:572 src/MadOptionsDialog.cpp:573
-#: src/MadOptionsDialog.cpp:574 src/MadOptionsDialog.cpp:576
-#: src/MadOptionsDialog.cpp:577 src/MadOptionsDialog.cpp:578
-#: src/MadOptionsDialog.cpp:579 src/MadOptionsDialog.cpp:580
-#: src/MadOptionsDialog.cpp:581 src/MadOptionsDialog.cpp:582
-#: src/MadOptionsDialog.cpp:583 src/MadOptionsDialog.cpp:584
-#: src/MadOptionsDialog.cpp:585 src/MadOptionsDialog.cpp:586
-#: src/MadOptionsDialog.cpp:587 src/MadOptionsDialog.cpp:588
-#: src/MadOptionsDialog.cpp:589 src/MadOptionsDialog.cpp:590
-#: src/MadOptionsDialog.cpp:591 src/MadOptionsDialog.cpp:592
-#: src/MadOptionsDialog.cpp:593 src/MadOptionsDialog.cpp:594
-#: src/MadOptionsDialog.cpp:595 src/MadOptionsDialog.cpp:596
-#: src/MadOptionsDialog.cpp:597 src/MadOptionsDialog.cpp:599
-#: src/MadOptionsDialog.cpp:600 src/MadOptionsDialog.cpp:602
-#: src/MadOptionsDialog.cpp:603 src/MadOptionsDialog.cpp:605
-#: src/MadOptionsDialog.cpp:606 src/MadWordCountDialog.cpp:117
-#: src/MadAboutDialog.cpp:67
+#: src/MadFileAssociationDialog.cpp:386 src/MadFindInFilesDialog.cpp:175
+#: src/MadFindInFilesDialog.cpp:192 src/MadFindInFilesDialog.cpp:196
+#: src/MadFindInFilesDialog.cpp:200 src/MadFindInFilesDialog.cpp:209
+#: src/MadFindInFilesDialog.cpp:213 src/MadFindInFilesDialog.cpp:217
+#: src/MadFindInFilesDialog.cpp:226 src/MadHighlightingDialog.cpp:223
+#: src/MadSearchDialog.cpp:140 src/MadSearchDialog.cpp:148
+#: src/MadSearchDialog.cpp:179 src/MadReplaceDialog.cpp:129
+#: src/MadReplaceDialog.cpp:137 src/MadReplaceDialog.cpp:160
+#: src/MadOptionsDialog.cpp:242 src/MadOptionsDialog.cpp:287
+#: src/MadOptionsDialog.cpp:365 src/MadOptionsDialog.cpp:485
+#: src/MadOptionsDialog.cpp:497 src/MadOptionsDialog.cpp:509
+#: src/MadOptionsDialog.cpp:532 src/MadOptionsDialog.cpp:544
+#: src/MadOptionsDialog.cpp:556 src/MadOptionsDialog.cpp:589
+#: src/MadOptionsDialog.cpp:616 src/MadOptionsDialog.cpp:620
+#: src/MadOptionsDialog.cpp:655 src/MadOptionsDialog.cpp:656
+#: src/MadOptionsDialog.cpp:658 src/MadOptionsDialog.cpp:659
+#: src/MadOptionsDialog.cpp:661 src/MadOptionsDialog.cpp:662
+#: src/MadOptionsDialog.cpp:664 src/MadOptionsDialog.cpp:665
+#: src/MadOptionsDialog.cpp:666 src/MadOptionsDialog.cpp:668
+#: src/MadOptionsDialog.cpp:669 src/MadOptionsDialog.cpp:670
+#: src/MadOptionsDialog.cpp:671 src/MadOptionsDialog.cpp:672
+#: src/MadOptionsDialog.cpp:673 src/MadOptionsDialog.cpp:674
+#: src/MadOptionsDialog.cpp:675 src/MadOptionsDialog.cpp:676
+#: src/MadOptionsDialog.cpp:677 src/MadOptionsDialog.cpp:678
+#: src/MadOptionsDialog.cpp:679 src/MadOptionsDialog.cpp:680
+#: src/MadOptionsDialog.cpp:681 src/MadOptionsDialog.cpp:682
+#: src/MadOptionsDialog.cpp:683 src/MadOptionsDialog.cpp:684
+#: src/MadOptionsDialog.cpp:685 src/MadOptionsDialog.cpp:686
+#: src/MadOptionsDialog.cpp:687 src/MadOptionsDialog.cpp:688
+#: src/MadOptionsDialog.cpp:689 src/MadWordCountDialog.cpp:134
+#: src/MadAboutDialog.cpp:72
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: madedit@gmail.com\n"
-"POT-Creation-Date: 2007-10-08 01:25+0800\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-24 14:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: po/wxstd.po.cpp:2
-msgid "Unicode 16 bit (UTF-16)"
-msgstr ""
-
-#: po/wxstd.po.cpp:3
-msgid "Unicode 16 bit Big Endian (UTF-16BE)"
-msgstr ""
-
-#: po/wxstd.po.cpp:4
-msgid "Unicode 16 bit Little Endian (UTF-16LE)"
-msgstr ""
-
-#: po/wxstd.po.cpp:5
-msgid "Unicode 32 bit (UTF-32)"
-msgstr ""
-
-#: po/wxstd.po.cpp:6
-msgid "Unicode 32 bit Big Endian (UTF-32BE)"
-msgstr ""
-
-#: po/wxstd.po.cpp:7
-msgid "Unicode 32 bit Little Endian (UTF-32LE)"
-msgstr ""
-
-#: po/wxstd.po.cpp:8
-msgid "Unicode 7 bit (UTF-7)"
-msgstr ""
-
-#: po/wxstd.po.cpp:9
-msgid "Unicode 8 bit (UTF-8)"
-msgstr ""
-
-#: po/wxstd.po.cpp:10
-msgid "Western European (ISO-8859-1)"
-msgstr ""
-
-#: po/wxstd.po.cpp:11
-msgid "Central European (ISO-8859-2)"
-msgstr ""
-
-#: po/wxstd.po.cpp:12
-msgid "Esperanto (ISO-8859-3)"
-msgstr ""
-
-#: po/wxstd.po.cpp:13
-msgid "Baltic (old) (ISO-8859-4)"
-msgstr ""
-
-#: po/wxstd.po.cpp:14
-msgid "Cyrillic (ISO-8859-5)"
-msgstr ""
-
-#: po/wxstd.po.cpp:15
-msgid "Arabic (ISO-8859-6)"
-msgstr ""
-
-#: po/wxstd.po.cpp:16
-msgid "Greek (ISO-8859-7)"
-msgstr ""
-
-#: po/wxstd.po.cpp:17
-msgid "Hebrew (ISO-8859-8)"
-msgstr ""
-
-#: po/wxstd.po.cpp:18
-msgid "Turkish (ISO-8859-9)"
-msgstr ""
-
-#: po/wxstd.po.cpp:19
-msgid "Nordic (ISO-8859-10)"
-msgstr ""
-
-#: po/wxstd.po.cpp:20
-msgid "Thai (ISO-8859-11)"
-msgstr ""
-
-#: po/wxstd.po.cpp:21
-msgid "Indian (ISO-8859-12)"
-msgstr ""
-
-#: po/wxstd.po.cpp:22
-msgid "Baltic (ISO-8859-13)"
-msgstr ""
-
-#: po/wxstd.po.cpp:23
-msgid "Celtic (ISO-8859-14)"
-msgstr ""
-
-#: po/wxstd.po.cpp:24
-msgid "Western European with Euro (ISO-8859-15)"
-msgstr ""
-
-#: po/wxstd.po.cpp:25
-msgid "KOI8-R"
-msgstr ""
-
-#: po/wxstd.po.cpp:26
-msgid "KOI8-U"
-msgstr ""
-
-#: po/wxstd.po.cpp:27
-msgid "Windows Thai (CP 874)"
-msgstr ""
-
-#: po/wxstd.po.cpp:28
-msgid "Windows Central European (CP 1250)"
-msgstr ""
-
-#: po/wxstd.po.cpp:29
-msgid "Windows Cyrillic (CP 1251)"
-msgstr ""
-
-#: po/wxstd.po.cpp:30
-msgid "Windows Western European (CP 1252)"
-msgstr ""
-
-#: po/wxstd.po.cpp:31
-msgid "Windows Greek (CP 1253)"
-msgstr ""
-
-#: po/wxstd.po.cpp:32
-msgid "Windows Turkish (CP 1254)"
-msgstr ""
-
-#: po/wxstd.po.cpp:33
-msgid "Windows Hebrew (CP 1255)"
-msgstr ""
-
-#: po/wxstd.po.cpp:34
-msgid "Windows Arabic (CP 1256)"
-msgstr ""
-
-#: po/wxstd.po.cpp:35
-msgid "Windows Baltic (CP 1257)"
-msgstr ""
-
-#: po/wxstd.po.cpp:36
-msgid "Windows Japanese (CP 932)"
-msgstr ""
-
-#: po/wxstd.po.cpp:37
-msgid "Windows Chinese Simplified (CP 936)"
-msgstr ""
-
-#: po/wxstd.po.cpp:38
-msgid "Windows Korean (CP 949)"
-msgstr ""
-
-#: po/wxstd.po.cpp:39
-msgid "Windows Chinese Traditional (CP 950)"
-msgstr ""
-
-#: po/wxstd.po.cpp:40
-msgid "Extended Unix Codepage for Japanese (EUC-JP)"
-msgstr ""
-
-#: po/wxstd.po.cpp:41
-msgid "Windows/DOS OEM (CP 437)"
-msgstr ""
-
-#: po/wxstd.po.cpp:42
-msgid "OK"
-msgstr ""
-
-#: po/wxstd.po.cpp:43 src/MadSortDialog.cpp:85
-msgid "Cancel"
-msgstr ""
-
-#: po/wxstd.po.cpp:44
-#, c-format
-msgid "File '%s' already exists, do you really want to overwrite it?"
-msgstr ""
-
-#: po/wxstd.po.cpp:45 src/MadWordCountDialog.cpp:123
-msgid "&Close"
-msgstr ""
-
-#: po/wxstd.po.cpp:46
-msgid "&Goto..."
-msgstr ""
-
-#: po/wxstd.po.cpp:47
-msgid "Goto Page"
-msgstr ""
-
-#: po/wxstd.po.cpp:48
-#, c-format
-msgid "Enter a page number between %d and %d:"
-msgstr ""
-
-#: po/wxstd.po.cpp:49
-msgid "Please wait while printing\n"
-msgstr ""
-
-#: po/wxstd.po.cpp:50
-msgid "Printing "
-msgstr ""
-
-#: po/wxstd.po.cpp:51
-msgid "All"
-msgstr ""
-
-#: po/wxstd.po.cpp:52
-msgid "Bottom margin (mm):"
-msgstr ""
-
-#: po/wxstd.po.cpp:53
-msgid "Copies:"
-msgstr ""
-
-#: po/wxstd.po.cpp:54
-msgid "Default printer"
-msgstr ""
-
-#: po/wxstd.po.cpp:55 src/MadSearchDialog.cpp:116 src/MadReplaceDialog.cpp:133
-msgid "From:"
-msgstr ""
-
-#: po/wxstd.po.cpp:56
-msgid "Landscape"
-msgstr ""
-
-#: po/wxstd.po.cpp:57
-msgid "Left margin (mm):"
-msgstr ""
-
-#: po/wxstd.po.cpp:58
-msgid "Orientation"
-msgstr ""
-
-#: po/wxstd.po.cpp:59
-msgid "Page Setup"
-msgstr ""
-
-#: po/wxstd.po.cpp:60
-msgid "Pages"
-msgstr ""
-
-#: po/wxstd.po.cpp:61
-msgid "Paper Size"
-msgstr ""
-
-#: po/wxstd.po.cpp:62
-msgid "Paper size"
-msgstr ""
-
-#: po/wxstd.po.cpp:63
-msgid "Portrait"
-msgstr ""
-
-#: po/wxstd.po.cpp:64
-msgid "PostScript file"
-msgstr ""
-
-#: po/wxstd.po.cpp:65
-msgid "Print Range"
-msgstr ""
-
-#: po/wxstd.po.cpp:66
-msgid "Print Setup"
-msgstr ""
-
-#: po/wxstd.po.cpp:67
-msgid "Print in colour"
-msgstr ""
-
-#: po/wxstd.po.cpp:68
-msgid "Print spooling"
-msgstr ""
-
-#: po/wxstd.po.cpp:69
-msgid "Print to File"
-msgstr ""
-
-#: po/wxstd.po.cpp:70
-msgid "Printer"
-msgstr ""
-
-#: po/wxstd.po.cpp:71
-msgid "Printer command:"
-msgstr ""
-
-#: po/wxstd.po.cpp:72
-msgid "Printer options"
-msgstr ""
-
-#: po/wxstd.po.cpp:73
-msgid "Printer options:"
-msgstr ""
-
-#: po/wxstd.po.cpp:74
-msgid "Printer..."
-msgstr ""
-
-#: po/wxstd.po.cpp:75
-msgid "Printer:"
-msgstr ""
-
-#: po/wxstd.po.cpp:76
-msgid "Right margin (mm):"
-msgstr ""
-
-#: po/wxstd.po.cpp:77
-msgid "Setup..."
-msgstr ""
-
-#: po/wxstd.po.cpp:78
-msgid "Status:"
-msgstr ""
-
-#: po/wxstd.po.cpp:79 src/MadSearchDialog.cpp:122 src/MadReplaceDialog.cpp:139
-msgid "To:"
-msgstr ""
-
-#: po/wxstd.po.cpp:80
-msgid "Top margin (mm):"
-msgstr ""
 
 #: src/MadEdit/MadEditAdvanced.cpp:1295
 msgid "Control Characters"
@@ -952,7 +635,7 @@ msgstr ""
 msgid "Invalid Unicode Characters"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:577
+#: src/MadEdit/MadEditBasic.cpp:582
 #, c-format
 msgid ""
 "Do you want to continue?\n"
@@ -960,2667 +643,2897 @@ msgid ""
 "It may take long time and large memories to convert to Text/Column Mode."
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:577
+#: src/MadEdit/MadEditBasic.cpp:582
 msgid "Hex Mode to Text/Column Mode"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:1957 src/MadEdit/MadEditBasic.cpp:2026
-#: src/MadEditFrame.cpp:2681
+#: src/MadEdit/MadEditBasic.cpp:2127 src/MadEdit/MadEditBasic.cpp:2196
+#: src/MadEditFrame.cpp:2789
 msgid "The Parent Directory of this file does not exist:"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2046
+#: src/MadEdit/MadEditBasic.cpp:2216
 msgid "Cannot save this file:"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2074
+#: src/MadEdit/MadEditBasic.cpp:2245
 msgid "Do you want to save this file?"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2085
+#: src/MadEdit/MadEditBasic.cpp:2256
 msgid "Save File As"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2089 src/MadEditFrame.cpp:1985
+#: src/MadEdit/MadEditBasic.cpp:2260 src/MadEditFrame.cpp:2073
 msgid "Save File"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2129
+#: src/MadEdit/MadEditBasic.cpp:2306
 msgid "Do you want to discard changes?"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2164
+#: src/MadEdit/MadEditBasic.cpp:2341
 msgid "This file has been changed by another application."
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2165
+#: src/MadEdit/MadEditBasic.cpp:2342
 msgid "Do you want to reload it?"
 msgstr ""
 
-#: src/MadEdit/MadEditBasic.cpp:2401
+#: src/MadEdit/MadEditBasic.cpp:2578
 msgid "The input string is not a valid Hex-String:"
 msgstr ""
 
-#: src/MadEdit/MadEditSearch.cpp:663 src/MadEdit/MadEditSearch.cpp:879
+#: src/MadEdit/MadEditSearch.cpp:666 src/MadEdit/MadEditSearch.cpp:882
 #, c-format
 msgid "'%s' is not a valid regular expression."
 msgstr ""
 
-#: src/MadEdit/MadEditSearch.cpp:788
+#: src/MadEdit/MadEditSearch.cpp:791
 msgid ""
 "Catched a exception of 'regex_error'.\n"
 "Maybe the regular expression is invalid."
 msgstr ""
 
-#: src/MadEdit/MadEditSearch.cpp:915
+#: src/MadEdit/MadEditSearch.cpp:932
 #, c-format
 msgid "The format of '%s' is invalid."
 msgstr ""
 
-#: src/MadEditFrame.cpp:682
+#: src/MadEditFrame.cpp:748
 msgid "Ln:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:685
+#: src/MadEditFrame.cpp:751
 msgid "Sub:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:688
+#: src/MadEditFrame.cpp:754
 msgid "Col:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:689
+#: src/MadEditFrame.cpp:755
 msgid "CharPos:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:690
+#: src/MadEditFrame.cpp:756
 msgid "SelSize:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:803
+#: src/MadEditFrame.cpp:869
 msgid "ReadOnly"
 msgstr ""
 
-#: src/MadEditFrame.cpp:813
+#: src/MadEditFrame.cpp:879
 msgid "INS"
 msgstr ""
 
-#: src/MadEditFrame.cpp:818
+#: src/MadEditFrame.cpp:884
 msgid "OVR"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1137
+#: src/MadEditFrame.cpp:1209
 msgid "&File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1138
+#: src/MadEditFrame.cpp:1210
 msgid "&New File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1138
+#: src/MadEditFrame.cpp:1210
 msgid "Create a new file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1139
+#: src/MadEditFrame.cpp:1211
 msgid "&Open File..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1139
+#: src/MadEditFrame.cpp:1211
 msgid "Open an existing file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1141
+#: src/MadEditFrame.cpp:1213
 msgid "&Save File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1141
+#: src/MadEditFrame.cpp:1213
 msgid "Save the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1142
+#: src/MadEditFrame.cpp:1214
 msgid "Save &As..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1142
+#: src/MadEditFrame.cpp:1214
 msgid "Save the file with a new name"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1143
+#: src/MadEditFrame.cpp:1215
 msgid "Sa&ve All"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1143
+#: src/MadEditFrame.cpp:1215
 msgid "Save all files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1145
+#: src/MadEditFrame.cpp:1217
 msgid "&Reload File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1145
+#: src/MadEditFrame.cpp:1217
 msgid "Reload the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1147
+#: src/MadEditFrame.cpp:1219
 msgid "&Close File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1147
+#: src/MadEditFrame.cpp:1219
 msgid "Close the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1148
+#: src/MadEditFrame.cpp:1220
 msgid "C&lose All"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1148
+#: src/MadEditFrame.cpp:1220
 msgid "Close all files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1150
+#: src/MadEditFrame.cpp:1222
 msgid "Page Set&up..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1150
+#: src/MadEditFrame.cpp:1222
 msgid "Setup the pages for printing"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1151
+#: src/MadEditFrame.cpp:1223
 msgid "Print Previe&w..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1151
+#: src/MadEditFrame.cpp:1223
 msgid "Preview the result of printing"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1152
+#: src/MadEditFrame.cpp:1224
 msgid "&Print..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1152
+#: src/MadEditFrame.cpp:1224
 msgid "Print the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1154
+#: src/MadEditFrame.cpp:1226
 msgid "Recent Files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1156
+#: src/MadEditFrame.cpp:1228
 msgid "E&xit"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1156
+#: src/MadEditFrame.cpp:1228
 msgid "Quit MadEdit"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1159
+#: src/MadEditFrame.cpp:1231
 msgid "&Edit"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1160
+#: src/MadEditFrame.cpp:1232
 msgid "&Undo"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1160
+#: src/MadEditFrame.cpp:1232
 msgid "Undo the last action"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1162
+#: src/MadEditFrame.cpp:1234
 msgid "&Redo"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1168
+#: src/MadEditFrame.cpp:1240
 msgid "Redo the previously undone action"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1171
+#: src/MadEditFrame.cpp:1243
 msgid "Cu&t"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1171
+#: src/MadEditFrame.cpp:1243
 msgid "Cut the selection and put it on the Clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1172
+#: src/MadEditFrame.cpp:1244
 msgid "&Copy"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1172
+#: src/MadEditFrame.cpp:1244
 msgid "Copy the selection and put it on the Clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1173
+#: src/MadEditFrame.cpp:1245
 msgid "&Paste"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1173
+#: src/MadEditFrame.cpp:1245
 msgid "Insert data from the Clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1174 src/MadHighlightingDialog.cpp:233
+#: src/MadEditFrame.cpp:1246 src/MadHighlightingDialog.cpp:242
 msgid "&Delete"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1174
+#: src/MadEditFrame.cpp:1246
 msgid "Delete data"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1176
+#: src/MadEditFrame.cpp:1248
 msgid "Cut L&ine"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1176
+#: src/MadEditFrame.cpp:1248
 msgid "Cut the selected lines and put it on the Clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1178
+#: src/MadEditFrame.cpp:1250
 msgid "Delete &Line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1184
+#: src/MadEditFrame.cpp:1256
 msgid "Delete the selected lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1187
+#: src/MadEditFrame.cpp:1259
 msgid "Select &All"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1187
+#: src/MadEditFrame.cpp:1259
 msgid "Select all data"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1190
+#: src/MadEditFrame.cpp:1262
 msgid "Insert Ta&b Char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1196
+#: src/MadEditFrame.cpp:1268
 msgid "Insert a Tab char at current position"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1198
+#: src/MadEditFrame.cpp:1270
 msgid "Insert Dat&e and Time"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1198
+#: src/MadEditFrame.cpp:1270
 msgid "Insert date and time at current position"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1200
+#: src/MadEditFrame.cpp:1274
+msgid "Toggle/Remove Bookmark "
+msgstr ""
+
+#: src/MadEditFrame.cpp:1274
+msgid "Toggle Bookmark at current line"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1275
+msgid "Go To Next Bookmark"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1275
+msgid "Go to the next bookmark"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1276
+msgid "Go To Previous Bookmark"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1276
+msgid "Go to the previous bookmark"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1279
 msgid "Ad&vanced"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1201
+#: src/MadEditFrame.cpp:1280
 msgid "Copy As &Hex String"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1201
+#: src/MadEditFrame.cpp:1280
 msgid "Copy the selection as hex-string"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1202
+#: src/MadEditFrame.cpp:1281
 msgid "Copy As He&x String with Space"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1202
+#: src/MadEditFrame.cpp:1281
 msgid "Copy the selection as hex-string with space"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1204
+#: src/MadEditFrame.cpp:1283
 msgid "&Increase Indent"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1204
+#: src/MadEditFrame.cpp:1283
 msgid "Increase the indent of seleted lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1205
+#: src/MadEditFrame.cpp:1284
 msgid "&Decrease Indent"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1205
+#: src/MadEditFrame.cpp:1284
 msgid "Decrease the indent of seleted lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1207
+#: src/MadEditFrame.cpp:1286
 msgid "&Comment"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1207
+#: src/MadEditFrame.cpp:1286
 msgid "Comment out the selected lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1208
+#: src/MadEditFrame.cpp:1287
 msgid "&Uncomment"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1208
+#: src/MadEditFrame.cpp:1287
 msgid "Uncomment the selected lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1210
+#: src/MadEditFrame.cpp:1289
 msgid "WordWraps To NewLine Chars"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1210
+#: src/MadEditFrame.cpp:1289
 msgid "Convert WordWraps to NewLine chars in the file or selection"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1211
+#: src/MadEditFrame.cpp:1290
 msgid "NewLine Chars To WordWraps"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1211
+#: src/MadEditFrame.cpp:1290
 msgid "Convert NewLine chars to WordWraps in the selection"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1213
+#: src/MadEditFrame.cpp:1292
 msgid "To U&pperCase"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1213
+#: src/MadEditFrame.cpp:1292
 msgid "Convert the selection to uppercase"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1214
+#: src/MadEditFrame.cpp:1293
 msgid "To L&owerCase"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1214
+#: src/MadEditFrame.cpp:1293
 msgid "Convert the selection to lowercase"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1215
+#: src/MadEditFrame.cpp:1294
 msgid "Inver&t Case"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1215
+#: src/MadEditFrame.cpp:1294
 msgid "Invert the case of the selection"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1217
+#: src/MadEditFrame.cpp:1296
 msgid "To H&alfwidth"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1217
+#: src/MadEditFrame.cpp:1296
 msgid "Convert the selection to halfwidth"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1218 src/MadEditFrame.cpp:3759
+#: src/MadEditFrame.cpp:1297 src/MadEditFrame.cpp:3923
+#: src/MadEditFrame.cpp:3927
 msgid "To Halfwidth by Options..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1218
+#: src/MadEditFrame.cpp:1297
 msgid "Convert the selection to halfwidth by options"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1219
+#: src/MadEditFrame.cpp:1298
 msgid "To &Fullwidth"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1219
+#: src/MadEditFrame.cpp:1298
 msgid "Convert the selection to fullwidth"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1220 src/MadEditFrame.cpp:3802
+#: src/MadEditFrame.cpp:1299 src/MadEditFrame.cpp:3971
+#: src/MadEditFrame.cpp:3975
 msgid "To Fullwidth by Options..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1220
+#: src/MadEditFrame.cpp:1299
 msgid "Convert the selection to fullwidth by options"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1222
+#: src/MadEditFrame.cpp:1301
 msgid "Tab Chars To Space Chars"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1222
+#: src/MadEditFrame.cpp:1301
 msgid "Convert Tab chars to Space chars in the selection"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1223
+#: src/MadEditFrame.cpp:1302
 msgid "Space Chars To Tab Chars"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1223
+#: src/MadEditFrame.cpp:1302
 msgid "Convert Space chars to Tab chars in the selection"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1225
+#: src/MadEditFrame.cpp:1304
 msgid "Tri&m Trailing Spaces"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1225
+#: src/MadEditFrame.cpp:1304
 msgid "Trim trailing spaces at the end of lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1227 src/MadSortDialog.cpp:82
+#: src/MadEditFrame.cpp:1306 src/MadSortDialog.cpp:89
 msgid "&Sort"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1228
+#: src/MadEditFrame.cpp:1307
 msgid "Sort Lines (&Ascending)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1228
+#: src/MadEditFrame.cpp:1307
 msgid "Sort the selected or all lines in ascending order"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1229
+#: src/MadEditFrame.cpp:1308
 msgid "Sort Lines (&Descending)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1229
+#: src/MadEditFrame.cpp:1308
 msgid "Sort the selected or all lines in descending order"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1231
+#: src/MadEditFrame.cpp:1310
 msgid "Sort Lines (A&scending, CaseSensitive)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1231
+#: src/MadEditFrame.cpp:1310
 msgid "Sort lines in ascending order and with case-sensitive"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1232
+#: src/MadEditFrame.cpp:1311
 msgid "Sort Lines (D&escending, CaseSensitive)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1232
+#: src/MadEditFrame.cpp:1311
 msgid "Sort lines in descending order and with case-sensitive"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1234
+#: src/MadEditFrame.cpp:1313
 msgid "Sort Lines by &Current Options"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1234
+#: src/MadEditFrame.cpp:1313
 msgid "Sort the selected or all lines by using current options"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1235
+#: src/MadEditFrame.cpp:1314
 msgid "Sort &Options..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1235
+#: src/MadEditFrame.cpp:1314
 msgid "Set the sort options"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1238
+#: src/MadEditFrame.cpp:1317
 msgid "&Search"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1239
+#: src/MadEditFrame.cpp:1318
 msgid "&Find..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1239
+#: src/MadEditFrame.cpp:1318
 msgid "Find a string"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1240 src/MadSearchDialog.cpp:131
-#: src/MadReplaceDialog.cpp:113
+#: src/MadEditFrame.cpp:1319 src/MadSearchDialog.cpp:155
+#: src/MadReplaceDialog.cpp:144
 msgid "Find &Next"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1240
+#: src/MadEditFrame.cpp:1319
 msgid "Find next occurrence"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1241 src/MadSearchDialog.cpp:134
+#: src/MadEditFrame.cpp:1320 src/MadSearchDialog.cpp:159
 msgid "Find &Previous"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1241
+#: src/MadEditFrame.cpp:1320
 msgid "Find previous occurrence"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1243
+#: src/MadEditFrame.cpp:1322
 msgid "&Replace..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1243
+#: src/MadEditFrame.cpp:1322
 msgid "Replace a string"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1245
+#: src/MadEditFrame.cpp:1324
 msgid "Fin&d/Replace in Files..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1245
+#: src/MadEditFrame.cpp:1324
 msgid "Find or replace a string in files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1246
+#: src/MadEditFrame.cpp:1325
 msgid "&Show/Hide the Results of Find/Replace in Files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1246
+#: src/MadEditFrame.cpp:1325
 msgid "Show or hide the results of find or replace a string in files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1248
+#: src/MadEditFrame.cpp:1327
 msgid "&Go To Line..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1248
+#: src/MadEditFrame.cpp:1327
 msgid "Go to the specified line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1249
+#: src/MadEditFrame.cpp:1328
 msgid "G&o To Position..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1249
+#: src/MadEditFrame.cpp:1328
 msgid "Go to the specified position"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1251
+#: src/MadEditFrame.cpp:1330
 msgid "Go To L&eft Brace"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1251
+#: src/MadEditFrame.cpp:1330
 msgid "Go to left brace"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1252
+#: src/MadEditFrame.cpp:1331
 msgid "Go To R&ight Brace"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1252
+#: src/MadEditFrame.cpp:1331
 msgid "Go to right brace"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1255
+#: src/MadEditFrame.cpp:1334
 msgid "&View"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1256 src/MadEditFrame.cpp:2957
-#: src/MadEditFrame.cpp:2964
+#: src/MadEditFrame.cpp:1335 src/MadEditFrame.cpp:3098
+#: src/MadEditFrame.cpp:3105
 msgid "Encoding: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1257
+#: src/MadEditFrame.cpp:1336
 msgid "All Encodings"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1259 src/MadEditFrame.cpp:2973
-#: src/MadEditFrame.cpp:2978
+#: src/MadEditFrame.cpp:1338 src/MadEditFrame.cpp:3114
+#: src/MadEditFrame.cpp:3119
 msgid "Syntax Type: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1261 src/MadEditFrame.cpp:2990
-#: src/MadEditFrame.cpp:2995
+#: src/MadEditFrame.cpp:1340 src/MadEditFrame.cpp:3131
+#: src/MadEditFrame.cpp:3136
 msgid "Font Name: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1262
+#: src/MadEditFrame.cpp:1341
 msgid "[@]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1263
+#: src/MadEditFrame.cpp:1342
 msgid "[ABCDE]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1264
+#: src/MadEditFrame.cpp:1343
 msgid "[FGHIJ]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1265
+#: src/MadEditFrame.cpp:1344
 msgid "[KLMNO]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1266
+#: src/MadEditFrame.cpp:1345
 msgid "[PQRST]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1267
+#: src/MadEditFrame.cpp:1346
 msgid "[UVWXYZ]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1268
+#: src/MadEditFrame.cpp:1347
 msgid "[other]"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1270 src/MadEditFrame.cpp:3006
-#: src/MadEditFrame.cpp:3011
+#: src/MadEditFrame.cpp:1349 src/MadEditFrame.cpp:3147
+#: src/MadEditFrame.cpp:3152
 msgid "Font Size: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1271
+#: src/MadEditFrame.cpp:1350
 msgid "Set font point-size"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1344
+#: src/MadEditFrame.cpp:1423
 msgid "Set Font..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1344
+#: src/MadEditFrame.cpp:1423
 msgid "Change font settings"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1345
+#: src/MadEditFrame.cpp:1424
 msgid "&Fixed Width Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1345
+#: src/MadEditFrame.cpp:1424
 msgid "Set/Unset the font with Fixed Width"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1348 src/MadEditFrame.cpp:3030
-#: src/MadEditFrame.cpp:3035
+#: src/MadEditFrame.cpp:1427 src/MadEditFrame.cpp:3171
+#: src/MadEditFrame.cpp:3176
 msgid "Tab Column: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1349
+#: src/MadEditFrame.cpp:1428
 msgid "Set column of Tab char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1367 src/MadEditFrame.cpp:3044
-#: src/MadEditFrame.cpp:3049
+#: src/MadEditFrame.cpp:1446 src/MadEditFrame.cpp:3185
+#: src/MadEditFrame.cpp:3190
 msgid "Line Spacing: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1368
+#: src/MadEditFrame.cpp:1447
 msgid "Set line spacing"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1401
+#: src/MadEditFrame.cpp:1480
 msgid "&No Wrap"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1401
+#: src/MadEditFrame.cpp:1480
 msgid "Do not wrap lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1402
+#: src/MadEditFrame.cpp:1481
 msgid "Wrap By &Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1402
+#: src/MadEditFrame.cpp:1481
 msgid "Wrap the lines by the window width"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1403
+#: src/MadEditFrame.cpp:1482
 msgid "Wrap By Column"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1403
+#: src/MadEditFrame.cpp:1482
 msgid "Wrap the lines by the specified Max Columns"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1405
+#: src/MadEditFrame.cpp:1484
 msgid "&Display Line Number"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1405
+#: src/MadEditFrame.cpp:1484
 msgid "Display the Line Numbers"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1406
+#: src/MadEditFrame.cpp:1485
 msgid "Show End Of Line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1406
+#: src/MadEditFrame.cpp:1485
 msgid "Show the sign of EndOfLine"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1407
+#: src/MadEditFrame.cpp:1486
 msgid "Show Tab Char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1407
+#: src/MadEditFrame.cpp:1486
 msgid "Show the sign of Tab char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1408
+#: src/MadEditFrame.cpp:1487
 msgid "Show Space Char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1408
+#: src/MadEditFrame.cpp:1487
 msgid "Show the sign of Space char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1409
+#: src/MadEditFrame.cpp:1488
 msgid "Mark Active Line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1409
+#: src/MadEditFrame.cpp:1488
 msgid "Mark the current line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1410
+#: src/MadEditFrame.cpp:1489
 msgid "Mark Brace Pair"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1410
+#: src/MadEditFrame.cpp:1489
 msgid "Mark the BracePair under the caret"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1412
+#: src/MadEditFrame.cpp:1491
 msgid "&Text Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1412
+#: src/MadEditFrame.cpp:1491
 msgid "Change the editing mode to Text-Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1413
+#: src/MadEditFrame.cpp:1492
 msgid "&Column Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1413
+#: src/MadEditFrame.cpp:1492
 msgid "Change the editing mode to Column-Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1414
+#: src/MadEditFrame.cpp:1493
 msgid "&Hex Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1414
+#: src/MadEditFrame.cpp:1493
 msgid "Change the editing mode to Hex-Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1417
+#: src/MadEditFrame.cpp:1496
 msgid "&Tools"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1418
+#: src/MadEditFrame.cpp:1497
 msgid "&Options..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1418
+#: src/MadEditFrame.cpp:1497
 msgid "Change the configuration"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1419
+#: src/MadEditFrame.cpp:1498
 msgid "&Syntax Highlighting Settings..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1419
+#: src/MadEditFrame.cpp:1498
 msgid "Change syntax highlighting settings"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1421
+#: src/MadEditFrame.cpp:1500
 msgid "&File Type Associations..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1421
+#: src/MadEditFrame.cpp:1500
 msgid "Change file type associations"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1424 src/MadEditFrame.cpp:3126
+#: src/MadEditFrame.cpp:1503 src/MadEditFrame.cpp:3267
 msgid "Has Unicode BOM (Byte-Order Mark)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1425
+#: src/MadEditFrame.cpp:1504
 msgid "Add/Remove BOM"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1425
+#: src/MadEditFrame.cpp:1504
 msgid "Add/Remove Unicode BOM"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1427 src/MadEditFrame.cpp:3141
+#: src/MadEditFrame.cpp:1506 src/MadEditFrame.cpp:3282
 msgid "NewLine Char (File Format): "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1428
+#: src/MadEditFrame.cpp:1507
 msgid "Convert To CRLF/0D0A (&DOS)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1428
+#: src/MadEditFrame.cpp:1507
 msgid "Convert the file format to DOS format"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1429
+#: src/MadEditFrame.cpp:1508
 msgid "Convert To CR/0D (&MAC)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1429
+#: src/MadEditFrame.cpp:1508
 msgid "Convert the file format to MAC format"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1430
+#: src/MadEditFrame.cpp:1509
 msgid "Convert To LF/0A (&UNIX)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1430
+#: src/MadEditFrame.cpp:1509
 msgid "Convert the file format to UNIX format"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1431 src/MadEditFrame.cpp:3163
+#: src/MadEditFrame.cpp:1510 src/MadEditFrame.cpp:3304
 msgid "Press Enter to Insert NewLine Char: "
 msgstr ""
 
-#: src/MadEditFrame.cpp:1432
+#: src/MadEditFrame.cpp:1511
 msgid "Insert CRLF/0D0A (&DOS)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1432
+#: src/MadEditFrame.cpp:1511
 msgid "Insert CR&LF chars when pressing Enter key"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1433
+#: src/MadEditFrame.cpp:1512
 msgid "Insert CR/0D (&MAC)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1433
+#: src/MadEditFrame.cpp:1512
 msgid "Insert CR char when pressing Enter key"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1434
+#: src/MadEditFrame.cpp:1513
 msgid "Insert LF/0A (&UNIX)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1434
+#: src/MadEditFrame.cpp:1513
 msgid "Insert LF char when pressing Enter key"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1436
+#: src/MadEditFrame.cpp:1515
 msgid "Convert File &Encoding..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1436
+#: src/MadEditFrame.cpp:1515
 msgid "Convert to the specified encoding"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1438
+#: src/MadEditFrame.cpp:1517
 msgid "Convert &Chinese Char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1439
+#: src/MadEditFrame.cpp:1518
 msgid "File: Simplified Chinese to &Traditional Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1439
+#: src/MadEditFrame.cpp:1518
 msgid ""
 "Convert simplified Chinese chars to traditional Chinese chars in the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1440
+#: src/MadEditFrame.cpp:1519
 msgid "File: Traditional Chinese to &Simplified Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1440
+#: src/MadEditFrame.cpp:1519
 msgid ""
 "Convert traditional Chinese chars to simplified Chinese chars in the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1441
+#: src/MadEditFrame.cpp:1520
 msgid "File: Japanese Kanji to Tr&aditional Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1441
+#: src/MadEditFrame.cpp:1520
 msgid "Convert Japanese Kanji to traditional Chinese chars in the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1442
+#: src/MadEditFrame.cpp:1521
 msgid "File: Japanese Kanji to Si&mplified Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1442
+#: src/MadEditFrame.cpp:1521
 msgid "Convert Japanese Kanji to simplified Chinese chars in the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1443
+#: src/MadEditFrame.cpp:1522
 msgid "File: Chinese to &Japanese Kanji"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1443
+#: src/MadEditFrame.cpp:1522
 msgid "Convert Chinese chars to Japanese Kanji in the file"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1445
+#: src/MadEditFrame.cpp:1524
 msgid "Clipboard: Simplified Chinese to T&raditional Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1445
+#: src/MadEditFrame.cpp:1524
 msgid ""
 "Convert simplified Chinese chars to traditional Chinese chars in the "
 "clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1446
+#: src/MadEditFrame.cpp:1525
 msgid "Clipboard: Traditional Chinese to S&implified Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1446
+#: src/MadEditFrame.cpp:1525
 msgid ""
 "Convert traditional Chinese chars to simplified Chinese chars in the "
 "clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1447
+#: src/MadEditFrame.cpp:1526
 msgid "Clipboard: Japanese Kanji to Tra&ditional Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1447
+#: src/MadEditFrame.cpp:1526
 msgid "Convert Japanese Kanji to traditional Chinese chars in the clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1448
+#: src/MadEditFrame.cpp:1527
 msgid "Clipboard: Japanese Kanji to Sim&plified Chinese"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1448
+#: src/MadEditFrame.cpp:1527
 msgid "Convert Japanese Kanji to simplified Chinese chars in the clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1449
+#: src/MadEditFrame.cpp:1528
 msgid "Clipboard: Chinese to Japanese &Kanji"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1449
+#: src/MadEditFrame.cpp:1528
 msgid "Convert Chinese chars to Japanese Kanji in the clipboard"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1451
+#: src/MadEditFrame.cpp:1530
 msgid "&Word Count"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1451
+#: src/MadEditFrame.cpp:1530
 msgid "Count the words and chars of the file or selection"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1454
+#: src/MadEditFrame.cpp:1533
 msgid "&Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1455
+#: src/MadEditFrame.cpp:1534
 msgid "&Toggle Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1455
+#: src/MadEditFrame.cpp:1534
 msgid "Switch to the previous active window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1456
+#: src/MadEditFrame.cpp:1535
 msgid "&Previous Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1456
+#: src/MadEditFrame.cpp:1535
 msgid "Activate the previous window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1457
+#: src/MadEditFrame.cpp:1536
 msgid "&Next Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1457
+#: src/MadEditFrame.cpp:1536
 msgid "Activate the next window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1460
+#: src/MadEditFrame.cpp:1539
 msgid "&Help"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1461
+#: src/MadEditFrame.cpp:1540
 msgid "&About MadEdit..."
 msgstr ""
 
-#: src/MadEditFrame.cpp:1465
+#: src/MadEditFrame.cpp:1544
 msgid "Move caret left one char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1466
+#: src/MadEditFrame.cpp:1545
 msgid "Move caret right one char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1467
+#: src/MadEditFrame.cpp:1546
 msgid "Move caret up one line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1468
+#: src/MadEditFrame.cpp:1547
 msgid "Move caret down one line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1469
+#: src/MadEditFrame.cpp:1548
 msgid "Go to begin of line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1470
+#: src/MadEditFrame.cpp:1549
 msgid "Go to end of line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1471
+#: src/MadEditFrame.cpp:1550
 msgid "Go to begin of document"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1472
+#: src/MadEditFrame.cpp:1551
 msgid "Go to end of document"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1473
+#: src/MadEditFrame.cpp:1552
 msgid "Go to previous page"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1474
+#: src/MadEditFrame.cpp:1553
 msgid "Go to next page"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1475
+#: src/MadEditFrame.cpp:1554
 msgid "Go to previous word"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1476
+#: src/MadEditFrame.cpp:1555
 msgid "Go to next word"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1478
+#: src/MadEditFrame.cpp:1557
 msgid "Move caret left one char and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1479
+#: src/MadEditFrame.cpp:1558
 msgid "Move caret right one char and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1480
+#: src/MadEditFrame.cpp:1559
 msgid "Move caret up one line and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1481
+#: src/MadEditFrame.cpp:1560
 msgid "Move caret down one line and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1482
+#: src/MadEditFrame.cpp:1561
 msgid "Go to begin of line and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1483
+#: src/MadEditFrame.cpp:1562
 msgid "Go to end of line and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1484
+#: src/MadEditFrame.cpp:1563
 msgid "Go to begin of document and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1485
+#: src/MadEditFrame.cpp:1564
 msgid "Go to end of document and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1486
+#: src/MadEditFrame.cpp:1565
 msgid "Go to previous page and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1487
+#: src/MadEditFrame.cpp:1566
 msgid "Go to next page and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1488
+#: src/MadEditFrame.cpp:1567
 msgid "Go to previous word and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1489
+#: src/MadEditFrame.cpp:1568
 msgid "Go to next word and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1490
+#: src/MadEditFrame.cpp:1569
 msgid "Go to left brace and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1491
+#: src/MadEditFrame.cpp:1570
 msgid "Go to right brace and select"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1493
+#: src/MadEditFrame.cpp:1572
 msgid "Scroll text up one line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1494
+#: src/MadEditFrame.cpp:1573
 msgid "Scroll text down one line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1495
+#: src/MadEditFrame.cpp:1574
 msgid "Scroll text up one page"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1496
+#: src/MadEditFrame.cpp:1575
 msgid "Scroll text down one page"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1497
+#: src/MadEditFrame.cpp:1576
 msgid "Scroll text left"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1498
+#: src/MadEditFrame.cpp:1577
 msgid "Scroll text right"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1500
+#: src/MadEditFrame.cpp:1579
 msgid "Insert one NewLine char"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1501
+#: src/MadEditFrame.cpp:1580
 msgid "Insert one NewLine char without indentation"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1502
+#: src/MadEditFrame.cpp:1581
 msgid "Insert one Tab char or indent lines"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1503
+#: src/MadEditFrame.cpp:1582
 msgid "Delete one char to the left of the caret"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1505
+#: src/MadEditFrame.cpp:1585
+msgid "Delete a word left from the caret"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1586
+msgid "Delete a word right from the caret"
+msgstr ""
+
+#: src/MadEditFrame.cpp:1588
 msgid "Toggle Insert/Overwrite Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1641
-msgid "MadEdit"
-msgstr ""
-
-#: src/MadEditFrame.cpp:1983
+#: src/MadEditFrame.cpp:2071
 msgid "New File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1984 src/MadEditFrame.cpp:3216
+#: src/MadEditFrame.cpp:2072 src/MadEditFrame.cpp:3357
 msgid "Open File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1986
+#: src/MadEditFrame.cpp:2074
 msgid "Save All Files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1987
+#: src/MadEditFrame.cpp:2075
 msgid "Close File"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1988
+#: src/MadEditFrame.cpp:2076
 msgid "Close All Files"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1990
+#: src/MadEditFrame.cpp:2078
 msgid "Undo"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1991
+#: src/MadEditFrame.cpp:2079
 msgid "Redo"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1993
+#: src/MadEditFrame.cpp:2081
 msgid "Cut"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1994
+#: src/MadEditFrame.cpp:2082
 msgid "Copy"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1995
+#: src/MadEditFrame.cpp:2083
 msgid "Paste"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1997
+#: src/MadEditFrame.cpp:2085
 msgid "Increase Indent"
 msgstr ""
 
-#: src/MadEditFrame.cpp:1998
+#: src/MadEditFrame.cpp:2086
 msgid "Decrease Indent"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2000
+#: src/MadEditFrame.cpp:2088
 msgid "Comment"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2001
+#: src/MadEditFrame.cpp:2089
 msgid "Uncomment"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2003
+#: src/MadEditFrame.cpp:2091
 msgid "Find"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2004 src/MadSearchDialog.cpp:325
+#: src/MadEditFrame.cpp:2092 src/MadSearchDialog.cpp:407
 msgid "Find Next"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2005 src/MadSearchDialog.cpp:412
+#: src/MadEditFrame.cpp:2093 src/MadSearchDialog.cpp:522
 msgid "Find Previous"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2006 src/MadReplaceDialog.cpp:145
+#: src/MadEditFrame.cpp:2094 src/MadReplaceDialog.cpp:162
 msgid "Replace"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2008
+#: src/MadEditFrame.cpp:2096
 msgid "No Line Wrap"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2009
+#: src/MadEditFrame.cpp:2097
 msgid "Wrap Lines by Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2010
+#: src/MadEditFrame.cpp:2098
 msgid "Wrap Lines by Max Columns"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2012 src/MadOptionsDialog.cpp:388
+#: src/MadEditFrame.cpp:2100 src/MadOptionsDialog.cpp:430
 msgid "Text Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2013
+#: src/MadEditFrame.cpp:2101
 msgid "Column Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2014 src/MadOptionsDialog.cpp:407
+#: src/MadEditFrame.cpp:2102 src/MadOptionsDialog.cpp:454
 msgid "Hex Mode"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2032
+#: src/MadEditFrame.cpp:2120
 msgid "Find/Replace in Files Results"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2040
+#: src/MadEditFrame.cpp:2128
 msgid "Information Window"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2622
+#: src/MadEditFrame.cpp:2730
 #, c-format
 msgid "NoName%d"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2662
+#: src/MadEditFrame.cpp:2770
 msgid "This is a Directory:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2671
+#: src/MadEditFrame.cpp:2779
 msgid "This file does not exist:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2689
+#: src/MadEditFrame.cpp:2797
 msgid "Cannot access this file:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2724
+#: src/MadEditFrame.cpp:2842
 msgid "Cannot load this file:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:2964 src/MadEditFrame.cpp:2978
-#: src/MadEditFrame.cpp:2995 src/MadEditFrame.cpp:3011
-#: src/MadEditFrame.cpp:3035 src/MadEditFrame.cpp:3049
-#: src/MadEditFrame.cpp:3158 src/MadEditFrame.cpp:3180
-#: src/MadOptionsDialog.cpp:412 src/MadConvEncDialog.cpp:80
+#: src/MadEditFrame.cpp:3105 src/MadEditFrame.cpp:3119
+#: src/MadEditFrame.cpp:3136 src/MadEditFrame.cpp:3152
+#: src/MadEditFrame.cpp:3176 src/MadEditFrame.cpp:3190
+#: src/MadEditFrame.cpp:3299 src/MadEditFrame.cpp:3321
+#: src/MadOptionsDialog.cpp:459 src/MadConvEncDialog.cpp:85
 msgid "None"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3130 src/MadEditFrame.cpp:3136
+#: src/MadEditFrame.cpp:3271 src/MadEditFrame.cpp:3277
 msgid "Has No Unicode BOM (Byte-Order Mark)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3406
+#: src/MadEditFrame.cpp:3548
 msgid ""
 "There was a problem previewing.\n"
 "Perhaps your current printer is not set correctly?"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3406
+#: src/MadEditFrame.cpp:3548
 msgid "Previewing"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3435
+#: src/MadEditFrame.cpp:3577
 msgid ""
 "There was a problem printing.\n"
 "Perhaps your current printer is not set correctly?"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3435
+#: src/MadEditFrame.cpp:3577
 msgid "Printing"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3756 src/MadEditFrame.cpp:3799
+#: src/MadEditFrame.cpp:3919 src/MadEditFrame.cpp:3967
 msgid "ASCII characters"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3756 src/MadEditFrame.cpp:3799
+#: src/MadEditFrame.cpp:3919 src/MadEditFrame.cpp:3967
 msgid "Japanese characters"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3757 src/MadEditFrame.cpp:3800
+#: src/MadEditFrame.cpp:3920 src/MadEditFrame.cpp:3968
 msgid "Korean characters"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3757 src/MadEditFrame.cpp:3800
+#: src/MadEditFrame.cpp:3920 src/MadEditFrame.cpp:3968
 msgid "other characters"
 msgstr ""
 
-#: src/MadEditFrame.cpp:3759 src/MadEditFrame.cpp:3802
+#: src/MadEditFrame.cpp:3923 src/MadEditFrame.cpp:3927
+#: src/MadEditFrame.cpp:3971 src/MadEditFrame.cpp:3975
 msgid "Choose the characters you want to convert:"
 msgstr ""
 
-#: src/MadEditFrame.cpp:4106
+#: src/MadEditFrame.cpp:4279
 msgid "Line Number: (you can input HexNumber: 0xNNN)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:4106
+#: src/MadEditFrame.cpp:4279
 msgid "Go To Line"
 msgstr ""
 
-#: src/MadEditFrame.cpp:4130
+#: src/MadEditFrame.cpp:4303
 msgid "Position: (you can input HexNumber: 0xNNN)"
 msgstr ""
 
-#: src/MadEditFrame.cpp:4130
+#: src/MadEditFrame.cpp:4303
 msgid "Go To Position"
 msgstr ""
 
-#: src/MadEditFrame.cpp:4893
+#: src/MadEditFrame.cpp:5066
 msgid "Press OK to visit our HomePage."
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:323
+#: src/MadFileAssociationDialog.cpp:351
 msgid "Associated File Types:"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:323 src/MadFindInFilesDialog.cpp:168
-#: src/MadHighlightingDialog.cpp:214 src/MadOptionsDialog.cpp:256
-#: src/MadConvEncDialog.cpp:69 src/MadWordCountDialog.cpp:75
+#: src/MadFileAssociationDialog.cpp:351 src/MadFindInFilesDialog.cpp:187
+#: src/MadHighlightingDialog.cpp:218 src/MadOptionsDialog.cpp:268
+#: src/MadConvEncDialog.cpp:72 src/MadWordCountDialog.cpp:78
 msgid "WxStaticText1"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:333
+#: src/MadFileAssociationDialog.cpp:352
+#: src/MadFileAssociationDialog.cpp:357
+#: src/MadFileAssociationDialog.cpp:364
+#: src/MadFileAssociationDialog.cpp:368
+#: src/MadFileAssociationDialog.cpp:375
+#: src/MadFileAssociationDialog.cpp:380
+#: src/MadFileAssociationDialog.cpp:387
+#: src/MadFileAssociationDialog.cpp:391
+#: src/MadFileAssociationDialog.cpp:398
+#: src/MadFileAssociationDialog.cpp:402 src/MadFindInFilesDialog.cpp:117
+#: src/MadFindInFilesDialog.cpp:121 src/MadFindInFilesDialog.cpp:125
+#: src/MadFindInFilesDialog.cpp:129 src/MadFindInFilesDialog.cpp:133
+#: src/MadFindInFilesDialog.cpp:140 src/MadFindInFilesDialog.cpp:144
+#: src/MadFindInFilesDialog.cpp:148 src/MadFindInFilesDialog.cpp:152
+#: src/MadFindInFilesDialog.cpp:156 src/MadFindInFilesDialog.cpp:164
+#: src/MadFindInFilesDialog.cpp:171 src/MadFindInFilesDialog.cpp:176
+#: src/MadFindInFilesDialog.cpp:180 src/MadFindInFilesDialog.cpp:184
+#: src/MadFindInFilesDialog.cpp:188 src/MadFindInFilesDialog.cpp:193
+#: src/MadFindInFilesDialog.cpp:197 src/MadFindInFilesDialog.cpp:201
+#: src/MadFindInFilesDialog.cpp:205 src/MadFindInFilesDialog.cpp:210
+#: src/MadFindInFilesDialog.cpp:214 src/MadFindInFilesDialog.cpp:218
+#: src/MadFindInFilesDialog.cpp:222 src/MadFindInFilesDialog.cpp:227
+#: src/MadFindInFilesDialog.cpp:231 src/MadHighlightingDialog.cpp:206
+#: src/MadHighlightingDialog.cpp:219 src/MadHighlightingDialog.cpp:224
+#: src/MadHighlightingDialog.cpp:228 src/MadHighlightingDialog.cpp:235
+#: src/MadHighlightingDialog.cpp:239 src/MadHighlightingDialog.cpp:243
+#: src/MadHighlightingDialog.cpp:247 src/MadHighlightingDialog.cpp:254
+#: src/MadHighlightingDialog.cpp:264 src/MadHighlightingDialog.cpp:268
+#: src/MadHighlightingDialog.cpp:272 src/MadHighlightingDialog.cpp:276
+#: src/MadHighlightingDialog.cpp:286 src/MadHighlightingDialog.cpp:290
+#: src/MadHighlightingDialog.cpp:294 src/MadHighlightingDialog.cpp:298
+#: src/MadHighlightingDialog.cpp:302 src/MadHighlightingDialog.cpp:306
+#: src/MadHighlightingDialog.cpp:313 src/MadHighlightingDialog.cpp:317
+#: src/MadHighlightingDialog.cpp:321 src/MadHighlightingDialog.cpp:325
+#: src/MadHighlightingDialog.cpp:329 src/MadHighlightingDialog.cpp:336
+#: src/MadHighlightingDialog.cpp:340 src/MadSearchDialog.cpp:106
+#: src/MadSearchDialog.cpp:110 src/MadSearchDialog.cpp:114
+#: src/MadSearchDialog.cpp:118 src/MadSearchDialog.cpp:122
+#: src/MadSearchDialog.cpp:126 src/MadSearchDialog.cpp:133
+#: src/MadSearchDialog.cpp:137 src/MadSearchDialog.cpp:141
+#: src/MadSearchDialog.cpp:145 src/MadSearchDialog.cpp:149
+#: src/MadSearchDialog.cpp:156 src/MadSearchDialog.cpp:160
+#: src/MadSearchDialog.cpp:164 src/MadSearchDialog.cpp:168
+#: src/MadSearchDialog.cpp:172 src/MadSearchDialog.cpp:176
+#: src/MadSortDialog.cpp:71 src/MadSortDialog.cpp:75
+#: src/MadSortDialog.cpp:79 src/MadSortDialog.cpp:83
+#: src/MadSortDialog.cpp:90 src/MadSortDialog.cpp:94
+#: src/MadReplaceDialog.cpp:99 src/MadReplaceDialog.cpp:103
+#: src/MadReplaceDialog.cpp:107 src/MadReplaceDialog.cpp:111
+#: src/MadReplaceDialog.cpp:115 src/MadReplaceDialog.cpp:122
+#: src/MadReplaceDialog.cpp:126 src/MadReplaceDialog.cpp:130
+#: src/MadReplaceDialog.cpp:134 src/MadReplaceDialog.cpp:138
+#: src/MadReplaceDialog.cpp:145 src/MadReplaceDialog.cpp:149
+#: src/MadReplaceDialog.cpp:153 src/MadReplaceDialog.cpp:157
+#: src/MadOptionsDialog.cpp:227 src/MadOptionsDialog.cpp:231
+#: src/MadOptionsDialog.cpp:243 src/MadOptionsDialog.cpp:247
+#: src/MadOptionsDialog.cpp:254 src/MadOptionsDialog.cpp:258
+#: src/MadOptionsDialog.cpp:265 src/MadOptionsDialog.cpp:269
+#: src/MadOptionsDialog.cpp:276 src/MadOptionsDialog.cpp:280
+#: src/MadOptionsDialog.cpp:288 src/MadOptionsDialog.cpp:292
+#: src/MadOptionsDialog.cpp:299 src/MadOptionsDialog.cpp:303
+#: src/MadOptionsDialog.cpp:307 src/MadOptionsDialog.cpp:311
+#: src/MadOptionsDialog.cpp:322 src/MadOptionsDialog.cpp:326
+#: src/MadOptionsDialog.cpp:333 src/MadOptionsDialog.cpp:337
+#: src/MadOptionsDialog.cpp:344 src/MadOptionsDialog.cpp:348
+#: src/MadOptionsDialog.cpp:355 src/MadOptionsDialog.cpp:359
+#: src/MadOptionsDialog.cpp:366 src/MadOptionsDialog.cpp:370
+#: src/MadOptionsDialog.cpp:374 src/MadOptionsDialog.cpp:378
+#: src/MadOptionsDialog.cpp:385 src/MadOptionsDialog.cpp:389
+#: src/MadOptionsDialog.cpp:393 src/MadOptionsDialog.cpp:400
+#: src/MadOptionsDialog.cpp:404 src/MadOptionsDialog.cpp:408
+#: src/MadOptionsDialog.cpp:412 src/MadOptionsDialog.cpp:416
+#: src/MadOptionsDialog.cpp:420 src/MadOptionsDialog.cpp:435
+#: src/MadOptionsDialog.cpp:439 src/MadOptionsDialog.cpp:443
+#: src/MadOptionsDialog.cpp:447 src/MadOptionsDialog.cpp:451
+#: src/MadOptionsDialog.cpp:464 src/MadOptionsDialog.cpp:475
+#: src/MadOptionsDialog.cpp:482 src/MadOptionsDialog.cpp:486
+#: src/MadOptionsDialog.cpp:490 src/MadOptionsDialog.cpp:494
+#: src/MadOptionsDialog.cpp:498 src/MadOptionsDialog.cpp:502
+#: src/MadOptionsDialog.cpp:506 src/MadOptionsDialog.cpp:510
+#: src/MadOptionsDialog.cpp:514 src/MadOptionsDialog.cpp:522
+#: src/MadOptionsDialog.cpp:529 src/MadOptionsDialog.cpp:533
+#: src/MadOptionsDialog.cpp:537 src/MadOptionsDialog.cpp:541
+#: src/MadOptionsDialog.cpp:545 src/MadOptionsDialog.cpp:549
+#: src/MadOptionsDialog.cpp:553 src/MadOptionsDialog.cpp:557
+#: src/MadOptionsDialog.cpp:561 src/MadOptionsDialog.cpp:565
+#: src/MadOptionsDialog.cpp:576 src/MadOptionsDialog.cpp:586
+#: src/MadOptionsDialog.cpp:591 src/MadOptionsDialog.cpp:601
+#: src/MadOptionsDialog.cpp:606 src/MadOptionsDialog.cpp:613
+#: src/MadOptionsDialog.cpp:617 src/MadOptionsDialog.cpp:622
+#: src/MadOptionsDialog.cpp:626 src/MadOptionsDialog.cpp:630
+#: src/MadOptionsDialog.cpp:634 src/MadOptionsDialog.cpp:641
+#: src/MadOptionsDialog.cpp:648 src/MadOptionsDialog.cpp:652
+#: src/MadConvEncDialog.cpp:73 src/MadConvEncDialog.cpp:78
+#: src/MadConvEncDialog.cpp:93 src/MadConvEncDialog.cpp:100
+#: src/MadConvEncDialog.cpp:104 src/MadWordCountDialog.cpp:79
+#: src/MadWordCountDialog.cpp:83 src/MadWordCountDialog.cpp:87
+#: src/MadWordCountDialog.cpp:91 src/MadWordCountDialog.cpp:95
+#: src/MadWordCountDialog.cpp:99 src/MadWordCountDialog.cpp:103
+#: src/MadWordCountDialog.cpp:107 src/MadWordCountDialog.cpp:111
+#: src/MadWordCountDialog.cpp:115 src/MadWordCountDialog.cpp:119
+#: src/MadWordCountDialog.cpp:123 src/MadWordCountDialog.cpp:127
+#: src/MadWordCountDialog.cpp:131 src/MadWordCountDialog.cpp:138
+#: src/MadWordCountDialog.cpp:142 src/MadAboutDialog.cpp:64
+#: src/MadAboutDialog.cpp:69 src/MadAboutDialog.cpp:76
+#: src/MadAboutDialog.cpp:83 src/MadAboutDialog.cpp:87
+msgid "MS Sans Serif"
+msgstr ""
+
+#: src/MadFileAssociationDialog.cpp:363
 msgid "<- Add"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:333
+#: src/MadFileAssociationDialog.cpp:363
 msgid "WxButtonAdd"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:336
+#: src/MadFileAssociationDialog.cpp:367
 msgid "Remove ->"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:336
+#: src/MadFileAssociationDialog.cpp:367
 msgid "WxButtonRemove"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:342
+#: src/MadFileAssociationDialog.cpp:374
 msgid "Predefined File Types:"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:342 src/MadFindInFilesDialog.cpp:175
-#: src/MadHighlightingDialog.cpp:221 src/MadOptionsDialog.cpp:265
-#: src/MadWordCountDialog.cpp:81
+#: src/MadFileAssociationDialog.cpp:374 src/MadFindInFilesDialog.cpp:196
+#: src/MadHighlightingDialog.cpp:227 src/MadOptionsDialog.cpp:279
+#: src/MadWordCountDialog.cpp:86
 msgid "WxStaticText2"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:352
+#: src/MadFileAssociationDialog.cpp:386
 msgid "WxEditCustomType"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:355
+#: src/MadFileAssociationDialog.cpp:390
 msgid "<- Add Custom File Type"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:355
+#: src/MadFileAssociationDialog.cpp:390
 msgid "WxButtonAddCustom"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:361 src/MadHighlightingDialog.cpp:308
-#: src/MadOptionsDialog.cpp:566 src/MadConvEncDialog.cpp:93
-#: src/MadAboutDialog.cpp:76
+#: src/MadFileAssociationDialog.cpp:397
+#: src/MadHighlightingDialog.cpp:335 src/MadOptionsDialog.cpp:647
+#: src/MadConvEncDialog.cpp:99 src/MadAboutDialog.cpp:82
 msgid "&OK"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:361 src/MadOptionsDialog.cpp:566
-#: src/MadConvEncDialog.cpp:93 src/MadAboutDialog.cpp:76
+#: src/MadFileAssociationDialog.cpp:397 src/MadOptionsDialog.cpp:647
+#: src/MadConvEncDialog.cpp:99 src/MadAboutDialog.cpp:82
 msgid "WxButtonOK"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:364 src/MadHighlightingDialog.cpp:311
-#: src/MadOptionsDialog.cpp:569 src/MadConvEncDialog.cpp:96
-#: src/MadAboutDialog.cpp:79
+#: src/MadFileAssociationDialog.cpp:401
+#: src/MadHighlightingDialog.cpp:339 src/MadOptionsDialog.cpp:651
+#: src/MadConvEncDialog.cpp:103 src/MadAboutDialog.cpp:86
 msgid "&Cancel"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:364 src/MadHighlightingDialog.cpp:311
-#: src/MadSortDialog.cpp:85 src/MadOptionsDialog.cpp:569
-#: src/MadConvEncDialog.cpp:96 src/MadAboutDialog.cpp:79
+#: src/MadFileAssociationDialog.cpp:401
+#: src/MadHighlightingDialog.cpp:339 src/MadSortDialog.cpp:93
+#: src/MadOptionsDialog.cpp:651 src/MadConvEncDialog.cpp:103
+#: src/MadAboutDialog.cpp:86
 msgid "WxButtonCancel"
 msgstr ""
 
-#: src/MadFileAssociationDialog.cpp:367
+#: src/MadFileAssociationDialog.cpp:405
 msgid "File Type Associations"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:113 src/MadSearchDialog.cpp:98
-#: src/MadSortDialog.cpp:70 src/MadReplaceDialog.cpp:98
+#: src/MadFindInFilesDialog.cpp:116 src/MadSearchDialog.cpp:109
+#: src/MadSortDialog.cpp:74 src/MadReplaceDialog.cpp:102
 msgid "&Case Sensitive"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:113 src/MadSearchDialog.cpp:98
-#: src/MadReplaceDialog.cpp:98
+#: src/MadFindInFilesDialog.cpp:116 src/MadSearchDialog.cpp:109
+#: src/MadReplaceDialog.cpp:102
 msgid "WxCheckBoxCaseSensitive"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:116 src/MadSearchDialog.cpp:101
-#: src/MadReplaceDialog.cpp:101
+#: src/MadFindInFilesDialog.cpp:120 src/MadSearchDialog.cpp:113
+#: src/MadReplaceDialog.cpp:106
 msgid "&Whole Word Only"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:116 src/MadSearchDialog.cpp:101
-#: src/MadReplaceDialog.cpp:101
+#: src/MadFindInFilesDialog.cpp:120 src/MadSearchDialog.cpp:113
+#: src/MadReplaceDialog.cpp:106
 msgid "WxCheckBoxWholeWord"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:119 src/MadSearchDialog.cpp:104
-#: src/MadReplaceDialog.cpp:104
+#: src/MadFindInFilesDialog.cpp:124 src/MadSearchDialog.cpp:117
+#: src/MadReplaceDialog.cpp:110
 msgid "Use Regular E&xpressions"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:119 src/MadSearchDialog.cpp:104
-#: src/MadReplaceDialog.cpp:104
+#: src/MadFindInFilesDialog.cpp:124 src/MadSearchDialog.cpp:117
+#: src/MadReplaceDialog.cpp:110
 msgid "WxCheckBoxRegex"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:122 src/MadSearchDialog.cpp:107
-#: src/MadReplaceDialog.cpp:107
+#: src/MadFindInFilesDialog.cpp:128 src/MadSearchDialog.cpp:121
+#: src/MadReplaceDialog.cpp:114
 msgid "Find &Hex String (Example: BE 00 3A or BE003A)"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:122 src/MadSearchDialog.cpp:107
-#: src/MadReplaceDialog.cpp:107
+#: src/MadFindInFilesDialog.cpp:128 src/MadSearchDialog.cpp:121
+#: src/MadReplaceDialog.cpp:114
 msgid "WxCheckBoxFindHex"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:125
+#: src/MadFindInFilesDialog.cpp:132
 msgid "&List the First Found Item Only"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:125
+#: src/MadFindInFilesDialog.cpp:132
 msgid "WxCheckBoxListFirstOnly"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:131
+#: src/MadFindInFilesDialog.cpp:139
 msgid "&Find"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:131
+#: src/MadFindInFilesDialog.cpp:139
 msgid "WxButtonFind"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:134 src/MadReplaceDialog.cpp:116
+#: src/MadFindInFilesDialog.cpp:143 src/MadReplaceDialog.cpp:148
 msgid "&Replace"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:134 src/MadSearchDialog.cpp:140
-#: src/MadReplaceDialog.cpp:116
+#: src/MadFindInFilesDialog.cpp:143 src/MadSearchDialog.cpp:171
+#: src/MadReplaceDialog.cpp:148
 msgid "WxButtonReplace"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:137
+#: src/MadFindInFilesDialog.cpp:147
 msgid "&Enable Replace"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:137
+#: src/MadFindInFilesDialog.cpp:147
 msgid "WxCheckBoxEnableReplace"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:140 src/MadSearchDialog.cpp:143
-#: src/MadReplaceDialog.cpp:122
+#: src/MadFindInFilesDialog.cpp:151 src/MadSearchDialog.cpp:175
+#: src/MadReplaceDialog.cpp:156
 msgid "Close"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:140 src/MadHighlightingDialog.cpp:308
-#: src/MadSearchDialog.cpp:143 src/MadReplaceDialog.cpp:122
+#: src/MadFindInFilesDialog.cpp:151 src/MadHighlightingDialog.cpp:335
+#: src/MadSearchDialog.cpp:175 src/MadReplaceDialog.cpp:156
 msgid "WxButtonClose"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:149
+#: src/MadFindInFilesDialog.cpp:162
 msgid "Opened Files in Editor"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:149
+#: src/MadFindInFilesDialog.cpp:162
 msgid "WxRadioButtonOpenedFiles"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:155
+#: src/MadFindInFilesDialog.cpp:170
 msgid "Selected Directory:"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:155
+#: src/MadFindInFilesDialog.cpp:170
 msgid "WxRadioButtonDir"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:159
+#: src/MadFindInFilesDialog.cpp:175
 msgid "WxComboBoxDir"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:162
+#: src/MadFindInFilesDialog.cpp:179
 msgid "..."
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:162
+#: src/MadFindInFilesDialog.cpp:179
 msgid "WxButtonDir"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:165
+#: src/MadFindInFilesDialog.cpp:183
 msgid "<<"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:165
+#: src/MadFindInFilesDialog.cpp:183
 msgid "WxButtonActiveDir"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:168
+#: src/MadFindInFilesDialog.cpp:187
 msgid "File Filters:"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:172
+#: src/MadFindInFilesDialog.cpp:192
 msgid "WxComboBoxFilter"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:178 src/MadOptionsDialog.cpp:321
-#: src/MadWordCountDialog.cpp:99
+#: src/MadFindInFilesDialog.cpp:200 src/MadOptionsDialog.cpp:347
+#: src/MadWordCountDialog.cpp:110
 msgid "WxStaticText5"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:181
+#: src/MadFindInFilesDialog.cpp:204
 msgid "Exclude Filters:"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:181 src/MadHighlightingDialog.cpp:290
-#: src/MadOptionsDialog.cpp:312 src/MadWordCountDialog.cpp:93
+#: src/MadFindInFilesDialog.cpp:204 src/MadHighlightingDialog.cpp:312
+#: src/MadOptionsDialog.cpp:336 src/MadWordCountDialog.cpp:102
 msgid "WxStaticText4"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:185
+#: src/MadFindInFilesDialog.cpp:209
 msgid "WxComboBoxExclude"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:188 src/MadOptionsDialog.cpp:330
-#: src/MadWordCountDialog.cpp:114
+#: src/MadFindInFilesDialog.cpp:213 src/MadOptionsDialog.cpp:358
+#: src/MadWordCountDialog.cpp:130
 msgid "WxStaticText6"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:191 src/MadOptionsDialog.cpp:432
-#: src/MadWordCountDialog.cpp:105
+#: src/MadFindInFilesDialog.cpp:217 src/MadOptionsDialog.cpp:481
+#: src/MadWordCountDialog.cpp:118
 msgid "WxStaticText7"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:194
+#: src/MadFindInFilesDialog.cpp:221
 msgid "File Encoding:"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:194 src/MadHighlightingDialog.cpp:269
-#: src/MadOptionsDialog.cpp:303 src/MadWordCountDialog.cpp:87
+#: src/MadFindInFilesDialog.cpp:221 src/MadHighlightingDialog.cpp:285
+#: src/MadOptionsDialog.cpp:325 src/MadWordCountDialog.cpp:94
 msgid "WxStaticText3"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:198 src/MadOptionsDialog.cpp:272
-#: src/MadConvEncDialog.cpp:73
+#: src/MadFindInFilesDialog.cpp:226 src/MadOptionsDialog.cpp:287
+#: src/MadConvEncDialog.cpp:77
 msgid "WxComboBoxEncoding"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:201
+#: src/MadFindInFilesDialog.cpp:230
 msgid "Include Subdirectories"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:201
+#: src/MadFindInFilesDialog.cpp:230
 msgid "WxCheckBoxSubDir"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:204
+#: src/MadFindInFilesDialog.cpp:234
 msgid "Find/Replace In Files"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:231 src/MadSearchDialog.cpp:175
-#: src/MadReplaceDialog.cpp:173
+#: src/MadFindInFilesDialog.cpp:253 src/MadFindInFilesDialog.cpp:272
+#: src/MadSearchDialog.cpp:202
+msgid "UTF-32LE"
+msgstr ""
+
+#: src/MadFindInFilesDialog.cpp:264 src/MadSearchDialog.cpp:213
+#: src/MadReplaceDialog.cpp:193
 msgid "WxBitmapButtonRecentFindText"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:249 src/MadReplaceDialog.cpp:191
+#: src/MadFindInFilesDialog.cpp:282 src/MadReplaceDialog.cpp:211
 msgid "WxBitmapButtonRecentReplaceText"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:253
+#: src/MadFindInFilesDialog.cpp:286
 msgid "Automatic Detection"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:441
+#: src/MadFindInFilesDialog.cpp:301
+msgid "/RecentFindDir"
+msgstr ""
+
+#: src/MadFindInFilesDialog.cpp:303
+msgid "/RecentFindFilter"
+msgstr ""
+
+#: src/MadFindInFilesDialog.cpp:305
+msgid "/RecentFindExcludeFilter"
+msgstr ""
+
+#: src/MadFindInFilesDialog.cpp:474
 msgid "Choose a directory"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:585
+#: src/MadFindInFilesDialog.cpp:618
 #, c-format
 msgid "Found %d file(s) matched the filters..."
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:615
+#: src/MadFindInFilesDialog.cpp:648
 msgid "The selected directory does not exist."
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:704
+#: src/MadFindInFilesDialog.cpp:737
 #, c-format
 msgid "Processing %d of %d files..."
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:834
+#: src/MadFindInFilesDialog.cpp:867 src/MadSearchDialog.cpp:942
 #, c-format
 msgid "Line(%d): "
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:838
+#: src/MadFindInFilesDialog.cpp:871 src/MadSearchDialog.cpp:946
 #, c-format
 msgid "Offset(%s): "
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:839
+#: src/MadFindInFilesDialog.cpp:872 src/MadSearchDialog.cpp:947
 msgid "Binary file matches"
 msgstr ""
 
-#: src/MadFindInFilesDialog.cpp:863
+#: src/MadFindInFilesDialog.cpp:896 src/MadSearchDialog.cpp:967
 #, c-format
 msgid "%d results"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:214
+#: src/MadHighlightingDialog.cpp:218
 msgid "Scheme:"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:218
+#: src/MadHighlightingDialog.cpp:223
 msgid "WxComboBoxScheme"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:221
+#: src/MadHighlightingDialog.cpp:227
 msgid "You cannot modify the scheme with * sign."
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:227
+#: src/MadHighlightingDialog.cpp:234
 msgid "&Load"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:227
+#: src/MadHighlightingDialog.cpp:234
 msgid "WxButtonLoad"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:230
+#: src/MadHighlightingDialog.cpp:238
 msgid "&Save"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:230
+#: src/MadHighlightingDialog.cpp:238
 msgid "WxButtonSave"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:233
+#: src/MadHighlightingDialog.cpp:242
 msgid "WxButtonDelete"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:251
+#: src/MadHighlightingDialog.cpp:253
+msgid "WxListCtrlKeyword"
+msgstr ""
+
+#: src/MadHighlightingDialog.cpp:263
 msgid "Bold"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:251
+#: src/MadHighlightingDialog.cpp:263
 msgid "WxCheckBoxBold"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:254
+#: src/MadHighlightingDialog.cpp:267
 msgid "Italic"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:254
+#: src/MadHighlightingDialog.cpp:267
 msgid "WxCheckBoxItalic"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:257
+#: src/MadHighlightingDialog.cpp:271
 msgid "Underline"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:257
+#: src/MadHighlightingDialog.cpp:271
 msgid "WxCheckBoxUnderline"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:269
+#: src/MadHighlightingDialog.cpp:285
 msgid "Foreground/Text Color"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:272
+#: src/MadHighlightingDialog.cpp:289
 msgid "WxStaticTextFCName"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:281 src/MadHighlightingDialog.cpp:302
+#: src/MadHighlightingDialog.cpp:297
+msgid "WxListCtrlFC"
+msgstr ""
+
+#: src/MadHighlightingDialog.cpp:301 src/MadHighlightingDialog.cpp:328
 msgid "Other Color"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:281
+#: src/MadHighlightingDialog.cpp:301
 msgid "WxButtonFC"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:290
+#: src/MadHighlightingDialog.cpp:312
 msgid "Background Color"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:293
+#: src/MadHighlightingDialog.cpp:316
 msgid "WxStaticTextBCName"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:302
+#: src/MadHighlightingDialog.cpp:324
+msgid "WxListCtrlBC"
+msgstr ""
+
+#: src/MadHighlightingDialog.cpp:328
 msgid "WxButtonBC"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:316
+#: src/MadHighlightingDialog.cpp:343
 msgid "Syntax Highlighting Settings"
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:955
+#: src/MadHighlightingDialog.cpp:989
 msgid "Cannot load this scheme."
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:978
+#: src/MadHighlightingDialog.cpp:1012
 msgid "Cannot save to the scheme."
 msgstr ""
 
-#: src/MadHighlightingDialog.cpp:1000
+#: src/MadHighlightingDialog.cpp:1034
 msgid "Cannot delete this scheme."
 msgstr ""
 
-#: src/MadSearchDialog.cpp:95 src/MadReplaceDialog.cpp:95
+#: src/MadSearchDialog.cpp:105 src/MadReplaceDialog.cpp:98
 msgid "&Move Focus to Editor Window"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:95 src/MadReplaceDialog.cpp:95
+#: src/MadSearchDialog.cpp:105 src/MadReplaceDialog.cpp:98
 msgid "WxCheckBoxMoveFocus"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:113 src/MadReplaceDialog.cpp:130
+#: src/MadSearchDialog.cpp:125
+msgid "Search Through &End of File"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:125
+msgid "WxCheckBoxSearchThrEndOfFile"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:132 src/MadReplaceDialog.cpp:121
 msgid "Search In &Selection"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:113 src/MadReplaceDialog.cpp:130
+#: src/MadSearchDialog.cpp:132 src/MadReplaceDialog.cpp:121
 msgid "WxCheckBoxSearchInSelection"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:116 src/MadReplaceDialog.cpp:133
+#: src/MadSearchDialog.cpp:136 src/MadReplaceDialog.cpp:125
+msgid "From:"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:136 src/MadReplaceDialog.cpp:125
 msgid "WxStaticTextFrom"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:119 src/MadReplaceDialog.cpp:136
+#: src/MadSearchDialog.cpp:140 src/MadReplaceDialog.cpp:129
 msgid "WxEditFrom"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:122 src/MadReplaceDialog.cpp:139
+#: src/MadSearchDialog.cpp:144 src/MadReplaceDialog.cpp:133
+msgid "To:"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:144 src/MadReplaceDialog.cpp:133
 msgid "WxStaticTextTo"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:125 src/MadReplaceDialog.cpp:142
+#: src/MadSearchDialog.cpp:148 src/MadReplaceDialog.cpp:137
 msgid "WxEditTo"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:131 src/MadReplaceDialog.cpp:113
+#: src/MadSearchDialog.cpp:155 src/MadReplaceDialog.cpp:144
 msgid "WxButtonFindNext"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:134
+#: src/MadSearchDialog.cpp:159
 msgid "WxButtonFindPrev"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:137
+#: src/MadSearchDialog.cpp:163
+msgid "Find &All"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:163
+msgid "WxButtonFindAll"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:167
 msgid "C&ount"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:137
+#: src/MadSearchDialog.cpp:167
 msgid "WxButtonCount"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:140
+#: src/MadSearchDialog.cpp:171
 msgid "&Replace >>"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:148
+#: src/MadSearchDialog.cpp:182
 msgid "Search"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:279 src/MadSearchDialog.cpp:366
-#: src/MadSearchDialog.cpp:657 src/MadReplaceDialog.cpp:481
-#: src/MadReplaceDialog.cpp:563
+#: src/MadSearchDialog.cpp:256
+msgid "/MadEdit/SearchWinLeft"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:257
+msgid "/MadEdit/SearchWinTop"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:262
+msgid "/MadEdit/SearchThrEndOfFile"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:266
+msgid "/RecentFindText"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:340 src/MadSearchDialog.cpp:455
+#: src/MadSearchDialog.cpp:829 src/MadReplaceDialog.cpp:555
+#: src/MadReplaceDialog.cpp:637
 msgid "The value of 'From' is incorrect."
 msgstr ""
 
-#: src/MadSearchDialog.cpp:284 src/MadSearchDialog.cpp:371
-#: src/MadSearchDialog.cpp:662 src/MadReplaceDialog.cpp:486
-#: src/MadReplaceDialog.cpp:568
+#: src/MadSearchDialog.cpp:345 src/MadSearchDialog.cpp:460
+#: src/MadSearchDialog.cpp:834 src/MadReplaceDialog.cpp:560
+#: src/MadReplaceDialog.cpp:642
 msgid "The value of 'To' is incorrect."
 msgstr ""
 
-#: src/MadSearchDialog.cpp:319 src/MadSearchDialog.cpp:406
+#: src/MadSearchDialog.cpp:381 src/MadSearchDialog.cpp:496
+msgid "Passed the end of the file"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:391 src/MadSearchDialog.cpp:506
+msgid "Cannot find the matched string"
+msgstr ""
+
+#: src/MadSearchDialog.cpp:401 src/MadSearchDialog.cpp:516
 msgid "Cannot find the matched string."
 msgstr ""
 
-#: src/MadSearchDialog.cpp:322
+#: src/MadSearchDialog.cpp:404
 msgid "Do you want to find from begin of selection?"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:323
+#: src/MadSearchDialog.cpp:405
 msgid "Do you want to find from begin of file?"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:409
+#: src/MadSearchDialog.cpp:519
 msgid "Do you want to find from end of selection?"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:410
+#: src/MadSearchDialog.cpp:520
 msgid "Do you want to find from end of file?"
 msgstr ""
 
-#: src/MadSearchDialog.cpp:689
+#: src/MadSearchDialog.cpp:861
 #, c-format
 msgid "'%s' was found %d times."
 msgstr ""
 
-#: src/MadSortDialog.cpp:64
+#: src/MadSortDialog.cpp:67
 msgid "&Ascending"
 msgstr ""
 
-#: src/MadSortDialog.cpp:65
+#: src/MadSortDialog.cpp:68
 msgid "&Descending"
 msgstr ""
 
-#: src/MadSortDialog.cpp:66
+#: src/MadSortDialog.cpp:69
 msgid "Sort Order"
 msgstr ""
 
-#: src/MadSortDialog.cpp:66
+#: src/MadSortDialog.cpp:69
 msgid "WxRadioBoxOrder"
 msgstr ""
 
-#: src/MadSortDialog.cpp:70
+#: src/MadSortDialog.cpp:74
 msgid "WxCheckBoxCase"
 msgstr ""
 
-#: src/MadSortDialog.cpp:73
+#: src/MadSortDialog.cpp:78
 msgid "&Numeric Sort"
 msgstr ""
 
-#: src/MadSortDialog.cpp:73
+#: src/MadSortDialog.cpp:78
 msgid "WxCheckBoxNumeric"
 msgstr ""
 
-#: src/MadSortDialog.cpp:76
+#: src/MadSortDialog.cpp:82
 msgid "&Remove Duplicates"
 msgstr ""
 
-#: src/MadSortDialog.cpp:76
+#: src/MadSortDialog.cpp:82
 msgid "WxCheckBoxRemoveDup"
 msgstr ""
 
-#: src/MadSortDialog.cpp:82
+#: src/MadSortDialog.cpp:89
 msgid "WxButtonSort"
 msgstr ""
 
-#: src/MadSortDialog.cpp:88
+#: src/MadSortDialog.cpp:93
+msgid "Cancel"
+msgstr ""
+
+#: src/MadSortDialog.cpp:97
 msgid "Sort Options"
 msgstr ""
 
-#: src/MadReplaceDialog.cpp:119
+#: src/MadReplaceDialog.cpp:152
 msgid "Replace &All"
 msgstr ""
 
-#: src/MadReplaceDialog.cpp:119
+#: src/MadReplaceDialog.cpp:152
 msgid "WxButtonReplaceAll"
 msgstr ""
 
-#: src/MadReplaceDialog.cpp:515
+#: src/MadReplaceDialog.cpp:589
 msgid ""
 "Cannot find the matched string.\n"
 "Replace is finished."
 msgstr ""
 
-#: src/MadReplaceDialog.cpp:594
+#: src/MadReplaceDialog.cpp:668
 msgid "Cannot find any matched string."
 msgstr ""
 
-#: src/MadReplaceDialog.cpp:596
+#: src/MadReplaceDialog.cpp:670
 #, c-format
 msgid "%d string(s) were replaced."
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:225
+#: src/MadOptionsDialog.cpp:232
 msgid "General"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:235
+#: src/MadOptionsDialog.cpp:242
 msgid "WxComboBoxLanguage"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:238
+#: src/MadOptionsDialog.cpp:246
 msgid "Language of User Interface (must restart MadEdit)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:238
+#: src/MadOptionsDialog.cpp:246
 msgid "WxStaticText16"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:244
+#: src/MadOptionsDialog.cpp:253
 msgid "Single Instance (must restart MadEdit)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:244
+#: src/MadOptionsDialog.cpp:253
 msgid "WxCheckBoxSingleInstance"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:247
+#: src/MadOptionsDialog.cpp:257
 msgid "Record caret movements in undo list"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:247
+#: src/MadOptionsDialog.cpp:257
 msgid "WxCheckBoxRecordCaretMovements"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:253 src/MadOptionsDialog.cpp:262
-#: src/MadOptionsDialog.cpp:300 src/MadOptionsDialog.cpp:309
-#: src/MadOptionsDialog.cpp:318 src/MadOptionsDialog.cpp:327
+#: src/MadOptionsDialog.cpp:264 src/MadOptionsDialog.cpp:275
+#: src/MadOptionsDialog.cpp:321 src/MadOptionsDialog.cpp:332
+#: src/MadOptionsDialog.cpp:343 src/MadOptionsDialog.cpp:354
 msgid "0"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:253
+#: src/MadOptionsDialog.cpp:264
 msgid "WxEditMaxSizeToLoad"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:256
+#: src/MadOptionsDialog.cpp:268
 msgid "Max file size to load whole file into memory"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:262
+#: src/MadOptionsDialog.cpp:275
 msgid "WxEditMaxTextFileSize"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:265
+#: src/MadOptionsDialog.cpp:279
 msgid "Max file size to load as a text file"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:275
+#: src/MadOptionsDialog.cpp:291
 msgid ""
 "Use this encoding to create new file or when MadEdit cannot determine the "
 "encoding of old file"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:275
+#: src/MadOptionsDialog.cpp:291
 msgid "WxStaticText13"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:281
+#: src/MadOptionsDialog.cpp:298
 msgid "Reload files previously open on startup"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:281
+#: src/MadOptionsDialog.cpp:298
 msgid "WxCheckBoxReloadFiles"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:284
+#: src/MadOptionsDialog.cpp:302
 msgid "Restore previous caret position when files are opened"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:284
+#: src/MadOptionsDialog.cpp:302
 msgid "WxCheckBoxRestoreCaretPos"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:287
+#: src/MadOptionsDialog.cpp:306
 msgid ""
 "Do not save settings to MadEdit.cfg when MadEdit closed (this session only)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:287
+#: src/MadOptionsDialog.cpp:306
 msgid "WxCheckBoxDoNotSaveSettings"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:291
+#: src/MadOptionsDialog.cpp:312
 msgid "Edit"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:300
+#: src/MadOptionsDialog.cpp:321
 msgid "WxEditMaxLineLength"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:303
+#: src/MadOptionsDialog.cpp:325
 msgid "Max line length before Line-Wrap (must restart MadEdit)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:309
+#: src/MadOptionsDialog.cpp:332
 msgid "WxEditMaxColumns"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:312
+#: src/MadOptionsDialog.cpp:336
 msgid "Columns of Wrap-By-Column"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:318
+#: src/MadOptionsDialog.cpp:343
 msgid "WxEditTabColumns"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:321
+#: src/MadOptionsDialog.cpp:347
 msgid "Columns of Tab"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:327
+#: src/MadOptionsDialog.cpp:354
 msgid "WxEditIndentColumns"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:330
+#: src/MadOptionsDialog.cpp:358
 msgid "Columns of Indent"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:336
+#: src/MadOptionsDialog.cpp:365
 msgid "WxEditDateTime"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:339
+#: src/MadOptionsDialog.cpp:369
 msgid "Format of Date/Time"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:339
+#: src/MadOptionsDialog.cpp:369
 msgid "WxStaticTextDateTime"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:342 src/MadOptionsDialog.cpp:438
-#: src/MadOptionsDialog.cpp:447 src/MadOptionsDialog.cpp:456
-#: src/MadOptionsDialog.cpp:475 src/MadOptionsDialog.cpp:484
-#: src/MadOptionsDialog.cpp:493
+#: src/MadOptionsDialog.cpp:373 src/MadOptionsDialog.cpp:489
+#: src/MadOptionsDialog.cpp:501 src/MadOptionsDialog.cpp:513
+#: src/MadOptionsDialog.cpp:536 src/MadOptionsDialog.cpp:548
+#: src/MadOptionsDialog.cpp:560
 msgid ">>"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:342
+#: src/MadOptionsDialog.cpp:373
 msgid "WxButtonDateTime"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:345
+#: src/MadOptionsDialog.cpp:377
 msgid "Use English instead of current locale"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:345
+#: src/MadOptionsDialog.cpp:377
 msgid "WxCheckBoxDateTimeInEnglish"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:351
+#: src/MadOptionsDialog.cpp:384
 msgid "Insert Space char instead of Tab char"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:351
+#: src/MadOptionsDialog.cpp:384
 msgid "WxCheckBoxTabOrSpaces"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:354
+#: src/MadOptionsDialog.cpp:388
 msgid "Auto Indent"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:354
+#: src/MadOptionsDialog.cpp:388
 msgid "WxCheckBoxAutoIndent"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:357
+#: src/MadOptionsDialog.cpp:392
 msgid "Auto complete character pair"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:357
+#: src/MadOptionsDialog.cpp:392
 msgid "WxCheckBoxAutoCompletePair"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:363
+#: src/MadOptionsDialog.cpp:399
 msgid "Auto copy the mouse-selected text to clipboard  ("
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:363
+#: src/MadOptionsDialog.cpp:399
 msgid "WxCheckBoxMouseSelectToCopy"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:366
+#: src/MadOptionsDialog.cpp:403
 msgid "Enable"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:366
+#: src/MadOptionsDialog.cpp:403
 msgid "WxRadioButtonEnable"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:369
+#: src/MadOptionsDialog.cpp:407
 msgid "Disable"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:369
+#: src/MadOptionsDialog.cpp:407
 msgid "WxRadioButtonDisable"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:372
+#: src/MadOptionsDialog.cpp:411
 msgid "when pressing Ctrl key)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:372
+#: src/MadOptionsDialog.cpp:411
 msgid "WxStaticText17"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:375
+#: src/MadOptionsDialog.cpp:415
 msgid "Paste text from clipboard when pressing middle mouse button"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:375
+#: src/MadOptionsDialog.cpp:415
 msgid "WxCheckBoxMiddleMouseToPaste"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:379
+#: src/MadOptionsDialog.cpp:421
 msgid "Print"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:392
+#: src/MadOptionsDialog.cpp:434
 msgid "Print Syntax Highlighter"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:392
+#: src/MadOptionsDialog.cpp:434
 msgid "WxCheckBoxPrintSyntax"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:395
+#: src/MadOptionsDialog.cpp:438
 msgid "Print Line Number"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:395
+#: src/MadOptionsDialog.cpp:438
 msgid "WxCheckBoxPrintLineNumber"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:398
+#: src/MadOptionsDialog.cpp:442
 msgid "Print End of Line"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:398
+#: src/MadOptionsDialog.cpp:442
 msgid "WxCheckBoxPrintEndOfLine"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:401
+#: src/MadOptionsDialog.cpp:446
 msgid "Print Tab Char"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:401
+#: src/MadOptionsDialog.cpp:446
 msgid "WxCheckBoxPrintTabChar"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:404
+#: src/MadOptionsDialog.cpp:450
 msgid "Print Space Char"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:404
+#: src/MadOptionsDialog.cpp:450
 msgid "WxCheckBoxPrintSpaceChar"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:413
+#: src/MadOptionsDialog.cpp:460
 msgid "First Page Only"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:414
+#: src/MadOptionsDialog.cpp:461
 msgid "Every Page"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:415
+#: src/MadOptionsDialog.cpp:462
 msgid "Print Offset Header"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:415
+#: src/MadOptionsDialog.cpp:462
 msgid "WxRadioBoxPrintOffset"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:422
+#: src/MadOptionsDialog.cpp:470
 msgid "Page Header"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:426
+#: src/MadOptionsDialog.cpp:474
 msgid "Print Page Header"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:426
+#: src/MadOptionsDialog.cpp:474
 msgid "WxCheckBoxPrintPageHeader"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:432 src/MadOptionsDialog.cpp:469
+#: src/MadOptionsDialog.cpp:481 src/MadOptionsDialog.cpp:528
 msgid "Left:"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:435
+#: src/MadOptionsDialog.cpp:485
 msgid "WxEditHeaderLeft"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:438 src/MadWordCountDialog.cpp:123
+#: src/MadOptionsDialog.cpp:489 src/MadWordCountDialog.cpp:141
 msgid "WxButton1"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:441 src/MadOptionsDialog.cpp:478
+#: src/MadOptionsDialog.cpp:493 src/MadOptionsDialog.cpp:540
 msgid "Center:"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:441
+#: src/MadOptionsDialog.cpp:493
 msgid "WxStaticText8"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:444
+#: src/MadOptionsDialog.cpp:497
 msgid "WxEditHeaderCenter"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:447
+#: src/MadOptionsDialog.cpp:501
 msgid "WxButton2"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:450 src/MadOptionsDialog.cpp:487
+#: src/MadOptionsDialog.cpp:505 src/MadOptionsDialog.cpp:552
 msgid "Right:"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:450
+#: src/MadOptionsDialog.cpp:505
 msgid "WxStaticText9"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:453
+#: src/MadOptionsDialog.cpp:509
 msgid "WxEditHeaderRight"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:456
+#: src/MadOptionsDialog.cpp:513
 msgid "WxButton3"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:459
+#: src/MadOptionsDialog.cpp:517
 msgid "Page Footer"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:463
+#: src/MadOptionsDialog.cpp:521
 msgid "Print Page Footer"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:463
+#: src/MadOptionsDialog.cpp:521
 msgid "WxCheckBoxPrintPageFooter"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:469
+#: src/MadOptionsDialog.cpp:528
 msgid "WxStaticText10"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:472
+#: src/MadOptionsDialog.cpp:532
 msgid "WxEditFooterLeft"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:475
+#: src/MadOptionsDialog.cpp:536
 msgid "WxButton4"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:478
+#: src/MadOptionsDialog.cpp:540
 msgid "WxStaticText11"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:481
+#: src/MadOptionsDialog.cpp:544
 msgid "WxEditFooterCenter"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:484
+#: src/MadOptionsDialog.cpp:548
 msgid "WxButton5"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:487
+#: src/MadOptionsDialog.cpp:552
 msgid "WxStaticText12"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:490
+#: src/MadOptionsDialog.cpp:556
 msgid "WxEditFooterRight"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:493
+#: src/MadOptionsDialog.cpp:560
 msgid "WxButton6"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:497
+#: src/MadOptionsDialog.cpp:566
 msgid "Keys"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:515
+#: src/MadOptionsDialog.cpp:575
+msgid "WxTreeCtrl1"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:585
 msgid "Hint:"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:515
+#: src/MadOptionsDialog.cpp:585
 msgid "WxStaticTextCommandHint"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:518
+#: src/MadOptionsDialog.cpp:589
 msgid "WxEditCommandHint"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:528
+#: src/MadOptionsDialog.cpp:600
 msgid "Assigned Keys:"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:528
+#: src/MadOptionsDialog.cpp:600
 msgid "WxStaticText14"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:538
+#: src/MadOptionsDialog.cpp:612
 msgid "New Key:"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:538
+#: src/MadOptionsDialog.cpp:612
 msgid "WxStaticText15"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:541
+#: src/MadOptionsDialog.cpp:616
 msgid "WxEditKey"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:544
+#: src/MadOptionsDialog.cpp:620
 msgid "WxEditKeyHint"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:548
+#: src/MadOptionsDialog.cpp:625
 msgid "<== Add Key"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:548
+#: src/MadOptionsDialog.cpp:625
 msgid "WxButtonAddKey"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:551
+#: src/MadOptionsDialog.cpp:629
 msgid "==> Delete Key"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:551
+#: src/MadOptionsDialog.cpp:629
 msgid "WxButtonDeleteKey"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:554
+#: src/MadOptionsDialog.cpp:633
 msgid "Show the Key in Menu"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:554
+#: src/MadOptionsDialog.cpp:633
 msgid "WxButtonShowInMenu"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:560
+#: src/MadOptionsDialog.cpp:640
 msgid "Reset all keys to default (must restart MadEdit)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:560
+#: src/MadOptionsDialog.cpp:640
 msgid "WxCheckBoxResetAllKeys"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:572
+#: src/MadOptionsDialog.cpp:655
+#, c-format
+msgid "[%f] &File Name"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:656
+#, c-format
+msgid "[%p] &Path Name"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:658
+#, c-format
+msgid "[%n] Page &Number"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:659
+#, c-format
+msgid "[%s] Total Page&s"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:661
+#, c-format
+msgid "[%d] &Date"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:662
+msgid "[%t] &Time"
+msgstr ""
+
+#: src/MadOptionsDialog.cpp:664
 msgid "[%Y/%m/%d %I:%M:%S %p] 2007/02/24 08:30:55 AM"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:573
+#: src/MadOptionsDialog.cpp:665
 msgid "[%d/%m/%Y] 24/02/2007"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:574
+#: src/MadOptionsDialog.cpp:666
 msgid "[%a, %d %b %Y %H:%M:%S %z] RFC822 timestamp"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:576
+#: src/MadOptionsDialog.cpp:668
 #, c-format
 msgid "[%a] Abbreviated weekday name"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:577
+#: src/MadOptionsDialog.cpp:669
 #, c-format
 msgid "[%A] Full weekday name"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:578
+#: src/MadOptionsDialog.cpp:670
 msgid "[%b] Abbreviated month name"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:579
+#: src/MadOptionsDialog.cpp:671
 msgid "[%B] Full month name"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:580
+#: src/MadOptionsDialog.cpp:672
 #, c-format
 msgid "[%c] Date and time representation appropriate for locale"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:581
+#: src/MadOptionsDialog.cpp:673
 #, c-format
 msgid "[%d] Day of month as decimal number (01 - 31)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:582
+#: src/MadOptionsDialog.cpp:674
 msgid "[%H] Hour in 24-hour format (00 - 23)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:583
+#: src/MadOptionsDialog.cpp:675
 msgid "[%I] Hour in 12-hour format (01 - 12)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:584
+#: src/MadOptionsDialog.cpp:676
 msgid "[%j] Day of year as decimal number (001 - 366)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:585
+#: src/MadOptionsDialog.cpp:677
 #, c-format
 msgid "[%m] Month as decimal number (01 - 12)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:586
+#: src/MadOptionsDialog.cpp:678
 msgid "[%M] Minute as decimal number (00 - 59)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:587
+#: src/MadOptionsDialog.cpp:679
 #, c-format
 msgid "[%p] Current locale's A.M./P.M. indicator for 12-hour clock"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:588
+#: src/MadOptionsDialog.cpp:680
 #, c-format
 msgid "[%S] Second as decimal number (00 - 59)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:589
+#: src/MadOptionsDialog.cpp:681
 msgid ""
 "[%U] Week of year as decimal number, with Sunday as first day of week (00 - "
 "53)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:590
+#: src/MadOptionsDialog.cpp:682
 msgid "[%w] Weekday as decimal number (0 - 6; Sunday is 0)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:591
+#: src/MadOptionsDialog.cpp:683
 msgid ""
 "[%W] Week of year as decimal number, with Monday as first day of week (00 - "
 "53)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:592
+#: src/MadOptionsDialog.cpp:684
 #, c-format
 msgid "[%x] Date representation for current locale"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:593
+#: src/MadOptionsDialog.cpp:685
 #, c-format
 msgid "[%X] Time representation for current locale"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:594
+#: src/MadOptionsDialog.cpp:686
 msgid "[%y] Year without century, as decimal number (00 - 99)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:595
+#: src/MadOptionsDialog.cpp:687
 msgid "[%Y] Year with century, as decimal number"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:596
+#: src/MadOptionsDialog.cpp:688
 msgid "[%z] Time-zone name"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:597
+#: src/MadOptionsDialog.cpp:689
 msgid "[%Z] Time-zone abbreviation"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:599
-#, c-format
-msgid "[%f] &File Name"
-msgstr ""
-
-#: src/MadOptionsDialog.cpp:600
-#, c-format
-msgid "[%p] &Path Name"
-msgstr ""
-
-#: src/MadOptionsDialog.cpp:602
-#, c-format
-msgid "[%n] Page &Number"
-msgstr ""
-
-#: src/MadOptionsDialog.cpp:603
-#, c-format
-msgid "[%s] Total Page&s"
-msgstr ""
-
-#: src/MadOptionsDialog.cpp:605
-#, c-format
-msgid "[%d] &Date"
-msgstr ""
-
-#: src/MadOptionsDialog.cpp:606
-msgid "[%t] &Time"
-msgstr ""
-
-#: src/MadOptionsDialog.cpp:608
+#: src/MadOptionsDialog.cpp:691
 msgid "Options"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:616 src/MadOptionsDialog.cpp:852
+#: src/MadOptionsDialog.cpp:702 src/MadOptionsDialog.cpp:938
 msgid "System Default"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:701
+#: src/MadOptionsDialog.cpp:787
 msgid ""
 "Add MadEdit to the RightClickMenu of Explorer(Deselect to Remove the Entry "
 "from Windows Registry)"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:725
+#: src/MadOptionsDialog.cpp:811
 msgid "Commands"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:727
+#: src/MadOptionsDialog.cpp:813
 msgid "Menu"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:728
+#: src/MadOptionsDialog.cpp:814
 msgid "Editor"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:997
+#: src/MadOptionsDialog.cpp:1083
 #, c-format
 msgid "Invalid value of \"%s\""
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:1089
+#: src/MadOptionsDialog.cpp:1179
 msgid "Cannot assign key to this item"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:1186
+#: src/MadOptionsDialog.cpp:1276
 msgid "This key is not assigned"
 msgstr ""
 
-#: src/MadOptionsDialog.cpp:1210
+#: src/MadOptionsDialog.cpp:1300
 #, c-format
 msgid "This key is assigned to [%s]"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:69
+#: src/MadConvEncDialog.cpp:72
 msgid "New Encoding:"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:81
+#: src/MadConvEncDialog.cpp:86
 msgid "Simplified Chinese => Traditional Chinese"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:82
+#: src/MadConvEncDialog.cpp:87
 msgid "Traditional Chinese => Simplified Chinese"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:83
+#: src/MadConvEncDialog.cpp:88
 msgid "Japanese Kanji => Traditional Chinese"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:84
+#: src/MadConvEncDialog.cpp:89
 msgid "Japanese Kanji => Simplified Chinese"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:85
+#: src/MadConvEncDialog.cpp:90
 msgid "Chinese => Japanese Kanji"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:86
+#: src/MadConvEncDialog.cpp:91
 msgid "Addtional Option"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:86
+#: src/MadConvEncDialog.cpp:91
 msgid "WxRadioBoxOption"
 msgstr ""
 
-#: src/MadConvEncDialog.cpp:99
+#: src/MadConvEncDialog.cpp:107
 msgid "Convert Encoding"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:75
+#: src/MadWordCountDialog.cpp:78
 msgid "Words"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:78 src/MadWordCountDialog.cpp:84
-#: src/MadWordCountDialog.cpp:90 src/MadWordCountDialog.cpp:96
-#: src/MadWordCountDialog.cpp:102 src/MadWordCountDialog.cpp:108
+#: src/MadWordCountDialog.cpp:82 src/MadWordCountDialog.cpp:90
+#: src/MadWordCountDialog.cpp:98 src/MadWordCountDialog.cpp:106
+#: src/MadWordCountDialog.cpp:114 src/MadWordCountDialog.cpp:122
 msgid "999999"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:78
+#: src/MadWordCountDialog.cpp:82
 msgid "WxStaticTextWordCount"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:81
+#: src/MadWordCountDialog.cpp:86
 msgid "Characters (no spaces)"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:84
+#: src/MadWordCountDialog.cpp:90
 msgid "WxStaticTextCharCount"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:87
+#: src/MadWordCountDialog.cpp:94
 msgid "Characters (with spaces)"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:90
+#: src/MadWordCountDialog.cpp:98
 msgid "WxStaticTextSpaceCount"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:93
+#: src/MadWordCountDialog.cpp:102
 msgid "Halfwidth Words"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:96
+#: src/MadWordCountDialog.cpp:106
 msgid "WxStaticTextHalfwidthCount"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:99
+#: src/MadWordCountDialog.cpp:110
 msgid "Fullwidth Words"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:102
+#: src/MadWordCountDialog.cpp:114
 msgid "WxStaticTextFullwidthCount"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:105
+#: src/MadWordCountDialog.cpp:118
 msgid "Lines"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:108
+#: src/MadWordCountDialog.cpp:122
 msgid "WxStaticTextLineCount"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:114
+#: src/MadWordCountDialog.cpp:130
 msgid "Detail Information of Characters:"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:117 src/MadAboutDialog.cpp:67
+#: src/MadWordCountDialog.cpp:134 src/MadAboutDialog.cpp:72
 msgid "WxMemo1"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:126
+#: src/MadWordCountDialog.cpp:141
+msgid "&Close"
+msgstr ""
+
+#: src/MadWordCountDialog.cpp:145
 msgid "Word Count"
 msgstr ""
 
-#: src/MadWordCountDialog.cpp:143
+#: src/MadWordCountDialog.cpp:165
 msgid "Word Count (Selected Text)"
 msgstr ""
 
-#: src/MadAboutDialog.cpp:82
+#: src/MadAboutDialog.cpp:90
 msgid "About MadEdit"
 msgstr ""

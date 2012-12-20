@@ -879,7 +879,7 @@ void MadSearchDialog::WxButtonFindAllClick(wxCommandEvent& event)
     if(g_ActiveMadEdit==NULL)
         return;
 
-    g_MainFrame->ResetFindInFilesResults();
+    //g_MainFrame->ResetFindInFilesResults();
     g_MainFrame->m_AuiManager.GetPane(g_MainFrame->m_InfoNotebook).Show();
     g_MainFrame->m_AuiManager.Update();
 

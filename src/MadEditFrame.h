@@ -278,6 +278,7 @@ public:
 
     void OnCopyCurrResult(wxCommandEvent& event);
     void OnCopyAllResults(wxCommandEvent& event);
+	void OnResetCurrResult(wxCommandEvent& event);
 private:
     bool m_PageClosing; // prevent from reentry of CloseFile(), OnNotebookPageClosing()
 public:
@@ -490,6 +491,7 @@ enum { // menu id
     // results
     menuCopyCurResult,
     menuCopyAllResults,
+    menuResetCurResult,
 };
 
 extern MadEditFrame *g_MainFrame;
