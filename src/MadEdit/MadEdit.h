@@ -212,6 +212,9 @@ private:
     wchar_t         *m_WCWordBuffer;
     int             *m_WCWidthBuffer;
 
+    //highlight words
+    vector<ucs4_t>  m_HighlightWords;
+
     wxBitmap        *m_ClientBitmap, *m_MarkBitmap;
     int             m_LastPaintBitmap;// 0:client, 1:mark
 
@@ -792,6 +795,8 @@ public: // basic functions
     void DeleteLine() { ProcessCommand(ecDeleteLine); }
     void InsertTabChar() { ProcessCommand(ecInsertTabChar); }
     void InsertDateTime() { ProcessCommand(ecInsertDateTime); }
+
+    void HighlightWords();
 
     void SelectAll();
     void CutToClipboard();

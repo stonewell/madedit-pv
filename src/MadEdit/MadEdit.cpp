@@ -1758,7 +1758,7 @@ void MadEdit::PaintText(wxDC *dc, int x, int y, const ucs4_t *text, const int *w
     int nowleft=x;
     bool nowleftend=false;
     wxChar wcbuf2[2];
-    for(int i=0; i<count && nowright<maxright; i++, pwc++, pwcw++, wcount++)
+    for(int i=0; i<count && nowright<maxright; ++i, ++pwc, ++pwcw, ++wcount)
     {
         ucs4_t uc=*pu++;
         int ucw=*pw++;
@@ -1855,7 +1855,7 @@ void MadEdit::PaintText(wxDC *dc, int x, int y, const ucs4_t *text, const int *w
         const ucs4_t  *pu=text;
         const int     *pw=width;
         int nowleft=x;
-        for(int i=count; i>0 && nowleft<maxright; --i, nowleft+=*pw, pu++, pw++)
+        for(int i=count; i>0 && nowleft<maxright; --i, nowleft+=*pw, ++pu, ++pw)
         {
             if(nowleft+*pw > minleft)
             {
@@ -1865,6 +1865,18 @@ void MadEdit::PaintText(wxDC *dc, int x, int y, const ucs4_t *text, const int *w
         }
     }
 #endif
+}
+
+template< class T >
+bool IsTheSame(vector< T >& First, T * Second, size_t Len)
+{
+    T *p = Second;
+    size_t i = 0;
+    while(i < Len)
+    {
+        if(First[i++] != *(p++)) return false;
+    }
+    return true;
 }
 
 void MadEdit::PaintTextLines(wxDC *dc, const wxRect &rect, int toprow, int rowcount, const wxColor &bgcolor)
@@ -2052,16 +2064,26 @@ void MadEdit::PaintTextLines(wxDC *dc, const wxRect &rect, int toprow, int rowco
                                 x0 += m_WidthBuffer[idx];
                             }
                             while(++idx < wordlength && x0<maxright);
-
                         }
                         else
                         {
-                            if(m_Syntax->nw_BgColor != current_bgcolor)
+                            //static ucs4_t data[] = {117, 115, 101 ,114};//"user"
+                            if((!m_HighlightWords.empty()) && (wordlength == m_HighlightWords.size()) && IsTheSame<ucs4_t>(m_HighlightWords, m_WordBuffer, wordlength))
                             {
-                                current_bgcolor = m_Syntax->nw_BgColor;
-                                dc->SetPen(*wxThePenList->FindOrCreatePen(m_Syntax->nw_BgColor, 1, wxSOLID));
-                                dc->SetBrush(*wxTheBrushList->FindOrCreateBrush(m_Syntax->nw_BgColor));
+                                current_bgcolor = wxTheColourDatabase->Find(wxString(wxT("PALE GREEN")));
+                                dc->SetPen(*wxThePenList->FindOrCreatePen(current_bgcolor, 1, wxSOLID));
+                                dc->SetBrush(*wxTheBrushList->FindOrCreateBrush(current_bgcolor));
                                 dc->DrawRectangle(left, row_top, rectright-left, m_RowHeight);
+                            }
+                            else
+                            {
+                                if(m_Syntax->nw_BgColor != current_bgcolor)
+                                {
+                                    current_bgcolor = m_Syntax->nw_BgColor;
+                                    dc->SetPen(*wxThePenList->FindOrCreatePen(m_Syntax->nw_BgColor, 1, wxSOLID));
+                                    dc->SetBrush(*wxTheBrushList->FindOrCreateBrush(m_Syntax->nw_BgColor));
+                                    dc->DrawRectangle(left, row_top, rectright-left, m_RowHeight);
+                                }
                             }
 
                             dc->SetTextForeground(m_Syntax->nw_Color);
@@ -2274,7 +2296,7 @@ void MadEdit::PaintTextLines(wxDC *dc, const wxRect &rect, int toprow, int rowco
                         dc->SetTextForeground(m_Syntax->nw_Color);
                         dc->SetFont(*(m_Syntax->nw_Font));
 
-                        for(int i = 0; i < ncount; i++, l+=m_TextFontMaxDigitWidth)
+                        for(int i = 0; i < ncount; ++i, l+=m_TextFontMaxDigitWidth)
                         {
                             if(wcstr[i] != 0x20)
                             {
@@ -2537,7 +2559,7 @@ void MadEdit::PaintHexLines(wxDC *dc, wxRect &rect, int toprow, int rowcount, bo
                 bMarkChar = true;
 
                 MarkCharLeft = left - 1;
-                for(int i = 0; i < idx - 1; i++)
+                for(int i = 0; i < idx - 1; ++i)
                 {
                     MarkCharLeft += m_WidthBuffer[60 + i];
                 }
@@ -3321,10 +3343,10 @@ void MadEdit::UpdateAppearance()
 
 
     m_CompleteRowCount = m_ClientHeight / m_RowHeight;
-    if(m_CompleteRowCount == 0)             m_CompleteRowCount++;
+    if(m_CompleteRowCount == 0)             ++m_CompleteRowCount;
 
     m_VisibleRowCount = m_CompleteRowCount;
-    if(m_VisibleRowCount*m_RowHeight < m_ClientHeight)   m_VisibleRowCount++;
+    if(m_VisibleRowCount*m_RowHeight < m_ClientHeight)   ++m_VisibleRowCount;
 
     m_PageRowCount = m_CompleteRowCount;
     if(m_PageRowCount>1)
@@ -4891,7 +4913,7 @@ void MadEdit::InsertString(const ucs4_t *ucs, size_t count, bool bColumnEditing,
                         if(m_CaretPos.extraspaces)
                         {
                             ucs4_t *sp = new ucs4_t[m_CaretPos.extraspaces];
-                            for(int i = 0; i < m_CaretPos.extraspaces; i++)
+                            for(int i = 0; i < m_CaretPos.extraspaces; ++i)
                                 sp[i] = 0x20;
                         
                             UCStoBlock(sp, m_CaretPos.extraspaces, blk);
@@ -7220,6 +7242,9 @@ void MadEdit::ProcessCommand(MadEditCommand command)
 
     switch (command)
     {
+    case ecHighlightWords:
+        HighlightWords();
+        break;
     case ecSelectAll:
         SelectAll();
         break;
@@ -8210,7 +8235,7 @@ void MadEdit::ProcessCommand(MadEditCommand command)
                             if(spaces==0) spaces=m_TabColumns;
 
                             ucs4_t *sp = new ucs4_t[spaces];
-                            for(int i = 0; i < spaces; i++)
+                            for(int i = 0; i < spaces; ++i)
                                 sp[i] = 0x20;
                             InsertString(sp, spaces, true, true, false);
                             delete []sp;
@@ -10427,7 +10452,7 @@ void MadEdit::OnPaint(wxPaintEvent &evt)
                     memdc.SelectObject(*m_HexDigitBitmap);
                     memdc.SetFont(*m_HexFont);
 
-                    for(int i = 0; i < 76; i++)
+                    for(int i = 0; i < 76; ++i)
                         m_WidthBuffer[i] = m_HexFontMaxDigitWidth;
 
                     // first line: aeText hexdigit

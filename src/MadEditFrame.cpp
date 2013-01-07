@@ -678,7 +678,7 @@ void OnReceiveMessage(const wchar_t *msg, size_t size)
     size_t len=size/sizeof(wchar_t);
 
     const wchar_t *pwc=msg;
-    for(size_t i=0;i<len && *pwc!=0 ;++i, ++pwc)
+    for(size_t i=0;i<len && *pwc!=0; ++i, ++pwc)
     {
         if(*pwc=='|')
         {
@@ -2020,7 +2020,7 @@ void MadEditFrame::CreateGUIControls(void)
 
     {
         size_t cnt=MadSyntax::GetSyntaxCount();
-        for(size_t i=0;i<cnt;i++)
+        for(size_t i=0;i<cnt;++i)
         {
             g_Menu_View_Syntax->Append(menuSyntax1+int(i), MadSyntax::GetSyntaxTitle(i));
         }
@@ -2801,7 +2801,7 @@ void MadEditFrame::OpenFile(const wxString &filename, bool mustExist)
 
         // check this file is opened or not
         int count=int(m_Notebook->GetPageCount());
-        for(int id=0;id<count;id++)
+        for(int id=0;id<count;++id)
         {
             MadEdit *me=(MadEdit*)m_Notebook->GetPage(id);
 #ifdef __WXMSW__

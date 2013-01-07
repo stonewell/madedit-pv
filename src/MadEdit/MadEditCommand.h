@@ -61,6 +61,8 @@ enum //MadEditCommand
     ecSelCommandLast,
     /*============================================*/
 
+    ecHighlightWords,
+
     ecSelectAll,
 
     ecScrollLineUp, ecScrollLineDown,

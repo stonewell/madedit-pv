@@ -1386,6 +1386,141 @@ int MadEdit::GetLineByPos(const wxFileOffset &pos)
     return line;
 }
 
+void MadEdit::HighlightWords()
+{
+    if(m_EditMode == emColumnMode && m_CaretPos.extraspaces)
+        return;
+
+    wxFileOffset startpos, endpos;
+
+    if(!IsTextFile()) // not a text file (HexMode)
+    {
+        return;
+    }
+    else                          //TextMode
+    {
+        //may select whole line
+        //startpos = m_CaretPos.pos - m_CaretPos.linepos +
+                   //m_CaretPos.iter->m_RowIndices[0].m_Start; // exclude BOM
+        //endpos = m_Lines->m_Size;
+        
+        //select wrapped-line only
+        startpos = m_CaretPos.pos - m_CaretPos.linepos +
+                   m_CaretPos.iter->m_RowIndices[m_CaretPos.subrowid].m_Start; // exclude BOM
+        endpos = m_CaretPos.pos - m_CaretPos.linepos +
+                 m_CaretPos.iter->m_RowIndices[m_CaretPos.subrowid+1].m_Start;
+    }
+
+    // now startpos is the begin of line
+    // check the word between startpos and endpos
+
+    MadLineIterator & lit = m_CaretPos.iter;
+    wxFileOffset pos = m_CaretPos.linepos - (m_CaretPos.pos - startpos);
+    m_Lines->InitNextUChar(lit, pos);
+
+    MadUCQueue ucqueue;
+    int type = 0, prevtype = 0;
+    int idx = 0, posidx = 0;
+
+    pos = startpos;
+    MadLines::NextUCharFuncPtr NextUChar=m_Lines->NextUChar;
+
+    if((m_Lines->*NextUChar)(ucqueue))
+    {
+        do
+        {
+            MadUCPair & ucp = ucqueue.back();
+            int uc = ucp.first;
+            if(type == 0)
+            {
+                if(pos >= m_CaretPos.pos)
+                {
+                    type = GetUCharType(uc);
+                    posidx = idx;
+
+                    if((type <= 3 && prevtype > 3) || (type <= 2 && prevtype > 2))
+                    {
+                        --posidx;
+                        type = prevtype;
+
+                        ucqueue.pop_back();
+                        break;
+                    }
+                }
+                else
+                {
+                    prevtype = GetUCharType(uc);
+                }
+            }
+            else
+            {
+                if(GetUCharType(uc) != type)
+                {
+                    ucqueue.pop_back();
+                    break;
+                }
+            }
+
+            ++idx;
+            pos += ucp.second;
+        }
+        while(pos < endpos && (m_Lines->*NextUChar)(ucqueue));
+    }
+
+
+    idx = posidx - 1;
+    while(idx >= 0 && GetUCharType(ucqueue[idx].first) == type)
+    {
+        --idx;
+    }
+
+    if(idx >= 0)
+    {
+        do
+        {
+            startpos += ucqueue.front().second;
+            ucqueue.pop_front();
+        }
+        while(--idx >= 0);
+    }
+
+    if(!ucqueue.empty() && type != 0)
+    {
+        //wxASSERT(type != 0);
+        size_t s = ucqueue.size();
+        if(s != m_HighlightWords.size())
+        {
+            m_HighlightWords.clear();
+            for(size_t i = 0; i < s; ++i)
+            {
+                m_HighlightWords.push_back(ucqueue[i].first);
+            }
+        }
+        else
+        {
+            bool toggleHighlight = true;
+            for(size_t i = 0; i < s; ++i)
+            {
+                if(m_HighlightWords[i] != ucqueue[i].first) 
+                {
+                    toggleHighlight = false;
+                    m_HighlightWords[i] = ucqueue[i].first;
+                }
+            }
+
+            if(toggleHighlight)
+            {
+                m_HighlightWords.clear();
+            }
+        }
+
+    }
+    else
+        m_HighlightWords.clear();
+
+    m_RepaintAll=true;
+    Refresh(false);
+}
 
 void MadEdit::SelectAll()
 {

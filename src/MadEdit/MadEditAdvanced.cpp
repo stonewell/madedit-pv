@@ -595,7 +595,7 @@ void MadEdit::CommentUncomment(bool comment)
     wxString &str=m_Syntax->m_LineComment.front();
     vector <ucs4_t> commentstr;
     const size_t commentlen=str.size();
-    for(size_t i=0;i<commentlen;i++)
+    for(size_t i=0;i<commentlen;++i)
     {
         commentstr.push_back(str[i]);
     }

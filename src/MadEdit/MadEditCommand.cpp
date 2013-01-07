@@ -80,6 +80,8 @@ void MadKeyBindings::InitCommandTextMap()
     INSERT_COMMANDTEXT(ecScrollLeft);
     INSERT_COMMANDTEXT(ecScrollRight);
 
+    INSERT_COMMANDTEXT(ecHighlightWords);
+
     INSERT_COMMANDTEXT(ecSelectAll);
 
     INSERT_COMMANDTEXT(ecReturn);
@@ -202,7 +204,7 @@ MadEditShortCut StringToShortCut(const wxString &text)
         int keyCode = 0;
         int accelFlags = wxACCEL_NORMAL;
         wxString current;
-        for ( size_t n = 0; n < text.Len(); n++ ) {
+        for ( size_t n = 0; n < text.Len(); ++n ) {
             if ( (text[n] == '+') || (text[n] == '-') ) {
                 if ( current == wxT("ctrl") )
                     accelFlags |= wxACCEL_CTRL;
@@ -715,6 +717,7 @@ void MadKeyBindings::AddDefaultBindings(bool overwrite)
     Add(ShortCut(wxACCEL_ALT | wxACCEL_SHIFT, WXK_LEFT),    ecScrollLeft, overwrite);
     Add(ShortCut(wxACCEL_ALT | wxACCEL_SHIFT, WXK_RIGHT),   ecScrollRight, overwrite);
 
+    Add(ShortCut(wxACCEL_SHIFT, WXK_F8),            ecHighlightWords, overwrite);
 
     Add(ShortCut(wxACCEL_CTRL, 'A'),            ecSelectAll, overwrite);
 

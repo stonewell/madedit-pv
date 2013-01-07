@@ -845,7 +845,7 @@ MadSearchResult MadEdit::Replace(ucs4string &out, const MadCaretPos &beginpos, c
         vector<ucs4_t> ucs;
         TranslateText(fmt.c_str(), fmt.Len(), &ucs, true);
 
-        for(size_t i=0, size=ucs.size(); i<size; i++)
+        for(size_t i=0, size=ucs.size(); i<size; ++i)
         {
             out += ucs[i] ;
         }
