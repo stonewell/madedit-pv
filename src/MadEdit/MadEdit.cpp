@@ -212,7 +212,7 @@ BEGIN_EVENT_TABLE(MadEdit, MadEditSuperClass)
     EVT_MIDDLE_UP(MadEdit::OnMouseMiddleUp)
 
     EVT_SET_FOCUS(MadEdit::OnSetFocus)
-    EVT_KILL_FOCUS (MadEdit::OnKillFocus)
+    EVT_KILL_FOCUS(MadEdit::OnKillFocus)
 
     EVT_SIZE(MadEdit::OnSize)
     EVT_COMMAND_SCROLL(ID_VSCROLLBAR, MadEdit::OnVScroll)
@@ -220,6 +220,7 @@ BEGIN_EVENT_TABLE(MadEdit, MadEditSuperClass)
     EVT_MOUSEWHEEL(MadEdit::OnMouseWheel)
     EVT_ENTER_WINDOW(MadEdit::OnMouseEnterWindow)
     EVT_LEAVE_WINDOW(MadEdit::OnMouseLeaveWindow)
+    EVT_MOUSE_CAPTURE_LOST(MadEdit::OnMouseCaptureLost)
 
     EVT_ERASE_BACKGROUND(MadEdit::OnEraseBackground)
     EVT_PAINT(MadEdit::OnPaint)
@@ -2068,9 +2069,10 @@ void MadEdit::PaintTextLines(wxDC *dc, const wxRect &rect, int toprow, int rowco
                         else
                         {
                             //static ucs4_t data[] = {117, 115, 101 ,114};//"user"
-                            if((!m_HighlightWords.empty()) && (wordlength == m_HighlightWords.size()) && IsTheSame<ucs4_t>(m_HighlightWords, m_WordBuffer, wordlength))
+                            if((wordlength == m_HighlightWords.size()) && IsTheSame<ucs4_t>(m_HighlightWords, m_WordBuffer, wordlength))
                             {
-                                current_bgcolor = wxTheColourDatabase->Find(wxString(wxT("PALE GREEN")));
+                                static wxColour bgColor(0x0, 0xff, 0xff);
+                                current_bgcolor = bgColor;//wxTheColourDatabase->Find(wxString(wxT("PALE GREEN")));
                                 dc->SetPen(*wxThePenList->FindOrCreatePen(current_bgcolor, 1, wxSOLID));
                                 dc->SetBrush(*wxTheBrushList->FindOrCreateBrush(current_bgcolor));
                                 dc->DrawRectangle(left, row_top, rectright-left, m_RowHeight);
@@ -10097,6 +10099,17 @@ void MadEdit::OnMouseLeaveWindow(wxMouseEvent &evt)
     }
     evt.Skip();
 }
+
+void MadEdit::OnMouseCaptureLost(wxMouseCaptureLostEvent &evt)
+{
+	m_MouseLeftDown=false;
+    m_MouseLeftDoubleClick=false;
+    m_MouseAtHexTextArea=false;
+	m_DragDrop = false;
+    m_DragCopyFlag = false;//default move
+    evt.Skip();
+}
+
 
 void MadEdit::UpdateCursor(int mouse_x, int mouse_y)
 {

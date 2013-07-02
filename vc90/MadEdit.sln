@@ -1,6 +1,6 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MadEdit", "MadEdit.vcproj", "{FA2A8E06-DD41-44E0-A1CB-02906D4A080E}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MadEdit", "MadEdit.vcxproj", "{FA2A8E06-DD41-44E0-A1CB-02906D4A080E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

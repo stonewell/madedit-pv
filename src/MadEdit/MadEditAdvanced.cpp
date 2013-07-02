@@ -10,6 +10,9 @@
 
 #include <algorithm>
 #include <vector>
+#include <cwctype>
+#include <cctype>
+#include <locale>
 using std::vector;
 
 #ifdef _DEBUG
@@ -754,7 +757,13 @@ void MadEdit::ToUpperCase()
     while(i<count)
     {
         int c=text[i];
-        int nc=towupper(c);
+        int nc=0;
+#if defined(__WXMSW__)
+        if(c<=0xFF)
+		   nc=std::toupper(c);
+        else 
+#endif
+        nc=std::towupper(c);
         if(nc != c)
         {
             text.SetChar(i, nc);
@@ -793,7 +802,14 @@ void MadEdit::ToLowerCase()
     while(i<count)
     {
         int c=text[i];
-        int nc=towlower(c);
+        int nc=0;
+#if defined(__WXMSW__)
+        if(c<=0xFF)
+			nc=std::tolower(c);
+        else 
+#endif
+        nc=std::towlower(c);
+        
         if(nc != c)
         {
             text.SetChar(i, nc);
@@ -833,13 +849,29 @@ void MadEdit::InvertCase()
     {
         int c=text[i];
         int nc=c;
-        if(iswlower(c))
+#if defined(__WXMSW__)
+        if (c<=0xFF)
         {
-            nc=towupper(c);
+			if(std::islower(c))
+			{
+				nc=std::toupper(c);
+			}
+			else if(std::isupper(c))
+			{
+				nc=std::tolower(c);
+			}
         }
-        else if(iswupper(c))
+        else
+#endif
         {
-            nc=towlower(c);
+			if(std::iswlower(c))
+			{
+				nc=std::towupper(c);
+			}
+			else if(std::iswupper(c))
+			{
+				nc=std::towlower(c);
+			}
         }
 
         if(nc != c)
@@ -1676,7 +1708,12 @@ SortLineData::SortLineData(const MadLineIterator& l, int id)
         {
             if(uc<0x10000 && uc>=0)
             {
-                uc = towlower(wchar_t(uc));
+#if defined(__WXMSW__)
+                if(uc<=0xFF)
+			        uc=std::tolower(uc);
+                else
+#endif
+                uc = std::towlower(wchar_t(uc));
             }
         }
 

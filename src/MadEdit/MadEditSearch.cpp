@@ -9,6 +9,9 @@
 #include "MadEncoding.h"
 #include <iostream>
 #include <string>
+#include <cwctype>
+#include <cctype>
+#include <locale>
 
 //#include <boost/xpressive/xpressive.hpp>
 #include <boost/xpressive/xpressive_dynamic.hpp>
@@ -28,13 +31,21 @@ template<typename char_type>
 inline char_type xtolower(char_type ch)
 {
     if(ch<0 || ch>0xFFFF) return ch;
-    return towlower(wchar_t(ch));
+#if defined(__WXMSW__)
+    if(ch<=0xFF)
+		return std::tolower(ch);
+#endif
+    return std::towlower(wchar_t(ch));
 }
 
 template<>
 inline wchar_t xtolower(wchar_t ch)
 {
-    return towlower(ch);
+#if defined(__WXMSW__)
+    if(ch<=0xFF)
+		return std::tolower(ch);
+#endif
+    return std::towlower(ch);
 }
 
 template<>
@@ -278,22 +289,38 @@ struct ucs4_regex_traits: public null_regex_traits<ucs4_t>
     static char_type2 tolower(char_type2 ch)
     {
         if(ch<0 || ch>0xFFFF) return ch;
-        return towlower(wchar_t(ch));
+#if defined(__WXMSW__)
+        if(ch<=0xFF)
+			return std::tolower(ch);
+#endif
+        return std::towlower(wchar_t(ch));
     }
     static wchar_t tolower(wchar_t ch)
     {
-        return towlower(ch);
+#if defined(__WXMSW__)
+        if(ch<=0xFF)
+			return std::tolower(ch);
+#endif
+        return std::towlower(ch);
     }
 
     template<typename char_type2>
     static char_type2 toupper(char_type2 ch)
     {
         if(ch<0 || ch>0xFFFF) return ch;
-        return towupper(wchar_t(ch));
+#if defined(__WXMSW__)
+        if(ch<=0xFF)
+			return std::toupper(ch);
+#endif
+        return std::towupper(wchar_t(ch));
     }
     static wchar_t toupper(wchar_t ch)
     {
-        return towupper(ch);
+#if defined(__WXMSW__)
+        if(ch<=0xFF)
+			return std::toupper(ch);
+#endif
+        return std::towupper(ch);
     }
 
     static char_type widen(char ch)
@@ -694,7 +721,7 @@ MadSearchResult MadEdit::Search(/*IN_OUT*/MadCaretPos &beginpos, /*IN_OUT*/MadCa
             {
                 fbegin=start;
                 fend=end;
-                found=::Search(fbegin, fend, puc, len, jtab, bCaseSensitive);
+                found=::Search<ucs4_t, UCIterator, JumpTable_UCS4>(fbegin, fend, puc, len, jtab, bCaseSensitive);
             }
 
             if(!found) break;

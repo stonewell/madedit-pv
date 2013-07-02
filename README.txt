@@ -1,5 +1,5 @@
 			=================================
-					MadEdit v0.2.9
+					MadEdit v0.2.9 mod
 			=================================
 About:
 -----
@@ -17,6 +17,9 @@ A. Linux, FreeBSD, and Unix-like OS (__WXGTK__):
       1. wxWidgets-2.6.1 or higher with Unicode enabled
       2. Boost-1.33.0 or higher
       3. Boost.Xpressive latest version
+      4ICU4C(debug&release) Hacking unicode string&&BreakIterator as static link(unistr.h&&brkiter.h)
+          ./runConfigureICU --enable-debug --disable-release Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
+          ./runConfigureICU Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
 
 B. MS Windows (__WXMSW__):
    a. MinGW32/GNU C++ 3.x (wxDevCpp):
@@ -31,6 +34,10 @@ B. MS Windows (__WXMSW__):
       2. Boost-1.33.0 or higher
       3. Boost.Xpressive latest version
       4. libunicows: it's optional under WinNT/XP, but required under Win98
+   c. ICU4C(debug&release)Hacking unicode string&&BreakIterator as static link
+      cygwin
+          ./runConfigureICU --enable-debug --disable-release Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
+          ./runConfigureICU Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
 
 P.S.: If you use CVS version of Boost, Boost.Xpressive has been included in the CVS HEAD, 
       or you must get 'xpressive.zip' at:
@@ -61,6 +68,14 @@ Syntax files, Locale files and Settings:
 
 
 ChangeLog:
+v0.2.9 Mod
+1.Fixed several critical bugs in Madedit 0.2.9.
+2.New features added.
+    Drag&Drop Edit
+    Bookmark
+    Highlight words(shift+F8)
+    Triple click to select whole line
+    Search all in current file
 ----------
 v0.2.9:
 1.added that restore the encoding and font(name, size) of a file when reopening it.

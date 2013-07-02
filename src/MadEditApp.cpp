@@ -403,7 +403,7 @@ bool MadEditApp::OnInit()
 #if defined(__WXGTK__)
     if(bSingleInstance)
     {
-#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9 && wxRELEASE_NUMBER<3)
+#if wxMAJOR_VERSION < 2 || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION < 9) || (wxMAJOR_VERSION == 2 && wxMINOR_VERSION == 9 && wxRELEASE_NUMBER<3)
         GtkPizza *pizza = GTK_PIZZA(myFrame->m_mainWidget);
         Window win=GDK_WINDOW_XWINDOW(pizza->bin_window);
 #else

@@ -538,6 +538,7 @@ protected:
     void OnMouseWheel(wxMouseEvent &evt);
     void OnMouseEnterWindow(wxMouseEvent &evt);
     void OnMouseLeaveWindow(wxMouseEvent &evt);
+	void OnMouseCaptureLost(wxMouseCaptureLostEvent &evt);
 
     void OnEraseBackground(wxEraseEvent &evt);
     void OnPaint(wxPaintEvent &evt);

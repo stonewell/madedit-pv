@@ -211,9 +211,6 @@ noinst_HEADERS =	description-pak \
 	images/unindent.xpm \
 	images/wrapbycol.xpm \
 	images/wrapbywin.xpm \
-	libunicows/libunicows.a \
-	libunicows/README.txt \
-	libunicows/unicows.lib \
 	makefiles/Makefile.mac \
 	makefiles/Makefile.mingw \
 	makefiles/Makefile.install \
