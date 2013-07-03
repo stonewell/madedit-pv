@@ -3,6 +3,7 @@
 cfg	syntax_conf.syn
 conf	syntax_conf.syn
 mak	syntax_conf.syn
+nmake	syntax_conf.syn
 list	syntax_conf.syn
 po	syntax_conf.syn
 pot	syntax_conf.syn
@@ -14,6 +15,7 @@ c	syntax_cpp.syn
 cc	syntax_cpp.syn
 cpp	syntax_cpp.syn
 cxx	syntax_cpp.syn
+tcc	syntax_cpp.syn
 h	syntax_cpp.syn
 hpp	syntax_cpp.syn
 xpm	syntax_cpp.syn
@@ -62,7 +64,7 @@ patch	syntax_diff.syn
 js	syntax_javascript.syn
 
 xml	syntax_xml.syn
-
+idl	syntax_xml.syn
 css	syntax_css.syn
 
 reg	syntax_reg.syn
@@ -110,3 +112,5 @@ vmd	syntax_verilog.syn
 vhd	syntax_vhdl.syn
 vho	syntax_vhdl.syn
 vhdl	syntax_vhdl.syn
+
+tcl syntax_tcl.syn
