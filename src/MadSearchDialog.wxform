@@ -51,7 +51,7 @@ object frmNewForm: TfrmNewForm
     object WxBoxSizer2: TWxBoxSizer
       Left = 0
       Top = 0
-      Width = 350
+      Width = 304
       Height = 202
       TabOrder = 0
       Orientation = wxVertical
@@ -61,7 +61,7 @@ object frmNewForm: TfrmNewForm
       Wx_IDValue = 2
       Wx_Border = 0
       object WxBoxSizer4: TWxBoxSizer
-        Left = 165
+        Left = 142
         Top = 0
         Width = 20
         Height = 20
@@ -75,7 +75,7 @@ object frmNewForm: TfrmNewForm
       object WxBoxSizer5: TWxBoxSizer
         Left = 0
         Top = 20
-        Width = 350
+        Width = 304
         Height = 182
         TabOrder = 0
         Orientation = wxVertical
@@ -86,7 +86,7 @@ object frmNewForm: TfrmNewForm
         Wx_Border = 0
         Wx_Alignment = [wxALIGN_TOP, wxALIGN_LEFT]
         object WxCheckBoxMoveFocus: TWxCheckBox
-          Left = 25
+          Left = 2
           Top = 2
           Width = 300
           Height = 22
@@ -121,7 +121,7 @@ object frmNewForm: TfrmNewForm
           Wx_Floating_Y_Pos = 0
         end
         object WxCheckBoxCaseSensitive: TWxCheckBox
-          Left = 25
+          Left = 2
           Top = 28
           Width = 300
           Height = 22
@@ -156,7 +156,7 @@ object frmNewForm: TfrmNewForm
           Wx_Floating_Y_Pos = 0
         end
         object WxCheckBoxWholeWord: TWxCheckBox
-          Left = 25
+          Left = 2
           Top = 54
           Width = 300
           Height = 22
@@ -191,7 +191,7 @@ object frmNewForm: TfrmNewForm
           Wx_Floating_Y_Pos = 0
         end
         object WxCheckBoxRegex: TWxCheckBox
-          Left = 25
+          Left = 2
           Top = 80
           Width = 300
           Height = 22
@@ -226,7 +226,7 @@ object frmNewForm: TfrmNewForm
           Wx_Floating_Y_Pos = 0
         end
         object WxCheckBoxFindHex: TWxCheckBox
-          Left = 25
+          Left = 2
           Top = 106
           Width = 300
           Height = 22
@@ -262,7 +262,7 @@ object frmNewForm: TfrmNewForm
           Wx_Floating_Y_Pos = 0
         end
         object WxCheckBoxSearchThrEndOfFile: TWxCheckBox
-          Left = 25
+          Left = 2
           Top = 132
           Width = 300
           Height = 22
@@ -299,7 +299,7 @@ object frmNewForm: TfrmNewForm
         object WxBoxSizer6: TWxBoxSizer
           Left = 0
           Top = 156
-          Width = 350
+          Width = 304
           Height = 26
           TabOrder = 5
           Wx_Class = 'wxBoxSizer'
@@ -310,8 +310,8 @@ object frmNewForm: TfrmNewForm
           Wx_Alignment = [wxALIGN_LEFT]
           object WxCheckBoxSearchInSelection: TWxCheckBox
             Left = 2
-            Top = 2
-            Width = 120
+            Top = 3
+            Width = 300
             Height = 22
             Caption = 'Search In &Selection'
             TabOrder = 0
@@ -344,157 +344,11 @@ object frmNewForm: TfrmNewForm
             Wx_Floating_X_Pos = 0
             Wx_Floating_Y_Pos = 0
           end
-          object WxStaticTextFrom: TWxStaticText
-            Left = 126
-            Top = 4
-            Width = 30
-            Height = 17
-            Caption = 'From:'
-            TabOrder = 1
-            Wx_BGColor = clBlack
-            Wx_Class = 'wxStaticText'
-            Wx_ControlOrientation = wxControlVertical
-            Wx_FGColor = clBlack
-            Wx_GeneralStyle = []
-            Wx_Hidden = False
-            Wx_IDName = 'ID_WXSTATICTEXTFROM'
-            Wx_IDValue = 19
-            Wx_LabelStyle = []
-            Wx_Border = 2
-            Wx_Alignment = [wxALIGN_LEFT, wxALIGN_CENTER_VERTICAL]
-            Wx_PaneCaption = 'WxStaticTextFrom'
-            Wx_PaneName = 'WxStaticTextFrom_Pane'
-            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
-            Wx_Aui_Dockable_Direction = []
-            Wx_Aui_Pane_Style = []
-            Wx_Aui_Pane_Buttons = []
-            Wx_BestSize_Height = 0
-            Wx_BestSize_Width = 0
-            Wx_MinSize_Height = 0
-            Wx_MinSize_Width = 0
-            Wx_MaxSize_Height = 0
-            Wx_MaxSize_Width = 0
-            Wx_Floating_Height = 0
-            Wx_Floating_Width = 0
-            Wx_Floating_X_Pos = 0
-            Wx_Floating_Y_Pos = 0
-          end
-          object WxEditFrom: TWxEdit
-            Left = 160
-            Top = 2
-            Width = 80
-            Height = 22
-            BevelInner = bvNone
-            BevelOuter = bvNone
-            AutoSize = False
-            TabOrder = 2
-            Wx_BGColor = clBlack
-            Wx_Class = 'wxTextCtrl'
-            Wx_ControlOrientation = wxControlVertical
-            Wx_EditStyle = []
-            Wx_FGColor = clBlack
-            Wx_GeneralStyle = []
-            Wx_Hidden = False
-            Wx_IDName = 'ID_WXEDITFROM'
-            Wx_IDValue = 20
-            Wx_Alignment = [wxALIGN_LEFT]
-            Wx_Border = 2
-            Wx_MaxLength = 0
-            Wx_PaneCaption = 'WxEditFrom'
-            Wx_PaneName = 'WxEditFrom_Pane'
-            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
-            Wx_Aui_Dockable_Direction = []
-            Wx_Aui_Pane_Style = []
-            Wx_Aui_Pane_Buttons = []
-            Wx_BestSize_Height = 0
-            Wx_BestSize_Width = 0
-            Wx_MinSize_Height = 0
-            Wx_MinSize_Width = 0
-            Wx_MaxSize_Height = 0
-            Wx_MaxSize_Width = 0
-            Wx_Floating_Height = 0
-            Wx_Floating_Width = 0
-            Wx_Floating_X_Pos = 0
-            Wx_Floating_Y_Pos = 0
-          end
-          object WxStaticTextTo: TWxStaticText
-            Left = 244
-            Top = 4
-            Width = 20
-            Height = 17
-            Caption = 'To:'
-            TabOrder = 3
-            Wx_BGColor = clBlack
-            Wx_Class = 'wxStaticText'
-            Wx_ControlOrientation = wxControlVertical
-            Wx_FGColor = clBlack
-            Wx_GeneralStyle = []
-            Wx_Hidden = False
-            Wx_IDName = 'ID_WXSTATICTEXTTO'
-            Wx_IDValue = 21
-            Wx_LabelStyle = []
-            Wx_Border = 2
-            Wx_Alignment = [wxALIGN_LEFT, wxALIGN_CENTER_VERTICAL]
-            Wx_PaneCaption = 'WxStaticTextTo'
-            Wx_PaneName = 'WxStaticTextTo_Pane'
-            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
-            Wx_Aui_Dockable_Direction = []
-            Wx_Aui_Pane_Style = []
-            Wx_Aui_Pane_Buttons = []
-            Wx_BestSize_Height = 0
-            Wx_BestSize_Width = 0
-            Wx_MinSize_Height = 0
-            Wx_MinSize_Width = 0
-            Wx_MaxSize_Height = 0
-            Wx_MaxSize_Width = 0
-            Wx_Floating_Height = 0
-            Wx_Floating_Width = 0
-            Wx_Floating_X_Pos = 0
-            Wx_Floating_Y_Pos = 0
-          end
-          object WxEditTo: TWxEdit
-            Left = 268
-            Top = 2
-            Width = 80
-            Height = 22
-            BevelInner = bvNone
-            BevelOuter = bvNone
-            AutoSize = False
-            TabOrder = 4
-            Wx_BGColor = clBlack
-            Wx_Class = 'wxTextCtrl'
-            Wx_ControlOrientation = wxControlVertical
-            Wx_EditStyle = []
-            Wx_FGColor = clBlack
-            Wx_GeneralStyle = []
-            Wx_Hidden = False
-            Wx_IDName = 'ID_WXEDITTO'
-            Wx_IDValue = 22
-            Wx_Alignment = [wxALIGN_LEFT]
-            Wx_Border = 2
-            Wx_MaxLength = 0
-            Wx_PaneCaption = 'WxEditTo'
-            Wx_PaneName = 'WxEditTo_Pane'
-            Wx_Aui_Dock_Direction = wxAUI_DOCK_NONE
-            Wx_Aui_Dockable_Direction = []
-            Wx_Aui_Pane_Style = []
-            Wx_Aui_Pane_Buttons = []
-            Wx_BestSize_Height = 0
-            Wx_BestSize_Width = 0
-            Wx_MinSize_Height = 0
-            Wx_MinSize_Width = 0
-            Wx_MaxSize_Height = 0
-            Wx_MaxSize_Width = 0
-            Wx_Floating_Height = 0
-            Wx_Floating_Width = 0
-            Wx_Floating_X_Pos = 0
-            Wx_Floating_Y_Pos = 0
-          end
         end
       end
     end
     object WxBoxSizer3: TWxBoxSizer
-      Left = 350
+      Left = 304
       Top = 5
       Width = 104
       Height = 192

@@ -21,8 +21,6 @@
 ////Header Include Start
 #include <wx/menu.h>
 #include <wx/button.h>
-#include <wx/textctrl.h>
-#include <wx/stattext.h>
 #include <wx/checkbox.h>
 #include <wx/sizer.h>
 ////Header Include End
@@ -67,10 +65,6 @@ public:
 		wxButton *WxButtonReplace;
 		wxButton *WxButtonFindNext;
 		wxBoxSizer *WxBoxSizer3;
-		wxTextCtrl *WxEditTo;
-		wxStaticText *WxStaticTextTo;
-		wxTextCtrl *WxEditFrom;
-		wxStaticText *WxStaticTextFrom;
 		wxCheckBox *WxCheckBoxSearchInSelection;
 		wxBoxSizer *WxBoxSizer7;
 		wxCheckBox *WxCheckBoxFindHex;
@@ -84,6 +78,8 @@ public:
 		wxBoxSizer *WxBoxSizer2;
 		wxBoxSizer *WxBoxSizer1;
   ////GUI Control Declaration End
+        wxInt64 m_SearchFrom;
+        wxInt64 m_SearchTo;
 
 private:
     DECLARE_EVENT_TABLE()
@@ -99,10 +95,6 @@ public:
 			ID_WXBUTTONREPLACEALL = 1027,
 			ID_WXBUTTONREPLACE = 1026,
 			ID_WXBUTTONFINDNEXT = 1025,
-			ID_WXEDITTO = 22,
-			ID_WXSTATICTEXTTO = 21,
-			ID_WXEDITFROM = 20,
-			ID_WXSTATICTEXTFROM = 19,
 			ID_WXCHECKBOXSEARCHINSELECTION = 18,
 			ID_WXCHECKBOXFINDHEX = 1024,
 			ID_WXCHECKBOXREGEX = 1023,

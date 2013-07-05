@@ -195,7 +195,7 @@ bool MadEditApp::OnInit()
 
     // parse commandline to filenames, every file is with a trailing char '|', ex: filename1|filename2|
     wxString filenames;
-    for(int i=1;i<argc;i++)
+    for(int i=1;i<argc;++i)
     {
         wxFileName filename(argv[i]);
         filename.MakeAbsolute();

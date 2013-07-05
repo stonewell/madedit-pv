@@ -21,8 +21,6 @@
 ////Header Include Start
 #include <wx/menu.h>
 #include <wx/button.h>
-#include <wx/textctrl.h>
-#include <wx/stattext.h>
 #include <wx/checkbox.h>
 #include <wx/sizer.h>
 ////Header Include End
@@ -62,10 +60,6 @@ public:
 		wxButton *WxButtonFindPrev;
 		wxButton *WxButtonFindNext;
 		wxBoxSizer *WxBoxSizer3;
-		wxTextCtrl *WxEditTo;
-		wxStaticText *WxStaticTextTo;
-		wxTextCtrl *WxEditFrom;
-		wxStaticText *WxStaticTextFrom;
 		wxCheckBox *WxCheckBoxSearchInSelection;
 		wxBoxSizer *WxBoxSizer6;
 		wxCheckBox *WxCheckBoxSearchThrEndOfFile;
@@ -79,7 +73,8 @@ public:
 		wxBoxSizer *WxBoxSizer2;
 		wxBoxSizer *WxBoxSizer1;
   ////GUI Control Declaration End
-
+        wxInt64 m_SearchFrom;
+        wxInt64 m_SearchTo;
 public:
     //Note: if you receive any error with these enums, then you need to
     //change your old form code that are based on the #define control ids.
@@ -93,10 +88,6 @@ public:
 			ID_WXBUTTONFINDALL = 24,
 			ID_WXBUTTONFINDPREV = 11,
 			ID_WXBUTTONFINDNEXT = 10,
-			ID_WXEDITTO = 22,
-			ID_WXSTATICTEXTTO = 21,
-			ID_WXEDITFROM = 20,
-			ID_WXSTATICTEXTFROM = 19,
 			ID_WXCHECKBOXSEARCHINSELECTION = 18,
 			ID_WXCHECKBOXSEARCHTHRENDOFFILE = 25,
 			ID_WXCHECKBOXFINDHEX = 9,

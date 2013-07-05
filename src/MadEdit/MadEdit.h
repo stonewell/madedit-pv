@@ -33,6 +33,7 @@
 enum { ID_VSCROLLBAR=19876, ID_HSCROLLBAR };
 
 class MadEdit;
+class MadSearchDialog;
 
 typedef void (*OnSelectionChangedPtr)(MadEdit *madedit);
 typedef void (*OnStatusChangedPtr)(MadEdit *madedit);
@@ -1016,6 +1017,7 @@ public: // utility functions
     }
 
     bool StringToHex(wxString ws, vector<wxByte> &hex);
+    friend class MadSearchDialog;
 };
 
 wxString FixUTF8ToWCS(const wxString &str);

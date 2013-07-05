@@ -55,7 +55,7 @@ END_EVENT_TABLE()
 
 
 MadSearchDialog::MadSearchDialog( wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &position, const wxSize& size, long style )
-    : wxDialog( parent, id, title, position, size, style)
+    : wxDialog( parent, id, title, position, size, style), m_SearchFrom(0), m_SearchTo(0)
 {
     CreateGUIControls();
 }
@@ -102,52 +102,36 @@ void MadSearchDialog::CreateGUIControls(void)
 	WxBoxSizer5 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer2->Add(WxBoxSizer5, 0, wxALIGN_LEFT | wxALIGN_TOP | wxALL, 0);
 
-	WxCheckBoxMoveFocus = new wxCheckBox(this, ID_WXCHECKBOXMOVEFOCUS, _("&Move Focus to Editor Window"), wxPoint(25, 2), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxMoveFocus"));
+	WxCheckBoxMoveFocus = new wxCheckBox(this, ID_WXCHECKBOXMOVEFOCUS, _("&Move Focus to Editor Window"), wxPoint(2, 2), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxMoveFocus"));
 	WxCheckBoxMoveFocus->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxMoveFocus, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxCaseSensitive = new wxCheckBox(this, ID_WXCHECKBOXCASESENSITIVE, _("&Case Sensitive"), wxPoint(25, 28), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxCaseSensitive"));
+	WxCheckBoxCaseSensitive = new wxCheckBox(this, ID_WXCHECKBOXCASESENSITIVE, _("&Case Sensitive"), wxPoint(2, 28), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxCaseSensitive"));
 	WxCheckBoxCaseSensitive->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxCaseSensitive, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxWholeWord = new wxCheckBox(this, ID_WXCHECKBOXWHOLEWORD, _("&Whole Word Only"), wxPoint(25, 54), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxWholeWord"));
+	WxCheckBoxWholeWord = new wxCheckBox(this, ID_WXCHECKBOXWHOLEWORD, _("&Whole Word Only"), wxPoint(2, 54), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxWholeWord"));
 	WxCheckBoxWholeWord->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxWholeWord, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxRegex = new wxCheckBox(this, ID_WXCHECKBOXREGEX, _("Use Regular E&xpressions"), wxPoint(25, 80), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxRegex"));
+	WxCheckBoxRegex = new wxCheckBox(this, ID_WXCHECKBOXREGEX, _("Use Regular E&xpressions"), wxPoint(2, 80), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxRegex"));
 	WxCheckBoxRegex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxRegex, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxFindHex = new wxCheckBox(this, ID_WXCHECKBOXFINDHEX, _("Find &Hex String (Example: BE 00 3A or BE003A)"), wxPoint(25, 106), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxFindHex"));
+	WxCheckBoxFindHex = new wxCheckBox(this, ID_WXCHECKBOXFINDHEX, _("Find &Hex String (Example: BE 00 3A or BE003A)"), wxPoint(2, 106), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxFindHex"));
 	WxCheckBoxFindHex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxFindHex, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxSearchThrEndOfFile = new wxCheckBox(this, ID_WXCHECKBOXSEARCHTHRENDOFFILE, _("Search Through &End of File"), wxPoint(25, 132), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchThrEndOfFile"));
+	WxCheckBoxSearchThrEndOfFile = new wxCheckBox(this, ID_WXCHECKBOXSEARCHTHRENDOFFILE, _("Search Through &End of File"), wxPoint(2, 132), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchThrEndOfFile"));
 	WxCheckBoxSearchThrEndOfFile->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer5->Add(WxCheckBoxSearchThrEndOfFile, 0, wxALIGN_LEFT | wxALL, 2);
 
 	WxBoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
 	WxBoxSizer5->Add(WxBoxSizer6, 0, wxALIGN_LEFT | wxALL, 0);
 
-	WxCheckBoxSearchInSelection = new wxCheckBox(this, ID_WXCHECKBOXSEARCHINSELECTION, _("Search In &Selection"), wxPoint(2, 2), wxSize(120, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchInSelection"));
+	WxCheckBoxSearchInSelection = new wxCheckBox(this, ID_WXCHECKBOXSEARCHINSELECTION, _("Search In &Selection"), wxPoint(2, 3), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchInSelection"));
 	WxCheckBoxSearchInSelection->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
 	WxBoxSizer6->Add(WxCheckBoxSearchInSelection, 0, wxALIGN_LEFT | wxALL, 2);
-
-	WxStaticTextFrom = new wxStaticText(this, ID_WXSTATICTEXTFROM, _("From:"), wxPoint(126, 4), wxDefaultSize, 0, _("WxStaticTextFrom"));
-	WxStaticTextFrom->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxStaticTextFrom, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, 2);
-
-	WxEditFrom = new wxTextCtrl(this, ID_WXEDITFROM, _(""), wxPoint(160, 2), wxSize(80, 22), 0, wxDefaultValidator, _("WxEditFrom"));
-	WxEditFrom->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxEditFrom, 0, wxALIGN_LEFT | wxALL, 2);
-
-	WxStaticTextTo = new wxStaticText(this, ID_WXSTATICTEXTTO, _("To:"), wxPoint(244, 4), wxDefaultSize, 0, _("WxStaticTextTo"));
-	WxStaticTextTo->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxStaticTextTo, 0, wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL, 2);
-
-	WxEditTo = new wxTextCtrl(this, ID_WXEDITTO, _(""), wxPoint(268, 2), wxSize(80, 22), 0, wxDefaultValidator, _("WxEditTo"));
-	WxEditTo->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxEditTo, 0, wxALIGN_LEFT | wxALL, 2);
 
 	WxBoxSizer3 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer1->Add(WxBoxSizer3, 0, wxALIGN_TOP | wxALL, 0);
@@ -179,7 +163,7 @@ void MadSearchDialog::CreateGUIControls(void)
 	WxPopupMenuRecentFindText = new wxMenu(_(""));
 	
 
-	SetTitle(wxT("Search"));
+	SetTitle(_("Search"));
 	SetIcon(wxNullIcon);
 	
 	Layout();
@@ -221,8 +205,6 @@ void MadSearchDialog::CreateGUIControls(void)
     ResizeItem(WxBoxSizer5, WxCheckBoxFindHex, 25, 4);
     ResizeItem(WxBoxSizer5, WxCheckBoxSearchThrEndOfFile, 25, 4);
     ResizeItem(WxBoxSizer6, WxCheckBoxSearchInSelection, 25, 4);
-    ResizeItem(WxBoxSizer6, WxStaticTextFrom, 2, 2);
-    ResizeItem(WxBoxSizer6, WxStaticTextTo, 2, 2);
 
     GetSizer()->Fit(this);
 
@@ -236,8 +218,8 @@ void MadSearchDialog::CreateGUIControls(void)
     WxCheckBoxFindHex->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxCheckBoxSearchThrEndOfFile->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxCheckBoxSearchInSelection->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
-    WxEditFrom->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
-    WxEditTo->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
+    //WxEditFrom->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
+    //WxEditTo->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxButtonFindNext->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxButtonFindPrev->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
     WxButtonFindAll->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadSearchDialog::MadSearchDialogKeyDown));
@@ -331,26 +313,15 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
 	   // moved here: gogo, 19.09.2009
 	   wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
 
-        wxInt64 from = 0, to = 0;
+        //wxInt64 from = 0, to = 0;
         wxFileOffset rangeFrom = -1, rangeTo = -1;
         if(WxCheckBoxSearchInSelection->IsChecked())
         {
-            if(!StrToInt64(WxEditFrom->GetValue(), from))
-            {
-                wxMessageBox(_("The value of 'From' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-            if(!StrToInt64(WxEditTo->GetValue(), to))
-            {
-                wxMessageBox(_("The value of 'To' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-
-            rangeTo = to;
+            rangeTo = m_SearchTo;
 		  // removed: gogo, 19.09.2009
             //wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
-            if(caretpos <= from || caretpos >= to)
-                rangeFrom = from;
+            if(caretpos <= m_SearchFrom || caretpos >= m_SearchTo)
+                rangeFrom = m_SearchFrom;
         }
 
         for(;;)
@@ -412,7 +383,9 @@ void MadSearchDialog::WxButtonFindNextClick(wxCommandEvent& event)
             {
                 break;
             }
-            rangeFrom = WxCheckBoxSearchInSelection->IsChecked()? from : 0;
+            rangeFrom = WxCheckBoxSearchInSelection->IsChecked()? m_SearchFrom : 0;
+            if(WxCheckBoxSearchInSelection->IsChecked())
+			    g_ActiveMadEdit->SetSelection(m_SearchFrom, m_SearchTo);
         }
     }
 
@@ -450,26 +423,15 @@ void MadSearchDialog::WxButtonFindPrevClick(wxCommandEvent& event)
         // moved here: gogo, 19.09.2009
 	   wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
 
-        wxInt64 from = 0, to = 0;
         wxFileOffset rangeFrom = -1, rangeTo = -1;
         if(WxCheckBoxSearchInSelection->IsChecked())
         {
-            if(!StrToInt64(WxEditFrom->GetValue(), from))
-            {
-                wxMessageBox(_("The value of 'From' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-            if(!StrToInt64(WxEditTo->GetValue(), to))
-            {
-                wxMessageBox(_("The value of 'To' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
 
-            rangeFrom = from;
+            rangeFrom = m_SearchFrom;
             // removed: gogo, 19.09.2009
             //wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
-            if(caretpos < from || caretpos >= to)
-                rangeTo = to;
+            if(caretpos <= m_SearchFrom || caretpos >= m_SearchTo)
+                rangeFrom = m_SearchFrom;
         }
 
         for(;;)
@@ -527,7 +489,8 @@ void MadSearchDialog::WxButtonFindPrevClick(wxCommandEvent& event)
             {
                 break;
             }
-            rangeTo = WxCheckBoxSearchInSelection->IsChecked()? to: g_ActiveMadEdit->GetFileSize();
+            rangeTo = WxCheckBoxSearchInSelection->IsChecked()? m_SearchTo: g_ActiveMadEdit->GetFileSize();
+            rangeFrom = WxCheckBoxSearchInSelection->IsChecked()? m_SearchFrom: 0;
         }
     }
 
@@ -621,6 +584,7 @@ void MadSearchDialog::OnRecentFindText(wxCommandEvent& event)
 
 void MadSearchDialog::ReadWriteSettings(bool bRead)
 {
+    extern MadEdit *g_ActiveMadEdit;
     wxConfigBase *m_Config=wxConfigBase::Get(false);
     wxString oldpath=m_Config->GetPath();
 
@@ -647,11 +611,19 @@ void MadSearchDialog::ReadWriteSettings(bool bRead)
         WxCheckBoxSearchInSelection->SetValue(bb);
         UpdateSearchInSelection(bb);
 
-        wxString str;
-        m_Config->Read(wxT("/MadEdit/SearchFrom"), &str, wxEmptyString);
-        WxEditFrom->SetValue(str);
-        m_Config->Read(wxT("/MadEdit/SearchTo"), &str, wxEmptyString);
-        WxEditTo->SetValue(str);
+        if(g_ActiveMadEdit!=NULL)
+        {
+        	m_SearchFrom = wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).GetValue();
+			m_SearchTo = wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).GetValue();
+        }
+        else
+        {
+            wxString str;
+            m_Config->Read(wxT("/MadEdit/SearchFrom"), &str, wxEmptyString);
+			StrToInt64(str, m_SearchFrom);
+            m_Config->Read(wxT("/MadEdit/SearchTo"), &str, wxEmptyString);
+			StrToInt64(str, m_SearchTo);
+        }
     }
     else
     {
@@ -662,8 +634,8 @@ void MadSearchDialog::ReadWriteSettings(bool bRead)
         m_Config->Write(wxT("/MadEdit/SearchHex"), WxCheckBoxFindHex->GetValue());
 
         m_Config->Write(wxT("/MadEdit/SearchInSelection"), WxCheckBoxSearchInSelection->GetValue());
-        m_Config->Write(wxT("/MadEdit/SearchFrom"), WxEditFrom->GetValue());
-        m_Config->Write(wxT("/MadEdit/SearchTo"), WxEditTo->GetValue());
+        m_Config->Write(wxT("/MadEdit/SearchFrom"), (wxLongLong(m_SearchFrom)).ToString());
+        m_Config->Write(wxT("/MadEdit/SearchTo"), (wxLongLong(m_SearchTo)).ToString());
     }
 
     m_Config->SetPath(oldpath);
@@ -715,7 +687,7 @@ void MadSearchDialog::WxCheckBoxFindHexClick(wxCommandEvent& event)
         else
         {
             wxString ws;
-            int i = 0;
+            unsigned int i = 0;
             bool withSpace = true;
             while( i < text.Len())
             {
@@ -786,14 +758,14 @@ void MadSearchDialog::WxButtonReplaceClick(wxCommandEvent& event)
 
 void MadSearchDialog::UpdateSearchInSelection(bool check)
 {
-    WxEditFrom->Enable(check);
-    WxEditTo->Enable(check);
+    //WxEditFrom->Enable(check);
+    //WxEditTo->Enable(check);
 
     extern MadEdit *g_ActiveMadEdit;
     if(check && g_ActiveMadEdit!=NULL)
     {
-        WxEditFrom->SetValue(wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).ToString());
-        WxEditTo->SetValue(wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).ToString());
+        m_SearchFrom = wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).GetValue();
+        m_SearchTo = wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).GetValue();
     }
 
     // add: gogo, 19.09.2009
@@ -828,19 +800,8 @@ void MadSearchDialog::WxButtonCountClick(wxCommandEvent& event)
         wxFileOffset rangeFrom = -1, rangeTo = -1;
         if(WxCheckBoxSearchInSelection->IsChecked())
         {
-            if(!StrToInt64(WxEditFrom->GetValue(), from))
-            {
-                wxMessageBox(_("The value of 'From' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-            if(!StrToInt64(WxEditTo->GetValue(), to))
-            {
-                wxMessageBox(_("The value of 'To' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-
-            rangeTo = to;
-            rangeFrom = from;
+            rangeTo = m_SearchTo;
+            rangeFrom = m_SearchFrom;
         }
 
         if(WxCheckBoxFindHex->GetValue())

@@ -95,74 +95,59 @@ void MadReplaceDialog::CreateGUIControls(void)
 	WxBoxSizer6 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer2->Add(WxBoxSizer6, 0, wxALIGN_LEFT | wxALIGN_TOP | wxALL, 0);
 
-	WxCheckBoxMoveFocus = new wxCheckBox(this, ID_WXCHECKBOXMOVEFOCUS, _("&Move Focus to Editor Window"), wxPoint(25, 2), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxMoveFocus"));
+	WxCheckBoxMoveFocus = new wxCheckBox(this, ID_WXCHECKBOXMOVEFOCUS, _("&Move Focus to Editor Window"), wxPoint(2, 2), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxMoveFocus"));
 	WxCheckBoxMoveFocus->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxCheckBoxMoveFocus,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer6->Add(WxCheckBoxMoveFocus, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxCaseSensitive = new wxCheckBox(this, ID_WXCHECKBOXCASESENSITIVE, _("&Case Sensitive"), wxPoint(25, 28), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxCaseSensitive"));
+	WxCheckBoxCaseSensitive = new wxCheckBox(this, ID_WXCHECKBOXCASESENSITIVE, _("&Case Sensitive"), wxPoint(2, 28), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxCaseSensitive"));
 	WxCheckBoxCaseSensitive->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxCheckBoxCaseSensitive,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer6->Add(WxCheckBoxCaseSensitive, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxWholeWord = new wxCheckBox(this, ID_WXCHECKBOXWHOLEWORD, _("&Whole Word Only"), wxPoint(25, 54), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxWholeWord"));
+	WxCheckBoxWholeWord = new wxCheckBox(this, ID_WXCHECKBOXWHOLEWORD, _("&Whole Word Only"), wxPoint(2, 54), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxWholeWord"));
 	WxCheckBoxWholeWord->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxCheckBoxWholeWord,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer6->Add(WxCheckBoxWholeWord, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxRegex = new wxCheckBox(this, ID_WXCHECKBOXREGEX, _("Use Regular E&xpressions"), wxPoint(25, 80), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxRegex"));
+	WxCheckBoxRegex = new wxCheckBox(this, ID_WXCHECKBOXREGEX, _("Use Regular E&xpressions"), wxPoint(2, 80), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxRegex"));
 	WxCheckBoxRegex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxCheckBoxRegex,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer6->Add(WxCheckBoxRegex, 0, wxALIGN_LEFT | wxALL, 2);
 
-	WxCheckBoxFindHex = new wxCheckBox(this, ID_WXCHECKBOXFINDHEX, _("Find &Hex String (Example: BE 00 3A or BE003A)"), wxPoint(25, 106), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxFindHex"));
+	WxCheckBoxFindHex = new wxCheckBox(this, ID_WXCHECKBOXFINDHEX, _("Find &Hex String (Example: BE 00 3A or BE003A)"), wxPoint(2, 106), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxFindHex"));
 	WxCheckBoxFindHex->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer6->Add(WxCheckBoxFindHex,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer6->Add(WxCheckBoxFindHex, 0, wxALIGN_LEFT | wxALL, 2);
 
 	WxBoxSizer7 = new wxBoxSizer(wxHORIZONTAL);
 	WxBoxSizer6->Add(WxBoxSizer7, 0, wxALIGN_LEFT | wxALL, 0);
 
-	WxCheckBoxSearchInSelection = new wxCheckBox(this, ID_WXCHECKBOXSEARCHINSELECTION, _("Search In &Selection"), wxPoint(2, 2), wxSize(120, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchInSelection"));
+	WxCheckBoxSearchInSelection = new wxCheckBox(this, ID_WXCHECKBOXSEARCHINSELECTION, _("Search In &Selection"), wxPoint(2, 2), wxSize(300, 22), 0, wxDefaultValidator, _("WxCheckBoxSearchInSelection"));
 	WxCheckBoxSearchInSelection->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer7->Add(WxCheckBoxSearchInSelection,0,wxALIGN_LEFT | wxALL,2);
-
-	WxStaticTextFrom = new wxStaticText(this, ID_WXSTATICTEXTFROM, _("From:"), wxPoint(126, 4), wxDefaultSize, 0, _("WxStaticTextFrom"));
-	WxStaticTextFrom->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer7->Add(WxStaticTextFrom,0,wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL,2);
-
-	WxEditFrom = new wxTextCtrl(this, ID_WXEDITFROM, _(""), wxPoint(160, 2), wxSize(80, 22), 0, wxDefaultValidator, _("WxEditFrom"));
-	WxEditFrom->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer7->Add(WxEditFrom,0,wxALIGN_LEFT | wxALL,2);
-
-	WxStaticTextTo = new wxStaticText(this, ID_WXSTATICTEXTTO, _("To:"), wxPoint(244, 4), wxDefaultSize, 0, _("WxStaticTextTo"));
-	WxStaticTextTo->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer7->Add(WxStaticTextTo,0,wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL | wxALL,2);
-
-	WxEditTo = new wxTextCtrl(this, ID_WXEDITTO, _(""), wxPoint(268, 2), wxSize(80, 22), 0, wxDefaultValidator, _("WxEditTo"));
-	WxEditTo->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer7->Add(WxEditTo,0,wxALIGN_LEFT | wxALL,2);
+	WxBoxSizer7->Add(WxCheckBoxSearchInSelection, 0, wxALIGN_LEFT | wxALL, 2);
 
 	WxBoxSizer3 = new wxBoxSizer(wxVERTICAL);
 	WxBoxSizer1->Add(WxBoxSizer3, 0, wxALIGN_TOP | wxALL, 0);
 
 	WxButtonFindNext = new wxButton(this, ID_WXBUTTONFINDNEXT, _("Find &Next"), wxPoint(2, 2), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonFindNext"));
 	WxButtonFindNext->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer3->Add(WxButtonFindNext,0,wxALIGN_CENTER | wxALL,2);
+	WxBoxSizer3->Add(WxButtonFindNext, 0, wxALIGN_CENTER | wxALL, 2);
 
 	WxButtonReplace = new wxButton(this, ID_WXBUTTONREPLACE, _("&Replace"), wxPoint(2, 34), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonReplace"));
 	WxButtonReplace->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer3->Add(WxButtonReplace,0,wxALIGN_CENTER | wxALL,2);
+	WxBoxSizer3->Add(WxButtonReplace, 0, wxALIGN_CENTER | wxALL, 2);
 
 	WxButtonReplaceAll = new wxButton(this, ID_WXBUTTONREPLACEALL, _("Replace &All"), wxPoint(2, 66), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonReplaceAll"));
 	WxButtonReplaceAll->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer3->Add(WxButtonReplaceAll,0,wxALIGN_CENTER | wxALL,2);
+	WxBoxSizer3->Add(WxButtonReplaceAll, 0, wxALIGN_CENTER | wxALL, 2);
 
-	WxButtonClose = new wxButton(this, ID_WXBUTTONCLOSE, _("Close"), wxPoint(2, 96), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonClose"));
+	WxButtonClose = new wxButton(this, ID_WXBUTTONCLOSE, _("Close"), wxPoint(2, 98), wxSize(100, 28), 0, wxDefaultValidator, _("WxButtonClose"));
 	WxButtonClose->SetFont(wxFont(8, wxSWISS, wxNORMAL, wxNORMAL, false, _("MS Sans Serif")));
-	WxBoxSizer3->Add(WxButtonClose,0,wxALIGN_CENTER | wxALL,2);
+	WxBoxSizer3->Add(WxButtonClose, 0, wxALIGN_CENTER | wxALL, 2);
 
 	WxPopupMenuRecentReplaceText = new wxMenu(_(""));
+	
 
 	SetTitle(_("Replace"));
 	SetIcon(wxNullIcon);
 	
-	GetSizer()->Layout();
+	Layout();
 	GetSizer()->Fit(this);
 	GetSizer()->SetSizeHints(this);
 	
@@ -218,8 +203,6 @@ void MadReplaceDialog::CreateGUIControls(void)
     ResizeItem(WxBoxSizer6, WxCheckBoxRegex, 25, 4);
     ResizeItem(WxBoxSizer6, WxCheckBoxFindHex, 25, 4);
     ResizeItem(WxBoxSizer7, WxCheckBoxSearchInSelection, 25, 4);
-    ResizeItem(WxBoxSizer7, WxStaticTextFrom, 2, 2);
-    ResizeItem(WxBoxSizer7, WxStaticTextTo, 2, 2);
 
     GetSizer()->Fit(this);
 
@@ -234,8 +217,6 @@ void MadReplaceDialog::CreateGUIControls(void)
     WxCheckBoxRegex->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
     WxCheckBoxFindHex->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
     WxCheckBoxSearchInSelection->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
-    WxStaticTextFrom->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
-    WxStaticTextTo->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
     WxButtonFindNext->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
     WxButtonReplace->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
     WxButtonReplaceAll->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(MadReplaceDialog::MadReplaceDialogKeyDown));
@@ -314,6 +295,7 @@ void MadReplaceDialog::WxButtonFindNextClick(wxCommandEvent& event)
 
 void MadReplaceDialog::ReadWriteSettings(bool bRead)
 {
+    extern MadEdit *g_ActiveMadEdit;
     wxConfigBase *m_Config=wxConfigBase::Get(false);
     wxString oldpath=m_Config->GetPath();
 
@@ -340,11 +322,19 @@ void MadReplaceDialog::ReadWriteSettings(bool bRead)
         WxCheckBoxSearchInSelection->SetValue(bb);
         UpdateSearchInSelection(bb);
 
-        wxString str;
-        m_Config->Read(wxT("/MadEdit/SearchFrom"), &str, wxEmptyString);
-        WxEditFrom->SetValue(str);
-        m_Config->Read(wxT("/MadEdit/SearchTo"), &str, wxEmptyString);
-        WxEditTo->SetValue(str);
+        if(g_ActiveMadEdit!=NULL)
+        {
+        	m_SearchFrom = wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).GetValue();
+			m_SearchTo = wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).GetValue();
+        }
+        else
+        {
+            wxString str;
+            m_Config->Read(wxT("/MadEdit/SearchFrom"), &str, wxEmptyString);
+			StrToInt64(str, m_SearchFrom);
+            m_Config->Read(wxT("/MadEdit/SearchTo"), &str, wxEmptyString);
+			StrToInt64(str, m_SearchTo);
+        }
     }
     else
     {
@@ -355,8 +345,8 @@ void MadReplaceDialog::ReadWriteSettings(bool bRead)
         m_Config->Write(wxT("/MadEdit/SearchHex"), WxCheckBoxFindHex->GetValue());
 
         m_Config->Write(wxT("/MadEdit/SearchInSelection"), WxCheckBoxSearchInSelection->GetValue());
-        m_Config->Write(wxT("/MadEdit/SearchFrom"), WxEditFrom->GetValue());
-        m_Config->Write(wxT("/MadEdit/SearchTo"), WxEditTo->GetValue());
+        m_Config->Write(wxT("/MadEdit/SearchFrom"), (wxLongLong(m_SearchFrom)).ToString());
+        m_Config->Write(wxT("/MadEdit/SearchTo"), (wxLongLong(m_SearchTo)).ToString());
     }
 
     m_Config->SetPath(oldpath);
@@ -407,7 +397,7 @@ void MadReplaceDialog::WxCheckBoxFindHexClick(wxCommandEvent& event)
         else
         {
             wxString ws;
-            int i = 0;
+            unsigned int i = 0;
             bool withSpace = true;
             while( i < text.Len())
             {
@@ -546,25 +536,13 @@ void MadReplaceDialog::WxButtonReplaceClick(wxCommandEvent& event)
             m_RecentReplaceText->AddFileToHistory(reptext);
         }
 
-        wxInt64 from = 0, to = 0;
         wxFileOffset rangeFrom = -1, rangeTo = -1;
         if(WxCheckBoxSearchInSelection->IsChecked())
         {
-            if(!StrToInt64(WxEditFrom->GetValue(), from))
-            {
-                wxMessageBox(_("The value of 'From' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-            if(!StrToInt64(WxEditTo->GetValue(), to))
-            {
-                wxMessageBox(_("The value of 'To' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-
-            rangeTo = to;
+            rangeTo = m_SearchTo;
             wxFileOffset caretpos = g_ActiveMadEdit->GetCaretPosition();
-            if(caretpos <= from || caretpos > to)
-                rangeFrom = from;
+            if(caretpos <= m_SearchFrom || caretpos > m_SearchTo)
+                rangeFrom = m_SearchFrom;
         }
 
         MadReplaceResult ret=RR_EXPR_ERROR;
@@ -628,23 +606,11 @@ void MadReplaceDialog::WxButtonReplaceAllClick(wxCommandEvent& event)
             m_RecentReplaceText->AddFileToHistory(reptext);
         }
 
-        wxInt64 from = 0, to = 0;
         wxFileOffset rangeFrom = -1, rangeTo = -1;
         if(WxCheckBoxSearchInSelection->IsChecked())
         {
-            if(!StrToInt64(WxEditFrom->GetValue(), from))
-            {
-                wxMessageBox(_("The value of 'From' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-            if(!StrToInt64(WxEditTo->GetValue(), to))
-            {
-                wxMessageBox(_("The value of 'To' is incorrect."), wxT("MadEdit"), wxOK|wxICON_WARNING);
-                return;
-            }
-
-            rangeTo = to;
-            rangeFrom = from;
+            rangeTo = m_SearchTo;
+            rangeFrom = m_SearchFrom;
         }
 
         int count=0;
@@ -687,14 +653,11 @@ void MadReplaceDialog::MadReplaceDialogActivate(wxActivateEvent& event)
 
 void MadReplaceDialog::UpdateSearchInSelection(bool check)
 {
-    WxEditFrom->Enable(check);
-    WxEditTo->Enable(check);
-
     extern MadEdit *g_ActiveMadEdit;
     if(check && g_ActiveMadEdit!=NULL)
     {
-        WxEditFrom->SetValue(wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).ToString());
-        WxEditTo->SetValue(wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).ToString());
+        m_SearchFrom = wxLongLong(g_ActiveMadEdit->GetSelectionBeginPos()).GetValue();
+        m_SearchTo = wxLongLong(g_ActiveMadEdit->GetSelectionEndPos()).GetValue();
     }
 }
 
