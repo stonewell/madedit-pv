@@ -17,9 +17,6 @@ A. Linux, FreeBSD, and Unix-like OS (__WXGTK__):
       1. wxWidgets-2.6.1 or higher with Unicode enabled
       2. Boost-1.33.0 or higher
       3. Boost.Xpressive latest version
-      4ICU4C(debug&release) Hacking unicode string&&BreakIterator as static link(unistr.h&&brkiter.h)
-          ./runConfigureICU --enable-debug --disable-release Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
-          ./runConfigureICU Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
 
 B. MS Windows (__WXMSW__):
    a. MinGW32/GNU C++ 3.x (wxDevCpp):
@@ -34,10 +31,6 @@ B. MS Windows (__WXMSW__):
       2. Boost-1.33.0 or higher
       3. Boost.Xpressive latest version
       4. libunicows: it's optional under WinNT/XP, but required under Win98
-   c. ICU4C(debug&release)Hacking unicode string&&BreakIterator as static link
-      cygwin
-          ./runConfigureICU --enable-debug --disable-release Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
-          ./runConfigureICU Cygwin/MSVC --enable-static --disable-shared --with-data-packaging=static
 
 P.S.: If you use CVS version of Boost, Boost.Xpressive has been included in the CVS HEAD, 
       or you must get 'xpressive.zip' at:
@@ -66,16 +59,26 @@ Syntax files, Locale files and Settings:
   And FontWidth.dat will also be saved to the same path.
   FontWidth.dat is Cache of Font-Width-Data, it can speed-up MadEdit a lot.
 
+2014.01.26
+1. Added support for open file and go to #line by command line arguments, use "FileName*linnum".
+   '*' can not be used as filename in all OS for it's a wildcard char.
+   This feature can be used for multiple files open function in Madedit, eg. 
+   "FileName1*linnum1|FileName2*linnum2|FileName3*linnum3|..."
+
+2012.07.05
+1.Fixed issues in Search/Replace in Selection
+2.Removed the confusing From/To on Search/Replace dialog
 
 ChangeLog:
 v0.2.9 Mod
-1.Fixed several critical bugs in Madedit 0.2.9.
+1.Fixed several critical/crash bugs in Madedit 0.2.9.
 2.New features added.
     Drag&Drop Edit
     Bookmark
     Highlight words(shift+F8)
     Triple click to select whole line
     Search all in current file
+
 ----------
 v0.2.9:
 1.added that restore the encoding and font(name, size) of a file when reopening it.
@@ -203,8 +206,10 @@ v0.1.7:
 1.fixed several misc bugs.
 2.fixed MultiByte Encoding <==> Unicode converting error in v0.1.6 under Linux.
 3.removed the linking to the unnecessary libs(e.g. libtiff, libjpeg and libpng) for Linux version.
-4.added Print&PrintPreview functions. (Known bug: cannot print/preview correctly on the papers with landscape orientation.)
-5.added Comment(Ctrl-M)/Uncomment(Ctrl-Shift-M) functions. MadEdit will add/remove LineComment string to the selected lines, the LineComment must be defined in the syntax files.
+4.added Print&PrintPreview functions. (Known bug: cannot print/preview correctly on the papers
+ with landscape orientation.)
+5.added Comment(Ctrl-M)/Uncomment(Ctrl-Shift-M) functions. MadEdit will add/remove LineComment
+ string to the selected lines, the LineComment must be defined in the syntax files.
 
 v0.1.6:
 1.fixed that cannot search U+10000~U+10FFFF ucs4 char under win32.
@@ -269,7 +274,5 @@ MadEdit: http://sourceforge.net/projects/madedit/
 wxWidgets: http://www.wxwidgets.org
 wxDevCpp: http://wxdsgn.sourceforge.net
 Boost: http://www.boost.org
-Boost.Xpressive: http://boost-sandbox.sourceforge.net/libs/xpressive/
-libunicows: http://libunicows.sourceforge.net
 Open Clip Art Library: http://www.openclipart.org
 

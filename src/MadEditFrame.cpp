@@ -216,7 +216,7 @@ class FileCaretPosManager
             : name(n), pos(p), hash(h), encoding(e), fontname(fn), fontsize(fs)
         {}
         FilePosData()
-            : pos(0), fontsize(0)
+            : pos(0), hash(0), fontsize(0)
         {}
     };
     std::list<FilePosData> files;
@@ -2788,15 +2788,26 @@ int MadEditFrame::OpenedFileCount()
     return (int)m_Notebook->GetPageCount();
 }
 
-void MadEditFrame::OpenFile(const wxString &filename, bool mustExist)
+void MadEditFrame::OpenFile(const wxString &fname, bool mustExist)
 {
-    wxString title;
+    wxString title, filename(fname), linenumstr;
+    long linenum = -1;
+    
     if(filename.IsEmpty())
     {
         title.Printf(_("NoName%d"), ++m_NewFileCount);
     }
     else
     {
+        int npos = filename.Find('*', true);
+        if(npos != wxNOT_FOUND)
+        {
+            filename = filename.Remove(npos);
+            linenumstr = fname;
+            linenumstr.Remove(0, npos+1);
+            if(!linenumstr.ToLong(&linenum)) linenum = -1;
+        }
+
         int selid=m_Notebook->GetSelection();
 
         // check this file is opened or not
@@ -2810,6 +2821,8 @@ void MadEditFrame::OpenFile(const wxString &filename, bool mustExist)
             if(me->GetFileName()==filename)
 #endif
             {   // YES, it's opened. Activate it.
+                if(linenum != -1)
+                    me->GoToLine(linenum);
                 g_CheckModTimeForReload=false;
                 m_Notebook->SetSelection(id);
 
@@ -2947,6 +2960,8 @@ void MadEditFrame::OpenFile(const wxString &filename, bool mustExist)
         title += wxT('*');
 
     SetTitle(wxString(wxT("MadEdit - ["))+ title +wxString(wxT("] ")));
+    if(linenum != -1)
+        g_ActiveMadEdit->GoToLine(linenum);
 }
 
 void MadEditFrame::CloseFile(int pageId)
