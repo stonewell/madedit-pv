@@ -73,13 +73,21 @@ public:
 
     virtual void Report(const char* charset)
     {
+#if _MSC_VER
+	charset_ = _strdup(charset);
+#else
 	charset_ = strdup(charset);
+#endif
     }
 
     virtual void Reset()
     {
 	nsUniversalDetector::Reset();
+#if _MSC_VER
+	charset_ = _strdup("");
+#else
 	charset_ = strdup("");
+#endif
     }
 
     const char* GetCharset() const
@@ -181,7 +189,11 @@ int chardet_get_charset(chardet_t det, char* namebuf, unsigned int buflen)
 	} else {
 	    // encoding detected
 	    if (buflen >= strlen(name)+1) {
+#if _MSC_VER >= 1800
+			strcpy_s(namebuf, buflen, name);
+#else
 		strcpy(namebuf, name);
+#endif
 		return CHARDET_RESULT_OK;
 	    } else {
 		return CHARDET_RESULT_NOMEMORY;

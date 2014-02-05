@@ -22,7 +22,7 @@
 
 // For compilers that support precompilation, includes "wx.h".
 #include <wx/wxprec.h>
-
+#ifndef __WXMSW__
 #ifdef __BORLANDC__
     #pragma hdrstop
 #endif
@@ -256,7 +256,7 @@ void wxCaretNew::Refresh()
 #ifndef FIXINVERT
 #ifdef __WXMSW__
     #define FIXINVERT 0
-#else 
+#else
     #define FIXINVERT 2
 #endif
 #endif
@@ -282,3 +282,4 @@ void wxCaretNew::DoDraw(wxDC *dc)
 }
 
 #endif // wxUSE_CARET
+#endif //_WXMSW__
