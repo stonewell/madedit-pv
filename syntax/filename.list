@@ -3,3 +3,5 @@
 makefile	syntax_conf.syn
 Makefile	syntax_conf.syn
 CMakeLists	syntax_conf.syn
+SConscript  syntax_python.syn
+SConstruct  syntax_python.syn

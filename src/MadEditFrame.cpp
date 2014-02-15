@@ -140,7 +140,7 @@
 
 
 wxString g_MadEdit_Version(wxT("MadEdit v0.2.9 mod 0.1.1"));
-wxString g_MadEdit_URL(wxT("http://madedit.sourceforge.net/wiki"));
+wxString g_MadEdit_URL(wxT("http://sourceforge.net/projects/madedit/ or http://sourceforge.net/projects/madedit-mod/"));
 wxString g_MadEditPv_URL(wxT("http://code.google.com/p/madedit-pv/"));
 
 
@@ -5170,14 +5170,14 @@ void MadEditFrame::OnHelpAbout(wxCommandEvent& event)
 
         if(idx < count)
         {
-            wxExecute(wxString(browsers[idx]) +wxT(' ') +g_MadEdit_URL);
+            wxExecute(wxString(browsers[idx]) +wxT(' ') +g_MadEditPv_URL);
         }
         else
         {
             wxLaunchDefaultBrowser(g_MadEdit_URL);
         }
 #else
-        wxLaunchDefaultBrowser(g_MadEdit_URL);
+		wxLaunchDefaultBrowser(g_MadEditPv_URL);
 #endif
     }
 }

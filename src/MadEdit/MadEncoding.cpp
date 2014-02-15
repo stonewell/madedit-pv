@@ -985,6 +985,21 @@ bool IsTextUTF8(wxByte *text, int size)
                 return false;
             }
         }
+        //Extra check from http://codeblocks.sourcearchive.com/documentation/8.02-0ubuntu4/encodingdetector_8cpp-source.html
+        else if (text[i] <= 0xFB)  // 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+        {
+            if ((++i < size && IsUTF8Tail(text[i]))
+                && (++i < size && IsUTF8Tail(text[i]))
+                && (++i < size && IsUTF8Tail(text[i]))
+                && (++i < size && IsUTF8Tail(text[i])))
+            {
+                return true;
+            }
+            else if(size != i)
+            {
+                return false;
+            }
+        }
         else
         {
             return false;
@@ -1280,4 +1295,8 @@ void DetectEncoding(const wxByte *text, int count, wxFontEncoding &enc)
     {
         enc = wxFONTENCODING_KOI8;
     }
+	else if (name.IsSameAs(wxT("IBM866")))
+	{
+		enc = wxFONTENCODING_CP866;
+	}
 }

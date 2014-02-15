@@ -28,7 +28,7 @@ SpaceColor=Aqua
 SpaceBgColor=
 SpaceStyle=
 
-NumberColor=Blue
+NumberColor=Orange
 NumberBgColor=
 NumberStyle=
 
@@ -57,7 +57,7 @@ BookmarkColor=C0FFFF
 
 # User Defined Keywords
 [1.Keywords]
-Color=Black
+Color=Blue
 BgColor=
 Style=Bold
 InRange=0
