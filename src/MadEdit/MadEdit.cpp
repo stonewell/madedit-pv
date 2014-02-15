@@ -10102,10 +10102,10 @@ void MadEdit::OnMouseLeaveWindow(wxMouseEvent &evt)
 
 void MadEdit::OnMouseCaptureLost(wxMouseCaptureLostEvent &evt)
 {
-	m_MouseLeftDown=false;
+    m_MouseLeftDown=false;
     m_MouseLeftDoubleClick=false;
     m_MouseAtHexTextArea=false;
-	m_DragDrop = false;
+    m_DragDrop = false;
     m_DragCopyFlag = false;//default move
     evt.Skip();
 }
@@ -10216,7 +10216,10 @@ void MadEdit::OnPaint(wxPaintEvent &evt)
     {
         if(m_EditMode!=emHexMode)
         {
-            memdc.SelectObject(*m_ClientBitmap);
+            if (m_ClientBitmap != NULL)
+            {
+                memdc.SelectObject(*m_ClientBitmap);
+            }
             memdc.SetFont(*m_TextFont);
 
             // calculate rows to paint
@@ -10334,7 +10337,10 @@ void MadEdit::OnPaint(wxPaintEvent &evt)
                     {
                         if(bPaintMark==false)
                         {
-                            markdc.SelectObject(*m_MarkBitmap);
+                            if (m_MarkBitmap != NULL)
+                            {
+                                markdc.SelectObject(*m_MarkBitmap);
+                            }
                             markdc.Blit(0,0,m_ClientWidth,m_ClientHeight, &memdc, 0, 0);
                             bPaintMark=true;
                         }
