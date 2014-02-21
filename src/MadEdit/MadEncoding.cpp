@@ -73,7 +73,7 @@ void MadEncoding::InitEncodings()
     wxFontEncoding sysenc=wxLocale::GetSystemEncoding();
 
     size_t count=wxFontMapper::GetSupportedEncodingsCount();
-    for(size_t idx=0;idx<count;idx++)
+    for (size_t idx = 0; idx<count; ++idx)
     {
         wxFontEncoding enc=wxFontMapper::GetEncoding(idx);
         wxString name=wxFontMapper::GetEncodingName(enc);

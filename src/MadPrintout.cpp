@@ -25,7 +25,7 @@ wxPageSetupData *g_PageSetupData = (wxPageSetupData*) NULL;
 int MadPrintout::s_PrintoutCount=0;
 
 MadPrintout::MadPrintout(const wxString& title)
-    : wxPrintout(title)
+: wxPrintout(title), m_PrintHeader(true), m_PrintFooter(true), m_CharHeight(0), m_HeaderHeight(0), m_FooterHeight(0)
 {
     ++s_PrintoutCount;
 }

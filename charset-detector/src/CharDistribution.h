@@ -45,7 +45,8 @@
 class CharDistributionAnalysis
 {
 public:
-  CharDistributionAnalysis() {Reset();};
+    CharDistributionAnalysis() : mCharToFreqOrder(0), mTableSize(0), mTypicalDistributionRatio(0.0)
+    {Reset();};
 
   //feed a block of data and do distribution analysis
   void HandleData(const char* aBuf, PRUint32 aLen) {};
@@ -74,7 +75,7 @@ public:
   float GetConfidence();
 
   //Reset analyser, clear any state 
-  void      Reset(void) 
+  void Reset(void) 
   {
     mDone = PR_FALSE;
     mTotalChars = 0;

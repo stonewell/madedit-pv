@@ -59,7 +59,8 @@ typedef struct
 
 class nsCodingStateMachine {
 public:
-  nsCodingStateMachine(SMModel* sm){
+    nsCodingStateMachine(SMModel* sm) :mCurrentCharLen(0), mCurrentBytePos(0)
+        {
           mCurrentState = eStart;
           mModel = sm;
         };

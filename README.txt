@@ -28,9 +28,10 @@ B. MS Windows (__WXMSW__):
    b. Visual C++ 7.1 (VS.Net 2003):
       Required Libraries to compile:
       1. wxWidgets-2.6.1 or higher with Unicode enabled
-      2. Boost-1.33.0 or higher
+      2. Boost-1.33.0 or higher(Source code is enough for MadEdit)
       3. Boost.Xpressive latest version
       4. libunicows: it's optional under WinNT/XP, but required under Win98
+      5. Set WXWIN and BOOST to the root directory of your local ones
 
 P.S.: If you use CVS version of Boost, Boost.Xpressive has been included in the CVS HEAD, 
       or you must get 'xpressive.zip' at:

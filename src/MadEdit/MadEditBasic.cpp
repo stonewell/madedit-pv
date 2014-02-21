@@ -3477,9 +3477,9 @@ void MadEdit::BeginPrint(const wxRect &printRect)
         m_Selection=false;
 
         m_RowCountPerPage = m_ClientHeight / m_RowHeight;
-        m_PrintPageCount = int(m_Lines->m_RowCount) / m_RowCountPerPage;
         if(m_RowCountPerPage==0)
             ++m_RowCountPerPage;
+        m_PrintPageCount = int(m_Lines->m_RowCount) / m_RowCountPerPage;
 
         if(int(m_Lines->m_RowCount) > (m_PrintPageCount * m_RowCountPerPage))
             ++m_PrintPageCount;
